@@ -5,3 +5,7 @@ I was able to use the Mercury_XU5_PE1 reference design to setup the SoC. The cod
 
 8/30/2024
 I am use EosMuon.v to set some IO high and low to see what happens.
+
+I added D22, D20, D18 and set those values to 1b'0, 1b'1, 1b'z. The outputs are 0, 1.8V, 0 respectively after programming the FPGA on Vitis.
+
+
