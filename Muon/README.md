@@ -57,14 +57,23 @@ PS C:\Users\wingt> usbipd bind --busid 4-1
 PS C:\Users\wingt> usbipd attach --wsl --busid 4-1
 
 wto@yoga716:~$ lsblk
+
 NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+
 sda      8:0    0 388.6M  1 disk
+
 sdb      8:16   0     3G  0 disk [SWAP]
+
 sdc      8:32   0     1T  0 disk /snap
+
                                  /mnt/wslg/distro
+                                 
                                  /
+                                 
 sdd      8:48   1  14.9G  0 disk
+
 ├─sdd1   8:49   1   256M  0 part
+
 └─sdd2   8:50   1  14.7G  0 part
 
 Use gparted to create a 256MB FAT32 BOOT partition that's has the property "boot" also.
