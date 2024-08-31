@@ -83,21 +83,13 @@ sudo mount /dev/sdd1 ~/X/BOOT/
 
 sudo mount /dev/sdd2 ~/X/ROOT/
 
-cp EosMuon.linux/images/linux/BOOT.bin EosMuon.linux/images/linux/image.ub EosMuon.linux/images/linux/boot.scr ~/X/BOOT/
-
-sudo cp EosMuon.linux/images/linux/BOOT.bin EosMuon.linux/images/linux/image.ub EosMuon.linux/images/linux/boot.scr ~/X/BOOT/
-
-sudo cp EosMuon.linux/images/linux/rootfs.tar.gz ~/X/ROOT/
-
-cd ~/X/ROOT
-
-sudo gunzip rootfs.tar.gz 
-
-sudo tar -xvf rootfs.tar 
-
-sudo umount ROOT
-
-sudo umount BOOT
+sudo cp EosMuon.linux/images/linux/BOOT.bin EosMuon.linux/images/linux/image.ub EosMuon.linux/images/linux/boot.scr ~/X/BOOT/<br/>
+sudo cp EosMuon.linux/images/linux/rootfs.tar.gz ~/X/ROOT/<br/>
+cd ~/X/ROOT<br/>
+sudo gunzip rootfs.tar.gz <br/>
+sudo tar -xvf rootfs.tar <br/>
+cd ~; sudo umount ROOT<br/>
+sudo umount BOOT<br/>
 
 PS C:\Users\wingt> usbipd detach --busid 4-1
 
