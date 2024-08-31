@@ -11,18 +11,29 @@ I added D22, D20, D18 and set those values to 1b'0, 1b'1, 1b'z. The outputs are 
 To run this using an SD Card with Petalinux:
 
 Vivado->Export->Export Hardware(include the bitstream) I put the xsa file in /mnt/c/X/ME-XU5-2EG-1I-D11E/
+
 Vivado->Export->Export Bitstream (I put it in the same place as the xsa file.
 
 On the Ubuntu,
+
 cd ~/X #where I am doing all work.
+
 cp -r /mnt/c/X/ME-XU5-2EG-1I-D11E/* ME-XU5-2EG-1I-D11E/
+
 cp -r /mnt/c/X/ME-XU5-2EG-1I-D11E/*.bit ME-XU5-2EG-1I-D11E/
+
 source ../petalinux2022.2/settings.sh
+
 petalinux-create -t project -n EosMuon.linux --template zynqMP
+
 cp ~/ptc.firmware/petalinux/configs/config EosMuon.linux/project-spec/configs/
+
 cp ~/ptc.firmware/petalinux/configs/rootfs_config EosMuon.linux/project-spec/configs/
+
 petalinux-config -p EosMuon.linux/ --get-hw-description ../ME-XU5-2EG-1I-D11E/
+
 On the screen that pops up, double check that Image Packaging Configuration->Root Filesystem type is set to EXT4 SDCard/MMC
+
 petalinux-config -p EosMuon.linux/ -c rootfs
 
 cp ~/ptc.firmware/petalinux/configs/system-user.dtsi EosMuon.linux/project-spec/meta-user/recipes-bsp/device-tree/files/#this shouldn't be needed.
