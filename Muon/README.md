@@ -37,16 +37,23 @@ On the screen that pops up, double check that Image Packaging Configuration->Roo
 petalinux-config -p EosMuon.linux/ -c rootfs
 
 cp ~/ptc.firmware/petalinux/configs/system-user.dtsi EosMuon.linux/project-spec/meta-user/recipes-bsp/device-tree/files/#this shouldn't be needed.
+
 cp -r ~/ptc.firmware/petalinux/recipes/regtest EosMuon.linux/project-spec/meta-user/recipes-apps
+
 cp ~/ptc.firmware/petalinux/configs/user-rootfsconfig EosMuon.linux/project-spec/meta-user/conf/
+
 petalinux-build -p EosMuon.linux
+
 petalinux-package -p EosMuon.linux/ --boot --u-boot --fsbl EosMuon.linux/images/linux/zynqmp_fsbl.elf --fpga EosMuon.linux/images/linux/system.bit -o EosMuon.linux/images/linux/BOOT.bin --force #the force is needed if rebuilding
 
 Since I am running Ubuntu on WSL, I have to recompile the entire Ubuntu OS the first time to install the USB Mass Storage driver and the usbipd tool.
+
 https://github.com/dorssel/usbipd-win/wiki/WSL-support
 
 After getting everything setup on the WSL side, we should be able to mount the USB SD Card reader directly on Ubuntu.
+
 PS C:\Users\wingt> usbipd bind --busid 4-1
+
 PS C:\Users\wingt> usbipd attach --wsl --busid 4-1
 
 wto@yoga716:~$ lsblk
@@ -61,19 +68,29 @@ sdd      8:48   1  14.9G  0 disk
 └─sdd2   8:50   1  14.7G  0 part
 
 Use gparted to create a 256MB FAT32 BOOT partition that's has the property "boot" also.
+
 Use gparted to create an EXT4 partition labelled ROOT with the rest of the space.
 
 sudo mount /dev/sdd1 ~/X/BOOT/
+
 sudo mount /dev/sdd2 ~/X/ROOT/
+
 cp EosMuon.linux/images/linux/BOOT.bin EosMuon.linux/images/linux/image.ub EosMuon.linux/images/linux/boot.scr ~/X/BOOT/
+
 sudo cp EosMuon.linux/images/linux/BOOT.bin EosMuon.linux/images/linux/image.ub EosMuon.linux/images/linux/boot.scr ~/X/BOOT/
+
 sudo cp EosMuon.linux/images/linux/rootfs.tar.gz ~/X/ROOT/
+
 cd ~/X/ROOT
+
 sudo gunzip rootfs.tar.gz 
+
 sudo tar -xvf rootfs.tar 
 
 sudo umount ROOT
+
 sudo umount BOOT
+
 PS C:\Users\wingt> usbipd detach --busid 4-1
 
 Pop the SD Card from the Reader into the PE1. 
