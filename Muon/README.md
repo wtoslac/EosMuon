@@ -88,8 +88,7 @@ sudo cp EosMuon.linux/images/linux/rootfs.tar.gz ~/X/ROOT/<br/>
 cd ~/X/ROOT<br/>
 sudo gunzip rootfs.tar.gz <br/>
 sudo tar -xvf rootfs.tar <br/>
-cd ~; sudo umount ROOT<br/>
-sudo umount BOOT<br/>
+cd ~; sudo umount X/ROOT; sudo umount X/BOOT<br/>
 
 PS C:\Users\wingt> usbipd detach --busid 4-1
 
