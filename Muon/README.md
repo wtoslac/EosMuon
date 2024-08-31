@@ -10,8 +10,7 @@ I added D22, D20, D18 and set those values to 1b'0, 1b'1, 1b'z. The outputs are 
 
 To run this using an SD Card with Petalinux:
 
-Vivado->Export->Export Hardware(include the bitstream) I put the xsa file in /mnt/c/X/ME-XU5-2EG-1I-D11E/
-
+Vivado->Export->Export Hardware(include the bitstream) I put the xsa file in /mnt/c/X/ME-XU5-2EG-1I-D11E/<br />
 Vivado->Export->Export Bitstream (I put it in the same place as the xsa file.
 
 On the Ubuntu,
