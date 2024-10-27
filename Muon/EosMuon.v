@@ -1,6 +1,7 @@
 `timescale 1ns / 1ps
 
 module EosMuon(
+    input Clk50,
     output LED1,
     output LED2,
     output LED3,
@@ -139,13 +140,53 @@ module EosMuon(
     output C3,
     output C2,
     output C1,
-    output C0
+    output C0,
+    output [2047:0] reg_ro_out
     );
-    assign LED3 = A0; //1'b1;//IOB_D23_SC7_BTN3_N;
-    assign LED2 = A1;//1'b0;
-    assign C0 = A0 & A1;
+    //assign LED3 = A0; //1'b1;//IOB_D23_SC7_BTN3_N;
+    //assign LED2 = A1;//1'b0;
+    //assign C0 = A0 & A1;
    // assign D22 = 1'b0;
    // assign D20 = 1'b1;
    // assign D18 = 1'bz;
-
+   reg [26:0] count=0; //Max is 134M 
+    
+   always @(posedge Clk50) begin // 50MHz Clk
+        count<=count+1;
+        // The MSB should change every 2.5 seconds.
+   end
+   assign reg_ro_out[0] = count[26];
+   assign reg_ro_out[1] = count[25];
+   assign reg_ro_out[2] = count[24];
+   assign reg_ro_out[3] = count[23];
+   assign reg_ro_out[4] = count[22];
+   assign reg_ro_out[5] = count[21];
+   assign reg_ro_out[6] = count[20];
+   assign reg_ro_out[7] = count[19];
+   assign reg_ro_out[8] = count[18];
+   assign reg_ro_out[9] = count[17];
+   assign reg_ro_out[10] = count[16];
+   assign reg_ro_out[11] = count[15];
+   assign reg_ro_out[12] = count[14];
+   assign reg_ro_out[13] = count[13];
+   assign reg_ro_out[14] = count[12];
+   assign reg_ro_out[15] = count[11];
+   assign reg_ro_out[16] = count[10];
+   assign reg_ro_out[17] = count[9];
+   assign reg_ro_out[18] = count[8];
+   assign reg_ro_out[19] = count[7];
+   assign reg_ro_out[20] = count[6];
+   assign reg_ro_out[21] = count[5];
+   assign reg_ro_out[22] = count[4];
+   assign reg_ro_out[23] = count[3];
+   assign reg_ro_out[24] = count[2];
+   assign reg_ro_out[25] = count[1];
+   assign reg_ro_out[26] = count[0];
+   
+   assign reg_ro_out[64] = count[26];
+   assign reg_ro_out[65] = count[25];
+   assign reg_ro_out[66] = count[24];
+   assign LED1 = count[26]; // MSB
+   assign LED2 = count[25];
+   assign LED3 = count[24];
 endmodule

@@ -291,7 +291,9 @@ architecture rtl of Mercury_XU5_PE1 is
       GMII_tx_clk         : in     std_logic;
       GMII_tx_en          : out    std_logic;
       GMII_tx_er          : out    std_logic;
-      GMII_txd            : out    std_logic_vector(7 downto 0)
+      GMII_txd            : out    std_logic_vector(7 downto 0);
+      reg_ro              : in     std_logic_vector(2047 downto 0);
+      reg_rw              : out    std_logic_vector(2047 downto 0)
     );
     
   end component Mercury_XU5;
@@ -371,9 +373,12 @@ architecture rtl of Mercury_XU5_PE1 is
   signal GMII_tx_er       : std_logic;
   signal GMII_txd         : std_logic_vector(7 downto 0);
   signal LedCount         : unsigned(23 downto 0);
+  signal reg_ro           : std_logic_vector(2047 downto 0);
+  signal reg_rw           : std_logic_vector(2047 downto 0);
   
   component EosMuon is
     port(
+      Clk50: in std_logic;
       LED1: out std_logic;
       LED2: out std_logic;
       LED3: out std_logic;
@@ -512,15 +517,16 @@ architecture rtl of Mercury_XU5_PE1 is
       C3: out std_logic;
       C2: out std_logic;
       C1: out std_logic;
-      C0: out std_logic     
-      
+      C0: out std_logic;
+      reg_ro_out: out std_logic_vector(2047 downto 0)
       );
   end component EosMuon;
 
 begin
   
-  EosMuon_Inst: component EosMuon 
+  EosMuon_i: component EosMuon 
     port map (
+      Clk50 => Clk50,
       LED1 => LED1_N_PL,
       LED2 => LED2_N_PL,
       LED3 => LED3_N_PL,
@@ -660,7 +666,8 @@ begin
       C3 => IOC_D3_N,
       C2 => IOC_D2_P,
       C1 => IOC_D1_N,
-      C0 => IOC_D0_P
+      C0 => IOC_D0_P,
+      reg_ro_out => reg_ro
       );
   ---------------------------------------------------------------------------------------------------
   -- processor system instance
@@ -712,7 +719,9 @@ begin
       GMII_tx_clk          => GMII_tx_clk,
       GMII_tx_en           => GMII_tx_en,
       GMII_tx_er           => GMII_tx_er,
-      GMII_txd             => GMII_txd
+      GMII_txd             => GMII_txd,
+      reg_ro               => reg_ro,
+      reg_rw               => reg_rw
     );
   
   IIC_scl_iobuf: component IOBUF
