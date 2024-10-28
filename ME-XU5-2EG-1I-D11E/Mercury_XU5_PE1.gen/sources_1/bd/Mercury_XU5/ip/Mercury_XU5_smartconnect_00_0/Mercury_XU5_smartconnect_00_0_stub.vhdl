@@ -1,7 +1,7 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
--- Date        : Mon Aug 26 14:41:59 2024
+-- Date        : Mon Oct 21 17:13:20 2024
 -- Host        : yoga716 running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode synth_stub -rename_top Mercury_XU5_smartconnect_00_0 -prefix
 --               Mercury_XU5_smartconnect_00_0_ Mercury_XU5_smartconnect_00_0_stub.vhdl

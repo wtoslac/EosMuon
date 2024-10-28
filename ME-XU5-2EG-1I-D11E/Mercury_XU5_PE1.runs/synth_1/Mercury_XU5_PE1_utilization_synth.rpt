@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
-| Date         : Sun Oct 27 16:14:03 2024
+| Date         : Sun Oct 27 19:47:30 2024
 | Host         : yoga716 running 64-bit Ubuntu 22.04.4 LTS
 | Command      : report_utilization -file Mercury_XU5_PE1_utilization_synth.rpt -pb Mercury_XU5_PE1_utilization_synth.pb
 | Design       : Mercury_XU5_PE1
@@ -184,12 +184,14 @@ Warning! LUT value is adjusted to account for LUT combining.
 | Mercury_XU5_xbar_0                  |    1 |
 | Mercury_XU5_system_management_wiz_0 |    1 |
 | Mercury_XU5_smartconnect_00_0       |    1 |
-| Mercury_XU5_reg_bank_v1_0_0_1       |    1 |
+| Mercury_XU5_reg_bank_0_0            |    1 |
 | Mercury_XU5_ps_sys_rst_0            |    1 |
 | Mercury_XU5_led_0                   |    1 |
 | Mercury_XU5_ddr4_sys_rst_0          |    1 |
 | Mercury_XU5_ddr4_0                  |    1 |
 | Mercury_XU5_clk_wiz_0_0             |    1 |
+| Mercury_XU5_auto_rs_w_0             |    1 |
+| Mercury_XU5_auto_rs_0               |    1 |
 | Mercury_XU5_auto_pc_0               |    1 |
 | Mercury_XU5_auto_ds_0               |    1 |
 +-------------------------------------+------+

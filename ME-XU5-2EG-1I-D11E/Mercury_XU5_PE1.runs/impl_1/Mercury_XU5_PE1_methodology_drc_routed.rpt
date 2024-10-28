@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
-| Date         : Sun Oct 27 16:20:22 2024
+| Date         : Sun Oct 27 19:52:18 2024
 | Host         : yoga716 running 64-bit Ubuntu 22.04.4 LTS
 | Command      : report_methodology -file Mercury_XU5_PE1_methodology_drc_routed.rpt -pb Mercury_XU5_PE1_methodology_drc_routed.pb -rpx Mercury_XU5_PE1_methodology_drc_routed.rpx
 | Design       : Mercury_XU5_PE1
@@ -23,7 +23,7 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 67
+             Violations found: 68
 +-----------+----------+-------------------------------------------------------------------------------------------------------+------------+
 | Rule      | Severity | Description                                                                                           | Violations |
 +-----------+----------+-------------------------------------------------------------------------------------------------------+------------+
@@ -32,6 +32,7 @@ Table of Contents
 | TIMING-18 | Warning  | Missing input or output delay                                                                         | 1          |
 | TIMING-28 | Warning  | Auto-derived clock referenced by a timing constraint                                                  | 10         |
 | TIMING-47 | Warning  | False path, asynchronous clock group or max delay datapath only constraint between synchronous clocks | 44         |
+| ULMTCS-1  | Warning  | Control Sets use limits recommend reduction                                                           | 1          |
 | XDCH-1    | Warning  | Hold option missing in multicycle path constraint                                                     | 2          |
 | CLKC-8    | Advisory | BUFGCE_DIV with active CE or DIVIDE not 1 has BUFG driver                                             | 1          |
 | CLKC-56   | Advisory | MMCME4 with global clock driver has no LOC                                                            | 1          |
@@ -416,6 +417,11 @@ Related violations: <none>
 TIMING-47#44 Warning
 False path, asynchronous clock group or max delay datapath only constraint between synchronous clocks  
 A False Path timing constraint is set between synchronous clocks clk_out3_Mercury_XU5_clk_wiz_0_0 and clk_out1_Mercury_XU5_clk_wiz_0_0 (see constraint position 98 in the Timing Constraint window in Vivado IDE). Masking entire synchronous clock domains via  set_false_path, set_clock_groups or set_max_delay -datapath_only may result in failure in hardware.
+Related violations: <none>
+
+ULMTCS-1#1 Warning
+Control Sets use limits recommend reduction  
+This design uses 1355 control sets (vs. available limit of 17640, determined by 1 control set per CLB). This exceeds the control set use guideline of 7.5 percent. This is at a level where reduction is RECOMMENDED (see UG949). Use report_control_sets to get more details.
 Related violations: <none>
 
 XDCH-1#1 Warning

@@ -1,0 +1,301 @@
+#-----------------------------------------------------------
+# Vivado v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Sun Oct 27 19:45:51 2024
+# Process ID: 567389
+# Current directory: /home/wto/Eos/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/Mercury_XU5_reg_bank_0_0_synth_1
+# Command line: vivado -log Mercury_XU5_reg_bank_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source Mercury_XU5_reg_bank_0_0.tcl
+# Log file: /home/wto/Eos/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/Mercury_XU5_reg_bank_0_0_synth_1/Mercury_XU5_reg_bank_0_0.vds
+# Journal file: /home/wto/Eos/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/Mercury_XU5_reg_bank_0_0_synth_1/vivado.jou
+# Running On: yoga716, OS: Linux, CPU Frequency: 2694.859 MHz, CPU Physical cores: 8, Host memory: 10433 MB
+#-----------------------------------------------------------
+source Mercury_XU5_reg_bank_0_0.tcl -notrace
+WARNING: [Common 17-1361] You have specified a new message control rule that is equivalent to an existing rule with attributes ' -id {[BD 41-1306]}  -suppress '. The existing rule will be replaced.
+WARNING: [Common 17-1361] You have specified a new message control rule that is equivalent to an existing rule with attributes ' -id {[BD 41-1306]}  -suppress '. The existing rule will be replaced.
+WARNING: [Common 17-1361] You have specified a new message control rule that is equivalent to an existing rule with attributes ' -id {[BD 41-1271]}  -suppress '. The existing rule will be replaced.
+WARNING: [Common 17-1361] You have specified a new message control rule that is equivalent to an existing rule with attributes ' -id {[BD 41-1306]}  -suppress '. The existing rule will be replaced.
+WARNING: [Common 17-1361] You have specified a new message control rule that is equivalent to an existing rule with attributes ' -id {[BD 41-1271]}  -suppress '. The existing rule will be replaced.
+WARNING: [Common 17-1361] You have specified a new message control rule that is equivalent to an existing rule with attributes ' -id {[BD 41-1306]}  -suppress '. The existing rule will be replaced.
+WARNING: [Common 17-1361] You have specified a new message control rule that is equivalent to an existing rule with attributes ' -id {[BD 41-1271]}  -suppress '. The existing rule will be replaced.
+WARNING: [Common 17-1361] You have specified a new message control rule that is equivalent to an existing rule with attributes ' -id {[BD 41-1306]}  -suppress '. The existing rule will be replaced.
+WARNING: [Common 17-1361] You have specified a new message control rule that is equivalent to an existing rule with attributes ' -id {[BD 41-1271]}  -suppress '. The existing rule will be replaced.
+WARNING: [Common 17-1361] You have specified a new message control rule that is equivalent to an existing rule with attributes ' -id {[BD 41-1306]}  -suppress '. The existing rule will be replaced.
+WARNING: [Common 17-1361] You have specified a new message control rule that is equivalent to an existing rule with attributes ' -id {[BD 41-1271]}  -suppress '. The existing rule will be replaced.
+WARNING: [Common 17-1361] You have specified a new message control rule that is equivalent to an existing rule with attributes ' -id {[BD 41-1306]}  -suppress '. The existing rule will be replaced.
+WARNING: [Common 17-1361] You have specified a new message control rule that is equivalent to an existing rule with attributes ' -id {[BD 41-1271]}  -suppress '. The existing rule will be replaced.
+WARNING: [Common 17-1361] You have specified a new message control rule that is equivalent to an existing rule with attributes ' -id {[BD 41-1306]}  -suppress '. The existing rule will be replaced.
+WARNING: [Common 17-1361] You have specified a new message control rule that is equivalent to an existing rule with attributes ' -id {[BD 41-1271]}  -suppress '. The existing rule will be replaced.
+WARNING: [Common 17-1361] You have specified a new message control rule that is equivalent to an existing rule with attributes ' -id {[BD 41-1306]}  -suppress '. The existing rule will be replaced.
+WARNING: [Common 17-1361] You have specified a new message control rule that is equivalent to an existing rule with attributes ' -id {[BD 41-1271]}  -suppress '. The existing rule will be replaced.
+WARNING: [Common 17-1361] You have specified a new message control rule that is equivalent to an existing rule with attributes ' -id {[BD 41-1306]}  -suppress '. The existing rule will be replaced.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/wto/Eos/ptc-firmware/reference_design/ip_repo'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/home/wto/Programs/Vivado/2022.2/data/ip'.
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: Mercury_XU5_reg_bank_0_0
+Command: synth_design -top Mercury_XU5_reg_bank_0_0 -part xczu2eg-sfvc784-1-i -incremental_mode off -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xczu2eg'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xczu2eg'
+INFO: [Device 21-403] Loading part xczu2eg-sfvc784-1-i
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 567459
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [/home/wto/Programs/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2371.852 ; gain = 234.801 ; free physical = 2105 ; free virtual = 7841
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1930.307; parent = 1682.979; children = 247.328
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3371.285; parent = 2375.820; children = 995.465
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'Mercury_XU5_reg_bank_0_0' [/home/wto/Eos/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_reg_bank_0_0/synth/Mercury_XU5_reg_bank_0_0.v:53]
+INFO: [Synth 8-6157] synthesizing module 'reg_bank_v1_0' [/home/wto/Eos/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/3b94/hdl/reg_bank_v1_0.v:4]
+INFO: [Synth 8-6157] synthesizing module 'reg_bank_v1_0_S00_AXI' [/home/wto/Eos/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/3b94/hdl/reg_bank_v1_0_S00_AXI.v:4]
+INFO: [Synth 8-226] default block is never used [/home/wto/Eos/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/3b94/hdl/reg_bank_v1_0_S00_AXI.v:1619]
+INFO: [Synth 8-6155] done synthesizing module 'reg_bank_v1_0_S00_AXI' (0#1) [/home/wto/Eos/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/3b94/hdl/reg_bank_v1_0_S00_AXI.v:4]
+INFO: [Synth 8-6155] done synthesizing module 'reg_bank_v1_0' (0#1) [/home/wto/Eos/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/3b94/hdl/reg_bank_v1_0.v:4]
+INFO: [Synth 8-6155] done synthesizing module 'Mercury_XU5_reg_bank_0_0' (0#1) [/home/wto/Eos/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_reg_bank_0_0/synth/Mercury_XU5_reg_bank_0_0.v:53]
+WARNING: [Synth 8-3301] Unused top level parameter/generic BG_WIDTH
+WARNING: [Synth 8-7129] Port S_AXI_AWPROT[2] in module reg_bank_v1_0_S00_AXI is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_AWPROT[1] in module reg_bank_v1_0_S00_AXI is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_AWPROT[0] in module reg_bank_v1_0_S00_AXI is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_ARPROT[2] in module reg_bank_v1_0_S00_AXI is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_ARPROT[1] in module reg_bank_v1_0_S00_AXI is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_ARPROT[0] in module reg_bank_v1_0_S00_AXI is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 2482.789 ; gain = 345.738 ; free physical = 2145 ; free virtual = 7885
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1930.307; parent = 1682.979; children = 247.328
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3478.254; parent = 2482.789; children = 995.465
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 2494.664 ; gain = 357.613 ; free physical = 2143 ; free virtual = 7883
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1930.307; parent = 1682.979; children = 247.328
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3490.129; parent = 2494.664; children = 995.465
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 2494.664 ; gain = 357.613 ; free physical = 2143 ; free virtual = 7883
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1930.307; parent = 1682.979; children = 247.328
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3490.129; parent = 2494.664; children = 995.465
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00.18 ; elapsed = 00:00:00.19 . Memory (MB): peak = 2494.664 ; gain = 0.000 ; free physical = 2128 ; free virtual = 7868
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2646.570 ; gain = 0.000 ; free physical = 1979 ; free virtual = 7719
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.13 ; elapsed = 00:00:00.1 . Memory (MB): peak = 2667.383 ; gain = 20.812 ; free physical = 1978 ; free virtual = 7719
+INFO: [Designutils 20-5008] Incremental synthesis strategy off
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [/home/wto/Programs/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 2667.383 ; gain = 530.332 ; free physical = 2134 ; free virtual = 7874
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1930.307; parent = 1682.979; children = 247.328
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3630.832; parent = 2635.367; children = 995.465
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xczu2eg-sfvc784-1-i
+INFO: [Synth 8-6742] Reading net delay rules and data
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 2667.383 ; gain = 530.332 ; free physical = 2134 ; free virtual = 7874
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1930.307; parent = 1682.979; children = 247.328
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3630.832; parent = 2635.367; children = 995.465
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 2667.383 ; gain = 530.332 ; free physical = 2134 ; free virtual = 7874
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1930.307; parent = 1682.979; children = 247.328
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3630.832; parent = 2635.367; children = 995.465
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 2667.383 ; gain = 530.332 ; free physical = 2134 ; free virtual = 7876
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1930.307; parent = 1682.979; children = 247.328
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3630.832; parent = 2635.367; children = 995.465
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 65    
+	                9 Bit    Registers := 2     
+	                2 Bit    Registers := 2     
+	                1 Bit    Registers := 6     
++---Muxes : 
+	   2 Input   32 Bit        Muxes := 128   
+	   2 Input    1 Bit        Muxes := 5     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:72)
+BRAMs: 300 (col length: RAMB18 72 RAMB36 36)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-7129] Port S_AXI_AWPROT[2] in module reg_bank_v1_0_S00_AXI is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_AWPROT[1] in module reg_bank_v1_0_S00_AXI is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_AWPROT[0] in module reg_bank_v1_0_S00_AXI is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_ARPROT[2] in module reg_bank_v1_0_S00_AXI is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_ARPROT[1] in module reg_bank_v1_0_S00_AXI is either unconnected or has no load
+WARNING: [Synth 8-7129] Port S_AXI_ARPROT[0] in module reg_bank_v1_0_S00_AXI is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:00:19 . Memory (MB): peak = 2667.383 ; gain = 530.332 ; free physical = 2112 ; free virtual = 7864
+Synthesis current peak Physical Memory [PSS] (MB): peak = 1930.307; parent = 1682.979; children = 247.328
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3630.832; parent = 2635.367; children = 995.465
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:23 ; elapsed = 00:00:28 . Memory (MB): peak = 3014.555 ; gain = 877.504 ; free physical = 1551 ; free virtual = 7303
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2509.076; parent = 2262.559; children = 247.328
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4010.020; parent = 3014.555; children = 995.465
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:23 ; elapsed = 00:00:28 . Memory (MB): peak = 3017.555 ; gain = 880.504 ; free physical = 1548 ; free virtual = 7300
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2512.057; parent = 2265.539; children = 247.328
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4013.020; parent = 3017.555; children = 995.465
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:24 ; elapsed = 00:00:29 . Memory (MB): peak = 3036.586 ; gain = 899.535 ; free physical = 1540 ; free virtual = 7292
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2516.771; parent = 2270.254; children = 247.328
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4032.051; parent = 3036.586; children = 995.465
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:27 ; elapsed = 00:00:31 . Memory (MB): peak = 3046.492 ; gain = 909.441 ; free physical = 1538 ; free virtual = 7289
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2517.068; parent = 2270.551; children = 247.328
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4041.957; parent = 3046.492; children = 995.465
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:27 ; elapsed = 00:00:31 . Memory (MB): peak = 3046.492 ; gain = 909.441 ; free physical = 1538 ; free virtual = 7289
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2517.084; parent = 2270.566; children = 247.328
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4041.957; parent = 3046.492; children = 995.465
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:27 ; elapsed = 00:00:32 . Memory (MB): peak = 3046.492 ; gain = 909.441 ; free physical = 1538 ; free virtual = 7289
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2517.623; parent = 2271.105; children = 247.328
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4041.957; parent = 3046.492; children = 995.465
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:27 ; elapsed = 00:00:32 . Memory (MB): peak = 3046.492 ; gain = 909.441 ; free physical = 1538 ; free virtual = 7289
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2517.623; parent = 2271.105; children = 247.328
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4041.957; parent = 3046.492; children = 995.465
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:27 ; elapsed = 00:00:32 . Memory (MB): peak = 3046.492 ; gain = 909.441 ; free physical = 1538 ; free virtual = 7289
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2517.623; parent = 2271.105; children = 247.328
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4041.957; parent = 3046.492; children = 995.465
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:27 ; elapsed = 00:00:32 . Memory (MB): peak = 3046.492 ; gain = 909.441 ; free physical = 1538 ; free virtual = 7289
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2517.623; parent = 2271.105; children = 247.328
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4041.957; parent = 3046.492; children = 995.465
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+------+------+
+|      |Cell  |Count |
++------+------+------+
+|1     |LUT1  |     1|
+|2     |LUT2  |     1|
+|3     |LUT3  |     1|
+|4     |LUT4  |     4|
+|5     |LUT5  |   272|
+|6     |LUT6  |  1090|
+|7     |MUXF7 |   544|
+|8     |MUXF8 |   256|
+|9     |FDRE  |  2129|
+|10    |FDSE  |     1|
++------+------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:27 ; elapsed = 00:00:32 . Memory (MB): peak = 3046.492 ; gain = 909.441 ; free physical = 1538 ; free virtual = 7289
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2517.639; parent = 2271.121; children = 247.328
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4041.957; parent = 3046.492; children = 995.465
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 7 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:25 ; elapsed = 00:00:30 . Memory (MB): peak = 3046.492 ; gain = 736.723 ; free physical = 1577 ; free virtual = 7329
+Synthesis Optimization Complete : Time (s): cpu = 00:00:27 ; elapsed = 00:00:32 . Memory (MB): peak = 3046.500 ; gain = 909.441 ; free physical = 1577 ; free virtual = 7329
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.03 . Memory (MB): peak = 3057.461 ; gain = 0.000 ; free physical = 1673 ; free virtual = 7425
+INFO: [Netlist 29-17] Analyzing 800 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+WARNING: [Netlist 29-101] Netlist 'Mercury_XU5_reg_bank_0_0' is not ideal for floorplanning, since the cellview 'reg_bank_v1_0_S00_AXI' contains a large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3100.316 ; gain = 0.000 ; free physical = 1617 ; free virtual = 7369
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete, checksum: b753e278
+INFO: [Common 17-83] Releasing license: Synthesis
+29 Infos, 33 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:33 ; elapsed = 00:00:37 . Memory (MB): peak = 3100.316 ; gain = 1778.258 ; free physical = 1830 ; free virtual = 7582
+INFO: [Common 17-1381] The checkpoint '/home/wto/Eos/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/Mercury_XU5_reg_bank_0_0_synth_1/Mercury_XU5_reg_bank_0_0.dcp' has been generated.
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP Mercury_XU5_reg_bank_0_0, cache-ID = 8fb079d2712fcd1b
+INFO: [Coretcl 2-1174] Renamed 2 cell refs.
+INFO: [Common 17-1381] The checkpoint '/home/wto/Eos/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/Mercury_XU5_reg_bank_0_0_synth_1/Mercury_XU5_reg_bank_0_0.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file Mercury_XU5_reg_bank_0_0_utilization_synth.rpt -pb Mercury_XU5_reg_bank_0_0_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Sun Oct 27 19:46:37 2024...

@@ -58,6 +58,14 @@ architecture STRUCTURE of bd_8825_wrapper is
   port (
     Clk : in STD_LOGIC;
     Reset : in STD_LOGIC;
+    IO_addr_strobe : out STD_LOGIC;
+    IO_address : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    IO_byte_enable : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    IO_read_data : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    IO_read_strobe : out STD_LOGIC;
+    IO_ready : in STD_LOGIC;
+    IO_write_data : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    IO_write_strobe : out STD_LOGIC;
     TRACE_data_access : out STD_LOGIC;
     TRACE_data_address : out STD_LOGIC_VECTOR ( 0 to 31 );
     TRACE_data_byte_enable : out STD_LOGIC_VECTOR ( 0 to 3 );
@@ -87,15 +95,7 @@ architecture STRUCTURE of bd_8825_wrapper is
     TRACE_pid_reg : out STD_LOGIC_VECTOR ( 0 to 7 );
     TRACE_reg_addr : out STD_LOGIC_VECTOR ( 0 to 4 );
     TRACE_reg_write : out STD_LOGIC;
-    TRACE_valid_instr : out STD_LOGIC;
-    IO_addr_strobe : out STD_LOGIC;
-    IO_address : out STD_LOGIC_VECTOR ( 31 downto 0 );
-    IO_byte_enable : out STD_LOGIC_VECTOR ( 3 downto 0 );
-    IO_read_data : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    IO_read_strobe : out STD_LOGIC;
-    IO_ready : in STD_LOGIC;
-    IO_write_data : out STD_LOGIC_VECTOR ( 31 downto 0 );
-    IO_write_strobe : out STD_LOGIC
+    TRACE_valid_instr : out STD_LOGIC
   );
   end component bd_8825;
 begin

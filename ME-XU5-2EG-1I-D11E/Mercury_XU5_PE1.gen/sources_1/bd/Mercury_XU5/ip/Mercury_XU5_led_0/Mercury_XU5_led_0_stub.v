@@ -3,8 +3,8 @@
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
 // Date        : Mon Aug 26 14:41:06 2024
 // Host        : yoga716 running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode synth_stub
-//               c:/X/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_led_0/Mercury_XU5_led_0_stub.v
+// Command     : write_verilog -force -mode synth_stub -rename_top Mercury_XU5_led_0 -prefix
+//               Mercury_XU5_led_0_ Mercury_XU5_led_0_stub.v
 // Design      : Mercury_XU5_led_0
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xczu2eg-sfvc784-1-i

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sun Oct 27 13:37:01 2024" VIVADOVERSION="2022.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sun Oct 27 19:45:45 2024" VIVADOVERSION="2022.2">
 
   <SYSTEMINFO ARCH="zynquplus" DEVICE="xczu2eg" NAME="Mercury_XU5" PACKAGE="sfvc784" SPEEDGRADE="-1"/>
 
@@ -234,14 +234,14 @@
         <CONNECTION INSTANCE="led" PORT="gpio_io_o"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="O" LEFT="2047" NAME="reg_rw" RIGHT="0" SIGIS="undef" SIGNAME="reg_bank_v1_0_0_reg_rw">
+    <PORT DIR="O" LEFT="2047" NAME="reg_rw" RIGHT="0" SIGIS="data" SIGNAME="reg_bank_0_reg_rw">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="reg_bank_v1_0_0" PORT="reg_rw"/>
+        <CONNECTION INSTANCE="reg_bank_0" PORT="reg_rw"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="I" LEFT="2047" NAME="reg_ro" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_reg_ro">
+    <PORT DIR="I" LEFT="2047" NAME="reg_ro" RIGHT="0" SIGIS="data" SIGNAME="External_Ports_reg_ro">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="reg_bank_v1_0_0" PORT="reg_ro"/>
+        <CONNECTION INSTANCE="reg_bank_0" PORT="reg_ro"/>
       </CONNECTIONS>
     </PORT>
   </EXTERNALPORTS>
@@ -340,7 +340,7 @@
         <PARAMETER NAME="PCHK_MAX_WR_BURSTS" VALUE="2"/>
         <PARAMETER NAME="SYNCHRONIZATION_STAGES" VALUE="3"/>
         <PARAMETER NAME="M00_HAS_REGSLICE" VALUE="0"/>
-        <PARAMETER NAME="M01_HAS_REGSLICE" VALUE="0"/>
+        <PARAMETER NAME="M01_HAS_REGSLICE" VALUE="3"/>
         <PARAMETER NAME="M02_HAS_REGSLICE" VALUE="0"/>
         <PARAMETER NAME="M03_HAS_REGSLICE" VALUE="0"/>
         <PARAMETER NAME="M04_HAS_REGSLICE" VALUE="0"/>
@@ -689,97 +689,97 @@
         </PORT>
         <PORT DIR="O" LEFT="39" NAME="M01_AXI_awaddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M01_AXI_awaddr">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="reg_bank_v1_0_0" PORT="s00_axi_awaddr"/>
+            <CONNECTION INSTANCE="reg_bank_0" PORT="s00_axi_awaddr"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="2" NAME="M01_AXI_awprot" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M01_AXI_awprot">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="reg_bank_v1_0_0" PORT="s00_axi_awprot"/>
+            <CONNECTION INSTANCE="reg_bank_0" PORT="s00_axi_awprot"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="M01_AXI_awvalid" SIGIS="undef" SIGNAME="axi_interconnect_0_M01_AXI_awvalid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="reg_bank_v1_0_0" PORT="s00_axi_awvalid"/>
+            <CONNECTION INSTANCE="reg_bank_0" PORT="s00_axi_awvalid"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="M01_AXI_awready" SIGIS="undef" SIGNAME="axi_interconnect_0_M01_AXI_awready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="reg_bank_v1_0_0" PORT="s00_axi_awready"/>
+            <CONNECTION INSTANCE="reg_bank_0" PORT="s00_axi_awready"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="31" NAME="M01_AXI_wdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M01_AXI_wdata">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="reg_bank_v1_0_0" PORT="s00_axi_wdata"/>
+            <CONNECTION INSTANCE="reg_bank_0" PORT="s00_axi_wdata"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="3" NAME="M01_AXI_wstrb" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M01_AXI_wstrb">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="reg_bank_v1_0_0" PORT="s00_axi_wstrb"/>
+            <CONNECTION INSTANCE="reg_bank_0" PORT="s00_axi_wstrb"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="M01_AXI_wvalid" SIGIS="undef" SIGNAME="axi_interconnect_0_M01_AXI_wvalid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="reg_bank_v1_0_0" PORT="s00_axi_wvalid"/>
+            <CONNECTION INSTANCE="reg_bank_0" PORT="s00_axi_wvalid"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="M01_AXI_wready" SIGIS="undef" SIGNAME="axi_interconnect_0_M01_AXI_wready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="reg_bank_v1_0_0" PORT="s00_axi_wready"/>
+            <CONNECTION INSTANCE="reg_bank_0" PORT="s00_axi_wready"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="1" NAME="M01_AXI_bresp" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M01_AXI_bresp">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="reg_bank_v1_0_0" PORT="s00_axi_bresp"/>
+            <CONNECTION INSTANCE="reg_bank_0" PORT="s00_axi_bresp"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="M01_AXI_bvalid" SIGIS="undef" SIGNAME="axi_interconnect_0_M01_AXI_bvalid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="reg_bank_v1_0_0" PORT="s00_axi_bvalid"/>
+            <CONNECTION INSTANCE="reg_bank_0" PORT="s00_axi_bvalid"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="M01_AXI_bready" SIGIS="undef" SIGNAME="axi_interconnect_0_M01_AXI_bready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="reg_bank_v1_0_0" PORT="s00_axi_bready"/>
+            <CONNECTION INSTANCE="reg_bank_0" PORT="s00_axi_bready"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="39" NAME="M01_AXI_araddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M01_AXI_araddr">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="reg_bank_v1_0_0" PORT="s00_axi_araddr"/>
+            <CONNECTION INSTANCE="reg_bank_0" PORT="s00_axi_araddr"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="2" NAME="M01_AXI_arprot" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M01_AXI_arprot">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="reg_bank_v1_0_0" PORT="s00_axi_arprot"/>
+            <CONNECTION INSTANCE="reg_bank_0" PORT="s00_axi_arprot"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="M01_AXI_arvalid" SIGIS="undef" SIGNAME="axi_interconnect_0_M01_AXI_arvalid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="reg_bank_v1_0_0" PORT="s00_axi_arvalid"/>
+            <CONNECTION INSTANCE="reg_bank_0" PORT="s00_axi_arvalid"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="M01_AXI_arready" SIGIS="undef" SIGNAME="axi_interconnect_0_M01_AXI_arready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="reg_bank_v1_0_0" PORT="s00_axi_arready"/>
+            <CONNECTION INSTANCE="reg_bank_0" PORT="s00_axi_arready"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="31" NAME="M01_AXI_rdata" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M01_AXI_rdata">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="reg_bank_v1_0_0" PORT="s00_axi_rdata"/>
+            <CONNECTION INSTANCE="reg_bank_0" PORT="s00_axi_rdata"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="1" NAME="M01_AXI_rresp" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M01_AXI_rresp">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="reg_bank_v1_0_0" PORT="s00_axi_rresp"/>
+            <CONNECTION INSTANCE="reg_bank_0" PORT="s00_axi_rresp"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="M01_AXI_rvalid" SIGIS="undef" SIGNAME="axi_interconnect_0_M01_AXI_rvalid">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="reg_bank_v1_0_0" PORT="s00_axi_rvalid"/>
+            <CONNECTION INSTANCE="reg_bank_0" PORT="s00_axi_rvalid"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="M01_AXI_rready" SIGIS="undef" SIGNAME="axi_interconnect_0_M01_AXI_rready">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="reg_bank_v1_0_0" PORT="s00_axi_rready"/>
+            <CONNECTION INSTANCE="reg_bank_0" PORT="s00_axi_rready"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="15" NAME="S00_AXI_awid" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_S00_AXI_awid">
@@ -2265,7 +2265,7 @@
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_ACLK"/>
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_ACLK"/>
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="M01_ACLK"/>
-            <CONNECTION INSTANCE="reg_bank_v1_0_0" PORT="s00_axi_aclk"/>
+            <CONNECTION INSTANCE="reg_bank_0" PORT="s00_axi_aclk"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="c0_ddr4_ui_clk_sync_rst" POLARITY="ACTIVE_HIGH" SIGIS="rst"/>
@@ -2631,7 +2631,7 @@
           <CONNECTIONS>
             <CONNECTION INSTANCE="ddr4" PORT="c0_ddr4_aresetn"/>
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="M01_ARESETN"/>
-            <CONNECTION INSTANCE="reg_bank_v1_0_0" PORT="s00_axi_aresetn"/>
+            <CONNECTION INSTANCE="reg_bank_0" PORT="s00_axi_aresetn"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -3043,21 +3043,21 @@
       </PORTS>
       <BUSINTERFACES/>
     </MODULE>
-    <MODULE COREREVISION="1" FULLNAME="/reg_bank_v1_0_0" HWVERSION="1.0" INSTANCE="reg_bank_v1_0_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="reg_bank_v1_0" VLNV="xilinx.com:module_ref:reg_bank_v1_0:1.0">
+    <MODULE COREREVISION="4" FULLNAME="/reg_bank_0" HWVERSION="1.0" INSTANCE="reg_bank_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="reg_bank" VLNV="user.org:user:reg_bank:1.0">
       <DOCUMENTS/>
       <ADDRESSBLOCKS>
-        <ADDRESSBLOCK ACCESS="" INTERFACE="s00_axi" NAME="reg0" RANGE="4096" USAGE="register"/>
+        <ADDRESSBLOCK ACCESS="" INTERFACE="S00_AXI" NAME="S00_AXI_reg" RANGE="4096" USAGE="register"/>
       </ADDRESSBLOCKS>
       <PARAMETERS>
         <PARAMETER NAME="C_S00_AXI_DATA_WIDTH" VALUE="32"/>
         <PARAMETER NAME="C_S00_AXI_ADDR_WIDTH" VALUE="9"/>
-        <PARAMETER NAME="Component_Name" VALUE="Mercury_XU5_reg_bank_v1_0_0_1"/>
+        <PARAMETER NAME="Component_Name" VALUE="Mercury_XU5_reg_bank_0_0"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
-        <PARAMETER NAME="C_BASEADDR" VALUE="0xA0000000"/>
-        <PARAMETER NAME="C_HIGHADDR" VALUE="0xA0000FFF"/>
+        <PARAMETER NAME="C_S00_AXI_BASEADDR" VALUE="0xA0000000"/>
+        <PARAMETER NAME="C_S00_AXI_HIGHADDR" VALUE="0xA000FFFF"/>
       </PARAMETERS>
       <PORTS>
-        <PORT DIR="O" LEFT="2047" NAME="reg_rw" RIGHT="0" SIGIS="undef" SIGNAME="reg_bank_v1_0_0_reg_rw">
+        <PORT DIR="O" LEFT="2047" NAME="reg_rw" RIGHT="0" SIGIS="undef" SIGNAME="reg_bank_0_reg_rw">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="reg_rw"/>
           </CONNECTIONS>
@@ -3174,7 +3174,10 @@
         </PORT>
       </PORTS>
       <BUSINTERFACES>
-        <BUSINTERFACE BUSNAME="axi_interconnect_0_M01_AXI" DATAWIDTH="32" NAME="s00_axi" TYPE="SLAVE" VLNV="xilinx.com:interface:aximm:1.0">
+        <BUSINTERFACE BUSNAME="axi_interconnect_0_M01_AXI" DATAWIDTH="32" NAME="S00_AXI" TYPE="SLAVE" VLNV="xilinx.com:interface:aximm:1.0">
+          <PARAMETER NAME="WIZ_DATA_WIDTH" VALUE="32"/>
+          <PARAMETER NAME="WIZ_NUM_REG" VALUE="128"/>
+          <PARAMETER NAME="SUPPORTS_NARROW_BURST" VALUE="0"/>
           <PARAMETER NAME="DATA_WIDTH" VALUE="32"/>
           <PARAMETER NAME="PROTOCOL" VALUE="AXI4LITE"/>
           <PARAMETER NAME="FREQ_HZ" VALUE="266500000"/>
@@ -3195,9 +3198,8 @@
           <PARAMETER NAME="HAS_WSTRB" VALUE="1"/>
           <PARAMETER NAME="HAS_BRESP" VALUE="1"/>
           <PARAMETER NAME="HAS_RRESP" VALUE="1"/>
-          <PARAMETER NAME="SUPPORTS_NARROW_BURST" VALUE="0"/>
-          <PARAMETER NAME="NUM_READ_OUTSTANDING" VALUE="1"/>
-          <PARAMETER NAME="NUM_WRITE_OUTSTANDING" VALUE="1"/>
+          <PARAMETER NAME="NUM_READ_OUTSTANDING" VALUE="8"/>
+          <PARAMETER NAME="NUM_WRITE_OUTSTANDING" VALUE="8"/>
           <PARAMETER NAME="MAX_BURST_LENGTH" VALUE="1"/>
           <PARAMETER NAME="PHASE" VALUE="0.00"/>
           <PARAMETER NAME="CLK_DOMAIN" VALUE="Mercury_XU5_ddr4_0_c0_ddr4_ui_clk"/>
@@ -7325,13 +7327,13 @@
       <MEMORYMAP>
         <MEMRANGE ADDRESSBLOCK="Reg" BASENAME="C_BASEADDR" BASEVALUE="0x80000000" HIGHNAME="C_HIGHADDR" HIGHVALUE="0x8000FFFF" INSTANCE="led" IS_DATA="TRUE" IS_INSTRUCTION="TRUE" MASTERBUSINTERFACE="M_AXI_HPM0_LPD" MEMTYPE="REGISTER" SLAVEBUSINTERFACE="S_AXI"/>
         <MEMRANGE ADDRESSBLOCK="Reg" BASENAME="C_BASEADDR" BASEVALUE="0x80010000" HIGHNAME="C_HIGHADDR" HIGHVALUE="0x8001FFFF" INSTANCE="system_management_wiz" IS_DATA="TRUE" IS_INSTRUCTION="TRUE" MASTERBUSINTERFACE="M_AXI_HPM0_LPD" MEMTYPE="REGISTER" SLAVEBUSINTERFACE="S_AXI_LITE"/>
-        <MEMRANGE ADDRESSBLOCK="reg0" BASENAME="C_BASEADDR" BASEVALUE="0xA0000000" HIGHNAME="C_HIGHADDR" HIGHVALUE="0xA0000FFF" INSTANCE="reg_bank_v1_0_0" IS_DATA="TRUE" IS_INSTRUCTION="TRUE" MASTERBUSINTERFACE="M_AXI_HPM0_FPD" MEMTYPE="REGISTER" SLAVEBUSINTERFACE="s00_axi"/>
+        <MEMRANGE ADDRESSBLOCK="S00_AXI_reg" BASENAME="C_S00_AXI_BASEADDR" BASEVALUE="0xA0000000" HIGHNAME="C_S00_AXI_HIGHADDR" HIGHVALUE="0xA000FFFF" INSTANCE="reg_bank_0" IS_DATA="TRUE" IS_INSTRUCTION="TRUE" MASTERBUSINTERFACE="M_AXI_HPM0_FPD" MEMTYPE="REGISTER" SLAVEBUSINTERFACE="S00_AXI"/>
         <MEMRANGE ADDRESSBLOCK="C0_DDR4_ADDRESS_BLOCK" BASENAME="C0_DDR4_MEMORY_MAP_BASEADDR" BASEVALUE="0x400000000" HIGHNAME="C0_DDR4_MEMORY_MAP_HIGHADDR" HIGHVALUE="0x41FFFFFFF" INSTANCE="ddr4" IS_DATA="TRUE" IS_INSTRUCTION="TRUE" MASTERBUSINTERFACE="M_AXI_HPM0_FPD" MEMTYPE="MEMORY" SLAVEBUSINTERFACE="C0_DDR4_S_AXI"/>
       </MEMORYMAP>
       <PERIPHERALS>
         <PERIPHERAL INSTANCE="led"/>
         <PERIPHERAL INSTANCE="system_management_wiz"/>
-        <PERIPHERAL INSTANCE="reg_bank_v1_0_0"/>
+        <PERIPHERAL INSTANCE="reg_bank_0"/>
         <PERIPHERAL INSTANCE="ddr4"/>
       </PERIPHERALS>
     </MODULE>
