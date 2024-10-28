@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vivado v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 05:00:03 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Thu Oct 17 15:18:25 2024
+# Process ID: 16332
+# Current directory: C:/X/ME-XU5-2EG-1I-D11E/PHYS4250_WingTo_Lab9/PHYS4250_WingTo_Lab9.runs/impl_1
+# Command line: vivado.exe -log Topfile.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source Topfile.tcl -notrace
+# Log file: C:/X/ME-XU5-2EG-1I-D11E/PHYS4250_WingTo_Lab9/PHYS4250_WingTo_Lab9.runs/impl_1/Topfile.vdi
+# Journal file: C:/X/ME-XU5-2EG-1I-D11E/PHYS4250_WingTo_Lab9/PHYS4250_WingTo_Lab9.runs/impl_1\vivado.jou
+# Running On: yoga716, OS: Windows, CPU Frequency: 2695 MHz, CPU Physical cores: 16, Host memory: 14702 MB
+#-----------------------------------------------------------
+source Topfile.tcl -notrace

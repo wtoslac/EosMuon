@@ -1,0 +1,212 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version     : Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
+| Date             : Sun Oct 27 16:20:34 2024
+| Host             : yoga716 running 64-bit Ubuntu 22.04.4 LTS
+| Command          : report_power -file Mercury_XU5_PE1_power_routed.rpt -pb Mercury_XU5_PE1_power_summary_routed.pb -rpx Mercury_XU5_PE1_power_routed.rpx
+| Design           : Mercury_XU5_PE1
+| Device           : xczu2eg-sfvc784-1-i
+| Design State     : routed
+| Grade            : industrial
+| Process          : typical
+| Characterization : Production
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Power Report
+
+Table of Contents
+-----------------
+1. Summary
+1.1 On-Chip Components
+1.2 Power Supply Summary
+1.3 Confidence Level
+2. Settings
+2.1 Environment
+2.2 Clock Constraints
+3. Detailed Reports
+3.1 By Hierarchy
+
+1. Summary
+----------
+
++--------------------------+--------------+
+| Total On-Chip Power (W)  | 3.865        |
+| Design Power Budget (W)  | Unspecified* |
+| Power Budget Margin (W)  | NA           |
+| Dynamic (W)              | 3.538        |
+| Device Static (W)        | 0.327        |
+| Effective TJA (C/W)      | 2.4          |
+| Max Ambient (C)          | 90.9         |
+| Junction Temperature (C) | 34.1         |
+| Confidence Level         | Low          |
+| Setting File             | ---          |
+| Simulation Activity File | ---          |
+| Design Nets Matched      | NA           |
++--------------------------+--------------+
+* Specify Design Power Budget using, set_operating_conditions -design_power_budget <value in Watts>
+
+
+1.1 On-Chip Components
+----------------------
+
++--------------------------+-----------+----------+-----------+-----------------+
+| On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
++--------------------------+-----------+----------+-----------+-----------------+
+| Clocks                   |     0.119 |       20 |       --- |             --- |
+| CLB Logic                |     0.043 |    35293 |       --- |             --- |
+|   LUT as Logic           |     0.028 |    12022 |     47232 |           25.45 |
+|   LUT as Distributed RAM |     0.011 |      352 |     28800 |            1.22 |
+|   Register               |     0.003 |    17134 |     94464 |           18.14 |
+|   LUT as Shift Register  |     0.002 |      313 |     28800 |            1.09 |
+|   CARRY8                 |    <0.001 |       69 |      8820 |            0.78 |
+|   Others                 |    <0.001 |     1067 |       --- |             --- |
+|   F7/F8 Muxes            |     0.000 |      642 |     70560 |            0.91 |
+|   BUFG                   |     0.000 |        1 |        24 |            4.17 |
+| Signals                  |     0.048 |    34688 |       --- |             --- |
+| Block RAM                |     0.018 |     25.5 |       150 |           17.00 |
+| MMCM                     |     0.220 |        0 |       --- |             --- |
+| PLL                      |     0.057 |        1 |       --- |             --- |
+| DSPs                     |    <0.001 |        3 |       240 |            1.25 |
+| I/O                      |     0.264 |       71 |       252 |           28.17 |
+| SYSMON                   |     0.005 |        1 |       --- |             --- |
+| PS8                      |     2.763 |        1 |       --- |             --- |
+| Static Power             |     0.327 |          |           |                 |
+|   PS Static              |     0.105 |          |           |                 |
+|   PL Static              |     0.222 |          |           |                 |
+| Total                    |     3.865 |          |           |                 |
++--------------------------+-----------+----------+-----------+-----------------+
+
+
+1.2 Power Supply Summary
+------------------------
+
++-----------------+-------------+-----------+-------------+------------+-------------+-------------+------------+
+| Source          | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
++-----------------+-------------+-----------+-------------+------------+-------------+-------------+------------+
+| Vccint          |       0.850 |     0.341 |       0.279 |      0.062 |       NA    | Unspecified | NA         |
+| Vccint_io       |       0.850 |     0.150 |       0.122 |      0.028 |       NA    | Unspecified | NA         |
+| Vccbram         |       0.850 |     0.001 |       0.001 |      0.001 |       NA    | Unspecified | NA         |
+| Vccaux          |       1.800 |     0.199 |       0.152 |      0.047 |       NA    | Unspecified | NA         |
+| Vccaux_io       |       1.800 |     0.072 |       0.047 |      0.025 |       NA    | Unspecified | NA         |
+| Vcco33          |       3.300 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vcco25          |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vcco18          |       1.800 |     0.003 |       0.003 |      0.000 |       NA    | Unspecified | NA         |
+| Vcco15          |       1.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vcco135         |       1.350 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vcco12          |       1.200 |     0.059 |       0.059 |      0.000 |       NA    | Unspecified | NA         |
+| Vcco10          |       1.000 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vccadc          |       1.800 |     0.008 |       0.000 |      0.008 |       NA    | Unspecified | NA         |
+| VCC_PSINTFP     |       0.850 |     1.043 |       1.003 |      0.041 |       NA    | Unspecified | NA         |
+| VCC_PSINTLP     |       0.850 |     0.281 |       0.272 |      0.008 |       NA    | Unspecified | NA         |
+| VPS_MGTRAVCC    |       0.850 |     0.001 |       0.000 |      0.001 |       NA    | Unspecified | NA         |
+| VCC_PSINTFP_DDR |       0.850 |     0.878 |       0.873 |      0.005 |       NA    | Unspecified | NA         |
+| VCC_PSPLL       |       1.200 |     0.070 |       0.068 |      0.002 |       NA    | Unspecified | NA         |
+| VPS_MGTRAVTT    |       1.800 |     0.001 |       0.000 |      0.001 |       NA    | Unspecified | NA         |
+| VCCO_PSDDR_504  |       1.200 |     0.746 |       0.712 |      0.034 |       NA    | Unspecified | NA         |
+| VCC_PSAUX       |       1.800 |     0.002 |       0.000 |      0.002 |       NA    | Unspecified | NA         |
+| VCC_PSBATT      |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| VCC_PSDDR_PLL   |       1.800 |     0.001 |       0.000 |      0.001 |       NA    | Unspecified | NA         |
+| VCCO_PSIO0_500  |       1.800 |     0.001 |       0.000 |      0.001 |       NA    | Unspecified | NA         |
+| VCCO_PSIO1_501  |       1.800 |     0.001 |       0.000 |      0.001 |       NA    | Unspecified | NA         |
+| VCCO_PSIO2_502  |       1.800 |     0.001 |       0.000 |      0.001 |       NA    | Unspecified | NA         |
+| VCCO_PSIO3_503  |       1.800 |     0.001 |       0.000 |      0.001 |       NA    | Unspecified | NA         |
+| VCC_PSADC       |       1.800 |     0.002 |       0.000 |      0.002 |       NA    | Unspecified | NA         |
++-----------------+-------------+-----------+-------------+------------+-------------+-------------+------------+
+
+
+1.3 Confidence Level
+--------------------
+
++-----------------------------+------------+--------------------------------------------------------+------------------------------------------------------------------------------------------------------------+
+| User Input Data             | Confidence | Details                                                | Action                                                                                                     |
++-----------------------------+------------+--------------------------------------------------------+------------------------------------------------------------------------------------------------------------+
+| Design implementation state | High       | Design is routed                                       |                                                                                                            |
+| Clock nodes activity        | High       | User specified more than 95% of clocks                 |                                                                                                            |
+| I/O nodes activity          | Low        | More than 75% of inputs are missing user specification | Provide missing input activity with simulation results or by editing the "By Resource Type -> I/Os" view   |
+| Internal nodes activity     | Medium     | User specified less than 25% of internal nodes         | Provide missing internal nodes activity with simulation results or by editing the "By Resource Type" views |
+| Device models               | High       | Device models are Production                           |                                                                                                            |
+|                             |            |                                                        |                                                                                                            |
+| Overall confidence level    | Low        |                                                        |                                                                                                            |
++-----------------------------+------------+--------------------------------------------------------+------------------------------------------------------------------------------------------------------------+
+
+
+2. Settings
+-----------
+
+2.1 Environment
+---------------
+
++-----------------------+--------------------------+
+| Ambient Temp (C)      | 25.0                     |
+| ThetaJA (C/W)         | 2.4                      |
+| Airflow (LFM)         | 250                      |
+| Heat Sink             | medium (Medium Profile)  |
+| ThetaSA (C/W)         | 5.5                      |
+| Board Selection       | medium (10"x10")         |
+| # of Board Layers     | 12to15 (12 to 15 Layers) |
+| Board Temperature (C) | 25.0                     |
++-----------------------+--------------------------+
+
+
+2.2 Clock Constraints
+---------------------
+
++-----------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+
+| Clock                                                                                               | Domain                                                                                                                                                                                                       | Constraint (ns) |
++-----------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+
+| CLK100_PL_P                                                                                         | CLK100_PL_P                                                                                                                                                                                                  |            10.0 |
+| Clk2_5                                                                                              | i_gmii2rgmii/Clk2_5                                                                                                                                                                                          |           400.0 |
+| RGMII_RX_CLK                                                                                        | ETH1_RXCLK                                                                                                                                                                                                   |             8.0 |
+| clk_out1_Mercury_XU5_clk_wiz_0_0                                                                    | Mercury_XU5_i/clk_wiz_0/inst/clk_out1_Mercury_XU5_clk_wiz_0_0                                                                                                                                                |             8.0 |
+| clk_out2_Mercury_XU5_clk_wiz_0_0                                                                    | Mercury_XU5_i/clk_wiz_0/inst/clk_out2_Mercury_XU5_clk_wiz_0_0                                                                                                                                                |             8.0 |
+| clk_out3_Mercury_XU5_clk_wiz_0_0                                                                    | Mercury_XU5_i/clk_wiz_0/inst/clk_out3_Mercury_XU5_clk_wiz_0_0                                                                                                                                                |            40.0 |
+| clk_out4_Mercury_XU5_clk_wiz_0_0                                                                    | Mercury_XU5_i/clk_wiz_0/inst/clk_out4_Mercury_XU5_clk_wiz_0_0                                                                                                                                                |           100.0 |
+| clk_pl_0                                                                                            | Mercury_XU5_i/zynq_ultra_ps_e/U0/pl_clk_unbuffered[0]                                                                                                                                                        |            10.0 |
+| clk_pl_1                                                                                            | Mercury_XU5_i/zynq_ultra_ps_e/U0/pl_clk_unbuffered[1]                                                                                                                                                        |            20.0 |
+| dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_inst/SERIES7_BSCAN.bscan_inst/INTERNAL_TCK | dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_inst/DRCK                                                                                                                                           |            50.0 |
+| mdio1_mdc_clock                                                                                     | Mercury_XU5_i/zynq_ultra_ps_e/U0/emio_enet1_mdio_mdc                                                                                                                                                         |           480.0 |
+| mmcm_clkout0                                                                                        | Mercury_XU5_i/ddr4/inst/u_ddr4_infrastructure/mmcm_clkout0                                                                                                                                                   |             3.8 |
+| mmcm_clkout5                                                                                        | Mercury_XU5_i/ddr4/inst/u_ddr4_infrastructure/mmcm_clkout5                                                                                                                                                   |            15.0 |
+| mmcm_clkout6                                                                                        | Mercury_XU5_i/ddr4/inst/u_ddr4_infrastructure/mmcm_clkout6                                                                                                                                                   |             7.5 |
+| pll_clk                                                                                             | Mercury_XU5_i/ddr4/inst/u_ddr4_mem_intfc/u_mig_ddr4_phy/inst/u_ddr4_phy_pll/pll_clk0                                                                                                                         |             0.5 |
+| pll_clk_DIV                                                                                         | Mercury_XU5_i/ddr4/inst/u_ddr4_mem_intfc/u_mig_ddr4_phy/inst/generate_block1.u_ddr_xiphy/byte_num[0].xiphy_byte_wrapper.u_xiphy_byte_wrapper/I_CONTROL[0].GEN_I_CONTROL.u_xiphy_control/TX_BIT_CTRL_OUT0[26] |             3.8 |
++-----------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+
+
+
+3. Detailed Reports
+-------------------
+
+3.1 By Hierarchy
+----------------
+
++---------------------------+-----------+
+| Name                      | Power (W) |
++---------------------------+-----------+
+| Mercury_XU5_PE1           |     3.538 |
+|   IIC_scl_iobuf           |     0.002 |
+|   IIC_sda_iobuf           |     0.002 |
+|   Mercury_XU5_i           |     3.518 |
+|     axi_interconnect_0    |     0.040 |
+|       m01_couplers        |     0.022 |
+|       xbar                |     0.019 |
+|     clk_wiz_0             |     0.101 |
+|       inst                |     0.101 |
+|     ddr4                  |     0.574 |
+|       inst                |     0.574 |
+|     reg_bank_v1_0_0       |     0.020 |
+|       U0                  |     0.020 |
+|     smartconnect_00       |     0.006 |
+|       inst                |     0.006 |
+|     system_management_wiz |     0.007 |
+|       U0                  |     0.007 |
+|     zynq_ultra_ps_e       |     2.768 |
+|       U0                  |     2.768 |
+|   dbg_hub                 |     0.002 |
+|     inst                  |     0.002 |
+|       BSCANID.u_xsdbm_id  |     0.002 |
+|   i_gmii2rgmii            |     0.009 |
+|     i_rgmii_gmii          |     0.005 |
+|       i_fifo              |     0.003 |
++---------------------------+-----------+
+
+

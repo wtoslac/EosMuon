@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1729203362">
+  <File Type="ROUTE-PWR" Name="Topfile_power_routed.rpt"/>
+  <File Type="PA-TCL" Name="Topfile.tcl"/>
+  <File Type="BITSTR-MMI" Name="Topfile.mmi"/>
+  <File Type="OPT-METHODOLOGY-DRC" Name="Topfile_methodology_drc_opted.rpt"/>
+  <File Type="INIT-TIMING" Name="Topfile_timing_summary_init.rpt"/>
+  <File Type="ROUTE-PWR-SUM" Name="Topfile_power_summary_routed.pb"/>
+  <File Type="REPORTS-TCL" Name="Topfile_reports.tcl"/>
+  <File Type="OPT-TIMING" Name="Topfile_timing_summary_opted.rpt"/>
+  <File Type="OPT-DCP" Name="Topfile_opt.dcp"/>
+  <File Type="OPT-DRC" Name="Topfile_drc_opted.rpt"/>
+  <File Type="OPT-HWDEF" Name="Topfile.hwdef"/>
+  <File Type="PWROPT-DCP" Name="Topfile_pwropt.dcp"/>
+  <File Type="PWROPT-DRC" Name="Topfile_drc_pwropted.rpt"/>
+  <File Type="PWROPT-TIMING" Name="Topfile_timing_summary_pwropted.rpt"/>
+  <File Type="PLACE-DCP" Name="Topfile_placed.dcp"/>
+  <File Type="PLACE-IO" Name="Topfile_io_placed.rpt"/>
+  <File Type="PLACE-CLK" Name="Topfile_clock_utilization_placed.rpt"/>
+  <File Type="PLACE-UTIL" Name="Topfile_utilization_placed.rpt"/>
+  <File Type="PLACE-UTIL-PB" Name="Topfile_utilization_placed.pb"/>
+  <File Type="PLACE-CTRL" Name="Topfile_control_sets_placed.rpt"/>
+  <File Type="PLACE-SIMILARITY" Name="Topfile_incremental_reuse_placed.rpt"/>
+  <File Type="PLACE-PRE-SIMILARITY" Name="Topfile_incremental_reuse_pre_placed.rpt"/>
+  <File Type="BG-BIN" Name="Topfile.bin"/>
+  <File Type="PLACE-TIMING" Name="Topfile_timing_summary_placed.rpt"/>
+  <File Type="POSTPLACE-PWROPT-DCP" Name="Topfile_postplace_pwropt.dcp"/>
+  <File Type="BITSTR-MSK" Name="Topfile.msk"/>
+  <File Type="POSTPLACE-PWROPT-TIMING" Name="Topfile_timing_summary_postplace_pwropted.rpt"/>
+  <File Type="PHYSOPT-DCP" Name="Topfile_physopt.dcp"/>
+  <File Type="PHYSOPT-DRC" Name="Topfile_drc_physopted.rpt"/>
+  <File Type="BITSTR-RBT" Name="Topfile.rbt"/>
+  <File Type="PHYSOPT-TIMING" Name="Topfile_timing_summary_physopted.rpt"/>
+  <File Type="ROUTE-ERROR-DCP" Name="Topfile_routed_error.dcp"/>
+  <File Type="ROUTE-DCP" Name="Topfile_routed.dcp"/>
+  <File Type="ROUTE-BLACKBOX-DCP" Name="Topfile_routed_bb.dcp"/>
+  <File Type="ROUTE-DRC" Name="Topfile_drc_routed.rpt"/>
+  <File Type="ROUTE-DRC-PB" Name="Topfile_drc_routed.pb"/>
+  <File Type="ROUTE-DRC-RPX" Name="Topfile_drc_routed.rpx"/>
+  <File Type="ROUTE-METHODOLOGY-DRC" Name="Topfile_methodology_drc_routed.rpt"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="Topfile_methodology_drc_routed.rpx"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="Topfile_methodology_drc_routed.pb"/>
+  <File Type="ROUTE-PWR-RPX" Name="Topfile_power_routed.rpx"/>
+  <File Type="ROUTE-STATUS" Name="Topfile_route_status.rpt"/>
+  <File Type="ROUTE-STATUS-PB" Name="Topfile_route_status.pb"/>
+  <File Type="ROUTE-TIMINGSUMMARY" Name="Topfile_timing_summary_routed.rpt"/>
+  <File Type="ROUTE-TIMING-PB" Name="Topfile_timing_summary_routed.pb"/>
+  <File Type="ROUTE-TIMING-RPX" Name="Topfile_timing_summary_routed.rpx"/>
+  <File Type="ROUTE-SIMILARITY" Name="Topfile_incremental_reuse_routed.rpt"/>
+  <File Type="ROUTE-CLK" Name="Topfile_clock_utilization_routed.rpt"/>
+  <File Type="ROUTE-BUS-SKEW" Name="Topfile_bus_skew_routed.rpt"/>
+  <File Type="ROUTE-BUS-SKEW-PB" Name="Topfile_bus_skew_routed.pb"/>
+  <File Type="ROUTE-BUS-SKEW-RPX" Name="Topfile_bus_skew_routed.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-DCP" Name="Topfile_postroute_physopt.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="Topfile_postroute_physopt_bb.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="Topfile_timing_summary_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="Topfile_timing_summary_postroute_physopted.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="Topfile_timing_summary_postroute_physopted.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="Topfile_bus_skew_postroute_physopted.rpt"/>
+  <File Type="BG-BIT" Name="Topfile.bit"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="Topfile_bus_skew_postroute_physopted.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="Topfile_bus_skew_postroute_physopted.rpx"/>
+  <File Type="BITSTR-NKY" Name="Topfile.nky"/>
+  <File Type="BITSTR-BMM" Name="Topfile_bd.bmm"/>
+  <File Type="PDI-FILE" Name="Topfile.pdi"/>
+  <File Type="RCFI_FILE" Name="Topfile.rcfi"/>
+  <File Type="CFI_FILE" Name="Topfile.cfi"/>
+  <File Type="RNPI_FILE" Name="Topfile.rnpi"/>
+  <File Type="NPI_FILE" Name="Topfile.npi"/>
+  <File Type="RBD_FILE" Name="Topfile.rbd"/>
+  <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
+  <File Type="BITSTR-LTX" Name="Topfile.ltx"/>
+  <File Type="BITSTR-SYSDEF" Name="Topfile.sysdef"/>
+  <File Type="BG-BGN" Name="Topfile.bgn"/>
+  <File Type="BG-DRC" Name="Topfile.drc"/>
+  <File Type="RDI-RDI" Name="Topfile.vdi"/>
+  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
+  <File Type="ROUTE-RQS" Name="Topfile_routed.rqs"/>
+  <File Type="POSTROUTE-PHYSOPT-RQS" Name="Topfile_postroute_physopted.rqs"/>
+  <File Type="ROUTE-RQS-RPT" Name="route_report_qor_suggestions_0.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-RQS-RPT" Name="postroute_physopt_report_qor_suggestions_0.rpt"/>
+  <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
+    <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sources_1/new/Topfile.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="DesignMode" Val="RTL"/>
+      <Option Name="TopModule" Val="Topfile"/>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
+    <Filter Type="Constrs"/>
+    <File Path="$PSRCDIR/constrs_1/imports/X/Basys3_MasterAllActive.xdc">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../Basys3_MasterAllActive.xdc"/>
+        <Attr Name="ImportTime" Val="1728189950"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="ConstrsType" Val="XDC"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="utils" Type="Utils" RelSrcDir="$PSRCDIR/utils_1">
+    <Filter Type="Utils"/>
+    <Config>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022">
+      <Desc>Default settings for Implementation.</Desc>
+    </StratHandle>
+    <Step Id="init_design"/>
+    <Step Id="opt_design"/>
+    <Step Id="power_opt_design"/>
+    <Step Id="place_design"/>
+    <Step Id="post_place_power_opt_design"/>
+    <Step Id="phys_opt_design"/>
+    <Step Id="route_design"/>
+    <Step Id="post_route_phys_opt_design"/>
+    <Step Id="write_bitstream"/>
+  </Strategy>
+</GenRun>
