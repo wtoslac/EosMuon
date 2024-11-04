@@ -74,6 +74,8 @@ Mercury_XU5_smartconnect_00_0_sc::Mercury_XU5_smartconnect_00_0_sc(const sc_core
   M00_AXI_tlm_aximm_write_socket = mp_impl->M00_AXI_tlm_aximm_write_socket;
   M01_AXI_tlm_aximm_read_socket = mp_impl->M01_AXI_tlm_aximm_read_socket;
   M01_AXI_tlm_aximm_write_socket = mp_impl->M01_AXI_tlm_aximm_write_socket;
+  M02_AXI_tlm_aximm_read_socket = mp_impl->M02_AXI_tlm_aximm_read_socket;
+  M02_AXI_tlm_aximm_write_socket = mp_impl->M02_AXI_tlm_aximm_write_socket;
 }
 
 Mercury_XU5_smartconnect_00_0_sc::~Mercury_XU5_smartconnect_00_0_sc()

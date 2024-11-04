@@ -1,7 +1,7 @@
 --Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
---Date        : Sun Oct 27 19:32:03 2024
+--Date        : Mon Oct 28 12:52:43 2024
 --Host        : yoga716 running 64-bit Ubuntu 22.04.4 LTS
 --Command     : generate_target Mercury_XU5.bd
 --Design      : Mercury_XU5
@@ -2276,10 +2276,10 @@ entity Mercury_XU5 is
     reg_ro : in STD_LOGIC_VECTOR ( 2047 downto 0 );
     reg_rw : out STD_LOGIC_VECTOR ( 2047 downto 0 )
   );
-  attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of Mercury_XU5 : entity is "Mercury_XU5,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=Mercury_XU5,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=18,numReposBlks=14,numNonXlnxBlks=0,numHierBlks=4,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=1,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=2,synth_mode=OOC_per_IP}";
-  attribute HW_HANDOFF : string;
-  attribute HW_HANDOFF of Mercury_XU5 : entity is "Mercury_XU5.hwdef";
+  attribute core_generation_info : string;
+  attribute core_generation_info of Mercury_XU5 : entity is "Mercury_XU5,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=Mercury_XU5,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=18,numReposBlks=14,numNonXlnxBlks=1,numHierBlks=4,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=3,synth_mode=OOC_per_IP}";
+  attribute hw_handoff : string;
+  attribute hw_handoff of Mercury_XU5 : entity is "Mercury_XU5.hwdef";
 end Mercury_XU5;
 
 architecture STRUCTURE of Mercury_XU5 is
@@ -2642,7 +2642,7 @@ architecture STRUCTURE of Mercury_XU5 is
     M01_AXI_rready : out STD_LOGIC
   );
   end component Mercury_XU5_smartconnect_00_0;
-  component Mercury_XU5_reg_bank_v1_0_0_1 is
+  component Mercury_XU5_reg_bank_0_0 is
   port (
     reg_rw : out STD_LOGIC_VECTOR ( 2047 downto 0 );
     reg_ro : in STD_LOGIC_VECTOR ( 2047 downto 0 );
@@ -2668,7 +2668,7 @@ architecture STRUCTURE of Mercury_XU5 is
     s00_axi_rvalid : out STD_LOGIC;
     s00_axi_rready : in STD_LOGIC
   );
-  end component Mercury_XU5_reg_bank_v1_0_0_1;
+  end component Mercury_XU5_reg_bank_0_0;
   signal ARESETN_1 : STD_LOGIC_VECTOR ( 0 to 0 );
   signal C0_SYS_CLK_1_CLK_N : STD_LOGIC;
   signal C0_SYS_CLK_1_CLK_P : STD_LOGIC;
@@ -2791,7 +2791,8 @@ architecture STRUCTURE of Mercury_XU5 is
   signal led_gpio_io_o : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal ps_sys_rst_interconnect_aresetn : STD_LOGIC_VECTOR ( 0 to 0 );
   signal ps_sys_rst_peripheral_aresetn : STD_LOGIC_VECTOR ( 0 to 0 );
-  signal reg_bank_v1_0_0_reg_rw : STD_LOGIC_VECTOR ( 2047 downto 0 );
+  signal reg_bank_0_reg_rw : STD_LOGIC_VECTOR ( 2047 downto 0 );
+  signal reg_ro_1 : STD_LOGIC_VECTOR ( 2047 downto 0 );
   signal smartconnect_00_M00_AXI_ARADDR : STD_LOGIC_VECTOR ( 12 downto 0 );
   signal smartconnect_00_M00_AXI_ARREADY : STD_LOGIC;
   signal smartconnect_00_M00_AXI_ARVALID : STD_LOGIC;
@@ -2918,62 +2919,66 @@ architecture STRUCTURE of Mercury_XU5 is
   signal NLW_zynq_ultra_ps_e_emio_enet1_tsu_timer_cmp_val_UNCONNECTED : STD_LOGIC;
   signal NLW_zynq_ultra_ps_e_emio_enet0_enet_tsu_timer_cnt_UNCONNECTED : STD_LOGIC_VECTOR ( 93 downto 0 );
   signal NLW_zynq_ultra_ps_e_emio_enet1_dma_bus_width_UNCONNECTED : STD_LOGIC_VECTOR ( 1 downto 0 );
-  attribute X_INTERFACE_INFO : string;
-  attribute X_INTERFACE_INFO of C0_DDR4_act_n : signal is "xilinx.com:interface:ddr4:1.0 C0_DDR4 ACT_N";
-  attribute X_INTERFACE_PARAMETER : string;
-  attribute X_INTERFACE_PARAMETER of C0_DDR4_act_n : signal is "XIL_INTERFACENAME C0_DDR4, AXI_ARBITRATION_SCHEME RD_PRI_REG, BURST_LENGTH 8, CAN_DEBUG false, CAS_LATENCY 16, CAS_WRITE_LATENCY 11, CS_ENABLED true, CUSTOM_PARTS no_file_loaded, DATA_MASK_ENABLED DM_NO_DBI, DATA_WIDTH 16, MEMORY_PART MT40A256M16GE-083E, MEMORY_TYPE Components, MEM_ADDR_MAP ROW_COLUMN_BANK, SLOT Single, TIMEPERIOD_PS 938";
-  attribute X_INTERFACE_INFO of C0_DDR4_reset_n : signal is "xilinx.com:interface:ddr4:1.0 C0_DDR4 RESET_N";
-  attribute X_INTERFACE_INFO of C0_SYS_CLK_clk_n : signal is "xilinx.com:interface:diff_clock:1.0 C0_SYS_CLK CLK_N";
-  attribute X_INTERFACE_PARAMETER of C0_SYS_CLK_clk_n : signal is "XIL_INTERFACENAME C0_SYS_CLK, CAN_DEBUG false, FREQ_HZ 100000000";
-  attribute X_INTERFACE_INFO of C0_SYS_CLK_clk_p : signal is "xilinx.com:interface:diff_clock:1.0 C0_SYS_CLK CLK_P";
-  attribute X_INTERFACE_INFO of Clk100 : signal is "xilinx.com:signal:clock:1.0 CLK.CLK100 CLK";
-  attribute X_INTERFACE_PARAMETER of Clk100 : signal is "XIL_INTERFACENAME CLK.CLK100, CLK_DOMAIN Mercury_XU5_zynq_ultra_ps_e_0_pl_clk0, FREQ_HZ 99999001, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
-  attribute X_INTERFACE_INFO of Clk50 : signal is "xilinx.com:signal:clock:1.0 CLK.CLK50 CLK";
-  attribute X_INTERFACE_PARAMETER of Clk50 : signal is "XIL_INTERFACENAME CLK.CLK50, CLK_DOMAIN Mercury_XU5_zynq_ultra_ps_e_0_pl_clk1, FREQ_HZ 49999500, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
-  attribute X_INTERFACE_INFO of ETH_CLK10 : signal is "xilinx.com:signal:clock:1.0 CLK.ETH_CLK10 CLK";
-  attribute X_INTERFACE_PARAMETER of ETH_CLK10 : signal is "XIL_INTERFACENAME CLK.ETH_CLK10, CLK_DOMAIN Mercury_XU5_clk_wiz_0_0_clk_out1, FREQ_HZ 9999900, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
-  attribute X_INTERFACE_INFO of ETH_CLK125 : signal is "xilinx.com:signal:clock:1.0 CLK.ETH_CLK125 CLK";
-  attribute X_INTERFACE_PARAMETER of ETH_CLK125 : signal is "XIL_INTERFACENAME CLK.ETH_CLK125, CLK_DOMAIN Mercury_XU5_clk_wiz_0_0_clk_out1, FREQ_HZ 124998750, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
-  attribute X_INTERFACE_INFO of ETH_CLK125_90 : signal is "xilinx.com:signal:clock:1.0 CLK.ETH_CLK125_90 CLK";
-  attribute X_INTERFACE_PARAMETER of ETH_CLK125_90 : signal is "XIL_INTERFACENAME CLK.ETH_CLK125_90, CLK_DOMAIN Mercury_XU5_clk_wiz_0_0_clk_out1, FREQ_HZ 124998750, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 90.0";
-  attribute X_INTERFACE_INFO of ETH_CLK25 : signal is "xilinx.com:signal:clock:1.0 CLK.ETH_CLK25 CLK";
-  attribute X_INTERFACE_PARAMETER of ETH_CLK25 : signal is "XIL_INTERFACENAME CLK.ETH_CLK25, CLK_DOMAIN Mercury_XU5_clk_wiz_0_0_clk_out1, FREQ_HZ 24999750, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
-  attribute X_INTERFACE_INFO of GMII_col : signal is "xilinx.com:interface:gmii:1.0 GMII COL";
-  attribute X_INTERFACE_INFO of GMII_crs : signal is "xilinx.com:interface:gmii:1.0 GMII CRS";
-  attribute X_INTERFACE_INFO of GMII_rx_clk : signal is "xilinx.com:interface:gmii:1.0 GMII RX_CLK";
-  attribute X_INTERFACE_INFO of GMII_rx_dv : signal is "xilinx.com:interface:gmii:1.0 GMII RX_DV";
-  attribute X_INTERFACE_INFO of GMII_rx_er : signal is "xilinx.com:interface:gmii:1.0 GMII RX_ER";
-  attribute X_INTERFACE_INFO of GMII_tx_clk : signal is "xilinx.com:interface:gmii:1.0 GMII TX_CLK";
-  attribute X_INTERFACE_INFO of GMII_tx_en : signal is "xilinx.com:interface:gmii:1.0 GMII TX_EN";
-  attribute X_INTERFACE_INFO of GMII_tx_er : signal is "xilinx.com:interface:gmii:1.0 GMII TX_ER";
-  attribute X_INTERFACE_INFO of IIC_scl_i : signal is "xilinx.com:interface:iic:1.0 IIC SCL_I";
-  attribute X_INTERFACE_INFO of IIC_scl_o : signal is "xilinx.com:interface:iic:1.0 IIC SCL_O";
-  attribute X_INTERFACE_INFO of IIC_scl_t : signal is "xilinx.com:interface:iic:1.0 IIC SCL_T";
-  attribute X_INTERFACE_INFO of IIC_sda_i : signal is "xilinx.com:interface:iic:1.0 IIC SDA_I";
-  attribute X_INTERFACE_INFO of IIC_sda_o : signal is "xilinx.com:interface:iic:1.0 IIC SDA_O";
-  attribute X_INTERFACE_INFO of IIC_sda_t : signal is "xilinx.com:interface:iic:1.0 IIC SDA_T";
-  attribute X_INTERFACE_INFO of MDIO_mdc : signal is "xilinx.com:interface:mdio:1.0 MDIO MDC";
-  attribute X_INTERFACE_PARAMETER of MDIO_mdc : signal is "XIL_INTERFACENAME MDIO, CAN_DEBUG false";
-  attribute X_INTERFACE_INFO of MDIO_mdio_i : signal is "xilinx.com:interface:mdio:1.0 MDIO MDIO_I";
-  attribute X_INTERFACE_INFO of MDIO_mdio_o : signal is "xilinx.com:interface:mdio:1.0 MDIO MDIO_O";
-  attribute X_INTERFACE_INFO of MDIO_mdio_t : signal is "xilinx.com:interface:mdio:1.0 MDIO MDIO_T";
-  attribute X_INTERFACE_INFO of Rst_N : signal is "xilinx.com:signal:reset:1.0 RST.RST_N RST";
-  attribute X_INTERFACE_PARAMETER of Rst_N : signal is "XIL_INTERFACENAME RST.RST_N, INSERT_VIP 0, POLARITY ACTIVE_LOW";
-  attribute X_INTERFACE_INFO of C0_DDR4_adr : signal is "xilinx.com:interface:ddr4:1.0 C0_DDR4 ADR";
-  attribute X_INTERFACE_INFO of C0_DDR4_ba : signal is "xilinx.com:interface:ddr4:1.0 C0_DDR4 BA";
-  attribute X_INTERFACE_INFO of C0_DDR4_bg : signal is "xilinx.com:interface:ddr4:1.0 C0_DDR4 BG";
-  attribute X_INTERFACE_INFO of C0_DDR4_ck_c : signal is "xilinx.com:interface:ddr4:1.0 C0_DDR4 CK_C";
-  attribute X_INTERFACE_INFO of C0_DDR4_ck_t : signal is "xilinx.com:interface:ddr4:1.0 C0_DDR4 CK_T";
-  attribute X_INTERFACE_INFO of C0_DDR4_cke : signal is "xilinx.com:interface:ddr4:1.0 C0_DDR4 CKE";
-  attribute X_INTERFACE_INFO of C0_DDR4_cs_n : signal is "xilinx.com:interface:ddr4:1.0 C0_DDR4 CS_N";
-  attribute X_INTERFACE_INFO of C0_DDR4_dm_n : signal is "xilinx.com:interface:ddr4:1.0 C0_DDR4 DM_N";
-  attribute X_INTERFACE_INFO of C0_DDR4_dq : signal is "xilinx.com:interface:ddr4:1.0 C0_DDR4 DQ";
-  attribute X_INTERFACE_INFO of C0_DDR4_dqs_c : signal is "xilinx.com:interface:ddr4:1.0 C0_DDR4 DQS_C";
-  attribute X_INTERFACE_INFO of C0_DDR4_dqs_t : signal is "xilinx.com:interface:ddr4:1.0 C0_DDR4 DQS_T";
-  attribute X_INTERFACE_INFO of C0_DDR4_odt : signal is "xilinx.com:interface:ddr4:1.0 C0_DDR4 ODT";
-  attribute X_INTERFACE_INFO of GMII_rxd : signal is "xilinx.com:interface:gmii:1.0 GMII RXD";
-  attribute X_INTERFACE_INFO of GMII_speed_mode : signal is "xilinx.com:interface:gmii:1.0 GMII SPEED_MODE";
-  attribute X_INTERFACE_INFO of GMII_txd : signal is "xilinx.com:interface:gmii:1.0 GMII TXD";
+  attribute x_interface_info : string;
+  attribute x_interface_info of C0_DDR4_act_n : signal is "xilinx.com:interface:ddr4:1.0 C0_DDR4 ACT_N";
+  attribute x_interface_parameter : string;
+  attribute x_interface_parameter of C0_DDR4_act_n : signal is "XIL_INTERFACENAME C0_DDR4, AXI_ARBITRATION_SCHEME RD_PRI_REG, BURST_LENGTH 8, CAN_DEBUG false, CAS_LATENCY 16, CAS_WRITE_LATENCY 11, CS_ENABLED true, CUSTOM_PARTS no_file_loaded, DATA_MASK_ENABLED DM_NO_DBI, DATA_WIDTH 16, MEMORY_PART MT40A256M16GE-083E, MEMORY_TYPE Components, MEM_ADDR_MAP ROW_COLUMN_BANK, SLOT Single, TIMEPERIOD_PS 938";
+  attribute x_interface_info of C0_DDR4_reset_n : signal is "xilinx.com:interface:ddr4:1.0 C0_DDR4 RESET_N";
+  attribute x_interface_info of C0_SYS_CLK_clk_n : signal is "xilinx.com:interface:diff_clock:1.0 C0_SYS_CLK CLK_N";
+  attribute x_interface_parameter of C0_SYS_CLK_clk_n : signal is "XIL_INTERFACENAME C0_SYS_CLK, CAN_DEBUG false, FREQ_HZ 100000000";
+  attribute x_interface_info of C0_SYS_CLK_clk_p : signal is "xilinx.com:interface:diff_clock:1.0 C0_SYS_CLK CLK_P";
+  attribute x_interface_info of Clk100 : signal is "xilinx.com:signal:clock:1.0 CLK.CLK100 CLK";
+  attribute x_interface_parameter of Clk100 : signal is "XIL_INTERFACENAME CLK.CLK100, CLK_DOMAIN Mercury_XU5_zynq_ultra_ps_e_0_pl_clk0, FREQ_HZ 99999001, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
+  attribute x_interface_info of Clk50 : signal is "xilinx.com:signal:clock:1.0 CLK.CLK50 CLK";
+  attribute x_interface_parameter of Clk50 : signal is "XIL_INTERFACENAME CLK.CLK50, CLK_DOMAIN Mercury_XU5_zynq_ultra_ps_e_0_pl_clk1, FREQ_HZ 49999500, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
+  attribute x_interface_info of ETH_CLK10 : signal is "xilinx.com:signal:clock:1.0 CLK.ETH_CLK10 CLK";
+  attribute x_interface_parameter of ETH_CLK10 : signal is "XIL_INTERFACENAME CLK.ETH_CLK10, CLK_DOMAIN Mercury_XU5_clk_wiz_0_0_clk_out1, FREQ_HZ 9999900, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
+  attribute x_interface_info of ETH_CLK125 : signal is "xilinx.com:signal:clock:1.0 CLK.ETH_CLK125 CLK";
+  attribute x_interface_parameter of ETH_CLK125 : signal is "XIL_INTERFACENAME CLK.ETH_CLK125, CLK_DOMAIN Mercury_XU5_clk_wiz_0_0_clk_out1, FREQ_HZ 124998750, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
+  attribute x_interface_info of ETH_CLK125_90 : signal is "xilinx.com:signal:clock:1.0 CLK.ETH_CLK125_90 CLK";
+  attribute x_interface_parameter of ETH_CLK125_90 : signal is "XIL_INTERFACENAME CLK.ETH_CLK125_90, CLK_DOMAIN Mercury_XU5_clk_wiz_0_0_clk_out1, FREQ_HZ 124998750, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 90.0";
+  attribute x_interface_info of ETH_CLK25 : signal is "xilinx.com:signal:clock:1.0 CLK.ETH_CLK25 CLK";
+  attribute x_interface_parameter of ETH_CLK25 : signal is "XIL_INTERFACENAME CLK.ETH_CLK25, CLK_DOMAIN Mercury_XU5_clk_wiz_0_0_clk_out1, FREQ_HZ 24999750, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
+  attribute x_interface_info of GMII_col : signal is "xilinx.com:interface:gmii:1.0 GMII COL";
+  attribute x_interface_info of GMII_crs : signal is "xilinx.com:interface:gmii:1.0 GMII CRS";
+  attribute x_interface_info of GMII_rx_clk : signal is "xilinx.com:interface:gmii:1.0 GMII RX_CLK";
+  attribute x_interface_info of GMII_rx_dv : signal is "xilinx.com:interface:gmii:1.0 GMII RX_DV";
+  attribute x_interface_info of GMII_rx_er : signal is "xilinx.com:interface:gmii:1.0 GMII RX_ER";
+  attribute x_interface_info of GMII_tx_clk : signal is "xilinx.com:interface:gmii:1.0 GMII TX_CLK";
+  attribute x_interface_info of GMII_tx_en : signal is "xilinx.com:interface:gmii:1.0 GMII TX_EN";
+  attribute x_interface_info of GMII_tx_er : signal is "xilinx.com:interface:gmii:1.0 GMII TX_ER";
+  attribute x_interface_info of IIC_scl_i : signal is "xilinx.com:interface:iic:1.0 IIC SCL_I";
+  attribute x_interface_info of IIC_scl_o : signal is "xilinx.com:interface:iic:1.0 IIC SCL_O";
+  attribute x_interface_info of IIC_scl_t : signal is "xilinx.com:interface:iic:1.0 IIC SCL_T";
+  attribute x_interface_info of IIC_sda_i : signal is "xilinx.com:interface:iic:1.0 IIC SDA_I";
+  attribute x_interface_info of IIC_sda_o : signal is "xilinx.com:interface:iic:1.0 IIC SDA_O";
+  attribute x_interface_info of IIC_sda_t : signal is "xilinx.com:interface:iic:1.0 IIC SDA_T";
+  attribute x_interface_info of MDIO_mdc : signal is "xilinx.com:interface:mdio:1.0 MDIO MDC";
+  attribute x_interface_parameter of MDIO_mdc : signal is "XIL_INTERFACENAME MDIO, CAN_DEBUG false";
+  attribute x_interface_info of MDIO_mdio_i : signal is "xilinx.com:interface:mdio:1.0 MDIO MDIO_I";
+  attribute x_interface_info of MDIO_mdio_o : signal is "xilinx.com:interface:mdio:1.0 MDIO MDIO_O";
+  attribute x_interface_info of MDIO_mdio_t : signal is "xilinx.com:interface:mdio:1.0 MDIO MDIO_T";
+  attribute x_interface_info of Rst_N : signal is "xilinx.com:signal:reset:1.0 RST.RST_N RST";
+  attribute x_interface_parameter of Rst_N : signal is "XIL_INTERFACENAME RST.RST_N, INSERT_VIP 0, POLARITY ACTIVE_LOW";
+  attribute x_interface_info of C0_DDR4_adr : signal is "xilinx.com:interface:ddr4:1.0 C0_DDR4 ADR";
+  attribute x_interface_info of C0_DDR4_ba : signal is "xilinx.com:interface:ddr4:1.0 C0_DDR4 BA";
+  attribute x_interface_info of C0_DDR4_bg : signal is "xilinx.com:interface:ddr4:1.0 C0_DDR4 BG";
+  attribute x_interface_info of C0_DDR4_ck_c : signal is "xilinx.com:interface:ddr4:1.0 C0_DDR4 CK_C";
+  attribute x_interface_info of C0_DDR4_ck_t : signal is "xilinx.com:interface:ddr4:1.0 C0_DDR4 CK_T";
+  attribute x_interface_info of C0_DDR4_cke : signal is "xilinx.com:interface:ddr4:1.0 C0_DDR4 CKE";
+  attribute x_interface_info of C0_DDR4_cs_n : signal is "xilinx.com:interface:ddr4:1.0 C0_DDR4 CS_N";
+  attribute x_interface_info of C0_DDR4_dm_n : signal is "xilinx.com:interface:ddr4:1.0 C0_DDR4 DM_N";
+  attribute x_interface_info of C0_DDR4_dq : signal is "xilinx.com:interface:ddr4:1.0 C0_DDR4 DQ";
+  attribute x_interface_info of C0_DDR4_dqs_c : signal is "xilinx.com:interface:ddr4:1.0 C0_DDR4 DQS_C";
+  attribute x_interface_info of C0_DDR4_dqs_t : signal is "xilinx.com:interface:ddr4:1.0 C0_DDR4 DQS_T";
+  attribute x_interface_info of C0_DDR4_odt : signal is "xilinx.com:interface:ddr4:1.0 C0_DDR4 ODT";
+  attribute x_interface_info of GMII_rxd : signal is "xilinx.com:interface:gmii:1.0 GMII RXD";
+  attribute x_interface_info of GMII_speed_mode : signal is "xilinx.com:interface:gmii:1.0 GMII SPEED_MODE";
+  attribute x_interface_info of GMII_txd : signal is "xilinx.com:interface:gmii:1.0 GMII TXD";
+  attribute x_interface_info of reg_ro : signal is "xilinx.com:signal:data:1.0 DATA.REG_RO DATA";
+  attribute x_interface_parameter of reg_ro : signal is "XIL_INTERFACENAME DATA.REG_RO, LAYERED_METADATA undef";
+  attribute x_interface_info of reg_rw : signal is "xilinx.com:signal:data:1.0 DATA.REG_RW DATA";
+  attribute x_interface_parameter of reg_rw : signal is "XIL_INTERFACENAME DATA.REG_RW, LAYERED_METADATA undef";
 begin
   C0_DDR4_act_n <= ddr4_C0_DDR4_ACT_N;
   C0_DDR4_adr(16 downto 0) <= ddr4_C0_DDR4_ADR(16 downto 0);
@@ -3006,7 +3011,8 @@ begin
   MDIO_mdio_o <= zynq_ultra_ps_e_MDIO_ENET1_MDIO_O;
   MDIO_mdio_t <= zynq_ultra_ps_e_MDIO_ENET1_MDIO_T;
   Rst_N <= zynq_ultra_ps_e_pl_resetn0;
-  reg_rw(2047 downto 0) <= reg_bank_v1_0_0_reg_rw(2047 downto 0);
+  reg_ro_1(2047 downto 0) <= reg_ro(2047 downto 0);
+  reg_rw(2047 downto 0) <= reg_bank_0_reg_rw(2047 downto 0);
   zynq_ultra_ps_e_GMII_ENET1_COL <= GMII_col;
   zynq_ultra_ps_e_GMII_ENET1_CRS <= GMII_crs;
   zynq_ultra_ps_e_GMII_ENET1_RXD(7 downto 0) <= GMII_rxd(7 downto 0);
@@ -3245,10 +3251,10 @@ ps_sys_rst: component Mercury_XU5_ps_sys_rst_0
       peripheral_reset(0) => NLW_ps_sys_rst_peripheral_reset_UNCONNECTED(0),
       slowest_sync_clk => zynq_ultra_ps_e_pl_clk0
     );
-reg_bank_v1_0_0: component Mercury_XU5_reg_bank_v1_0_0_1
+reg_bank_0: component Mercury_XU5_reg_bank_0_0
      port map (
-      reg_ro(2047 downto 0) => reg_ro(2047 downto 0),
-      reg_rw(2047 downto 0) => reg_bank_v1_0_0_reg_rw(2047 downto 0),
+      reg_ro(2047 downto 0) => reg_ro_1(2047 downto 0),
+      reg_rw(2047 downto 0) => reg_bank_0_reg_rw(2047 downto 0),
       s00_axi_aclk => ddr4_c0_ddr4_ui_clk,
       s00_axi_araddr(8 downto 0) => axi_interconnect_0_M01_AXI_ARADDR(8 downto 0),
       s00_axi_aresetn => ddr4_sys_rst_peripheral_aresetn(0),

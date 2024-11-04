@@ -118,7 +118,7 @@ void Mercury_XU5_zynq_ultra_ps_e_0::before_end_of_elaboration()
     M_AXI_HPM0_FPD_transactor_param_props.addLong("NUM_WRITE_OUTSTANDING", "8");
     M_AXI_HPM0_FPD_transactor_param_props.addLong("NUM_READ_OUTSTANDING", "8");
     M_AXI_HPM0_FPD_transactor_param_props.addLong("DATA_WIDTH", "128");
-    M_AXI_HPM0_FPD_transactor_param_props.addLong("FREQ_HZ", "266500000");
+    M_AXI_HPM0_FPD_transactor_param_props.addLong("FREQ_HZ", "99999001");
     M_AXI_HPM0_FPD_transactor_param_props.addLong("ID_WIDTH", "16");
     M_AXI_HPM0_FPD_transactor_param_props.addLong("ADDR_WIDTH", "40");
     M_AXI_HPM0_FPD_transactor_param_props.addLong("AWUSER_WIDTH", "16");
@@ -143,10 +143,10 @@ void Mercury_XU5_zynq_ultra_ps_e_0::before_end_of_elaboration()
     M_AXI_HPM0_FPD_transactor_param_props.addLong("WUSER_BITS_PER_BYTE", "0");
     M_AXI_HPM0_FPD_transactor_param_props.addLong("HAS_SIZE", "1");
     M_AXI_HPM0_FPD_transactor_param_props.addLong("HAS_RESET", "0");
-    M_AXI_HPM0_FPD_transactor_param_props.addFloat("PHASE", "0.00");
+    M_AXI_HPM0_FPD_transactor_param_props.addFloat("PHASE", "0.0");
     M_AXI_HPM0_FPD_transactor_param_props.addString("PROTOCOL", "AXI4");
     M_AXI_HPM0_FPD_transactor_param_props.addString("READ_WRITE_MODE", "READ_WRITE");
-    M_AXI_HPM0_FPD_transactor_param_props.addString("CLK_DOMAIN", "Mercury_XU5_ddr4_0_c0_ddr4_ui_clk");
+    M_AXI_HPM0_FPD_transactor_param_props.addString("CLK_DOMAIN", "Mercury_XU5_zynq_ultra_ps_e_0_pl_clk0");
 
     mp_M_AXI_HPM0_FPD_transactor = new xtlm::xaximm_xtlm2pin_t<128,40,16,16,1,1,16,1>("M_AXI_HPM0_FPD_transactor", M_AXI_HPM0_FPD_transactor_param_props);
 
@@ -366,7 +366,7 @@ void Mercury_XU5_zynq_ultra_ps_e_0::before_end_of_elaboration()
     M_AXI_HPM0_FPD_transactor_param_props.addLong("NUM_WRITE_OUTSTANDING", "8");
     M_AXI_HPM0_FPD_transactor_param_props.addLong("NUM_READ_OUTSTANDING", "8");
     M_AXI_HPM0_FPD_transactor_param_props.addLong("DATA_WIDTH", "128");
-    M_AXI_HPM0_FPD_transactor_param_props.addLong("FREQ_HZ", "266500000");
+    M_AXI_HPM0_FPD_transactor_param_props.addLong("FREQ_HZ", "99999001");
     M_AXI_HPM0_FPD_transactor_param_props.addLong("ID_WIDTH", "16");
     M_AXI_HPM0_FPD_transactor_param_props.addLong("ADDR_WIDTH", "40");
     M_AXI_HPM0_FPD_transactor_param_props.addLong("AWUSER_WIDTH", "16");
@@ -391,10 +391,10 @@ void Mercury_XU5_zynq_ultra_ps_e_0::before_end_of_elaboration()
     M_AXI_HPM0_FPD_transactor_param_props.addLong("WUSER_BITS_PER_BYTE", "0");
     M_AXI_HPM0_FPD_transactor_param_props.addLong("HAS_SIZE", "1");
     M_AXI_HPM0_FPD_transactor_param_props.addLong("HAS_RESET", "0");
-    M_AXI_HPM0_FPD_transactor_param_props.addFloat("PHASE", "0.00");
+    M_AXI_HPM0_FPD_transactor_param_props.addFloat("PHASE", "0.0");
     M_AXI_HPM0_FPD_transactor_param_props.addString("PROTOCOL", "AXI4");
     M_AXI_HPM0_FPD_transactor_param_props.addString("READ_WRITE_MODE", "READ_WRITE");
-    M_AXI_HPM0_FPD_transactor_param_props.addString("CLK_DOMAIN", "Mercury_XU5_ddr4_0_c0_ddr4_ui_clk");
+    M_AXI_HPM0_FPD_transactor_param_props.addString("CLK_DOMAIN", "Mercury_XU5_zynq_ultra_ps_e_0_pl_clk0");
 
     mp_M_AXI_HPM0_FPD_transactor = new xtlm::xaximm_xtlm2pin_t<128,40,16,16,1,1,16,1>("M_AXI_HPM0_FPD_transactor", M_AXI_HPM0_FPD_transactor_param_props);
 
@@ -614,7 +614,7 @@ void Mercury_XU5_zynq_ultra_ps_e_0::before_end_of_elaboration()
     M_AXI_HPM0_FPD_transactor_param_props.addLong("NUM_WRITE_OUTSTANDING", "8");
     M_AXI_HPM0_FPD_transactor_param_props.addLong("NUM_READ_OUTSTANDING", "8");
     M_AXI_HPM0_FPD_transactor_param_props.addLong("DATA_WIDTH", "128");
-    M_AXI_HPM0_FPD_transactor_param_props.addLong("FREQ_HZ", "266500000");
+    M_AXI_HPM0_FPD_transactor_param_props.addLong("FREQ_HZ", "99999001");
     M_AXI_HPM0_FPD_transactor_param_props.addLong("ID_WIDTH", "16");
     M_AXI_HPM0_FPD_transactor_param_props.addLong("ADDR_WIDTH", "40");
     M_AXI_HPM0_FPD_transactor_param_props.addLong("AWUSER_WIDTH", "16");
@@ -639,10 +639,10 @@ void Mercury_XU5_zynq_ultra_ps_e_0::before_end_of_elaboration()
     M_AXI_HPM0_FPD_transactor_param_props.addLong("WUSER_BITS_PER_BYTE", "0");
     M_AXI_HPM0_FPD_transactor_param_props.addLong("HAS_SIZE", "1");
     M_AXI_HPM0_FPD_transactor_param_props.addLong("HAS_RESET", "0");
-    M_AXI_HPM0_FPD_transactor_param_props.addFloat("PHASE", "0.00");
+    M_AXI_HPM0_FPD_transactor_param_props.addFloat("PHASE", "0.0");
     M_AXI_HPM0_FPD_transactor_param_props.addString("PROTOCOL", "AXI4");
     M_AXI_HPM0_FPD_transactor_param_props.addString("READ_WRITE_MODE", "READ_WRITE");
-    M_AXI_HPM0_FPD_transactor_param_props.addString("CLK_DOMAIN", "Mercury_XU5_ddr4_0_c0_ddr4_ui_clk");
+    M_AXI_HPM0_FPD_transactor_param_props.addString("CLK_DOMAIN", "Mercury_XU5_zynq_ultra_ps_e_0_pl_clk0");
 
     mp_M_AXI_HPM0_FPD_transactor = new xtlm::xaximm_xtlm2pin_t<128,40,16,16,1,1,16,1>("M_AXI_HPM0_FPD_transactor", M_AXI_HPM0_FPD_transactor_param_props);
 
@@ -851,7 +851,7 @@ Mercury_XU5_zynq_ultra_ps_e_0::Mercury_XU5_zynq_ultra_ps_e_0(const sc_core::sc_m
     M_AXI_HPM0_FPD_transactor_param_props.addLong("NUM_WRITE_OUTSTANDING", "8");
     M_AXI_HPM0_FPD_transactor_param_props.addLong("NUM_READ_OUTSTANDING", "8");
     M_AXI_HPM0_FPD_transactor_param_props.addLong("DATA_WIDTH", "128");
-    M_AXI_HPM0_FPD_transactor_param_props.addLong("FREQ_HZ", "266500000");
+    M_AXI_HPM0_FPD_transactor_param_props.addLong("FREQ_HZ", "99999001");
     M_AXI_HPM0_FPD_transactor_param_props.addLong("ID_WIDTH", "16");
     M_AXI_HPM0_FPD_transactor_param_props.addLong("ADDR_WIDTH", "40");
     M_AXI_HPM0_FPD_transactor_param_props.addLong("AWUSER_WIDTH", "16");
@@ -876,10 +876,10 @@ Mercury_XU5_zynq_ultra_ps_e_0::Mercury_XU5_zynq_ultra_ps_e_0(const sc_core::sc_m
     M_AXI_HPM0_FPD_transactor_param_props.addLong("WUSER_BITS_PER_BYTE", "0");
     M_AXI_HPM0_FPD_transactor_param_props.addLong("HAS_SIZE", "1");
     M_AXI_HPM0_FPD_transactor_param_props.addLong("HAS_RESET", "0");
-    M_AXI_HPM0_FPD_transactor_param_props.addFloat("PHASE", "0.00");
+    M_AXI_HPM0_FPD_transactor_param_props.addFloat("PHASE", "0.0");
     M_AXI_HPM0_FPD_transactor_param_props.addString("PROTOCOL", "AXI4");
     M_AXI_HPM0_FPD_transactor_param_props.addString("READ_WRITE_MODE", "READ_WRITE");
-    M_AXI_HPM0_FPD_transactor_param_props.addString("CLK_DOMAIN", "Mercury_XU5_ddr4_0_c0_ddr4_ui_clk");
+    M_AXI_HPM0_FPD_transactor_param_props.addString("CLK_DOMAIN", "Mercury_XU5_zynq_ultra_ps_e_0_pl_clk0");
 
     mp_M_AXI_HPM0_FPD_transactor = new xtlm::xaximm_xtlm2pin_t<128,40,16,16,1,1,16,1>("M_AXI_HPM0_FPD_transactor", M_AXI_HPM0_FPD_transactor_param_props);
   mp_M_AXI_HPM0_FPD_transactor->AWID(maxigp0_awid);
@@ -1099,7 +1099,7 @@ Mercury_XU5_zynq_ultra_ps_e_0::Mercury_XU5_zynq_ultra_ps_e_0(const sc_core::sc_m
     M_AXI_HPM0_FPD_transactor_param_props.addLong("NUM_WRITE_OUTSTANDING", "8");
     M_AXI_HPM0_FPD_transactor_param_props.addLong("NUM_READ_OUTSTANDING", "8");
     M_AXI_HPM0_FPD_transactor_param_props.addLong("DATA_WIDTH", "128");
-    M_AXI_HPM0_FPD_transactor_param_props.addLong("FREQ_HZ", "266500000");
+    M_AXI_HPM0_FPD_transactor_param_props.addLong("FREQ_HZ", "99999001");
     M_AXI_HPM0_FPD_transactor_param_props.addLong("ID_WIDTH", "16");
     M_AXI_HPM0_FPD_transactor_param_props.addLong("ADDR_WIDTH", "40");
     M_AXI_HPM0_FPD_transactor_param_props.addLong("AWUSER_WIDTH", "16");
@@ -1124,10 +1124,10 @@ Mercury_XU5_zynq_ultra_ps_e_0::Mercury_XU5_zynq_ultra_ps_e_0(const sc_core::sc_m
     M_AXI_HPM0_FPD_transactor_param_props.addLong("WUSER_BITS_PER_BYTE", "0");
     M_AXI_HPM0_FPD_transactor_param_props.addLong("HAS_SIZE", "1");
     M_AXI_HPM0_FPD_transactor_param_props.addLong("HAS_RESET", "0");
-    M_AXI_HPM0_FPD_transactor_param_props.addFloat("PHASE", "0.00");
+    M_AXI_HPM0_FPD_transactor_param_props.addFloat("PHASE", "0.0");
     M_AXI_HPM0_FPD_transactor_param_props.addString("PROTOCOL", "AXI4");
     M_AXI_HPM0_FPD_transactor_param_props.addString("READ_WRITE_MODE", "READ_WRITE");
-    M_AXI_HPM0_FPD_transactor_param_props.addString("CLK_DOMAIN", "Mercury_XU5_ddr4_0_c0_ddr4_ui_clk");
+    M_AXI_HPM0_FPD_transactor_param_props.addString("CLK_DOMAIN", "Mercury_XU5_zynq_ultra_ps_e_0_pl_clk0");
 
     mp_M_AXI_HPM0_FPD_transactor = new xtlm::xaximm_xtlm2pin_t<128,40,16,16,1,1,16,1>("M_AXI_HPM0_FPD_transactor", M_AXI_HPM0_FPD_transactor_param_props);
   mp_M_AXI_HPM0_FPD_transactor->AWID(maxigp0_awid);

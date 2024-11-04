@@ -228,6 +228,21 @@
 -endlib
 -makelib xcelium_lib/xil_defaultlib \
   "../../../bd/Mercury_XU5/ip/Mercury_XU5_xbar_0/sim/Mercury_XU5_xbar_0.v" \
+-endlib
+-makelib xcelium_lib/axi_protocol_converter_v2_1_27 \
+  "../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/aeb3/hdl/axi_protocol_converter_v2_1_vl_rfs.v" \
+-endlib
+-makelib xcelium_lib/axi_clock_converter_v2_1_26 \
+  "../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/b8be/hdl/axi_clock_converter_v2_1_vl_rfs.v" \
+-endlib
+-makelib xcelium_lib/axi_dwidth_converter_v2_1_27 \
+  "../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/4675/hdl/axi_dwidth_converter_v2_1_vl_rfs.v" \
+-endlib
+-makelib xcelium_lib/xil_defaultlib \
+  "../../../bd/Mercury_XU5/ip/Mercury_XU5_auto_ds_0/sim/Mercury_XU5_auto_ds_0.v" \
+  "../../../bd/Mercury_XU5/ip/Mercury_XU5_auto_pc_0/sim/Mercury_XU5_auto_pc_0.v" \
+  "../../../bd/Mercury_XU5/ip/Mercury_XU5_auto_rs_0/sim/Mercury_XU5_auto_rs_0.v" \
+  "../../../bd/Mercury_XU5/ip/Mercury_XU5_auto_rs_w_0/sim/Mercury_XU5_auto_rs_w_0.v" \
   "../../../bd/Mercury_XU5/ip/Mercury_XU5_clk_wiz_0_0/Mercury_XU5_clk_wiz_0_0_clk_wiz.v" \
   "../../../bd/Mercury_XU5/ip/Mercury_XU5_clk_wiz_0_0/Mercury_XU5_clk_wiz_0_0.v" \
 -endlib
@@ -326,24 +341,9 @@
 -makelib xcelium_lib/xil_defaultlib \
   "../../../bd/Mercury_XU5/ip/Mercury_XU5_smartconnect_00_0/bd_0/sim/bd_3ad7.v" \
   "../../../bd/Mercury_XU5/ip/Mercury_XU5_smartconnect_00_0/sim/Mercury_XU5_smartconnect_00_0.v" \
--endlib
--makelib xcelium_lib/xil_defaultlib \
-  "../../../bd/Mercury_XU5/ip/Mercury_XU5_reg_bank_v1_0_0_1/sim/Mercury_XU5_reg_bank_v1_0_0_1.vhd" \
--endlib
--makelib xcelium_lib/axi_protocol_converter_v2_1_27 \
-  "../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/aeb3/hdl/axi_protocol_converter_v2_1_vl_rfs.v" \
--endlib
--makelib xcelium_lib/axi_clock_converter_v2_1_26 \
-  "../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/b8be/hdl/axi_clock_converter_v2_1_vl_rfs.v" \
--endlib
--makelib xcelium_lib/axi_dwidth_converter_v2_1_27 \
-  "../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/4675/hdl/axi_dwidth_converter_v2_1_vl_rfs.v" \
--endlib
--makelib xcelium_lib/xil_defaultlib \
-  "../../../bd/Mercury_XU5/ip/Mercury_XU5_auto_ds_0/sim/Mercury_XU5_auto_ds_0.v" \
-  "../../../bd/Mercury_XU5/ip/Mercury_XU5_auto_pc_0/sim/Mercury_XU5_auto_pc_0.v" \
-  "../../../bd/Mercury_XU5/ip/Mercury_XU5_auto_rs_0/sim/Mercury_XU5_auto_rs_0.v" \
-  "../../../bd/Mercury_XU5/ip/Mercury_XU5_auto_rs_w_0/sim/Mercury_XU5_auto_rs_w_0.v" \
+  "../../../bd/Mercury_XU5/ipshared/3b94/hdl/reg_bank_v1_0_S00_AXI.v" \
+  "../../../bd/Mercury_XU5/ipshared/3b94/hdl/reg_bank_v1_0.v" \
+  "../../../bd/Mercury_XU5/ip/Mercury_XU5_reg_bank_0_0/sim/Mercury_XU5_reg_bank_0_0.v" \
 -endlib
 -makelib xcelium_lib/xil_defaultlib \
   "../../../bd/Mercury_XU5/sim/Mercury_XU5.vhd" \

@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xczu2eg-sfvc784-1-i" LaunchTime="1730083548" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/Mercury_XU5_PE1.dcp">
+<GenRun Id="synth_1" LaunchPart="xczu2eg-sfvc784-1-i" LaunchTime="1730717430" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/Mercury_XU5_PE1.dcp">
+  <File Type="VDS-TIMINGSUMMARY" Name="Mercury_XU5_PE1_timing_summary_synth.rpt"/>
   <File Type="RDS-DCP" Name="Mercury_XU5_PE1.dcp"/>
   <File Type="RDS-UTIL-PB" Name="Mercury_XU5_PE1_utilization_synth.pb"/>
-  <File Type="PA-TCL" Name="Mercury_XU5_PE1.tcl"/>
   <File Type="RDS-UTIL" Name="Mercury_XU5_PE1_utilization_synth.rpt"/>
-  <File Type="REPORTS-TCL" Name="Mercury_XU5_PE1_reports.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="Mercury_XU5_PE1_drc_synth.rpt"/>
   <File Type="RDS-RDS" Name="Mercury_XU5_PE1.vds"/>
+  <File Type="REPORTS-TCL" Name="Mercury_XU5_PE1_reports.tcl"/>
+  <File Type="VDS-TIMING-PB" Name="Mercury_XU5_PE1_timing_summary_synth.pb"/>
+  <File Type="PA-TCL" Name="Mercury_XU5_PE1.tcl"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/imports/src/Mercury_XU5_gmii2rgmii.edn">
@@ -102,5 +105,8 @@
     <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022"/>
     <Step Id="synth_design" PreStepTclHook="$PSRCDIR/utils_1/imports/scripts/settings.tcl"/>
   </Strategy>
+  <BlockFileSet Type="BlockSrcs" Name="Mercury_XU5_auto_cc_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="Mercury_XU5_zynq_ultra_ps_e_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="Mercury_XU5_smartconnect_00_0"/>
   <BlockFileSet Type="BlockSrcs" Name="Mercury_XU5_reg_bank_0_0"/>
 </GenRun>

@@ -1,7 +1,7 @@
 --Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
---Date        : Sun Oct 27 19:45:40 2024
+--Date        : Mon Nov  4 02:15:29 2024
 --Host        : yoga716 running 64-bit Ubuntu 22.04.4 LTS
 --Command     : generate_target Mercury_XU5_wrapper.bd
 --Design      : Mercury_XU5_wrapper
@@ -107,8 +107,8 @@ architecture STRUCTURE of Mercury_XU5_wrapper is
     Clk50 : out STD_LOGIC;
     Rst_N : out STD_LOGIC;
     LED_N_PL : out STD_LOGIC_VECTOR ( 1 downto 0 );
-    reg_rw : out STD_LOGIC_VECTOR ( 2047 downto 0 );
-    reg_ro : in STD_LOGIC_VECTOR ( 2047 downto 0 )
+    reg_ro : in STD_LOGIC_VECTOR ( 2047 downto 0 );
+    reg_rw : out STD_LOGIC_VECTOR ( 2047 downto 0 )
   );
   end component Mercury_XU5;
   component IOBUF is

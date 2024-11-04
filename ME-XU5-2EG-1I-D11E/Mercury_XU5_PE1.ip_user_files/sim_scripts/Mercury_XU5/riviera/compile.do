@@ -22,11 +22,11 @@ vlib riviera/axi_register_slice_v2_1_27
 vlib riviera/fifo_generator_v13_2_7
 vlib riviera/axi_data_fifo_v2_1_26
 vlib riviera/axi_crossbar_v2_1_28
-vlib riviera/xlconstant_v1_1_7
-vlib riviera/smartconnect_v1_0
 vlib riviera/axi_protocol_converter_v2_1_27
 vlib riviera/axi_clock_converter_v2_1_26
 vlib riviera/axi_dwidth_converter_v2_1_27
+vlib riviera/xlconstant_v1_1_7
+vlib riviera/smartconnect_v1_0
 
 vmap xilinx_vip riviera/xilinx_vip
 vmap xpm riviera/xpm
@@ -49,11 +49,11 @@ vmap axi_register_slice_v2_1_27 riviera/axi_register_slice_v2_1_27
 vmap fifo_generator_v13_2_7 riviera/fifo_generator_v13_2_7
 vmap axi_data_fifo_v2_1_26 riviera/axi_data_fifo_v2_1_26
 vmap axi_crossbar_v2_1_28 riviera/axi_crossbar_v2_1_28
-vmap xlconstant_v1_1_7 riviera/xlconstant_v1_1_7
-vmap smartconnect_v1_0 riviera/smartconnect_v1_0
 vmap axi_protocol_converter_v2_1_27 riviera/axi_protocol_converter_v2_1_27
 vmap axi_clock_converter_v2_1_26 riviera/axi_clock_converter_v2_1_26
 vmap axi_dwidth_converter_v2_1_27 riviera/axi_dwidth_converter_v2_1_27
+vmap xlconstant_v1_1_7 riviera/xlconstant_v1_1_7
+vmap smartconnect_v1_0 riviera/smartconnect_v1_0
 
 vlog -work xilinx_vip  -sv2k12 "+incdir+/home/wto/Programs/Vivado/2022.2/data/xilinx_vip/include" \
 "/home/wto/Programs/Vivado/2022.2/data/xilinx_vip/hdl/axi4stream_vip_axi4streampc.sv" \
@@ -285,6 +285,21 @@ vlog -work axi_crossbar_v2_1_28  -v2k5 "+incdir+../../../../Mercury_XU5_PE1.gen/
 
 vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/ec67/hdl" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/abef/hdl" "+incdir+../../../bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/ip_1/rtl/map" "+incdir+../../../bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/rtl/ip_top" "+incdir+../../../bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/rtl/cal" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/7698" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/f0b6/hdl/verilog" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/66be/hdl/verilog" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/ip_1/rtl/map" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/rtl/ip_top" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/rtl/cal" "+incdir+/home/wto/Programs/Vivado/2022.2/data/xilinx_vip/include" \
 "../../../bd/Mercury_XU5/ip/Mercury_XU5_xbar_0/sim/Mercury_XU5_xbar_0.v" \
+
+vlog -work axi_protocol_converter_v2_1_27  -v2k5 "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/ec67/hdl" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/abef/hdl" "+incdir+../../../bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/ip_1/rtl/map" "+incdir+../../../bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/rtl/ip_top" "+incdir+../../../bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/rtl/cal" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/7698" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/f0b6/hdl/verilog" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/66be/hdl/verilog" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/ip_1/rtl/map" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/rtl/ip_top" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/rtl/cal" "+incdir+/home/wto/Programs/Vivado/2022.2/data/xilinx_vip/include" \
+"../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/aeb3/hdl/axi_protocol_converter_v2_1_vl_rfs.v" \
+
+vlog -work axi_clock_converter_v2_1_26  -v2k5 "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/ec67/hdl" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/abef/hdl" "+incdir+../../../bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/ip_1/rtl/map" "+incdir+../../../bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/rtl/ip_top" "+incdir+../../../bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/rtl/cal" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/7698" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/f0b6/hdl/verilog" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/66be/hdl/verilog" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/ip_1/rtl/map" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/rtl/ip_top" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/rtl/cal" "+incdir+/home/wto/Programs/Vivado/2022.2/data/xilinx_vip/include" \
+"../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/b8be/hdl/axi_clock_converter_v2_1_vl_rfs.v" \
+
+vlog -work axi_dwidth_converter_v2_1_27  -v2k5 "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/ec67/hdl" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/abef/hdl" "+incdir+../../../bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/ip_1/rtl/map" "+incdir+../../../bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/rtl/ip_top" "+incdir+../../../bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/rtl/cal" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/7698" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/f0b6/hdl/verilog" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/66be/hdl/verilog" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/ip_1/rtl/map" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/rtl/ip_top" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/rtl/cal" "+incdir+/home/wto/Programs/Vivado/2022.2/data/xilinx_vip/include" \
+"../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/4675/hdl/axi_dwidth_converter_v2_1_vl_rfs.v" \
+
+vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/ec67/hdl" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/abef/hdl" "+incdir+../../../bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/ip_1/rtl/map" "+incdir+../../../bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/rtl/ip_top" "+incdir+../../../bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/rtl/cal" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/7698" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/f0b6/hdl/verilog" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/66be/hdl/verilog" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/ip_1/rtl/map" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/rtl/ip_top" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/rtl/cal" "+incdir+/home/wto/Programs/Vivado/2022.2/data/xilinx_vip/include" \
+"../../../bd/Mercury_XU5/ip/Mercury_XU5_auto_ds_0/sim/Mercury_XU5_auto_ds_0.v" \
+"../../../bd/Mercury_XU5/ip/Mercury_XU5_auto_pc_0/sim/Mercury_XU5_auto_pc_0.v" \
+"../../../bd/Mercury_XU5/ip/Mercury_XU5_auto_rs_0/sim/Mercury_XU5_auto_rs_0.v" \
+"../../../bd/Mercury_XU5/ip/Mercury_XU5_auto_rs_w_0/sim/Mercury_XU5_auto_rs_w_0.v" \
 "../../../bd/Mercury_XU5/ip/Mercury_XU5_clk_wiz_0_0/Mercury_XU5_clk_wiz_0_0_clk_wiz.v" \
 "../../../bd/Mercury_XU5/ip/Mercury_XU5_clk_wiz_0_0/Mercury_XU5_clk_wiz_0_0.v" \
 
@@ -383,24 +398,9 @@ vlog -work xil_defaultlib  -sv2k12 "+incdir+../../../../Mercury_XU5_PE1.gen/sour
 vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/ec67/hdl" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/abef/hdl" "+incdir+../../../bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/ip_1/rtl/map" "+incdir+../../../bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/rtl/ip_top" "+incdir+../../../bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/rtl/cal" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/7698" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/f0b6/hdl/verilog" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/66be/hdl/verilog" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/ip_1/rtl/map" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/rtl/ip_top" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/rtl/cal" "+incdir+/home/wto/Programs/Vivado/2022.2/data/xilinx_vip/include" \
 "../../../bd/Mercury_XU5/ip/Mercury_XU5_smartconnect_00_0/bd_0/sim/bd_3ad7.v" \
 "../../../bd/Mercury_XU5/ip/Mercury_XU5_smartconnect_00_0/sim/Mercury_XU5_smartconnect_00_0.v" \
-
-vcom -work xil_defaultlib -93  \
-"../../../bd/Mercury_XU5/ip/Mercury_XU5_reg_bank_v1_0_0_1/sim/Mercury_XU5_reg_bank_v1_0_0_1.vhd" \
-
-vlog -work axi_protocol_converter_v2_1_27  -v2k5 "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/ec67/hdl" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/abef/hdl" "+incdir+../../../bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/ip_1/rtl/map" "+incdir+../../../bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/rtl/ip_top" "+incdir+../../../bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/rtl/cal" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/7698" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/f0b6/hdl/verilog" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/66be/hdl/verilog" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/ip_1/rtl/map" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/rtl/ip_top" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/rtl/cal" "+incdir+/home/wto/Programs/Vivado/2022.2/data/xilinx_vip/include" \
-"../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/aeb3/hdl/axi_protocol_converter_v2_1_vl_rfs.v" \
-
-vlog -work axi_clock_converter_v2_1_26  -v2k5 "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/ec67/hdl" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/abef/hdl" "+incdir+../../../bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/ip_1/rtl/map" "+incdir+../../../bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/rtl/ip_top" "+incdir+../../../bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/rtl/cal" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/7698" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/f0b6/hdl/verilog" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/66be/hdl/verilog" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/ip_1/rtl/map" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/rtl/ip_top" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/rtl/cal" "+incdir+/home/wto/Programs/Vivado/2022.2/data/xilinx_vip/include" \
-"../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/b8be/hdl/axi_clock_converter_v2_1_vl_rfs.v" \
-
-vlog -work axi_dwidth_converter_v2_1_27  -v2k5 "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/ec67/hdl" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/abef/hdl" "+incdir+../../../bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/ip_1/rtl/map" "+incdir+../../../bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/rtl/ip_top" "+incdir+../../../bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/rtl/cal" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/7698" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/f0b6/hdl/verilog" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/66be/hdl/verilog" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/ip_1/rtl/map" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/rtl/ip_top" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/rtl/cal" "+incdir+/home/wto/Programs/Vivado/2022.2/data/xilinx_vip/include" \
-"../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/4675/hdl/axi_dwidth_converter_v2_1_vl_rfs.v" \
-
-vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/ec67/hdl" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/abef/hdl" "+incdir+../../../bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/ip_1/rtl/map" "+incdir+../../../bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/rtl/ip_top" "+incdir+../../../bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/rtl/cal" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/7698" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/f0b6/hdl/verilog" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/66be/hdl/verilog" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/ip_1/rtl/map" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/rtl/ip_top" "+incdir+../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/rtl/cal" "+incdir+/home/wto/Programs/Vivado/2022.2/data/xilinx_vip/include" \
-"../../../bd/Mercury_XU5/ip/Mercury_XU5_auto_ds_0/sim/Mercury_XU5_auto_ds_0.v" \
-"../../../bd/Mercury_XU5/ip/Mercury_XU5_auto_pc_0/sim/Mercury_XU5_auto_pc_0.v" \
-"../../../bd/Mercury_XU5/ip/Mercury_XU5_auto_rs_0/sim/Mercury_XU5_auto_rs_0.v" \
-"../../../bd/Mercury_XU5/ip/Mercury_XU5_auto_rs_w_0/sim/Mercury_XU5_auto_rs_w_0.v" \
+"../../../bd/Mercury_XU5/ipshared/3b94/hdl/reg_bank_v1_0_S00_AXI.v" \
+"../../../bd/Mercury_XU5/ipshared/3b94/hdl/reg_bank_v1_0.v" \
+"../../../bd/Mercury_XU5/ip/Mercury_XU5_reg_bank_0_0/sim/Mercury_XU5_reg_bank_0_0.v" \
 
 vcom -work xil_defaultlib -93  \
 "../../../bd/Mercury_XU5/sim/Mercury_XU5.vhd" \

@@ -754,6 +754,9 @@ begin
   --LED2_N_PL <= '0' when LedCount(LedCount'high) = '0' else 'Z';
   -- LED2_N_PL <= '0' when LED_N_PL(0) = '0' else 'Z';
   -- LED3_N_PL <= '0' when LED_N_PL(1) = '0' else 'Z';
+  --reg_ro(31 downto 0) <= x"DACECAFE";
+  --reg_ro(63 downto 32) <= x"DACECAFE";
+  
   
   MDIO_mdio_iobuf: component IOBUF
     port map (

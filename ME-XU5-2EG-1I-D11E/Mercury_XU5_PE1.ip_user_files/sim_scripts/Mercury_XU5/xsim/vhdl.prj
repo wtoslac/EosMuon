@@ -29,7 +29,6 @@ vhdl xil_defaultlib  \
 "../../../bd/Mercury_XU5/ip/Mercury_XU5_ps_sys_rst_0/sim/Mercury_XU5_ps_sys_rst_0.vhd" \
 "../../../bd/Mercury_XU5/ip/Mercury_XU5_ddr4_sys_rst_0/sim/Mercury_XU5_ddr4_sys_rst_0.vhd" \
 "../../../bd/Mercury_XU5/ip/Mercury_XU5_smartconnect_00_0/bd_0/ip/ip_1/sim/bd_3ad7_psr_aclk_0.vhd" \
-"../../../bd/Mercury_XU5/ip/Mercury_XU5_reg_bank_v1_0_0_1/sim/Mercury_XU5_reg_bank_v1_0_0_1.vhd" \
 "../../../bd/Mercury_XU5/sim/Mercury_XU5.vhd" \
 
 nosort
