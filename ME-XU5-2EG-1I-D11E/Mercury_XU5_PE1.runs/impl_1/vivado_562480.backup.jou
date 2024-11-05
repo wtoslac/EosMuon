@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vivado v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Mon Nov  4 18:42:57 2024
+# Process ID: 562480
+# Current directory: /home/wto/Eos/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/impl_1
+# Command line: vivado -log Mercury_XU5_PE1.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source Mercury_XU5_PE1.tcl -notrace
+# Log file: /home/wto/Eos/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/impl_1/Mercury_XU5_PE1.vdi
+# Journal file: /home/wto/Eos/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/impl_1/vivado.jou
+# Running On: yoga716, OS: Linux, CPU Frequency: 2694.859 MHz, CPU Physical cores: 12, Host memory: 14332 MB
+#-----------------------------------------------------------
+source Mercury_XU5_PE1.tcl -notrace
