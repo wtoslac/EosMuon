@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
-| Date         : Mon Nov  4 02:17:53 2024
+| Date         : Mon Nov  4 08:30:15 2024
 | Host         : yoga716 running 64-bit Ubuntu 22.04.4 LTS
 | Command      : report_utilization -file Mercury_XU5_smartconnect_00_0_utilization_synth.rpt -pb Mercury_XU5_smartconnect_00_0_utilization_synth.pb
 | Design       : Mercury_XU5_smartconnect_00_0
@@ -32,13 +32,13 @@ Table of Contents
 +----------------------------+------+-------+------------+-----------+-------+
 |          Site Type         | Used | Fixed | Prohibited | Available | Util% |
 +----------------------------+------+-------+------------+-----------+-------+
-| CLB LUTs*                  |  697 |     0 |          0 |     47232 |  1.48 |
-|   LUT as Logic             |  696 |     0 |          0 |     47232 |  1.47 |
+| CLB LUTs*                  |  611 |     0 |          0 |     47232 |  1.29 |
+|   LUT as Logic             |  610 |     0 |          0 |     47232 |  1.29 |
 |   LUT as Memory            |    1 |     0 |          0 |     28800 | <0.01 |
 |     LUT as Distributed RAM |    0 |     0 |            |           |       |
 |     LUT as Shift Register  |    1 |     0 |            |           |       |
-| CLB Registers              |  901 |     0 |          0 |     94464 |  0.95 |
-|   Register as Flip Flop    |  901 |     0 |          0 |     94464 |  0.95 |
+| CLB Registers              |  831 |     0 |          0 |     94464 |  0.88 |
+|   Register as Flip Flop    |  831 |     0 |          0 |     94464 |  0.88 |
 |   Register as Latch        |    0 |     0 |          0 |     94464 |  0.00 |
 | CARRY8                     |    0 |     0 |          0 |      8820 |  0.00 |
 | F7 Muxes                   |    0 |     0 |          0 |     35280 |  0.00 |
@@ -62,9 +62,9 @@ Warning! LUT value is adjusted to account for LUT combining.
 | 0     |            _ |       Reset |            - |
 | 0     |          Yes |           - |            - |
 | 0     |          Yes |           - |          Set |
-| 168   |          Yes |           - |        Reset |
-| 42    |          Yes |         Set |            - |
-| 691   |          Yes |       Reset |            - |
+| 135   |          Yes |           - |        Reset |
+| 35    |          Yes |         Set |            - |
+| 661   |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -151,15 +151,15 @@ Warning! LUT value is adjusted to account for LUT combining.
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| FDRE     |  691 |            Register |
-| LUT3     |  191 |                 CLB |
-| FDCE     |  168 |            Register |
-| LUT6     |  165 |                 CLB |
-| LUT1     |  162 |                 CLB |
-| LUT2     |  133 |                 CLB |
-| LUT5     |  109 |                 CLB |
-| LUT4     |  105 |                 CLB |
-| FDSE     |   42 |            Register |
+| FDRE     |  661 |            Register |
+| LUT3     |  210 |                 CLB |
+| FDCE     |  135 |            Register |
+| LUT6     |  130 |                 CLB |
+| LUT1     |  130 |                 CLB |
+| LUT2     |  121 |                 CLB |
+| LUT4     |  115 |                 CLB |
+| LUT5     |   78 |                 CLB |
+| FDSE     |   35 |            Register |
 | SRL16E   |    1 |                 CLB |
 +----------+------+---------------------+
 

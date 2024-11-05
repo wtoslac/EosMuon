@@ -1,8 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------
-| Tool Version : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date         : Mon Oct 21 17:13:01 2024
-| Host         : yoga716 running 64-bit major release  (build 9200)
+| Tool Version : Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
+| Date         : Mon Nov  4 08:30:02 2024
+| Host         : yoga716 running 64-bit Ubuntu 22.04.4 LTS
 | Command      : report_utilization -file Mercury_XU5_auto_ds_0_utilization_synth.rpt -pb Mercury_XU5_auto_ds_0_utilization_synth.pb
 | Design       : Mercury_XU5_auto_ds_0
 | Device       : xczu2eg-sfvc784-1-i
@@ -32,8 +32,8 @@ Table of Contents
 +----------------------------+------+-------+------------+-----------+-------+
 |          Site Type         | Used | Fixed | Prohibited | Available | Util% |
 +----------------------------+------+-------+------------+-----------+-------+
-| CLB LUTs*                  |  868 |     0 |          0 |     47232 |  1.84 |
-|   LUT as Logic             |  824 |     0 |          0 |     47232 |  1.74 |
+| CLB LUTs*                  |  864 |     0 |          0 |     47232 |  1.83 |
+|   LUT as Logic             |  820 |     0 |          0 |     47232 |  1.74 |
 |   LUT as Memory            |   44 |     0 |          0 |     28800 |  0.15 |
 |     LUT as Distributed RAM |   44 |     0 |            |           |       |
 |     LUT as Shift Register  |    0 |     0 |            |           |       |

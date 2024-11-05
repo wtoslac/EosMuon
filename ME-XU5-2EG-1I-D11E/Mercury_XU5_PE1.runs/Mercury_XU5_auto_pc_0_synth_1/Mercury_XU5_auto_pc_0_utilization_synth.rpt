@@ -1,8 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------
-| Tool Version : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date         : Mon Oct 21 17:12:47 2024
-| Host         : yoga716 running 64-bit major release  (build 9200)
+| Tool Version : Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
+| Date         : Mon Nov  4 08:29:51 2024
+| Host         : yoga716 running 64-bit Ubuntu 22.04.4 LTS
 | Command      : report_utilization -file Mercury_XU5_auto_pc_0_utilization_synth.rpt -pb Mercury_XU5_auto_pc_0_utilization_synth.pb
 | Design       : Mercury_XU5_auto_pc_0
 | Device       : xczu2eg-sfvc784-1-i

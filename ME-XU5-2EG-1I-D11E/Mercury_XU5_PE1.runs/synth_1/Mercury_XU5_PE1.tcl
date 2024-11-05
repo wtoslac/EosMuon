@@ -70,7 +70,7 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param chipscope.maxJobs 2
+set_param chipscope.maxJobs 3
 set_msg_config  -id {[BD 41-1306]}  -suppress 
 set_msg_config  -id {[BD 41-1306]}  -suppress 
 set_msg_config  -id {[BD 41-1271]}  -suppress 
@@ -145,6 +145,18 @@ set_property used_in_implementation false [get_files -all /home/wto/Eos/ME-XU5-2
 set_property used_in_implementation false [get_files -all /home/wto/Eos/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/ip_0/Mercury_XU5_ddr4_0_microblaze_mcs_ooc.xdc]
 set_property used_in_implementation false [get_files -all /home/wto/Eos/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/Mercury_XU5_ddr4_0_board.xdc]
 set_property used_in_implementation false [get_files -all /home/wto/Eos/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/par/Mercury_XU5_ddr4_0.xdc]
+set_property used_in_implementation false [get_files -all /home/wto/Eos/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_xbar_0/Mercury_XU5_xbar_0_ooc.xdc]
+set_property used_in_synthesis false [get_files -all /home/wto/Eos/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_auto_cc_0/Mercury_XU5_auto_cc_0_clocks.xdc]
+set_property used_in_implementation false [get_files -all /home/wto/Eos/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_auto_cc_0/Mercury_XU5_auto_cc_0_clocks.xdc]
+set_property used_in_implementation false [get_files -all /home/wto/Eos/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_auto_cc_0/Mercury_XU5_auto_cc_0_ooc.xdc]
+set_property used_in_synthesis false [get_files -all /home/wto/Eos/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_auto_ds_0/Mercury_XU5_auto_ds_0_clocks.xdc]
+set_property used_in_implementation false [get_files -all /home/wto/Eos/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_auto_ds_0/Mercury_XU5_auto_ds_0_clocks.xdc]
+set_property used_in_implementation false [get_files -all /home/wto/Eos/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_auto_ds_0/Mercury_XU5_auto_ds_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all /home/wto/Eos/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_auto_pc_0/Mercury_XU5_auto_pc_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all /home/wto/Eos/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_auto_rs_0/Mercury_XU5_auto_rs_0_clocks.xdc]
+set_property used_in_implementation false [get_files -all /home/wto/Eos/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_auto_rs_0/Mercury_XU5_auto_rs_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all /home/wto/Eos/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_auto_rs_w_0/Mercury_XU5_auto_rs_w_0_clocks.xdc]
+set_property used_in_implementation false [get_files -all /home/wto/Eos/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_auto_rs_w_0/Mercury_XU5_auto_rs_w_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all /home/wto/Eos/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_clk_wiz_0_0/Mercury_XU5_clk_wiz_0_0_board.xdc]
 set_property used_in_implementation false [get_files -all /home/wto/Eos/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_clk_wiz_0_0/Mercury_XU5_clk_wiz_0_0.xdc]
 set_property used_in_implementation false [get_files -all /home/wto/Eos/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_clk_wiz_0_0/Mercury_XU5_clk_wiz_0_0_ooc.xdc]
@@ -189,16 +201,7 @@ set_property used_in_implementation false [get_files -all /home/wto/Eos/ME-XU5-2
 set_property used_in_implementation false [get_files -all /home/wto/Eos/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_smartconnect_00_0/bd_0/ip/ip_36/bd_3ad7_m01awn_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all /home/wto/Eos/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_smartconnect_00_0/bd_0/ip/ip_37/bd_3ad7_m01wn_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all /home/wto/Eos/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_smartconnect_00_0/bd_0/ip/ip_38/bd_3ad7_m01bn_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/wto/Eos/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_smartconnect_00_0/bd_0/ip/ip_40/bd_3ad7_m02s2a_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/wto/Eos/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_smartconnect_00_0/bd_0/ip/ip_41/bd_3ad7_m02arn_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/wto/Eos/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_smartconnect_00_0/bd_0/ip/ip_42/bd_3ad7_m02rn_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/wto/Eos/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_smartconnect_00_0/bd_0/ip/ip_43/bd_3ad7_m02awn_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/wto/Eos/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_smartconnect_00_0/bd_0/ip/ip_44/bd_3ad7_m02wn_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/wto/Eos/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_smartconnect_00_0/bd_0/ip/ip_45/bd_3ad7_m02bn_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all /home/wto/Eos/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_smartconnect_00_0/ooc.xdc]
-set_property used_in_synthesis false [get_files -all /home/wto/Eos/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_auto_cc_0/Mercury_XU5_auto_cc_0_clocks.xdc]
-set_property used_in_implementation false [get_files -all /home/wto/Eos/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_auto_cc_0/Mercury_XU5_auto_cc_0_clocks.xdc]
-set_property used_in_implementation false [get_files -all /home/wto/Eos/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_auto_cc_0/Mercury_XU5_auto_cc_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all /home/wto/Eos/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/Mercury_XU5_ooc.xdc]
 set_property used_in_implementation false [get_files -all /home/wto/Eos/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/bd_0/ip/ip_0/data/mb_bootloop_le.elf]
 set_property used_in_implementation false [get_files -all /home/wto/Eos/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/ip_0/mb_bootloop_le.elf]

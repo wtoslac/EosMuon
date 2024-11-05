@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
-| Date         : Mon Nov  4 02:51:20 2024
+| Date         : Mon Nov  4 17:15:00 2024
 | Host         : yoga716 running 64-bit Ubuntu 22.04.4 LTS
 | Command      : report_utilization -file Mercury_XU5_PE1_utilization_synth.rpt -pb Mercury_XU5_PE1_utilization_synth.pb
 | Design       : Mercury_XU5_PE1
@@ -37,8 +37,8 @@ Table of Contents
 |   LUT as Memory            |   16 |     0 |          0 |     28800 |  0.06 |
 |     LUT as Distributed RAM |   16 |     0 |            |           |       |
 |     LUT as Shift Register  |    0 |     0 |            |           |       |
-| CLB Registers              |  204 |     0 |          0 |     94464 |  0.22 |
-|   Register as Flip Flop    |  204 |     0 |          0 |     94464 |  0.22 |
+| CLB Registers              |  209 |     0 |          0 |     94464 |  0.22 |
+|   Register as Flip Flop    |  209 |     0 |          0 |     94464 |  0.22 |
 |   Register as Latch        |    0 |     0 |          0 |     94464 |  0.00 |
 | CARRY8                     |    4 |     0 |          0 |      8820 |  0.05 |
 | F7 Muxes                   |    0 |     0 |          0 |     35280 |  0.00 |
@@ -64,7 +64,7 @@ Warning! LUT value is adjusted to account for LUT combining.
 | 20    |          Yes |           - |          Set |
 | 0     |          Yes |           - |        Reset |
 | 2     |          Yes |         Set |            - |
-| 182   |          Yes |       Reset |            - |
+| 187   |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -97,7 +97,7 @@ Warning! LUT value is adjusted to account for LUT combining.
 +------------+------+-------+------------+-----------+-------+
 |  Site Type | Used | Fixed | Prohibited | Available | Util% |
 +------------+------+-------+------------+-----------+-------+
-| Bonded IOB |   20 |     0 |          0 |       252 |  7.94 |
+| Bonded IOB |   28 |     0 |          0 |       252 | 11.11 |
 +------------+------+-------+------------+-----------+-------+
 
 
@@ -151,15 +151,15 @@ Warning! LUT value is adjusted to account for LUT combining.
 +------------+------+---------------------+
 |  Ref Name  | Used | Functional Category |
 +------------+------+---------------------+
-| FDRE       |  182 |            Register |
+| FDRE       |  187 |            Register |
 | LUT6       |   40 |                 CLB |
 | LUT3       |   28 |                 CLB |
 | LUT4       |   26 |                 CLB |
 | LUT2       |   21 |                 CLB |
 | FDPE       |   20 |            Register |
+| OBUF       |   19 |                 I/O |
 | LUT5       |   17 |                 CLB |
 | RAMD64E    |   16 |                 CLB |
-| OBUF       |   11 |                 I/O |
 | LUT1       |    9 |                 CLB |
 | INBUF      |    9 |                 I/O |
 | IBUFCTRL   |    9 |              Others |
@@ -181,6 +181,7 @@ Warning! LUT value is adjusted to account for LUT combining.
 |               Ref Name              | Used |
 +-------------------------------------+------+
 | Mercury_XU5_zynq_ultra_ps_e_0       |    1 |
+| Mercury_XU5_xbar_0                  |    1 |
 | Mercury_XU5_system_management_wiz_0 |    1 |
 | Mercury_XU5_smartconnect_00_0       |    1 |
 | Mercury_XU5_reg_bank_0_0            |    1 |
@@ -189,6 +190,10 @@ Warning! LUT value is adjusted to account for LUT combining.
 | Mercury_XU5_ddr4_sys_rst_0          |    1 |
 | Mercury_XU5_ddr4_0                  |    1 |
 | Mercury_XU5_clk_wiz_0_0             |    1 |
+| Mercury_XU5_auto_rs_w_0             |    1 |
+| Mercury_XU5_auto_rs_0               |    1 |
+| Mercury_XU5_auto_pc_0               |    1 |
+| Mercury_XU5_auto_ds_0               |    1 |
 | Mercury_XU5_auto_cc_0               |    1 |
 +-------------------------------------+------+
 

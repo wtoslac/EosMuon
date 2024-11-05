@@ -379,9 +379,11 @@ architecture rtl of Mercury_XU5_PE1 is
   component EosMuon is
     port(
       Clk50: in std_logic;
+      Clk100: in std_logic;
       LED1: out std_logic;
       LED2: out std_logic;
       LED3: out std_logic;
+      LEDS: out std_logic_vector(2 downto 0);
       -- Input Channel on PIN-IO A ---
       A23: in std_logic;
       A22: in std_logic;
@@ -510,14 +512,16 @@ architecture rtl of Mercury_XU5_PE1 is
     FMCCLK1M2CN: in std_logic;
     FMCCLK1M2CP: in std_logic;   
        -- Output Channels on PIN-IO C --
-      C7: out std_logic;
-      C6: out std_logic;
-      C5: out std_logic;
-      C4: out std_logic;
-      C3: out std_logic;
-      C2: out std_logic;
-      C1: out std_logic;
-      C0: out std_logic;
+      --C7: out std_logic;
+      --C6: out std_logic;
+      --C5: out std_logic;
+      --C4: out std_logic;
+      --C3: out std_logic;
+      --C2: out std_logic;
+      --C1: out std_logic;
+      --C0: out std_logic;
+      IOC: out std_logic_vector(7 downto 0);
+      -- 32x64-bits data for the PS access through AXI & Peek.
       reg_ro_out: out std_logic_vector(2047 downto 0)
       );
   end component EosMuon;
@@ -527,9 +531,13 @@ begin
   EosMuon_i: component EosMuon 
     port map (
       Clk50 => Clk50,
+      Clk100 => Clk100,
       LED1 => LED1_N_PL,
       LED2 => LED2_N_PL,
       LED3 => LED3_N_PL,
+      LEDS(0) => LED1_N_PL,
+      LEDS(1) => LED2_N_PL,
+      LEDS(2) => LED3_N_PL,
       -- Input Channel on PIN-IO A ---
       A23 => IOA_D23_N,
       A22 => IOA_D22_P,
@@ -659,14 +667,23 @@ begin
     FMCCLK1M2CN => FMC_CLK1_M2C_N,
     FMCCLK1M2CP => FMC_CLK1_M2C_P,  
       -- Output Channels on PIN-IO C --
-      C7 => IOC_D7_N,
-      C6 => IOC_D6_P,
-      C5 => IOC_D5_N,
-      C4 => IOC_D4_P,
-      C3 => IOC_D3_N,
-      C2 => IOC_D2_P,
-      C1 => IOC_D1_N,
-      C0 => IOC_D0_P,
+      --C7 => IOC_D7_N,
+      --C6 => IOC_D6_P,
+      --C5 => IOC_D5_N,
+      --C4 => IOC_D4_P,
+      --C3 => IOC_D3_N,
+      --C2 => IOC_D2_P,
+      --C1 => IOC_D1_N,
+      --C0 => IOC_D0_P,
+      IOC(0) => IOC_D0_P,
+      IOC(1) => IOC_D1_N,
+      IOC(2) => IOC_D2_P,
+      IOC(3) => IOC_D3_N,
+      IOC(4) => IOC_D4_P,
+      IOC(5) => IOC_D5_N,
+      IOC(6) => IOC_D6_P,
+      IOC(7) => IOC_D7_N,
+      -- 32x64-bits data for the PS access through AXI & Peek.
       reg_ro_out => reg_ro
       );
   ---------------------------------------------------------------------------------------------------

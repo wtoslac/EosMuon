@@ -70,7 +70,6 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "Mercury_XU5_smartconnect_00_0_synth_1" START { ROLLUP_AUTO }
-set_param chipscope.maxJobs 2
 set_msg_config  -id {[BD 41-1306]}  -suppress 
 set_msg_config  -id {[BD 41-1306]}  -suppress 
 set_msg_config  -id {[BD 41-1271]}  -suppress 
@@ -148,12 +147,6 @@ set_property used_in_implementation false [get_files -all /home/wto/Eos/ME-XU5-2
 set_property used_in_implementation false [get_files -all /home/wto/Eos/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_smartconnect_00_0/bd_0/ip/ip_36/bd_3ad7_m01awn_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all /home/wto/Eos/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_smartconnect_00_0/bd_0/ip/ip_37/bd_3ad7_m01wn_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all /home/wto/Eos/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_smartconnect_00_0/bd_0/ip/ip_38/bd_3ad7_m01bn_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/wto/Eos/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_smartconnect_00_0/bd_0/ip/ip_40/bd_3ad7_m02s2a_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/wto/Eos/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_smartconnect_00_0/bd_0/ip/ip_41/bd_3ad7_m02arn_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/wto/Eos/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_smartconnect_00_0/bd_0/ip/ip_42/bd_3ad7_m02rn_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/wto/Eos/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_smartconnect_00_0/bd_0/ip/ip_43/bd_3ad7_m02awn_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/wto/Eos/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_smartconnect_00_0/bd_0/ip/ip_44/bd_3ad7_m02wn_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/wto/Eos/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_smartconnect_00_0/bd_0/ip/ip_45/bd_3ad7_m02bn_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all /home/wto/Eos/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_smartconnect_00_0/ooc.xdc]
 
 OPTRACE "Adding files" END { }

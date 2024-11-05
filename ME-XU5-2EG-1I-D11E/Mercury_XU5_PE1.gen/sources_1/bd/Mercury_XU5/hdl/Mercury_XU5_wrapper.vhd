@@ -1,7 +1,7 @@
 --Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
---Date        : Mon Nov  4 02:15:29 2024
+--Date        : Mon Nov  4 08:27:59 2024
 --Host        : yoga716 running 64-bit Ubuntu 22.04.4 LTS
 --Command     : generate_target Mercury_XU5_wrapper.bd
 --Design      : Mercury_XU5_wrapper
