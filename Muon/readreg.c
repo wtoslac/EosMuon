@@ -32,7 +32,7 @@ int main() {
         printf("~PAGE_MASK = %d \n",~PAGE_MASK);
         printf("REG_ADDRESS & ~ PAGE_MASK = %d \n",(REG_ADDRESS & ~PAGE_MASK));
         reg_addr = (volatile unsigned int *)((char *)map_base + (REG_ADDRESS & ~PAGE_MASK));
-        printf("reg_addr = %d.\n",reg_addr);
+        printf("reg_addr = 0x%X.\n",reg_addr);
         // Read the value from the register
         printf("Register value at address 0x%X: 0x%X\n", REG_ADDRESS, *reg_addr);
         // Clean up
