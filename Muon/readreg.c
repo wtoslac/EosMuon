@@ -32,13 +32,30 @@ int main() {
         printf("~PAGE_MASK = %d \n",~PAGE_MASK);
         printf("REG_ADDRESS & ~ PAGE_MASK = %d \n",(REG_ADDRESS & ~PAGE_MASK));
         reg_addr = (volatile unsigned int *)((char *)map_base + (REG_ADDRESS & ~PAGE_MASK));
-        printf("reg_addr = 0x%X.\n",reg_addr);
+        printf("reg_addr = 0x%x.\n",reg_addr);
         // Read the value from the register
-        printf("Register value at address 0x%X: 0x%X\n", REG_ADDRESS, *reg_addr);
+
+        int data[40], data2[40];
+
+        for(int i = 0; i<40;i++){
+                data[i] = *reg_addr;
+                data2[i] = *reg_addr;
+                //printf("Register value at address 0x%X: 0x%X\n", REG_ADDRESS, *reg_addr);
+        }
         // Clean up
+        printf("(char *)map_base %s \n", map_base);
+
         if (munmap(map_base, PAGE_SIZE) == -1) {
                 perror("Error unmapping memory");
         }
         close(fd);
+
+        //for(int j = 0; j<40;j++){
+        //      printf("0x%X\n",data[j]);
+        //}
+        printf("%d\n",data[0]);
+        printf("%d\n",data2[0]);
+        printf("%d\n",data[39]-data[0]);
+        printf("%d\n",data2[39]-data2[0]);
         return EXIT_SUCCESS;
 }
