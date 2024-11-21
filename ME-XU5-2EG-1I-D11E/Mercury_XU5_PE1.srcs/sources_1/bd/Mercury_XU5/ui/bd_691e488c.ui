@@ -1,7 +1,7 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"0.938438",
-   "Default View_TopLeft":"1236,71",
+   "Default View_ScaleFactor":"0.469219",
+   "Default View_TopLeft":"300,-19",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r4  2019-12-20 bk=1.5203 VDI=41 GEI=36 GUI=JA:10.0 TLS
 #  -string -flagsOSRD
@@ -31,38 +31,38 @@ preplace inst ps_sys_rst -pg 1 -lvl 2 -x 1240 -y 500 -defaultsOSRD
 preplace inst ddr4_sys_rst -pg 1 -lvl 2 -x 1240 -y 200 -defaultsOSRD
 preplace inst smartconnect_00 -pg 1 -lvl 3 -x 1650 -y 500 -defaultsOSRD
 preplace inst reg_bank_0 -pg 1 -lvl 4 -x 2420 -y 640 -defaultsOSRD -resize 226 344
-preplace netloc ARESETN_1 1 2 1 1480 190n
+preplace netloc ARESETN_1 1 2 1 1490 210n
 preplace netloc CLK_ETH10 1 2 3 1430J 840 NJ 840 2610
 preplace netloc CLK_ETH125_90 1 2 3 1450J 860 NJ 860 2590
 preplace netloc CLK_ETH25 1 2 3 1440J 850 NJ 850 2600
-preplace netloc ETH_CLK125 1 2 3 1450J 680 1810J 830 2620
+preplace netloc ETH_CLK125 1 2 3 1470J 680 1810J 830 2620
 preplace netloc clk_wiz_0_locked 1 2 3 1420J 870 NJ 870 2580
-preplace netloc ddr4_c0_ddr4_ui_clk 1 1 2 1010 300 1450J
+preplace netloc ddr4_c0_ddr4_ui_clk 1 1 2 1020 300 1450J
 preplace netloc ddr4_sys_rst_peripheral_reset 1 0 3 30 310 NJ 310 1440
 preplace netloc led_gpio_io_o 1 3 2 1800 450 2620
-preplace netloc ps_sys_rst_interconnect_aresetn 1 2 2 1450 660 1820
-preplace netloc ps_sys_rst_peripheral_aresetn 1 2 2 1470 90 1870
+preplace netloc ps_sys_rst_interconnect_aresetn 1 2 2 1470 660 1820
+preplace netloc ps_sys_rst_peripheral_aresetn 1 2 2 1460 100 1860
 preplace netloc reg_bank_0_reg_rw 1 4 1 2590 580n
-preplace netloc reg_ro_1 1 0 4 NJ 230 980J 60 NJ 60 1860
-preplace netloc zynq_ultra_ps_e_pl_clk0 1 0 5 30 360 1010 350 1460 70 1840 410 2590J
-preplace netloc zynq_ultra_ps_e_pl_clk1 1 1 4 1060 380 NJ 380 1820J 430 2630
-preplace netloc zynq_ultra_ps_e_pl_resetn0 1 1 4 1040 360 1440J 390 NJ 390 2580
+preplace netloc reg_ro_1 1 0 4 NJ 230 990J 90 NJ 90 1850
+preplace netloc zynq_ultra_ps_e_pl_clk0 1 0 5 30 360 990 360 1480 110 1830 410 2590J
+preplace netloc zynq_ultra_ps_e_pl_clk1 1 1 4 1040 390 1450J 380 1820J 430 2630
+preplace netloc zynq_ultra_ps_e_pl_resetn0 1 1 4 1030 380 1440J 390 NJ 390 2580
 preplace netloc C0_SYS_CLK_1 1 0 1 10 60n
-preplace netloc S00_AXI_1 1 1 2 1000J 100 1480
-preplace netloc axi_interconnect_0_M00_AXI 1 0 4 20 200 990J 80 NJ 80 1800
+preplace netloc S00_AXI_1 1 1 2 1000J 100 1440
+preplace netloc axi_interconnect_0_M00_AXI 1 0 4 20 200 980J 80 NJ 80 1800
 preplace netloc ddr4_C0_DDR4 1 1 4 980J 30 NJ 30 NJ 30 2580
 preplace netloc smartconnect_00_M00_AXI 1 3 1 1810 180n
-preplace netloc smartconnect_00_M01_AXI 1 2 2 1480 670 1810
-preplace netloc zynq_ultra_ps_e_GMII_ENET1 1 1 4 990J 880 NJ 880 NJ 880 2640
-preplace netloc zynq_ultra_ps_e_IIC_1 1 1 4 1050J 400 NJ 400 NJ 400 2650
-preplace netloc zynq_ultra_ps_e_MDIO_ENET1 1 1 4 1030J 370 NJ 370 1850J 420 N
-preplace netloc zynq_ultra_ps_e_M_AXI_HPM0_LPD 1 1 2 1020J 600 1440
-preplace netloc axi_interconnect_0_M01_AXI 1 3 1 1830 240n
+preplace netloc smartconnect_00_M01_AXI 1 2 2 1490 670 1810
+preplace netloc zynq_ultra_ps_e_GMII_ENET1 1 1 4 980J 880 NJ 880 NJ 880 2640
+preplace netloc zynq_ultra_ps_e_IIC_1 1 1 4 1020J 400 NJ 400 NJ 400 2650
+preplace netloc zynq_ultra_ps_e_MDIO_ENET1 1 1 4 1010J 370 NJ 370 1840J 420 N
+preplace netloc zynq_ultra_ps_e_M_AXI_HPM0_LPD 1 1 2 1000J 600 1440
+preplace netloc smartconnect_00_M02_AXI 1 3 1 1840 510n
 levelinfo -pg 1 -10 590 1240 1650 2420 2670
 pagesize -pg 1 -db -bbox -sgen -170 -800 2840 3690
 "
 }
 {
-   "da_axi4_cnt":"5",
+   "da_axi4_cnt":"6",
    "da_clkrst_cnt":"4"
 }

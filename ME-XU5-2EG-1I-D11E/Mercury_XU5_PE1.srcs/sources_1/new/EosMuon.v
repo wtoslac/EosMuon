@@ -24,25 +24,44 @@ module EosMuon(
         // The MSB should blink every 2.5 seconds (27-bits)
    end*/
    reg [31:0] count=0; //Max is 4.3B
-   always @(posedge Clk100) begin // 50MHz Clk
-        count<=count+1;
-        // The MSB should blink every 43 seconds (32-bits)
+   reg [5:0] count50=0;
+   reg Clk1 = 0; // this should ==0 at 1MHz
+   always @(posedge Clk100) begin // 100MHz Clk
+        count<=count+1; // The MSB should blink every 43 seconds (32-bits)
+        count50<=count50+1;
+        if(count50 == 50) begin
+            count50<=0;
+            Clk1 = !Clk1;
+        end
    end
+        
    
-   assign IOC[7:0]=8'b10101010;
+   assign IOC[7:0]=8'b10101010; // this will convert to 0xaa in hex.
    //assign reg_ro_out [ 0 * 32 +  31 : 0 * 32 +  0] = 32'hdeadbeef;
-   assign reg_ro_out [ 0 * 32 +  31 : 0 * 32 +  0] = count[31:0];
-   assign reg_ro_out [ 1 * 32 + 7 : 1 * 32 + 0 ] = IOC[7:0];
+   assign reg_ro_out [ 0 * 32 +  31 : 0 * 32 +  0] = count[31:0]; //this goes to 0xA0000100
+   
+   assign reg_ro_out [ 1 * 32 + 7 : 1 * 32 + 0 ] = IOC[7:0]; //this goes to 0xA0000104
    assign reg_ro_out [ 1 * 32 + 31 : 1 * 32 + 8 ] = 0;
-   assign reg_ro_out [ 2 * 32 + 25 : 2 * 32 + 0 ] = IOA;
+   // peak 0xA0000104 returns 0x000000aa as expected.
+   
+   assign reg_ro_out [ 2 * 32 + 25 : 2 * 32 + 0 ] = IOA;//this goes to 0xA0000108
    assign reg_ro_out [ 2 * 32 + 31 : 2 * 32 + 26 ] = 0;
-   assign reg_ro_out [ 3 * 32 + 25 : 3 * 32 + 0 ] = IOB;
+   // peeking the address above 0xA0000108 gives 0x03ffffff which is 32'b000000111... 26 1's.
+   // So no assignments to IOA makes them all 1's.
+   
+   assign reg_ro_out [ 3 * 32 + 25 : 3 * 32 + 0 ] = IOB; //this goes to 0xA000 010C
    assign reg_ro_out [ 3 * 32 + 31 : 3 * 32 + 26 ] = 0;
-   assign reg_ro_out [ 4 * 32 + 31 : 4 * 32 + 0 ] = FMCN;
-   assign reg_ro_out [ 5 * 32 + 31 : 5 * 32 + 0 ] = FMCP;
-   assign reg_ro_out [ 63 * 32 +  31 : 63 * 32 +  0] = 32'hdeadbeef;
-   assign LEDS[0] = count[29];
-   assign LEDS[1] = count[28];
-   assign LEDS[2] = count[27]; // MSB
+   assign reg_ro_out [ 4 * 32 + 31 : 4 * 32 + 0 ] = FMCN; //this goes to 0xA000 0110
+   assign reg_ro_out [ 5 * 32 + 31 : 5 * 32 + 0 ] = FMCP; //this goes to 0xA000 0114
+   
+   assign reg_ro_out [6 * 32] = Clk1; //this goes to 0xA000 0118
+   assign reg_ro_out [6 * 32 + 31: 6 * 32 + 1] = 0; 
+   
+   //0118, 011C, 0120,0124, 0128, ... every 4 address increase 16's place.
+   // 63 should be 256's place increment by 1 (ie from 100 to 200)- 4.
+   assign reg_ro_out [ 63 * 32 +  31 : 63 * 32 +  0] = 32'hdeadbeef;//this goes to 0xA000 01FC
+   assign LEDS[0] = count[31];
+   assign LEDS[1] = count[30];
+   assign LEDS[2] = count[29]; 
    
 endmodule
