@@ -42,28 +42,28 @@ module EosMuonTrigger(
     
     wire TopHit, MidHit, BtmHit, BarHit, TripleHits, TopMidHits;
     // The top (top layer on top of the water tank) paddles has 10 channels make them IOA[9:0] 
-    //assign TopHit = |OA[9:0];// OR reduction operator
-    assign TopHit = |IOA[3:0]; // Limit to 4 ch for easy testing.
+    //assign TopHit = |(~IOA[9:0]);// OR reduction operator
+    assign TopHit = |(~IOA[3:0]); // Limit to 4 ch for easy testing.
     assign LED[0] = ~TopHit;
     
     // The mid (bottom layer on top of the water tank) paddles has 20 channels make them IOA[25:10] (16-ch) , IOB[3:0] 
-    assign MidHit = (|IOA[25:10]) | (|IOB[3:0]); // |IOA[9:0];// OR reduction operator
+    assign MidHit = (|(~IOA[25:10])) | (|(~IOB[3:0])); // |IOA[9:0];// OR reduction operator
     assign LED[1] = ~MidHit;
     
     // The btm (below the water tank) paddle has 22 channels, IOB[25:4]
-    assign BtmHit = |IOB[25:4];
+    assign BtmHit = |(~IOB[25:4]);
     assign LED[2] = ~BtmHit;
     
     // The barrel have up to 40 paddles (80 ch), but currently there are 38 paddles (76 ch).
     // I will use all 72 FMCs and 8 channels from IOCs for the barrel
-    assign BarHit = (|FMCN[25:10]) | (|FMCP[3:0]) | (|IOC[7:0]);
+    assign BarHit = (|(~FMCN[25:10])) | ((~|FMCP[3:0])) | (|(~IOC[7:0]));
     // no LED readout available for this yet.
     // Looking into the MERCURY_XU5_PE1.tcl file. 
     // Only LED*_N_PL, where * = 1,2,3 are mapped.
     // So what's LED0_N_PL for??
     
     assign TripleHits = (TopHit & MidHit & BtmHit) | (TopHit & MidHit & BarHit);
-    assign TopMidHits = (TopHit & MidHit) | (~BtmHit & ~ BarHit); 
+    assign TopMidHits = (TopHit & MidHit) | (~BtmHit & ~BarHit); 
     
     
 endmodule
