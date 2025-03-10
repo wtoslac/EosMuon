@@ -40,7 +40,7 @@ module EosMuonTrigger(
     //assign IOA[16] = ~FMCN[3];  // Pin 15 on Box
     //assign IOA[14] = !FMCP[0] & !FMCN[3];
     
-    wire TopHit, MidHit, BtmHit, BarHit, TripleHits, TopMidHits;
+    wire TopHit, MidHit, BtmHit, BarHit, TripleHits, TopMidOnlyHits;
     // The top (top layer on top of the water tank) paddles has 10 channels make them IOA[9:0] 
     //assign TopHit = |(~IOA[9:0]);// OR reduction operator
     assign TopHit = |(~IOA[3:0]); // Limit to 4 ch for easy testing.
@@ -63,7 +63,6 @@ module EosMuonTrigger(
     // So what's LED0_N_PL for??
     
     assign TripleHits = (TopHit & MidHit & BtmHit) | (TopHit & MidHit & BarHit);
-    assign TopMidHits = (TopHit & MidHit) | (~BtmHit & ~BarHit); 
-    
-    
+    assign TopMidOnlyHits = TopHit & MidHit & (~BtmHit & ~BarHit);
+   
 endmodule
