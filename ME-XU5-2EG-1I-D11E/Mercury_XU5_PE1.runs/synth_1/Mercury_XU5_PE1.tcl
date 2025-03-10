@@ -70,6 +70,7 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
+set_param chipscope.maxJobs 3
 set_msg_config  -id {[BD 41-1306]}  -suppress 
 set_msg_config  -id {[BD 41-1306]}  -suppress 
 set_msg_config  -id {[BD 41-1271]}  -suppress 
@@ -118,7 +119,10 @@ if {$src_rc} {
 }
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
-read_verilog -library xil_defaultlib /home/wto/Eos/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.srcs/sources_1/new/EosMuon.v
+read_verilog -library xil_defaultlib {
+  /home/wto/Eos/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.srcs/sources_1/new/EosMuonDAQ.v
+  /home/wto/Eos/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.srcs/sources_1/new/EosMuonTrigger.v
+}
 read_vhdl -library xil_defaultlib /home/wto/Eos/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.srcs/sources_1/imports/src/Mercury_XU5_PE1.vhd
 add_files /home/wto/Eos/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.srcs/sources_1/bd/Mercury_XU5/Mercury_XU5.bd
 set_property used_in_implementation false [get_files -all /home/wto/Eos/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_zynq_ultra_ps_e_0/Mercury_XU5_zynq_ultra_ps_e_0_ooc.xdc]

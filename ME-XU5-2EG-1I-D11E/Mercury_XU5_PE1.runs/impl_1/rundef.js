@@ -27,7 +27,7 @@ eval( EAInclude(ISEJScriptLib) );
 
 
 // pre-commands:
-ISETouchFile( "write_bitstream", "begin" );
+ISETouchFile( "init_design", "begin" );
 ISEStep( "vivado",
          "-log Mercury_XU5_PE1.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source Mercury_XU5_PE1.tcl -notrace" );
 

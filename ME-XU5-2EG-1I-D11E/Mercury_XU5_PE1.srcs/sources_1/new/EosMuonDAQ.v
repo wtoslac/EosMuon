@@ -1,0 +1,63 @@
+`timescale 1ns / 1ps
+
+module EosMuonDAQ(
+    input Clk50,
+    input Clk100,
+    output [2:0] LED,
+    input [25:0] IOA,
+    input [25:0] IOB,
+    input [35:0] FMCN,
+    input [35:0] FMCP,  
+    inout [7:0] IOC,
+    input [7:0] IOD,
+    // PS accessible bits 32x64.
+    output [2047:0] reg_ro_out
+    );
+    
+    //assign LED3 = A0; //1'b1;//IOB_D23_SC7_BTN3_N;
+    //assign LED2 = A1;//1'b0;
+    //assign C0 = A0 & A1;
+   // assign D22 = 1'b0;
+   // assign D20 = 1'b1;
+   // assign D18 = 1'bz;
+   /*reg [26:0] count=0; //Max is 134M     
+   always @(posedge Clk50) begin // 50MHz Clk
+        count<=count+1;
+        // The MSB should blink every 2.5 seconds (27-bits)
+   end*/
+   reg [138:0] count=0; //Max is 4.3B
+   always @(posedge Clk100) begin // 100MHz Clk
+        count<=count+1; // The MSB should blink every 43 seconds (32-bits)
+   end
+        
+   
+   //assign IOC[7:0]=8'b10101010; // this will convert to 0xaa in hex.
+   //assign reg_ro_out [ 0 * 32 +  31 : 0 * 32 +  0] = 32'hdeadbeef;
+   assign reg_ro_out [ 138:0] = count[138:0]; //this goes to 0xA0000100
+   
+   //assign reg_ro_out [ 1 * 32 + 7 : 1 * 32 + 0 ] = IOC[7:0]; //this goes to 0xA0000104
+   //assign reg_ro_out [ 1 * 32 + 31 : 1 * 32 + 8 ] = 0;
+   // peak 0xA0000104 returns 0x000000aa as expected.
+   
+   //assign reg_ro_out [ 2 * 32 + 25 : 2 * 32 + 0 ] = IOA;//this goes to 0xA0000108
+   //assign reg_ro_out [ 2 * 32 + 31 : 2 * 32 + 26 ] = 0;
+   // peeking the address above 0xA0000108 gives 0x03ffffff which is 32'b000000111... 26 1's.
+   // So no assignments to IOA makes them all 1's.
+   
+   //assign reg_ro_out [ 3 * 32 + 25 : 3 * 32 + 0 ] = IOB; //this goes to 0xA000 010C
+   //assign reg_ro_out [ 3 * 32 + 31 : 3 * 32 + 26 ] = 0;
+   //assign reg_ro_out [ 4 * 32 + 31 : 4 * 32 + 0 ] = FMCN; //this goes to 0xA000 0110
+   //assign reg_ro_out [ 5 * 32 + 31 : 5 * 32 + 0 ] = FMCP; //this goes to 0xA000 0114
+   
+   //assign reg_ro_out [6 * 32] = Clk1; //this goes to 0xA000 0118
+   //assign reg_ro_out [6 * 32 + 31: 6 * 32 + 1] = 0; 
+   
+   //0118, 011C, 0120,0124, 0128, ... every 4 address increase 16's place.
+   // 63 should be 256's place increment by 1 (ie from 100 to 200)- 4.
+   //assign reg_ro_out [ 63 * 32 +  31 : 63 * 32 +  0] = 32'hdeadbeef;//this goes to 0xA000 01FC
+   //assign LEDS[0] = count[31];
+   //assign LEDS[1] = count[30];
+   //assign LEDS[2] = count[29]; 
+
+
+endmodule

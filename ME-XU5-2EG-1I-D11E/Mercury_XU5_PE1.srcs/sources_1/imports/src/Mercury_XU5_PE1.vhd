@@ -376,36 +376,56 @@ architecture rtl of Mercury_XU5_PE1 is
   signal reg_ro           : std_logic_vector(2047 downto 0);
   signal reg_rw           : std_logic_vector(2047 downto 0);
   
-  component EosMuon is
+  component EosMuonDAQ is
     port(
       Clk50: in std_logic;
       Clk100: in std_logic;
-      LEDS: out std_logic_vector(2 downto 0);
+      LED: out std_logic_vector(2 downto 0);
       -- Input Channel on PIN-IO A ---
-      IOA: out std_logic_vector( 25 downto 0);
+      IOA: inout std_logic_vector( 25 downto 0);
 -- Input Channel on PIN-IO B ---
-      IOB: out std_logic_vector( 25 downto 0);
+      IOB: inout std_logic_vector( 25 downto 0);
      
     -- Inputs forFMC LPC Connector 0
     
-      FMCN: out std_logic_vector( 35 downto 0);
-      FMCP: out std_logic_vector( 35 downto 0);
+      FMCN: inout std_logic_vector( 35 downto 0);
+      FMCP: inout std_logic_vector( 35 downto 0);
 
-      IOC: out std_logic_vector(7 downto 0);
+      IOC: inout std_logic_vector(7 downto 0);
+      IOD: inout std_logic_vector(7 downto 0);
       -- 32x64-bits data for the PS access through AXI & Peek.
       reg_ro_out: out std_logic_vector(2047 downto 0)
       );
-  end component EosMuon;
+  end component EosMuonDAQ;
 
-begin
+  component EosMuonTrigger is
+    port(
+      --Clk50: in std_logic;
+      Clk100: in std_logic;
+      LED: out std_logic_vector(2 downto 0);
+      -- Input Channel on PIN-IO A ---
+      IOA: inout std_logic_vector( 25 downto 0);
+      -- Input Channel on PIN-IO B ---
+      IOB: inout std_logic_vector( 25 downto 0);
+
+      -- Inputs forFMC LPC Connector    
+      FMCN: inout std_logic_vector( 35 downto 0);
+      FMCP: inout std_logic_vector( 35 downto 0);
+
+      IOC: inout std_logic_vector(7 downto 0);
+      IOD: inout std_logic_vector(7 downto 0)
+      );
+  end component EosMuonTrigger;
+
+begin --being instantiation of components
   
-  EosMuon_i: component EosMuon 
+  EosMuonDAQ_i: component EosMuonDAQ 
     port map (
       Clk50 => Clk50,
       Clk100 => Clk100,
-      LEDS(0) => LED1_N_PL,
-      LEDS(1) => LED2_N_PL,
-      LEDS(2) => LED3_N_PL,
+      LED(0) => LED1_N_PL,
+      LED(1) => LED2_N_PL,
+      LED(2) => LED3_N_PL,
       -- Input Channel on PIN-IO A ---
       IOA(25) => IOA_CLK1_N, 
       IOA(24) => IOA_CLK0_P,
@@ -543,8 +563,172 @@ begin
       IOC(5) => IOC_D5_N,
       IOC(6) => IOC_D6_P,
       IOC(7) => IOC_D7_N,
+      -- Output Channels on PIN-IO D --
+      IOD(0) => IOD_D0_P,
+      IOD(1) => IOD_D1_N,
+      IOD(2) => IOD_D2_P,
+      IOD(3) => IOD_D3_N,
+      IOD(4) => IOD_D4_P,
+      IOD(5) => IOD_D5_N,
+      IOD(6) => IOD_D6_P,
+      IOD(7) => IOD_D7_N,
       -- 32x64-bits data for the PS access through AXI & Peek.
       reg_ro_out => reg_ro
+      );
+      
+  EosMuonTrigger_i: component EosMuonTrigger 
+    port map (
+      --Clk50 => Clk50,
+      Clk100 => Clk100,
+      LED(0) => LED1_N_PL,
+      LED(1) => LED2_N_PL,
+      LED(2) => LED3_N_PL,
+      -- Input Channel on PIN-IO A ---
+      IOA(25) => IOA_CLK1_N, 
+      IOA(24) => IOA_CLK0_P,
+      IOA(23) => IOA_D23_N,
+      IOA(22) => IOA_D22_P,
+      IOA(21) => IOA_D21_N,
+      IOA(20) => IOA_D20_P,
+      IOA(19) => IOA_D19_N,
+      IOA(18) => IOA_D18_P,
+      IOA(17) => IOA_D17_N,
+      IOA(16) => IOA_D16_P,
+      IOA(15) => IOA_D15_N,
+      IOA(14) => IOA_D14_P,
+      IOA(13) => IOA_D13_N,
+      IOA(12) => IOA_D12_P,
+      IOA(11) => IOA_D11_N,
+      IOA(10) => IOA_D10_P,
+      IOA(9) => IOA_D9_N,
+      IOA(8) => IOA_D8_P,
+      IOA(7) => IOA_D7_N,
+      IOA(6) => IOA_D6_P,
+      IOA(5) => IOA_D5_N,
+      IOA(4) => IOA_D4_P,
+      IOA(3) => IOA_D3_N,
+      IOA(2) => IOA_D2_P,
+      IOA(1) => IOA_D1_N,
+      IOA(0) => IOA_D0_P,
+     -- Input ChBnnel on PIN-IO B ---
+      IOB(25) => IOB_CLK1_N, 
+      IOB(24) => IOB_CLK0_P,
+      IOB(23) => IOB_D23_SC7_BTN3_N,
+      IOB(22) => IOB_D22_SC6_BTN2_N,
+      IOB(21) => IOB_D21_SC5_BTN1_N,
+      IOB(20) => IOB_D20_SC4_BTN0_N,
+      IOB(19) => IOB_D19_SC3_DIP4_N,
+      IOB(18) => IOB_D18_SC2_DIP3_N,
+      IOB(17) => IOB_D17_SC1_DIP2_N,
+      IOB(16) => IOB_D16_SC0_DIP1_N,
+      IOB(15) => IOB_D15_N,
+      IOB(14) => IOB_D14_P,
+      IOB(13) => IOB_D13_N,
+      IOB(12) => IOB_D12_P,
+      IOB(11) => IOB_D11_N,
+      IOB(10) => IOB_D10_P,
+      IOB(9) => IOB_D9_N,
+      IOB(8) => IOB_D8_P,
+      IOB(7) => IOB_D7_N,
+      IOB(6) => IOB_D6_P,
+      IOB(5) => IOB_D5_N,
+      IOB(4) => IOB_D4_P,
+      IOB(3) => IOB_D3_N,
+      IOB(2) => IOB_D2_P,
+      IOB(1) => IOB_D1_N,
+      IOB(0) => IOB_D0_P,
+         
+    -- Inputs forFMC LPC Connector 0
+      FMCN(0) => FMC_LA00_CC_N,
+      FMCN(1) => FMC_LA01_CC_N,
+      FMCN(2) => FMC_LA02_N,
+      FMCN(3) => FMC_LA03_N,
+      FMCN(4) => FMC_LA04_N,
+    FMCN(5) => FMC_LA05_N,
+    FMCN(6) => FMC_LA06_N,
+    FMCN(7) => FMC_LA07_N,
+    FMCN(8) => FMC_LA08_N,
+    FMCN(9) => FMC_LA09_N,
+    FMCN(10) => FMC_LA10_N,
+    FMCN(11) => FMC_LA11_N,
+    FMCN(12) => FMC_LA12_N,
+    FMCN(13) => FMC_LA13_N,
+    FMCN(14) => FMC_LA14_N,
+    FMCN(15) => FMC_LA15_N,
+    FMCN(16) => FMC_LA16_N,
+    FMCN(17) => FMC_LA17_CC_N,
+    FMCN(18) => FMC_LA18_CC_N,
+    FMCN(19) => FMC_LA19_N,
+    FMCN(20) => FMC_LA20_N,
+    FMCN(21) => FMC_LA21_N,
+    FMCN(22) => FMC_LA22_N,
+    FMCN(23) => FMC_LA23_N,
+    FMCN(24) => FMC_LA24_N,
+    FMCN(25) => FMC_LA25_N,
+    FMCN(26) => FMC_LA26_N,
+    FMCN(27) => FMC_LA27_N,
+    FMCN(28) => FMC_LA28_N,
+    FMCN(29) => FMC_LA29_N,
+    FMCN(30) => FMC_LA30_N,
+    FMCN(31) => FMC_LA31_N,
+    FMCN(32) => FMC_LA32_N,
+    FMCN(33) => FMC_LA33_N,
+    FMCN(34) => FMC_CLK0_M2C_N,
+    FMCN(35) => FMC_CLK1_M2C_N,
+    FMCP(0) => FMC_LA00_CC_P,
+    FMCP(1) => FMC_LA01_CC_P,
+    FMCP(2) => FMC_LA02_P,
+    FMCP(3) => FMC_LA03_P,
+    FMCP(4) => FMC_LA04_P,
+    FMCP(5) => FMC_LA05_P,
+    FMCP(6) => FMC_LA06_P,
+    FMCP(7) => FMC_LA07_P,
+    FMCP(8) => FMC_LA08_P,
+    FMCP(9) => FMC_LA09_P,
+    FMCP(10) => FMC_LA10_P,
+    FMCP(11) => FMC_LA11_P,
+    FMCP(12) => FMC_LA12_P,
+    FMCP(13) => FMC_LA13_P,
+    FMCP(14) => FMC_LA14_P,
+    FMCP(15) => FMC_LA15_P,
+    FMCP(16) => FMC_LA16_P,
+    FMCP(17) => FMC_LA17_CC_P,
+    FMCP(18) => FMC_LA18_CC_P,
+    FMCP(19) => FMC_LA19_P,
+    FMCP(20) => FMC_LA20_P,
+    FMCP(21) => FMC_LA21_P,
+    FMCP(22) => FMC_LA22_P,
+    FMCP(23) => FMC_LA23_P,
+    FMCP(24) => FMC_LA24_P,
+    FMCP(25) => FMC_LA25_P,
+    FMCP(26) => FMC_LA26_P,
+    FMCP(27) => FMC_LA27_P,
+    FMCP(28) => FMC_LA28_P,
+    FMCP(29) => FMC_LA29_P,
+    FMCP(30) => FMC_LA30_P,
+    FMCP(31) => FMC_LA31_P,
+    FMCP(32) => FMC_LA32_P,
+    FMCP(33) => FMC_LA33_P,
+    FMCP(34) => FMC_CLK0_M2C_P,
+    FMCP(35) => FMC_CLK1_M2C_P,  
+      -- Output Channels on PIN-IO C --
+      IOC(0) => IOC_D0_P,
+      IOC(1) => IOC_D1_N,
+      IOC(2) => IOC_D2_P,
+      IOC(3) => IOC_D3_N,
+      IOC(4) => IOC_D4_P,
+      IOC(5) => IOC_D5_N,
+      IOC(6) => IOC_D6_P,
+      IOC(7) => IOC_D7_N,
+      -- Output Channels on PIN-IO D --
+      IOD(0) => IOD_D0_P,
+      IOD(1) => IOD_D1_N,
+      IOD(2) => IOD_D2_P,
+      IOD(3) => IOD_D3_N,
+      IOD(4) => IOD_D4_P,
+      IOD(5) => IOD_D5_N,
+      IOD(6) => IOD_D6_P,
+      IOD(7) => IOD_D7_N
       );
   ---------------------------------------------------------------------------------------------------
   -- processor system instance
