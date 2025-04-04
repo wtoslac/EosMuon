@@ -8,8 +8,9 @@ module EosMuonDAQ(
     input [25:0] IOB,
     input [35:0] FMCN,
     input [35:0] FMCP,  
-    inout [7:0] IOC,
-    input [7:0] IOD,
+    input [7:0] IOC,
+    inout [6:0] IOD,
+    input IOD7,
     // PS accessible bits 32x64.
     output [2047:0] reg_ro_out
     );
@@ -25,15 +26,19 @@ module EosMuonDAQ(
         count<=count+1;
         // The MSB should blink every 2.5 seconds (27-bits)
    end*/
+   
+   wire Clk2Hz;
+   SlowClock2Hz SlowClock2Hz_i(Clk100,Clk2Hz);
    reg [138:0] count=0; //Max is 4.3B
-   always @(posedge Clk100) begin // 100MHz Clk
-        count<=count+1; // The MSB should blink every 43 seconds (32-bits)
+   always @(posedge Clk2Hz) begin // 100MHz Clk
+   //always @(IOD7) begin // Input Trigger from the PTB.
+        count<=count+1; // 
    end
         
    
    //assign IOC[7:0]=8'b10101010; // this will convert to 0xaa in hex.
-   //assign reg_ro_out [ 0 * 32 +  31 : 0 * 32 +  0] = 32'hdeadbeef;
-   assign reg_ro_out [ 138:0] = count[138:0]; //this goes to 0xA0000100
+   assign reg_ro_out [ 31 : 0] = 32'hdeadbeef; //this goes to 0x8002_0100
+   assign reg_ro_out [138+32:0+32] = count[138:0];  //this goes to 0x8002_0108 (4Hex=32bit address later)
    
    //assign reg_ro_out [ 1 * 32 + 7 : 1 * 32 + 0 ] = IOC[7:0]; //this goes to 0xA0000104
    //assign reg_ro_out [ 1 * 32 + 31 : 1 * 32 + 8 ] = 0;
@@ -60,4 +65,23 @@ module EosMuonDAQ(
    //assign LEDS[2] = count[29]; 
 
 
+endmodule
+
+ module SlowClock2Hz(
+     input Clk100,     // 100 MHz input clock
+     output reg Clk2Hz    // 2 Hz output clock
+     );   
+     // Declare a counter variable to divide the clock
+     reg [26:0] counter;  // 27 bits are enough to count up to 100,000,000
+ 
+     // Always block to handle clock division
+     always @(posedge Clk100) begin
+         if (counter == 25_000_000) begin
+             counter <= 0;
+             Clk2Hz <= ~Clk2Hz;  // Toggle the 2 Hz clock
+         end 
+         else begin
+             counter <= counter + 1;  // Increment counter
+         end
+     end
 endmodule

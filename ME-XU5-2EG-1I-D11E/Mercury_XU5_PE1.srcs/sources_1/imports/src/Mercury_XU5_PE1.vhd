@@ -37,134 +37,134 @@ entity Mercury_XU5_PE1 is
   port (
     
     -- Anios A
-    IOA_D0_P                       : inout   std_logic;
-    IOA_D1_N                       : inout   std_logic;
-    IOA_D2_P                       : inout   std_logic;
-    IOA_D3_N                       : inout   std_logic;
-    IOA_D4_P                       : inout   std_logic;
-    IOA_D5_N                       : inout   std_logic;
-    IOA_D6_P                       : inout   std_logic;
-    IOA_D7_N                       : inout   std_logic;
-    IOA_D8_P                       : inout   std_logic;
-    IOA_D9_N                       : inout   std_logic;
-    IOA_D10_P                      : inout   std_logic;
-    IOA_D11_N                      : inout   std_logic;
-    IOA_D12_P                      : inout   std_logic;
-    IOA_D13_N                      : inout   std_logic;
-    IOA_D14_P                      : inout   std_logic;
-    IOA_D15_N                      : inout   std_logic;
-    IOA_D16_P                      : inout   std_logic;
-    IOA_D17_N                      : inout   std_logic;
-    IOA_D18_P                      : inout   std_logic;
-    IOA_D19_N                      : inout   std_logic;
-    IOA_D20_P                      : inout   std_logic;
-    IOA_D21_N                      : inout   std_logic;
-    IOA_D22_P                      : inout   std_logic;
-    IOA_D23_N                      : inout   std_logic;
-    IOA_CLK1_N                     : inout   std_logic;
-    IOA_CLK0_P                     : inout   std_logic;
+    IOA_D0_P                       : in   std_logic;
+    IOA_D1_N                       : in   std_logic;
+    IOA_D2_P                       : in   std_logic;
+    IOA_D3_N                       : in   std_logic;
+    IOA_D4_P                       : in   std_logic;
+    IOA_D5_N                       : in   std_logic;
+    IOA_D6_P                       : in   std_logic;
+    IOA_D7_N                       : in   std_logic;
+    IOA_D8_P                       : in   std_logic;
+    IOA_D9_N                       : in   std_logic;
+    IOA_D10_P                      : in   std_logic;
+    IOA_D11_N                      : in   std_logic;
+    IOA_D12_P                      : in   std_logic;
+    IOA_D13_N                      : in   std_logic;
+    IOA_D14_P                      : in   std_logic;
+    IOA_D15_N                      : in   std_logic;
+    IOA_D16_P                      : in   std_logic;
+    IOA_D17_N                      : in   std_logic;
+    IOA_D18_P                      : in   std_logic;
+    IOA_D19_N                      : in   std_logic;
+    IOA_D20_P                      : in   std_logic;
+    IOA_D21_N                      : in   std_logic;
+    IOA_D22_P                      : in   std_logic;
+    IOA_D23_N                      : in   std_logic;
+    IOA_CLK1_N                     : in   std_logic;
+    IOA_CLK0_P                     : in   std_logic;
     
     -- Anios B
-    IOB_D0_P                       : inout   std_logic;
-    IOB_D1_N                       : inout   std_logic;
-    IOB_D2_P                       : inout   std_logic;
-    IOB_D3_N                       : inout   std_logic;
-    IOB_D4_P                       : inout   std_logic;
-    IOB_D5_N                       : inout   std_logic;
-    IOB_D6_P                       : inout   std_logic;
-    IOB_D7_N                       : inout   std_logic;
-    IOB_D8_P                       : inout   std_logic;
-    IOB_D9_N                       : inout   std_logic;
-    IOB_D10_P                      : inout   std_logic;
-    IOB_D11_N                      : inout   std_logic;
-    IOB_D12_P                      : inout   std_logic;
-    IOB_D13_N                      : inout   std_logic;
-    IOB_D14_P                      : inout   std_logic;
-    IOB_D15_N                      : inout   std_logic;
-    IOB_D16_SC0_DIP1_N             : inout   std_logic;
-    IOB_D17_SC1_DIP2_N             : inout   std_logic;
-    IOB_D18_SC2_DIP3_N             : inout   std_logic; -- Available on G1, No_MGT_routing modules
-    IOB_D19_SC3_DIP4_N             : inout   std_logic; -- Available on G1, No_MGT_routing modules
-    IOB_D20_SC4_BTN0_N             : inout   std_logic;
-    IOB_D21_SC5_BTN1_N             : inout   std_logic;
-    IOB_D22_SC6_BTN2_N             : inout   std_logic;
-    IOB_D23_SC7_BTN3_N             : inout   std_logic;
-    IOB_CLK1_N                     : inout   std_logic;
-    IOB_CLK0_P                     : inout   std_logic;
+    IOB_D0_P                       : in   std_logic;
+    IOB_D1_N                       : in   std_logic;
+    IOB_D2_P                       : in   std_logic;
+    IOB_D3_N                       : in   std_logic;
+    IOB_D4_P                       : in   std_logic;
+    IOB_D5_N                       : in   std_logic;
+    IOB_D6_P                       : in   std_logic;
+    IOB_D7_N                       : in   std_logic;
+    IOB_D8_P                       : in   std_logic;
+    IOB_D9_N                       : in   std_logic;
+    IOB_D10_P                      : in   std_logic;
+    IOB_D11_N                      : in   std_logic;
+    IOB_D12_P                      : in   std_logic;
+    IOB_D13_N                      : in   std_logic;
+    IOB_D14_P                      : in   std_logic;
+    IOB_D15_N                      : in   std_logic;
+    IOB_D16_SC0_DIP1_N             : in   std_logic;
+    IOB_D17_SC1_DIP2_N             : in   std_logic;
+    IOB_D18_SC2_DIP3_N             : in   std_logic; -- Available on G1, No_MGT_routing modules
+    IOB_D19_SC3_DIP4_N             : in   std_logic; -- Available on G1, No_MGT_routing modules
+    IOB_D20_SC4_BTN0_N             : in   std_logic;
+    IOB_D21_SC5_BTN1_N             : in   std_logic;
+    IOB_D22_SC6_BTN2_N             : in   std_logic;
+    IOB_D23_SC7_BTN3_N             : in   std_logic;
+    IOB_CLK1_N                     : in   std_logic;
+    IOB_CLK0_P                     : in   std_logic;
     
     -- FMC LPC Connector 0
-    FMC_LA02_N                     : inout   std_logic;
-    FMC_LA02_P                     : inout   std_logic;
-    FMC_LA03_N                     : inout   std_logic;
-    FMC_LA03_P                     : inout   std_logic;
-    FMC_LA04_N                     : inout   std_logic;
-    FMC_LA04_P                     : inout   std_logic;
-    FMC_LA05_N                     : inout   std_logic;
-    FMC_LA05_P                     : inout   std_logic;
-    FMC_LA06_N                     : inout   std_logic;
-    FMC_LA06_P                     : inout   std_logic;
-    FMC_LA07_N                     : inout   std_logic;
-    FMC_LA07_P                     : inout   std_logic;
-    FMC_LA08_N                     : inout   std_logic;
-    FMC_LA08_P                     : inout   std_logic;
-    FMC_LA09_N                     : inout   std_logic;
-    FMC_LA09_P                     : inout   std_logic;
-    FMC_LA10_N                     : inout   std_logic;
-    FMC_LA10_P                     : inout   std_logic;
-    FMC_LA11_N                     : inout   std_logic;
-    FMC_LA11_P                     : inout   std_logic;
-    FMC_LA12_N                     : inout   std_logic;
-    FMC_LA12_P                     : inout   std_logic;
-    FMC_LA13_N                     : inout   std_logic;
-    FMC_LA13_P                     : inout   std_logic;
-    FMC_LA14_N                     : inout   std_logic;
-    FMC_LA14_P                     : inout   std_logic;
-    FMC_LA15_N                     : inout   std_logic;
-    FMC_LA15_P                     : inout   std_logic;
-    FMC_LA16_N                     : inout   std_logic;
-    FMC_LA16_P                     : inout   std_logic;
-    FMC_LA19_N                     : inout   std_logic;
-    FMC_LA19_P                     : inout   std_logic;
-    FMC_LA20_N                     : inout   std_logic;
-    FMC_LA20_P                     : inout   std_logic;
-    FMC_LA21_N                     : inout   std_logic;
-    FMC_LA21_P                     : inout   std_logic;
-    FMC_LA22_N                     : inout   std_logic;
-    FMC_LA22_P                     : inout   std_logic;
-    FMC_LA23_N                     : inout   std_logic;
-    FMC_LA23_P                     : inout   std_logic;
-    FMC_LA24_N                     : inout   std_logic;
-    FMC_LA24_P                     : inout   std_logic;
-    FMC_LA25_N                     : inout   std_logic;
-    FMC_LA25_P                     : inout   std_logic;
-    FMC_LA26_N                     : inout   std_logic;
-    FMC_LA26_P                     : inout   std_logic;
-    FMC_LA27_N                     : inout   std_logic;
-    FMC_LA27_P                     : inout   std_logic;
-    FMC_LA28_N                     : inout   std_logic;
-    FMC_LA28_P                     : inout   std_logic;
-    FMC_LA29_N                     : inout   std_logic;
-    FMC_LA29_P                     : inout   std_logic;
-    FMC_LA30_N                     : inout   std_logic;
-    FMC_LA30_P                     : inout   std_logic;
-    FMC_LA31_N                     : inout   std_logic;
-    FMC_LA31_P                     : inout   std_logic;
-    FMC_LA32_N                     : inout   std_logic;
-    FMC_LA32_P                     : inout   std_logic;
-    FMC_LA33_N                     : inout   std_logic;
-    FMC_LA33_P                     : inout   std_logic;
-    FMC_LA00_CC_N                  : inout   std_logic;
-    FMC_LA00_CC_P                  : inout   std_logic;
-    FMC_LA01_CC_N                  : inout   std_logic;
-    FMC_LA01_CC_P                  : inout   std_logic;
-    FMC_LA17_CC_N                  : inout   std_logic;
-    FMC_LA17_CC_P                  : inout   std_logic;
-    FMC_LA18_CC_N                  : inout   std_logic;
-    FMC_LA18_CC_P                  : inout   std_logic;
-    FMC_CLK0_M2C_N                 : inout   std_logic;
-    FMC_CLK0_M2C_P                 : inout   std_logic;
-    FMC_CLK1_M2C_N                 : inout   std_logic;
-    FMC_CLK1_M2C_P                 : inout   std_logic;
+    FMC_LA02_N                     : in   std_logic;
+    FMC_LA02_P                     : in   std_logic;
+    FMC_LA03_N                     : in   std_logic;
+    FMC_LA03_P                     : in   std_logic;
+    FMC_LA04_N                     : in   std_logic;
+    FMC_LA04_P                     : in   std_logic;
+    FMC_LA05_N                     : in   std_logic;
+    FMC_LA05_P                     : in   std_logic;
+    FMC_LA06_N                     : in   std_logic;
+    FMC_LA06_P                     : in   std_logic;
+    FMC_LA07_N                     : in   std_logic;
+    FMC_LA07_P                     : in   std_logic;
+    FMC_LA08_N                     : in   std_logic;
+    FMC_LA08_P                     : in   std_logic;
+    FMC_LA09_N                     : in   std_logic;
+    FMC_LA09_P                     : in   std_logic;
+    FMC_LA10_N                     : in   std_logic;
+    FMC_LA10_P                     : in   std_logic;
+    FMC_LA11_N                     : in   std_logic;
+    FMC_LA11_P                     : in   std_logic;
+    FMC_LA12_N                     : in   std_logic;
+    FMC_LA12_P                     : in   std_logic;
+    FMC_LA13_N                     : in   std_logic;
+    FMC_LA13_P                     : in   std_logic;
+    FMC_LA14_N                     : in   std_logic;
+    FMC_LA14_P                     : in   std_logic;
+    FMC_LA15_N                     : in   std_logic;
+    FMC_LA15_P                     : in   std_logic;
+    FMC_LA16_N                     : in   std_logic;
+    FMC_LA16_P                     : in   std_logic;
+    FMC_LA19_N                     : in   std_logic;
+    FMC_LA19_P                     : in   std_logic;
+    FMC_LA20_N                     : in   std_logic;
+    FMC_LA20_P                     : in   std_logic;
+    FMC_LA21_N                     : in   std_logic;
+    FMC_LA21_P                     : in   std_logic;
+    FMC_LA22_N                     : in   std_logic;
+    FMC_LA22_P                     : in   std_logic;
+    FMC_LA23_N                     : in   std_logic;
+    FMC_LA23_P                     : in   std_logic;
+    FMC_LA24_N                     : in   std_logic;
+    FMC_LA24_P                     : in   std_logic;
+    FMC_LA25_N                     : in   std_logic;
+    FMC_LA25_P                     : in   std_logic;
+    FMC_LA26_N                     : in   std_logic;
+    FMC_LA26_P                     : in   std_logic;
+    FMC_LA27_N                     : in   std_logic;
+    FMC_LA27_P                     : in   std_logic;
+    FMC_LA28_N                     : in   std_logic;
+    FMC_LA28_P                     : in   std_logic;
+    FMC_LA29_N                     : in   std_logic;
+    FMC_LA29_P                     : in   std_logic;
+    FMC_LA30_N                     : in   std_logic;
+    FMC_LA30_P                     : in   std_logic;
+    FMC_LA31_N                     : in   std_logic;
+    FMC_LA31_P                     : in   std_logic;
+    FMC_LA32_N                     : in   std_logic;
+    FMC_LA32_P                     : in   std_logic;
+    FMC_LA33_N                     : in   std_logic;
+    FMC_LA33_P                     : in   std_logic;
+    FMC_LA00_CC_N                  : in   std_logic;
+    FMC_LA00_CC_P                  : in   std_logic;
+    FMC_LA01_CC_N                  : in   std_logic;
+    FMC_LA01_CC_P                  : in   std_logic;
+    FMC_LA17_CC_N                  : in   std_logic;
+    FMC_LA17_CC_P                  : in   std_logic;
+    FMC_LA18_CC_N                  : in   std_logic;
+    FMC_LA18_CC_P                  : in   std_logic;
+    FMC_CLK0_M2C_N                 : in   std_logic;
+    FMC_CLK0_M2C_P                 : in   std_logic;
+    FMC_CLK1_M2C_N                 : in   std_logic;
+    FMC_CLK1_M2C_P                 : in   std_logic;
     
     -- PL I2C, shared with PS I2C
     I2C_SCL                        : inout   std_logic;
@@ -188,7 +188,7 @@ entity Mercury_XU5_PE1 is
     IOD_D4_P                       : inout   std_logic; -- Available on G1, No_MGT_routing modules
     IOD_D5_N                       : inout   std_logic; -- Available on G1, No_MGT_routing modules
     IOD_D6_P                       : inout   std_logic; -- Available on G1, No_MGT_routing modules
-    IOD_D7_N                       : inout   std_logic; -- Available on G1, No_MGT_routing modules
+    IOD_D7_N                       : in   std_logic; -- Available on G1, No_MGT_routing modules
     
     -- IOE
     IOE_D0_LED0_N                  : inout   std_logic; -- Available on G1, No_MGT_routing modules
@@ -382,17 +382,18 @@ architecture rtl of Mercury_XU5_PE1 is
       Clk100: in std_logic;
       LED: out std_logic_vector(2 downto 0);
       -- Input Channel on PIN-IO A ---
-      IOA: inout std_logic_vector( 25 downto 0);
--- Input Channel on PIN-IO B ---
-      IOB: inout std_logic_vector( 25 downto 0);
+      IOA: in std_logic_vector( 25 downto 0);
+        -- Input Channel on PIN-IO B ---
+      IOB: in std_logic_vector( 25 downto 0);
      
-    -- Inputs forFMC LPC Connector 0
+      -- Inputs for the FMC LPC Connector 0
     
-      FMCN: inout std_logic_vector( 35 downto 0);
-      FMCP: inout std_logic_vector( 35 downto 0);
+      FMCN: in std_logic_vector( 35 downto 0);
+      FMCP: in std_logic_vector( 35 downto 0);
 
       IOC: inout std_logic_vector(7 downto 0);
-      IOD: inout std_logic_vector(7 downto 0);
+      IOD: inout std_logic_vector(6 downto 0);
+      IOD7: in std_logic;
       -- 32x64-bits data for the PS access through AXI & Peek.
       reg_ro_out: out std_logic_vector(2047 downto 0)
       );
@@ -404,16 +405,17 @@ architecture rtl of Mercury_XU5_PE1 is
       Clk100: in std_logic;
       LED: out std_logic_vector(2 downto 0);
       -- Input Channel on PIN-IO A ---
-      IOA: inout std_logic_vector( 25 downto 0);
+      IOA: in std_logic_vector( 25 downto 0);
       -- Input Channel on PIN-IO B ---
-      IOB: inout std_logic_vector( 25 downto 0);
+      IOB: in std_logic_vector( 25 downto 0);
 
       -- Inputs forFMC LPC Connector    
-      FMCN: inout std_logic_vector( 35 downto 0);
-      FMCP: inout std_logic_vector( 35 downto 0);
+      FMCN: in std_logic_vector( 35 downto 0);
+      FMCP: in std_logic_vector( 35 downto 0);
 
       IOC: inout std_logic_vector(7 downto 0);
-      IOD: inout std_logic_vector(7 downto 0)
+      IOD: inout std_logic_vector(6 downto 0);
+      IOD7: in std_logic
       );
   end component EosMuonTrigger;
 
@@ -571,7 +573,7 @@ begin --being instantiation of components
       IOD(4) => IOD_D4_P,
       IOD(5) => IOD_D5_N,
       IOD(6) => IOD_D6_P,
-      IOD(7) => IOD_D7_N,
+      IOD7 => IOD_D7_N,
       -- 32x64-bits data for the PS access through AXI & Peek.
       reg_ro_out => reg_ro
       );
@@ -728,7 +730,7 @@ begin --being instantiation of components
       IOD(4) => IOD_D4_P,
       IOD(5) => IOD_D5_N,
       IOD(6) => IOD_D6_P,
-      IOD(7) => IOD_D7_N
+      IOD7 => IOD_D7_N
       );
   ---------------------------------------------------------------------------------------------------
   -- processor system instance

@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
-| Date             : Sun Mar  9 21:06:37 2025
+| Date             : Thu Apr  3 16:37:43 2025
 | Host             : yoga716 running 64-bit Ubuntu 22.04.5 LTS
 | Command          : report_power -file Mercury_XU5_PE1_power_routed.rpt -pb Mercury_XU5_PE1_power_summary_routed.pb -rpx Mercury_XU5_PE1_power_routed.rpx
 | Design           : Mercury_XU5_PE1
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 3.837        |
+| Total On-Chip Power (W)  | 3.871        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 3.510        |
-| Device Static (W)        | 0.326        |
+| Dynamic (W)              | 3.545        |
+| Device Static (W)        | 0.327        |
 | Effective TJA (C/W)      | 2.4          |
-| Max Ambient (C)          | 91.0         |
-| Junction Temperature (C) | 34.0         |
+| Max Ambient (C)          | 90.9         |
+| Junction Temperature (C) | 34.1         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,28 +52,28 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
-| Clocks                   |     0.109 |       20 |       --- |             --- |
-| CLB Logic                |     0.041 |    33148 |       --- |             --- |
+| Clocks                   |     0.111 |       20 |       --- |             --- |
+| CLB Logic                |     0.040 |    33265 |       --- |             --- |
 |   LUT as Distributed RAM |     0.019 |      596 |     28800 |            2.07 |
-|   LUT as Logic           |     0.018 |    10377 |     47232 |           21.97 |
-|   Register               |     0.002 |    16392 |     94464 |           17.35 |
-|   LUT as Shift Register  |     0.001 |      270 |     28800 |            0.94 |
-|   CARRY8                 |    <0.001 |       83 |      8820 |            0.94 |
-|   Others                 |    <0.001 |     1107 |       --- |             --- |
+|   LUT as Logic           |     0.018 |    10428 |     47232 |           22.08 |
+|   Register               |     0.002 |    16447 |     94464 |           17.41 |
+|   LUT as Shift Register  |    <0.001 |      270 |     28800 |            0.94 |
+|   CARRY8                 |    <0.001 |       91 |      8820 |            1.03 |
+|   Others                 |    <0.001 |     1112 |       --- |             --- |
+|   BUFG                   |     0.000 |        2 |        24 |            8.33 |
 |   F7/F8 Muxes            |     0.000 |      644 |     70560 |            0.91 |
-|   BUFG                   |     0.000 |        1 |        24 |            4.17 |
-| Signals                  |     0.034 |    33164 |       --- |             --- |
+| Signals                  |     0.035 |    33255 |       --- |             --- |
 | Block RAM                |     0.018 |     25.5 |       150 |           17.00 |
 | MMCM                     |     0.220 |        0 |       --- |             --- |
 | PLL                      |     0.057 |        1 |       --- |             --- |
 | DSPs                     |    <0.001 |        3 |       240 |            1.25 |
-| I/O                      |     0.267 |       75 |       252 |           29.76 |
+| I/O                      |     0.299 |       78 |       252 |           30.95 |
 | SYSMON                   |     0.005 |        1 |       --- |             --- |
 | PS8                      |     2.760 |        1 |       --- |             --- |
-| Static Power             |     0.326 |          |           |                 |
+| Static Power             |     0.327 |          |           |                 |
 |   PS Static              |     0.105 |          |           |                 |
 |   PL Static              |     0.222 |          |           |                 |
-| Total                    |     3.837 |          |           |                 |
+| Total                    |     3.871 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -83,14 +83,14 @@ Table of Contents
 +-----------------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source          | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint          |       0.850 |     0.309 |       0.247 |      0.062 |       NA    | Unspecified | NA         |
-| Vccint_io       |       0.850 |     0.150 |       0.122 |      0.028 |       NA    | Unspecified | NA         |
+| Vccint          |       0.850 |     0.312 |       0.250 |      0.062 |       NA    | Unspecified | NA         |
+| Vccint_io       |       0.850 |     0.151 |       0.124 |      0.028 |       NA    | Unspecified | NA         |
 | Vccbram         |       0.850 |     0.001 |       0.001 |      0.001 |       NA    | Unspecified | NA         |
 | Vccaux          |       1.800 |     0.199 |       0.152 |      0.047 |       NA    | Unspecified | NA         |
-| Vccaux_io       |       1.800 |     0.073 |       0.047 |      0.025 |       NA    | Unspecified | NA         |
+| Vccaux_io       |       1.800 |     0.077 |       0.051 |      0.025 |       NA    | Unspecified | NA         |
 | Vcco33          |       3.300 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco25          |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
-| Vcco18          |       1.800 |     0.004 |       0.004 |      0.000 |       NA    | Unspecified | NA         |
+| Vcco18          |       1.800 |     0.017 |       0.017 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco15          |       1.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco135         |       1.350 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco12          |       1.200 |     0.059 |       0.059 |      0.000 |       NA    | Unspecified | NA         |
@@ -182,20 +182,20 @@ Table of Contents
 +---------------------------+-----------+
 | Name                      | Power (W) |
 +---------------------------+-----------+
-| Mercury_XU5_PE1           |     3.510 |
+| Mercury_XU5_PE1           |     3.545 |
 |   IIC_scl_iobuf           |     0.002 |
 |   IIC_sda_iobuf           |     0.002 |
-|   Mercury_XU5_i           |     3.487 |
+|   Mercury_XU5_i           |     3.489 |
 |     axi_interconnect_0    |     0.024 |
 |       s00_couplers        |     0.024 |
 |     clk_wiz_0             |     0.102 |
 |       inst                |     0.102 |
-|     ddr4                  |     0.580 |
-|       inst                |     0.580 |
-|     reg_bank_0            |     0.006 |
+|     ddr4                  |     0.582 |
+|       inst                |     0.582 |
+|     reg_bank_0            |     0.007 |
+|       inst                |     0.007 |
+|     smartconnect_00       |     0.006 |
 |       inst                |     0.006 |
-|     smartconnect_00       |     0.005 |
-|       inst                |     0.005 |
 |     system_management_wiz |     0.006 |
 |       U0                  |     0.006 |
 |     zynq_ultra_ps_e       |     2.762 |
@@ -203,8 +203,8 @@ Table of Contents
 |   dbg_hub                 |     0.002 |
 |     inst                  |     0.002 |
 |       BSCANID.u_xsdbm_id  |     0.002 |
-|   i_gmii2rgmii            |     0.009 |
-|     i_rgmii_gmii          |     0.005 |
+|   i_gmii2rgmii            |     0.010 |
+|     i_rgmii_gmii          |     0.006 |
 |       i_fifo              |     0.003 |
 +---------------------------+-----------+
 
