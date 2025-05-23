@@ -46,11 +46,8 @@ module EosMuonTrigger(
      
     //******************** Testing Combo Cards ******************************/
     //******************** Testing Combo Cards 2 ******************************
-    assign LED[0] = FMCP[0];  
-    assign LED[1] = FMCN[0];   
-    assign LED[2] = FMCP[5]; 
-    assign IOD[4] = FMCP[0];
-    assign IOD[5] = FMCN[0];
+    assign IOD[4] = FMCP[0]; // IOD[4] is the bottom right LEMO00 Connector
+    assign IOD[5] = FMCN[0]; // IOD[5] is the Top right LEMO00 Connector
     
     //******************** Testing Combo Cards 2 ******************************/   
     /******************** Testing with PTB ******************************
