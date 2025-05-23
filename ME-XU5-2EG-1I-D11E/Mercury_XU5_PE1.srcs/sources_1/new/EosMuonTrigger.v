@@ -32,7 +32,7 @@ module EosMuonTrigger(
     inout [6:0] IOD,
     input IOD7
     );
-    //******************** Testing Combo Cards ******************************
+    /******************** Testing Combo Cards ******************************
     //assign IOA[20] = ~IOA[22];
     //assign IOA[16] = ~IOA[18];
     //assign IOA[14] = ~(IOA[22] & IOA[18]);
@@ -40,13 +40,20 @@ module EosMuonTrigger(
     //assign IOA[20] = ~FMCP[0]; //PIN 1 on Box
     //assign IOA[16] = ~FMCN[3];  // Pin 15 on Box
     //assign IOA[14] = !FMCP[0] & !FMCN[3];
-    assign LED[0] = ~ IOA[0];
-    assign LED[1] = ~ IOA[1];
-    assign LED[2] = ~ (IOA[2] | IOA[3]);
+    //assign LED[0] = ~ IOA[0];
+    //assign LED[1] = ~ IOA[1];
+    //assign LED[2] = ~ (IOA[2] | IOA[3]);
      
     //******************** Testing Combo Cards ******************************/
+    //******************** Testing Combo Cards 2 ******************************
+    assign LED[0] = FMCP[0];  
+    assign LED[1] = FMCN[0];   
+    assign LED[2] = FMCP[5]; 
+    assign IOD[4] = FMCP[0];
+    assign IOD[5] = FMCN[0];
     
-    //******************** Testing with PTB ******************************
+    //******************** Testing Combo Cards 2 ******************************/   
+    /******************** Testing with PTB ******************************
     //wire Clk100Hz;
     //wire Clk2Hz;
     wire pulse500ns_2Hz;
@@ -55,6 +62,7 @@ module EosMuonTrigger(
     Pulse500ns_2Hz Pulse500ns_2Hz_i(Clk100, pulse500ns_2Hz);  
     assign IOC[7] = IOD7; // Pass the input through to IOC[7]
     assign IOD[4] = pulse500ns_2Hz; // SMA Top Right is an output to the PTB
+    assign IOD[5] = pulse500ns_2Hz; // SMA Top Right is an output to the PTB
     //******************** Testing with PTB ******************************/
     
     /******************* Paddle Trigger Codes ******************************

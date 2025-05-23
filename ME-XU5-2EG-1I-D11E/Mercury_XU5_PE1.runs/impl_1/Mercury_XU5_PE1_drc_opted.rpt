@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
-| Date         : Thu Apr  3 16:34:32 2025
+| Date         : Fri May 16 16:54:07 2025
 | Host         : yoga716 running 64-bit Ubuntu 22.04.5 LTS
 | Command      : report_drc -file Mercury_XU5_PE1_drc_opted.rpt -pb Mercury_XU5_PE1_drc_opted.pb -rpx Mercury_XU5_PE1_drc_opted.rpx
 | Design       : Mercury_XU5_PE1
@@ -47,12 +47,12 @@ Related violations: <none>
 
 RPBF-3#1 Warning
 IO port buffering is incomplete  
-Device port IOC_D7_N expects both input and output buffering but the buffers are incomplete.
+Device port IOD_D4_P expects both input and output buffering but the buffers are incomplete.
 Related violations: <none>
 
 RPBF-3#2 Warning
 IO port buffering is incomplete  
-Device port IOD_D4_P expects both input and output buffering but the buffers are incomplete.
+Device port IOD_D5_N expects both input and output buffering but the buffers are incomplete.
 Related violations: <none>
 
 

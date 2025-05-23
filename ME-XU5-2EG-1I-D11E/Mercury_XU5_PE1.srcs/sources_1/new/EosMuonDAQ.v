@@ -27,18 +27,33 @@ module EosMuonDAQ(
         // The MSB should blink every 2.5 seconds (27-bits)
    end*/
    
-   wire Clk2Hz;
-   SlowClock2Hz SlowClock2Hz_i(Clk100,Clk2Hz);
-   reg [138:0] count=0; //Max is 4.3B
-   always @(posedge Clk2Hz) begin // 100MHz Clk
-   //always @(IOD7) begin // Input Trigger from the PTB.
-        count<=count+1; // 
-   end
-        
    
    //assign IOC[7:0]=8'b10101010; // this will convert to 0xaa in hex.
    assign reg_ro_out [ 31 : 0] = 32'hdeadbeef; //this goes to 0x8002_0100
-   assign reg_ro_out [138+32:0+32] = count[138:0];  //this goes to 0x8002_0108 (4Hex=32bit address later)
+   
+   reg [31:0] nHits=0;
+   always @(negedge FMCP[0]) begin
+        nHits<=nHits+1;
+   end
+   
+   wire Clk2Hz;
+   SlowClock2Hz SlowClock2Hz_i(Clk100,Clk2Hz);
+   reg [31:0] nClk2Hz=0; //Max is 4.3B
+   always @(posedge Clk2Hz) begin // 2Hz Clk
+        nClk2Hz<=nClk2Hz+1; // 
+   end
+   assign reg_ro_out [31+32:0+32] = nClk2Hz[31:0];  //this goes to 0x8002_0104 (4Hex=32bit address later)
+   
+   // Testing the input from the PTB into Petalinux
+   reg [31:0] nIOD7=0; //Max is 4.3B
+   reg IOD7reg;
+   always @(posedge Clk100) begin // Input Trigger from the PTB.
+        IOD7reg<=IOD7;
+        if(~IOD7reg & IOD7)
+            nIOD7<=nIOD7+1;
+   end     
+   assign reg_ro_out [31+32*2:0+32*2] = nIOD7[31:0];  //this goes to 0x8002_0108 (4Hex=32bit address later)
+   assign reg_ro_out [31+32*3:0+32*3] = nHits[31:0];  //this goes to 0x8002_0112 (4Hex=32bit address later)
    
    //assign reg_ro_out [ 1 * 32 + 7 : 1 * 32 + 0 ] = IOC[7:0]; //this goes to 0xA0000104
    //assign reg_ro_out [ 1 * 32 + 31 : 1 * 32 + 8 ] = 0;

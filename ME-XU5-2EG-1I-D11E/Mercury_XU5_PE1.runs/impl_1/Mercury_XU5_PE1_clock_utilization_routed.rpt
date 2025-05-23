@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------
 | Tool Version      : Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
-| Date              : Thu Apr  3 16:37:48 2025
+| Date              : Fri May 16 16:59:13 2025
 | Host              : yoga716 running 64-bit Ubuntu 22.04.5 LTS
 | Command           : report_clock_utilization -file Mercury_XU5_PE1_clock_utilization_routed.rpt
 | Design            : Mercury_XU5_PE1
@@ -39,12 +39,13 @@ Table of Contents
 22. Device Cell Placement Summary for Global Clock g14
 23. Device Cell Placement Summary for Global Clock g15
 24. Device Cell Placement Summary for Global Clock g16
-25. Clock Region Cell Placement per Global Clock: Region X0Y0
-26. Clock Region Cell Placement per Global Clock: Region X1Y0
-27. Clock Region Cell Placement per Global Clock: Region X0Y1
-28. Clock Region Cell Placement per Global Clock: Region X1Y1
-29. Clock Region Cell Placement per Global Clock: Region X0Y2
-30. Clock Region Cell Placement per Global Clock: Region X1Y2
+25. Device Cell Placement Summary for Global Clock g17
+26. Clock Region Cell Placement per Global Clock: Region X0Y0
+27. Clock Region Cell Placement per Global Clock: Region X1Y0
+28. Clock Region Cell Placement per Global Clock: Region X0Y1
+29. Clock Region Cell Placement per Global Clock: Region X1Y1
+30. Clock Region Cell Placement per Global Clock: Region X0Y2
+31. Clock Region Cell Placement per Global Clock: Region X1Y2
 
 1. Clock Primitive Utilization
 ------------------------------
@@ -52,7 +53,7 @@ Table of Contents
 +------------+------+-----------+-----+--------------+--------+
 | Type       | Used | Available | LOC | Clock Region | Pblock |
 +------------+------+-----------+-----+--------------+--------+
-| BUFGCE     |   12 |        88 |   0 |            0 |      1 |
+| BUFGCE     |   13 |        88 |   0 |            0 |      1 |
 | BUFGCE_DIV |    1 |        12 |   0 |            0 |      1 |
 | BUFGCTRL   |    2 |        24 |   0 |            0 |      2 |
 | BUFG_PS    |    2 |        72 |   0 |            0 |      0 |
@@ -68,24 +69,25 @@ Table of Contents
 | Global Id | Source Id | Driver Type/Pin | Constraint | Site             | Clock Region | Root      | Clock Delay Group | Load Clock Region | Clock Loads | Non-Clock Loads | Clock Period | Clock                                                                                               | Driver Pin                                                                    | Net                                                           |
 +-----------+-----------+-----------------+------------+------------------+--------------+-----------+-------------------+-------------------+-------------+-----------------+--------------+-----------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------+---------------------------------------------------------------+
 | g0        | src0      | BUFGCE/O        | None       | BUFGCE_X0Y20     | X1Y0         | X1Y0      |                   |                 4 |       10286 |               1 |        3.752 | mmcm_clkout0                                                                                        | Mercury_XU5_i/ddr4/inst/u_ddr4_infrastructure/u_bufg_divClk/O                 | Mercury_XU5_i/ddr4/inst/u_ddr4_infrastructure/u_bufg_divClk_0 |
-| g1        | src1      | BUFG_PS/O       | None       | BUFG_PS_X0Y65    | X0Y2         | X0Y1      |                   |                 4 |        3915 |               0 |       10.000 | clk_pl_0                                                                                            | Mercury_XU5_i/zynq_ultra_ps_e/U0/buffer_pl_clk_0.PL_CLK_0_BUFG/O              | Mercury_XU5_i/zynq_ultra_ps_e/U0/pl_clk0                      |
-| g2        | src2      | BUFGCE/O        | None       | BUFGCE_X0Y16     | X1Y0         | X1Y0      |                   |                 1 |        1410 |               0 |        7.504 | mmcm_clkout6                                                                                        | Mercury_XU5_i/ddr4/inst/u_ddr4_infrastructure/u_bufg_riuClk/O                 | Mercury_XU5_i/ddr4/inst/u_ddr4_infrastructure/c0_riu_clk      |
-| g3        | src3      | BUFGCE/O        | None       | BUFGCE_X0Y3      | X1Y0         | X1Y0      |                   |                 1 |         551 |               0 |       15.009 | mmcm_clkout5                                                                                        | Mercury_XU5_i/ddr4/inst/u_ddr4_infrastructure/u_bufg_dbg_clk/O                | Mercury_XU5_i/ddr4/inst/u_ddr4_infrastructure/dbg_clk         |
-| g4        | src4      | BUFGCE/O        | None       | BUFGCE_X0Y15     | X1Y0         | X1Y0      |                   |                 2 |         461 |               0 |       50.000 | dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_inst/SERIES7_BSCAN.bscan_inst/INTERNAL_TCK | dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.u_bufg_icon_tck/O          | dbg_hub/inst/BSCANID.u_xsdbm_id/itck_i                        |
-| g5        | src5      | BUFGCE/O        | None       | BUFGCE_X0Y48     | X1Y2         | X0Y2      |                   |                 1 |         139 |               0 |              |                                                                                                     | Clk2Hz_BUFG_inst/O                                                            | Clk2Hz_BUFG                                                   |
-| g6        | src6      | BUFGCE/O        | None       | BUFGCE_X0Y36     | X1Y1         | X0Y0,X1Y1 | rgmii_tx_group    |                 2 |         127 |               0 |        8.000 | clk_out1_Mercury_XU5_clk_wiz_0_0                                                                    | Mercury_XU5_i/clk_wiz_0/inst/clkout1_buf/O                                    | Mercury_XU5_i/clk_wiz_0/inst/clk_out1                         |
-| g7        | src7      | BUFGCE/O        | PBlock     | BUFGCE_HDIO_X0Y2 | X0Y1         | X0Y1      |                   |                 1 |          53 |               0 |        8.000 | RGMII_RX_CLK                                                                                        | i_gmii2rgmii/i_rgmii_rxclk_buf/O                                              | i_gmii2rgmii/RGMII_rxclk_buf                                  |
-| g8        | src8      | BUFGCE/O        | None       | BUFGCE_X0Y8      | X1Y0         | X1Y0      |                   |                 2 |          17 |               0 |       10.006 | CLK100_PL_P                                                                                         | Mercury_XU5_i/ddr4/inst/u_ddr4_infrastructure/u_bufg_inst/O                   | Mercury_XU5_i/ddr4/inst/u_ddr4_infrastructure/sys_clk_in_bufg |
-| g9        | src9      | BUFGCTRL/O      | PBlock     | BUFGCTRL_X0Y7    | X1Y0         | X0Y1      |                   |                 2 |          11 |               0 |       40.000 | clk_out3_Mercury_XU5_clk_wiz_0_0                                                                    | i_gmii2rgmii/i_rgmii_mux0/O                                                   | i_gmii2rgmii/GMII_tx_clk                                      |
-| g9        | src6      | BUFGCTRL/O      | PBlock     | BUFGCTRL_X0Y7    | X1Y0         | X0Y1      |                   |                 2 |          11 |               0 |       40.000 | clk_out1_Mercury_XU5_clk_wiz_0_0                                                                    | i_gmii2rgmii/i_rgmii_mux0/O                                                   | i_gmii2rgmii/GMII_tx_clk                                      |
-| g10       | src10     | BUFGCE/O        | None       | BUFGCE_X0Y47     | X1Y1         | X0Y0      | rgmii_tx_group    |                 1 |           1 |               0 |        8.000 | clk_out2_Mercury_XU5_clk_wiz_0_0                                                                    | Mercury_XU5_i/clk_wiz_0/inst/clkout2_buf/O                                    | Mercury_XU5_i/clk_wiz_0/inst/clk_out2                         |
-| g11       | src9      | BUFGCE/O        | None       | BUFGCE_X0Y46     | X1Y1         | X1Y1      |                   |                 1 |           1 |               0 |       40.000 | clk_out3_Mercury_XU5_clk_wiz_0_0                                                                    | Mercury_XU5_i/clk_wiz_0/inst/clkout3_buf/O                                    | Mercury_XU5_i/clk_wiz_0/inst/clk_out3                         |
-| g12       | src11     | BUFGCE/O        | None       | BUFGCE_X0Y45     | X1Y1         | X1Y1      |                   |                 1 |           1 |               0 |      100.000 | clk_out4_Mercury_XU5_clk_wiz_0_0                                                                    | Mercury_XU5_i/clk_wiz_0/inst/clkout4_buf/O                                    | Mercury_XU5_i/clk_wiz_0/inst/clk_out4                         |
-| g13       | src11     | BUFGCE_DIV/O    | PBlock     | BUFGCE_DIV_X0Y1  | X1Y0         | X1Y0      |                   |                 1 |           1 |               0 |      400.000 | Clk2_5                                                                                              | i_gmii2rgmii/i_rgmii_Div4/O                                                   | i_gmii2rgmii/Clk2_5                                           |
-| g14       | src12     | BUFGCTRL/O      | PBlock     | BUFGCTRL_X0Y6    | X1Y0         | X1Y0      |                   |                 1 |           1 |               0 |       40.000 | Clk2_5                                                                                              | i_gmii2rgmii/i_rgmii_mux1/O                                                   | i_gmii2rgmii/Clk_mux0                                         |
-| g14       | src9      | BUFGCTRL/O      | PBlock     | BUFGCTRL_X0Y6    | X1Y0         | X1Y0      |                   |                 1 |           1 |               0 |       40.000 | clk_out3_Mercury_XU5_clk_wiz_0_0                                                                    | i_gmii2rgmii/i_rgmii_mux1/O                                                   | i_gmii2rgmii/Clk_mux0                                         |
-| g15       | src13     | BUFGCE/O        | None       | BUFGCE_X0Y62     | X1Y2         | X1Y2      | n/a               |                 2 |           0 |            2130 |          n/a | n/a                                                                                                 | Mercury_XU5_i/ps_sys_rst/U0/ACTIVE_LOW_BSR_OUT_DFF[0].FDRE_BSR_N_bufg_place/O | Mercury_XU5_i/ps_sys_rst/U0/interconnect_aresetn[0]           |
-| g16       | src14     | BUFG_PS/O       | None       | BUFG_PS_X0Y54    | X0Y2         | X1Y1      | n/a               |                 1 |           0 |               1 |       20.000 | clk_pl_1                                                                                            | Mercury_XU5_i/zynq_ultra_ps_e/U0/buffer_pl_clk_1.PL_CLK_1_BUFG/O              | Mercury_XU5_i/zynq_ultra_ps_e/U0/pl_clk1                      |
+| g1        | src1      | BUFG_PS/O       | None       | BUFG_PS_X0Y65    | X0Y2         | X0Y1      |                   |                 4 |        3921 |               0 |       10.000 | clk_pl_0                                                                                            | Mercury_XU5_i/zynq_ultra_ps_e/U0/buffer_pl_clk_0.PL_CLK_0_BUFG/O              | Mercury_XU5_i/zynq_ultra_ps_e/U0/pl_clk0                      |
+| g2        | src2      | BUFGCE/O        | None       | BUFGCE_X0Y16     | X1Y0         | X1Y0      |                   |                 2 |        1410 |               0 |        7.504 | mmcm_clkout6                                                                                        | Mercury_XU5_i/ddr4/inst/u_ddr4_infrastructure/u_bufg_riuClk/O                 | Mercury_XU5_i/ddr4/inst/u_ddr4_infrastructure/c0_riu_clk      |
+| g3        | src3      | BUFGCE/O        | None       | BUFGCE_X0Y8      | X1Y0         | X1Y0      |                   |                 1 |         551 |               0 |       15.009 | mmcm_clkout5                                                                                        | Mercury_XU5_i/ddr4/inst/u_ddr4_infrastructure/u_bufg_dbg_clk/O                | Mercury_XU5_i/ddr4/inst/u_ddr4_infrastructure/dbg_clk         |
+| g4        | src4      | BUFGCE/O        | None       | BUFGCE_X0Y15     | X1Y0         | X1Y0      |                   |                 3 |         461 |               0 |       50.000 | dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_inst/SERIES7_BSCAN.bscan_inst/INTERNAL_TCK | dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.u_bufg_icon_tck/O          | dbg_hub/inst/BSCANID.u_xsdbm_id/itck_i                        |
+| g5        | src5      | BUFGCE/O        | None       | BUFGCE_X0Y27     | X1Y1         | X0Y0,X1Y1 | rgmii_tx_group    |                 2 |         127 |               0 |        8.000 | clk_out1_Mercury_XU5_clk_wiz_0_0                                                                    | Mercury_XU5_i/clk_wiz_0/inst/clkout1_buf/O                                    | Mercury_XU5_i/clk_wiz_0/inst/clk_out1                         |
+| g6        | src6      | BUFGCE/O        | PBlock     | BUFGCE_HDIO_X0Y2 | X0Y1         | X0Y1      |                   |                 1 |          53 |               0 |        8.000 | RGMII_RX_CLK                                                                                        | i_gmii2rgmii/i_rgmii_rxclk_buf/O                                              | i_gmii2rgmii/RGMII_rxclk_buf                                  |
+| g7        | src7      | BUFGCE/O        | None       | BUFGCE_X0Y48     | X1Y2         | X0Y2      |                   |                 1 |          32 |               0 |              |                                                                                                     | Clk2Hz_BUFG_inst/O                                                            | Clk2Hz_BUFG                                                   |
+| g8        | src8      | BUFGCE/O        | None       | BUFGCE_X0Y25     | X1Y1         | X1Y1      |                   |                 3 |          32 |               2 |              |                                                                                                     | IOD_D4_P_OBUF_BUFG_inst/O                                                     | IOD_D4_P_OBUF_BUFG                                            |
+| g9        | src9      | BUFGCE/O        | None       | BUFGCE_X0Y4      | X1Y0         | X0Y0      |                   |                 1 |          17 |               0 |       10.006 | CLK100_PL_P                                                                                         | Mercury_XU5_i/ddr4/inst/u_ddr4_infrastructure/u_bufg_inst/O                   | Mercury_XU5_i/ddr4/inst/u_ddr4_infrastructure/sys_clk_in_bufg |
+| g10       | src10     | BUFGCTRL/O      | PBlock     | BUFGCTRL_X0Y7    | X1Y0         | X0Y1      |                   |                 2 |          11 |               0 |       40.000 | clk_out3_Mercury_XU5_clk_wiz_0_0                                                                    | i_gmii2rgmii/i_rgmii_mux0/O                                                   | i_gmii2rgmii/GMII_tx_clk                                      |
+| g10       | src5      | BUFGCTRL/O      | PBlock     | BUFGCTRL_X0Y7    | X1Y0         | X0Y1      |                   |                 2 |          11 |               0 |       40.000 | clk_out1_Mercury_XU5_clk_wiz_0_0                                                                    | i_gmii2rgmii/i_rgmii_mux0/O                                                   | i_gmii2rgmii/GMII_tx_clk                                      |
+| g11       | src11     | BUFGCE/O        | None       | BUFGCE_X0Y26     | X1Y1         | X0Y0      | rgmii_tx_group    |                 1 |           1 |               0 |        8.000 | clk_out2_Mercury_XU5_clk_wiz_0_0                                                                    | Mercury_XU5_i/clk_wiz_0/inst/clkout2_buf/O                                    | Mercury_XU5_i/clk_wiz_0/inst/clk_out2                         |
+| g12       | src10     | BUFGCE/O        | None       | BUFGCE_X0Y46     | X1Y1         | X1Y1      |                   |                 1 |           1 |               0 |       40.000 | clk_out3_Mercury_XU5_clk_wiz_0_0                                                                    | Mercury_XU5_i/clk_wiz_0/inst/clkout3_buf/O                                    | Mercury_XU5_i/clk_wiz_0/inst/clk_out3                         |
+| g13       | src12     | BUFGCE/O        | None       | BUFGCE_X0Y45     | X1Y1         | X1Y1      |                   |                 1 |           1 |               0 |      100.000 | clk_out4_Mercury_XU5_clk_wiz_0_0                                                                    | Mercury_XU5_i/clk_wiz_0/inst/clkout4_buf/O                                    | Mercury_XU5_i/clk_wiz_0/inst/clk_out4                         |
+| g14       | src12     | BUFGCE_DIV/O    | PBlock     | BUFGCE_DIV_X0Y1  | X1Y0         | X1Y0      |                   |                 1 |           1 |               0 |      400.000 | Clk2_5                                                                                              | i_gmii2rgmii/i_rgmii_Div4/O                                                   | i_gmii2rgmii/Clk2_5                                           |
+| g15       | src13     | BUFGCTRL/O      | PBlock     | BUFGCTRL_X0Y6    | X1Y0         | X1Y0      |                   |                 1 |           1 |               0 |       40.000 | Clk2_5                                                                                              | i_gmii2rgmii/i_rgmii_mux1/O                                                   | i_gmii2rgmii/Clk_mux0                                         |
+| g15       | src10     | BUFGCTRL/O      | PBlock     | BUFGCTRL_X0Y6    | X1Y0         | X1Y0      |                   |                 1 |           1 |               0 |       40.000 | clk_out3_Mercury_XU5_clk_wiz_0_0                                                                    | i_gmii2rgmii/i_rgmii_mux1/O                                                   | i_gmii2rgmii/Clk_mux0                                         |
+| g16       | src14     | BUFGCE/O        | None       | BUFGCE_X0Y62     | X1Y2         | X1Y2      | n/a               |                 1 |           0 |            2130 |          n/a | n/a                                                                                                 | Mercury_XU5_i/ps_sys_rst/U0/ACTIVE_LOW_BSR_OUT_DFF[0].FDRE_BSR_N_bufg_place/O | Mercury_XU5_i/ps_sys_rst/U0/interconnect_aresetn[0]           |
+| g17       | src15     | BUFG_PS/O       | None       | BUFG_PS_X0Y54    | X0Y2         | X1Y1      | n/a               |                 1 |           0 |               1 |       20.000 | clk_pl_1                                                                                            | Mercury_XU5_i/zynq_ultra_ps_e/U0/buffer_pl_clk_1.PL_CLK_1_BUFG/O              | Mercury_XU5_i/zynq_ultra_ps_e/U0/pl_clk1                      |
 +-----------+-----------+-----------------+------------+------------------+--------------+-----------+-------------------+-------------------+-------------+-----------------+--------------+-----------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------+---------------------------------------------------------------+
 * Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered
 ** Non-Clock Loads column represents cell count of non-clock pin loads
@@ -102,20 +104,21 @@ Table of Contents
 | src2      | g2        | MMCME4_ADV/CLKOUT6 | MMCM_X0Y0  | MMCM_X0Y0        | X1Y0         |           1 |               0 |               7.504 | mmcm_clkout6                                                                                        | Mercury_XU5_i/ddr4/inst/u_ddr4_infrastructure/gen_mmcme4.u_mmcme_adv_inst/CLKOUT6                                          | Mercury_XU5_i/ddr4/inst/u_ddr4_infrastructure/mmcm_clkout6                                                   |
 | src3      | g3        | MMCME4_ADV/CLKOUT5 | MMCM_X0Y0  | MMCM_X0Y0        | X1Y0         |           1 |               0 |              15.009 | mmcm_clkout5                                                                                        | Mercury_XU5_i/ddr4/inst/u_ddr4_infrastructure/gen_mmcme4.u_mmcme_adv_inst/CLKOUT5                                          | Mercury_XU5_i/ddr4/inst/u_ddr4_infrastructure/mmcm_clkout5                                                   |
 | src4      | g4        | BSCANE2/TCK        | None       | CONFIG_SITE_X0Y0 | X1Y1         |           1 |               0 |              50.000 | dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_inst/SERIES7_BSCAN.bscan_inst/INTERNAL_TCK | dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_inst/SERIES7_BSCAN.bscan_inst/TCK                                 | dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_inst/TCK                                            |
-| src5      | g5        | FDRE/Q             | None       | SLICE_X47Y151    | X1Y2         |           1 |               1 |                     |                                                                                                     | EosMuonDAQ_i/SlowClock2Hz_i/Clk2Hz_reg/Q                                                                                   | EosMuonDAQ_i/SlowClock2Hz_i/Clk2Hz                                                                           |
-| src6      | g6        | MMCME4_ADV/CLKOUT0 | None       | MMCM_X0Y1        | X1Y1         |           1 |               0 |               8.000 | clk_out1_Mercury_XU5_clk_wiz_0_0                                                                    | Mercury_XU5_i/clk_wiz_0/inst/mmcme4_adv_inst/CLKOUT0                                                                       | Mercury_XU5_i/clk_wiz_0/inst/clk_out1_Mercury_XU5_clk_wiz_0_0                                                |
-| src6      | g9        | BUFGCE/O           | None       | BUFGCE_X0Y36     | X1Y1         |           0 |               0 |               8.000 | clk_out1_Mercury_XU5_clk_wiz_0_0                                                                    | Mercury_XU5_i/clk_wiz_0/inst/clkout1_buf/O                                                                                 | Mercury_XU5_i/clk_wiz_0/inst/clk_out1                                                                        |
-| src7      | g7        | IBUFCTRL/O         | IOB_X0Y60  | IOB_X0Y60        | X0Y1         |           1 |               0 |               8.000 | RGMII_RX_CLK                                                                                        | ETH1_RXCLK_IBUF_inst/IBUFCTRL_INST/O                                                                                       | ETH1_RXCLK_IBUF_inst/O                                                                                       |
-| src8      | g8        | IBUFCTRL/O         | IOB_X2Y26  | IOB_X2Y26        | X1Y0         |           1 |               1 |              10.006 | CLK100_PL_P                                                                                         | Mercury_XU5_i/ddr4/inst/u_ddr4_mem_intfc/u_mig_ddr4_phy/inst/u_ddr4_phy_pll/diff_input_clk.u_ibufg_sys_clk/IBUFCTRL_INST/O | Mercury_XU5_i/ddr4/inst/u_ddr4_mem_intfc/u_mig_ddr4_phy/inst/u_ddr4_phy_pll/diff_input_clk.u_ibufg_sys_clk/O |
-| src9      | g9        | BUFGCTRL/O         | PBlock     | BUFGCTRL_X0Y6    | X1Y0         |           1 |               0 |              40.000 | clk_out3_Mercury_XU5_clk_wiz_0_0                                                                    | i_gmii2rgmii/i_rgmii_mux1/O                                                                                                | i_gmii2rgmii/Clk_mux0                                                                                        |
-| src9      | g11       | MMCME4_ADV/CLKOUT2 | None       | MMCM_X0Y1        | X1Y1         |           1 |               0 |              40.000 | clk_out3_Mercury_XU5_clk_wiz_0_0                                                                    | Mercury_XU5_i/clk_wiz_0/inst/mmcme4_adv_inst/CLKOUT2                                                                       | Mercury_XU5_i/clk_wiz_0/inst/clk_out3_Mercury_XU5_clk_wiz_0_0                                                |
-| src9      | g14       | BUFGCE/O           | None       | BUFGCE_X0Y46     | X1Y1         |           0 |               0 |              40.000 | clk_out3_Mercury_XU5_clk_wiz_0_0                                                                    | Mercury_XU5_i/clk_wiz_0/inst/clkout3_buf/O                                                                                 | Mercury_XU5_i/clk_wiz_0/inst/clk_out3                                                                        |
-| src10     | g10       | MMCME4_ADV/CLKOUT1 | None       | MMCM_X0Y1        | X1Y1         |           1 |               0 |               8.000 | clk_out2_Mercury_XU5_clk_wiz_0_0                                                                    | Mercury_XU5_i/clk_wiz_0/inst/mmcme4_adv_inst/CLKOUT1                                                                       | Mercury_XU5_i/clk_wiz_0/inst/clk_out2_Mercury_XU5_clk_wiz_0_0                                                |
-| src11     | g12       | MMCME4_ADV/CLKOUT3 | None       | MMCM_X0Y1        | X1Y1         |           1 |               0 |             100.000 | clk_out4_Mercury_XU5_clk_wiz_0_0                                                                    | Mercury_XU5_i/clk_wiz_0/inst/mmcme4_adv_inst/CLKOUT3                                                                       | Mercury_XU5_i/clk_wiz_0/inst/clk_out4_Mercury_XU5_clk_wiz_0_0                                                |
-| src11     | g13       | BUFGCE/O           | None       | BUFGCE_X0Y45     | X1Y1         |           1 |               0 |             100.000 | clk_out4_Mercury_XU5_clk_wiz_0_0                                                                    | Mercury_XU5_i/clk_wiz_0/inst/clkout4_buf/O                                                                                 | Mercury_XU5_i/clk_wiz_0/inst/clk_out4                                                                        |
-| src12     | g14       | BUFGCE_DIV/O       | PBlock     | BUFGCE_DIV_X0Y1  | X1Y0         |           1 |               0 |             400.000 | Clk2_5                                                                                              | i_gmii2rgmii/i_rgmii_Div4/O                                                                                                | i_gmii2rgmii/Clk2_5                                                                                          |
-| src13     | g15       | FDRE/Q             | None       | SLICE_X5Y116     | X0Y1         |           1 |               0 |                     |                                                                                                     | Mercury_XU5_i/ps_sys_rst/U0/ACTIVE_LOW_BSR_OUT_DFF[0].FDRE_BSR_N/Q                                                         | Mercury_XU5_i/ps_sys_rst/U0/interconnect_aresetn[0]_bufg_place                                               |
-| src14     | g16       | PS8/PLCLK[1]       | None       | PS8_X0Y0         | X0Y0         |           1 |               0 |              20.000 | clk_pl_1                                                                                            | Mercury_XU5_i/zynq_ultra_ps_e/U0/PS8_i/PLCLK[1]                                                                            | Mercury_XU5_i/zynq_ultra_ps_e/U0/pl_clk_unbuffered[1]                                                        |
+| src5      | g5        | MMCME4_ADV/CLKOUT0 | None       | MMCM_X0Y1        | X1Y1         |           1 |               0 |               8.000 | clk_out1_Mercury_XU5_clk_wiz_0_0                                                                    | Mercury_XU5_i/clk_wiz_0/inst/mmcme4_adv_inst/CLKOUT0                                                                       | Mercury_XU5_i/clk_wiz_0/inst/clk_out1_Mercury_XU5_clk_wiz_0_0                                                |
+| src5      | g10       | BUFGCE/O           | None       | BUFGCE_X0Y27     | X1Y1         |           0 |               0 |               8.000 | clk_out1_Mercury_XU5_clk_wiz_0_0                                                                    | Mercury_XU5_i/clk_wiz_0/inst/clkout1_buf/O                                                                                 | Mercury_XU5_i/clk_wiz_0/inst/clk_out1                                                                        |
+| src6      | g6        | IBUFCTRL/O         | IOB_X0Y60  | IOB_X0Y60        | X0Y1         |           1 |               0 |               8.000 | RGMII_RX_CLK                                                                                        | ETH1_RXCLK_IBUF_inst/IBUFCTRL_INST/O                                                                                       | ETH1_RXCLK_IBUF_inst/O                                                                                       |
+| src7      | g7        | FDRE/Q             | None       | SLICE_X47Y151    | X1Y2         |           1 |               1 |                     |                                                                                                     | EosMuonDAQ_i/SlowClock2Hz_i/Clk2Hz_reg/Q                                                                                   | EosMuonDAQ_i/SlowClock2Hz_i/Clk2Hz                                                                           |
+| src8      | g8        | IBUFCTRL/O         | IOB_X2Y80  | IOB_X2Y80        | X1Y1         |           1 |               0 |                     |                                                                                                     | FMC_LA00_CC_P_IBUF_inst/IBUFCTRL_INST/O                                                                                    | FMC_LA00_CC_P_IBUF_inst/O                                                                                    |
+| src9      | g9        | IBUFCTRL/O         | IOB_X2Y26  | IOB_X2Y26        | X1Y0         |           1 |               1 |              10.006 | CLK100_PL_P                                                                                         | Mercury_XU5_i/ddr4/inst/u_ddr4_mem_intfc/u_mig_ddr4_phy/inst/u_ddr4_phy_pll/diff_input_clk.u_ibufg_sys_clk/IBUFCTRL_INST/O | Mercury_XU5_i/ddr4/inst/u_ddr4_mem_intfc/u_mig_ddr4_phy/inst/u_ddr4_phy_pll/diff_input_clk.u_ibufg_sys_clk/O |
+| src10     | g10       | BUFGCTRL/O         | PBlock     | BUFGCTRL_X0Y6    | X1Y0         |           1 |               0 |              40.000 | clk_out3_Mercury_XU5_clk_wiz_0_0                                                                    | i_gmii2rgmii/i_rgmii_mux1/O                                                                                                | i_gmii2rgmii/Clk_mux0                                                                                        |
+| src10     | g12       | MMCME4_ADV/CLKOUT2 | None       | MMCM_X0Y1        | X1Y1         |           1 |               0 |              40.000 | clk_out3_Mercury_XU5_clk_wiz_0_0                                                                    | Mercury_XU5_i/clk_wiz_0/inst/mmcme4_adv_inst/CLKOUT2                                                                       | Mercury_XU5_i/clk_wiz_0/inst/clk_out3_Mercury_XU5_clk_wiz_0_0                                                |
+| src10     | g15       | BUFGCE/O           | None       | BUFGCE_X0Y46     | X1Y1         |           0 |               0 |              40.000 | clk_out3_Mercury_XU5_clk_wiz_0_0                                                                    | Mercury_XU5_i/clk_wiz_0/inst/clkout3_buf/O                                                                                 | Mercury_XU5_i/clk_wiz_0/inst/clk_out3                                                                        |
+| src11     | g11       | MMCME4_ADV/CLKOUT1 | None       | MMCM_X0Y1        | X1Y1         |           1 |               0 |               8.000 | clk_out2_Mercury_XU5_clk_wiz_0_0                                                                    | Mercury_XU5_i/clk_wiz_0/inst/mmcme4_adv_inst/CLKOUT1                                                                       | Mercury_XU5_i/clk_wiz_0/inst/clk_out2_Mercury_XU5_clk_wiz_0_0                                                |
+| src12     | g13       | MMCME4_ADV/CLKOUT3 | None       | MMCM_X0Y1        | X1Y1         |           1 |               0 |             100.000 | clk_out4_Mercury_XU5_clk_wiz_0_0                                                                    | Mercury_XU5_i/clk_wiz_0/inst/mmcme4_adv_inst/CLKOUT3                                                                       | Mercury_XU5_i/clk_wiz_0/inst/clk_out4_Mercury_XU5_clk_wiz_0_0                                                |
+| src12     | g14       | BUFGCE/O           | None       | BUFGCE_X0Y45     | X1Y1         |           1 |               0 |             100.000 | clk_out4_Mercury_XU5_clk_wiz_0_0                                                                    | Mercury_XU5_i/clk_wiz_0/inst/clkout4_buf/O                                                                                 | Mercury_XU5_i/clk_wiz_0/inst/clk_out4                                                                        |
+| src13     | g15       | BUFGCE_DIV/O       | PBlock     | BUFGCE_DIV_X0Y1  | X1Y0         |           1 |               0 |             400.000 | Clk2_5                                                                                              | i_gmii2rgmii/i_rgmii_Div4/O                                                                                                | i_gmii2rgmii/Clk2_5                                                                                          |
+| src14     | g16       | FDRE/Q             | None       | SLICE_X6Y130     | X0Y2         |           1 |               0 |                     |                                                                                                     | Mercury_XU5_i/ps_sys_rst/U0/ACTIVE_LOW_BSR_OUT_DFF[0].FDRE_BSR_N/Q                                                         | Mercury_XU5_i/ps_sys_rst/U0/interconnect_aresetn[0]_bufg_place                                               |
+| src15     | g17       | PS8/PLCLK[1]       | None       | PS8_X0Y0         | X0Y0         |           1 |               0 |              20.000 | clk_pl_1                                                                                            | Mercury_XU5_i/zynq_ultra_ps_e/U0/PS8_i/PLCLK[1]                                                                            | Mercury_XU5_i/zynq_ultra_ps_e/U0/pl_clk_unbuffered[1]                                                        |
 +-----------+-----------+--------------------+------------+------------------+--------------+-------------+-----------------+---------------------+-----------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------+
 * Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered
 ** Non-Clock Loads column represents cell count of non-clock pin loads
@@ -129,12 +132,12 @@ Table of Contents
 +-------------------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
 | Clock Region Name | Used  | Avail | Used  | Avail | Used  | Avail | Used  | Avail | Used  | Avail | Used  | Avail | Used  | Avail | Used  | Avail |
 +-------------------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
-| X0Y0              |     3 |    24 |     0 |     4 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |    24 |     0 |     0 |     0 |     0 |
-| X1Y0              |     5 |    24 |     5 |    28 |     1 |     4 |     2 |     8 |     0 |     0 |     0 |     0 |     1 |     1 |     0 |     2 |
-| X0Y1              |     7 |    24 |     1 |     4 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |    24 |     0 |     0 |     0 |     0 |
-| X1Y1              |     4 |    24 |     4 |    24 |     0 |     4 |     0 |     8 |     0 |     0 |     0 |     0 |     1 |     1 |     0 |     2 |
-| X0Y2              |     4 |    24 |     0 |     4 |     0 |     0 |     0 |     0 |     0 |     0 |     2 |    24 |     0 |     0 |     0 |     0 |
-| X1Y2              |     2 |    24 |     2 |    24 |     0 |     4 |     0 |     8 |     0 |     0 |     0 |     0 |     0 |     1 |     0 |     2 |
+| X0Y0              |     5 |    24 |     0 |     4 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |    24 |     0 |     0 |     0 |     0 |
+| X1Y0              |     4 |    24 |     5 |    28 |     1 |     4 |     2 |     8 |     0 |     0 |     0 |     0 |     1 |     1 |     0 |     2 |
+| X0Y1              |     6 |    24 |     1 |     4 |     0 |     0 |     0 |     0 |     0 |     0 |     0 |    24 |     0 |     0 |     0 |     0 |
+| X1Y1              |     4 |    24 |     5 |    24 |     0 |     4 |     0 |     8 |     0 |     0 |     0 |     0 |     1 |     1 |     0 |     2 |
+| X0Y2              |     5 |    24 |     0 |     4 |     0 |     0 |     0 |     0 |     0 |     0 |     2 |    24 |     0 |     0 |     0 |     0 |
+| X1Y2              |     3 |    24 |     2 |    24 |     0 |     4 |     0 |     8 |     0 |     0 |     0 |     0 |     0 |     1 |     0 |     2 |
 +-------------------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+-------+
 * Global Clock column represents track count; while other columns represents cell counts
 
@@ -147,12 +150,12 @@ Table of Contents
 +-------------------+--------+---------+--------+---------+--------+---------+--------+---------+--------+---------+--------+---------+--------+---------+
 | Clock Region Name | Used   | Avail   | Used   | Avail   | Used   | Avail   | Used   | Avail   | Used   | Avail   | Used   | Avail   | Used   | Avail   |
 +-------------------+--------+---------+--------+---------+--------+---------+--------+---------+--------+---------+--------+---------+--------+---------+
-| X0Y0              |      3 |      24 |   6038 |   27840 |    316 |    4800 |      0 |      72 |      0 |      72 |      0 |       0 |      0 |       0 |
-| X1Y0              |      5 |      24 |   5850 |   19200 |    107 |    4800 |     51 |      72 |      3 |      48 |      0 |       0 |      0 |       0 |
-| X0Y1              |      7 |      24 |    818 |   27840 |      3 |    4800 |      0 |      72 |      0 |      72 |      0 |       0 |      0 |       0 |
-| X1Y1              |      4 |      24 |    389 |   19200 |      0 |    4800 |      0 |      72 |      0 |      48 |      0 |       0 |      0 |       0 |
-| X0Y2              |      4 |      24 |   3081 |   27840 |      1 |    4800 |      0 |      72 |      0 |      72 |      0 |       0 |      0 |       0 |
-| X1Y2              |      2 |      24 |    271 |   19200 |      0 |    4800 |      0 |      72 |      0 |      48 |      0 |       0 |      0 |       0 |
+| X0Y0              |      5 |      24 |   5316 |   27840 |    311 |    4800 |      0 |      72 |      0 |      72 |      0 |       0 |      0 |       0 |
+| X1Y0              |      4 |      24 |   6196 |   19200 |    111 |    4800 |     51 |      72 |      3 |      48 |      0 |       0 |      0 |       0 |
+| X0Y1              |      6 |      24 |   1037 |   27840 |      3 |    4800 |      0 |      72 |      0 |      72 |      0 |       0 |      0 |       0 |
+| X1Y1              |      4 |      24 |    453 |   19200 |      0 |    4800 |      0 |      72 |      0 |      48 |      0 |       0 |      0 |       0 |
+| X0Y2              |      5 |      24 |   3140 |   27840 |      2 |    4800 |      0 |      72 |      0 |      72 |      0 |       0 |      0 |       0 |
+| X1Y2              |      3 |      24 |    236 |   19200 |      0 |    4800 |      0 |      72 |      0 |      48 |      0 |       0 |      0 |       0 |
 +-------------------+--------+---------+--------+---------+--------+---------+--------+---------+--------+---------+--------+---------+--------+---------+
 * Global Clock column represents track count; while other columns represents cell counts
 
@@ -164,9 +167,9 @@ All Modules
 +----+----+----+
 |    | X0 | X1 |
 +----+----+----+
-| Y2 |  5 |  4 |
-| Y1 |  7 |  8 |
-| Y0 |  6 | 11 |
+| Y2 |  6 |  5 |
+| Y1 |  6 |  8 |
+| Y0 |  8 | 11 |
 +----+----+----+
 
 
@@ -179,12 +182,12 @@ All Modules
 +-------------------+------+-------+-------+------+-------+-------+------+-------+-------+------+-------+-------+
 | Clock Region Name | Used | Avail | Util% | Used | Avail | Util% | Used | Avail | Util% | Used | Avail | Util% |
 +-------------------+------+-------+-------+------+-------+-------+------+-------+-------+------+-------+-------+
-| X0Y0              |    2 |    24 |  8.33 |    3 |    24 | 12.50 |    2 |    24 |  8.33 |    3 |    24 | 12.50 |
-| X1Y0              |    9 |    24 | 37.50 |    5 |    24 | 20.83 |    0 |    24 |  0.00 |    3 |    24 | 12.50 |
-| X0Y1              |    2 |    24 |  8.33 |    7 |    24 | 29.17 |    4 |    24 | 16.67 |    2 |    24 |  8.33 |
+| X0Y0              |    4 |    24 | 16.67 |    5 |    24 | 20.83 |    2 |    24 |  8.33 |    4 |    24 | 16.67 |
+| X1Y0              |   12 |    24 | 50.00 |    4 |    24 | 16.67 |    0 |    24 |  0.00 |    3 |    24 | 12.50 |
+| X0Y1              |    4 |    24 | 16.67 |    6 |    24 | 25.00 |    4 |    24 | 16.67 |    2 |    24 |  8.33 |
 | X1Y1              |    6 |    24 | 25.00 |    4 |    24 | 16.67 |    4 |    24 | 16.67 |    2 |    24 |  8.33 |
-| X0Y2              |    6 |    24 | 25.00 |    4 |    24 | 16.67 |    1 |    24 |  4.17 |    1 |    24 |  4.17 |
-| X1Y2              |    3 |    24 | 12.50 |    2 |    24 |  8.33 |    1 |    24 |  4.17 |    1 |    24 |  4.17 |
+| X0Y2              |    6 |    24 | 25.00 |    5 |    24 | 20.83 |    1 |    24 |  4.17 |    1 |    24 |  4.17 |
+| X1Y2              |    3 |    24 | 12.50 |    3 |    24 | 12.50 |    1 |    24 |  4.17 |    0 |    24 |  0.00 |
 +-------------------+------+-------+-------+------+-------+-------+------+-------+-------+------+-------+-------+
 
 
@@ -206,8 +209,8 @@ All Modules
 |    | X0    | X1           | HORIZONTAL PROG DELAY |
 +----+-------+--------------+-----------------------+
 | Y2 |     0 |            0 |                     - |
-| Y1 |   544 |          230 |                     0 |
-| Y0 |  5747 | (R) (D) 3766 |                     0 |
+| Y1 |   857 |          294 |                     0 |
+| Y0 |  4980 | (R) (D) 4156 |                     0 |
 +----+-------+--------------+-----------------------+
 
 
@@ -217,7 +220,7 @@ All Modules
 +-----------+-----------------+-------------------+----------+-------------+---------------+----------+-------------+----------+----------------+----------+------------------------------------------+
 | Global Id | Driver Type/Pin | Driver Region (D) | Clock    | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                      |
 +-----------+-----------------+-------------------+----------+-------------+---------------+----------+-------------+----------+----------------+----------+------------------------------------------+
-| g1        | BUFG_PS/O       | X0Y2              | clk_pl_0 |      10.000 | {0.000 5.000} | X0Y1     |        3915 |        0 |              0 |        0 | Mercury_XU5_i/zynq_ultra_ps_e/U0/pl_clk0 |
+| g1        | BUFG_PS/O       | X0Y2              | clk_pl_0 |      10.000 | {0.000 5.000} | X0Y1     |        3921 |        0 |              0 |        0 | Mercury_XU5_i/zynq_ultra_ps_e/U0/pl_clk0 |
 +-----------+-----------------+-------------------+----------+-------------+---------------+----------+-------------+----------+----------------+----------+------------------------------------------+
 * Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
 ** IO Loads column represents load cell count of IO types
@@ -228,8 +231,8 @@ All Modules
 +----+-----------+------+-----------------------+
 |    | X0        | X1   | HORIZONTAL PROG DELAY |
 +----+-----------+------+-----------------------+
-| Y2 |  (D) 2943 |  272 |                     1 |
-| Y1 |    (R) 98 |    0 |                     1 |
+| Y2 |  (D) 3078 |  237 |                     1 |
+| Y1 |     (R) 4 |    0 |                     1 |
 | Y0 |       602 |    0 |                     0 |
 +----+-----------+------+-----------------------+
 
@@ -248,13 +251,13 @@ All Modules
 **** GT Loads column represents load cell count of GT types
 
 
-+----+----+--------------+-----------------------+
-|    | X0 | X1           | HORIZONTAL PROG DELAY |
-+----+----+--------------+-----------------------+
-| Y2 |  0 |            0 |                     - |
-| Y1 |  0 |            0 |                     - |
-| Y0 |  0 | (R) (D) 1410 |                     0 |
-+----+----+--------------+-----------------------+
++----+-----+--------------+-----------------------+
+|    | X0  | X1           | HORIZONTAL PROG DELAY |
++----+-----+--------------+-----------------------+
+| Y2 |   0 |            0 |                     - |
+| Y1 |   0 |            0 |                     - |
+| Y0 |  24 | (R) (D) 1386 |                     0 |
++----+-----+--------------+-----------------------+
 
 
 11. Device Cell Placement Summary for Global Clock g3
@@ -299,40 +302,17 @@ All Modules
 +----+----+-------------+-----------------------+
 | Y2 |  0 |           0 |                     - |
 | Y1 |  0 |         159 |                     0 |
-| Y0 |  0 | (R) (D) 302 |                     0 |
+| Y0 |  5 | (R) (D) 297 |                     0 |
 +----+----+-------------+-----------------------+
 
 
 13. Device Cell Placement Summary for Global Clock g5
 -----------------------------------------------------
 
-+-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-------------+
-| Global Id | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net         |
-+-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-------------+
-| g5        | BUFGCE/O        | X1Y2              |       |             |               | X0Y2     |         139 |        0 |              0 |        0 | Clk2Hz_BUFG |
-+-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-------------+
-* Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
-** IO Loads column represents load cell count of IO types
-*** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
-**** GT Loads column represents load cell count of GT types
-
-
-+----+---------+--------+-----------------------+
-|    | X0      | X1     | HORIZONTAL PROG DELAY |
-+----+---------+--------+-----------------------+
-| Y2 | (R) 139 |  (D) 0 |                     0 |
-| Y1 |       0 |      0 |                     - |
-| Y0 |       0 |      0 |                     - |
-+----+---------+--------+-----------------------+
-
-
-14. Device Cell Placement Summary for Global Clock g6
------------------------------------------------------
-
 +-----------+-----------------+-------------------+----------------------------------+-------------+---------------+-----------+-------------+----------+----------------+----------+---------------------------------------+
 | Global Id | Driver Type/Pin | Driver Region (D) | Clock                            | Period (ns) | Waveform (ns) | Root (R)  | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                   |
 +-----------+-----------------+-------------------+----------------------------------+-------------+---------------+-----------+-------------+----------+----------------+----------+---------------------------------------+
-| g6        | BUFGCE/O        | X1Y1              | clk_out1_Mercury_XU5_clk_wiz_0_0 |       8.000 | {0.000 4.000} | X0Y0,X1Y1 |         121 |        5 |              1 |        0 | Mercury_XU5_i/clk_wiz_0/inst/clk_out1 |
+| g5        | BUFGCE/O        | X1Y1              | clk_out1_Mercury_XU5_clk_wiz_0_0 |       8.000 | {0.000 4.000} | X0Y0,X1Y1 |         121 |        5 |              1 |        0 | Mercury_XU5_i/clk_wiz_0/inst/clk_out1 |
 +-----------+-----------------+-------------------+----------------------------------+-------------+---------------+-----------+-------------+----------+----------------+----------+---------------------------------------+
 * Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
 ** IO Loads column represents load cell count of IO types
@@ -349,13 +329,13 @@ All Modules
 +----+-------+-----------+-----------------------+
 
 
-15. Device Cell Placement Summary for Global Clock g7
+14. Device Cell Placement Summary for Global Clock g6
 -----------------------------------------------------
 
 +-----------+-----------------+-------------------+--------------+-------------+----------------+----------+-------------+----------+----------------+----------+------------------------------+
 | Global Id | Driver Type/Pin | Driver Region (D) | Clock        | Period (ns) | Waveform (ns)  | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                          |
 +-----------+-----------------+-------------------+--------------+-------------+----------------+----------+-------------+----------+----------------+----------+------------------------------+
-| g7        | BUFGCE/O        | X0Y1              | RGMII_RX_CLK |       8.000 | {7.820 11.820} | X0Y1     |          53 |        0 |              0 |        0 | i_gmii2rgmii/RGMII_rxclk_buf |
+| g6        | BUFGCE/O        | X0Y1              | RGMII_RX_CLK |       8.000 | {7.820 11.820} | X0Y1     |          53 |        0 |              0 |        0 | i_gmii2rgmii/RGMII_rxclk_buf |
 +-----------+-----------------+-------------------+--------------+-------------+----------------+----------+-------------+----------+----------------+----------+------------------------------+
 * Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
 ** IO Loads column represents load cell count of IO types
@@ -372,13 +352,59 @@ All Modules
 +----+------------+----+-----------------------+
 
 
+15. Device Cell Placement Summary for Global Clock g7
+-----------------------------------------------------
+
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net         |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-------------+
+| g7        | BUFGCE/O        | X1Y2              |       |             |               | X0Y2     |          32 |        0 |              0 |        0 | Clk2Hz_BUFG |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-------------+
+* Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
+** IO Loads column represents load cell count of IO types
+*** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
+**** GT Loads column represents load cell count of GT types
+
+
++----+--------+--------+-----------------------+
+|    | X0     | X1     | HORIZONTAL PROG DELAY |
++----+--------+--------+-----------------------+
+| Y2 | (R) 32 |  (D) 0 |                     0 |
+| Y1 |      0 |      0 |                     - |
+| Y0 |      0 |      0 |                     - |
++----+--------+--------+-----------------------+
+
+
 16. Device Cell Placement Summary for Global Clock g8
+-----------------------------------------------------
+
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+--------------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+--------------------+
+| g8        | BUFGCE/O        | X1Y1              |       |             |               | X1Y1     |          32 |        2 |              0 |        0 | IOD_D4_P_OBUF_BUFG |
++-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+--------------------+
+* Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
+** IO Loads column represents load cell count of IO types
+*** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
+**** GT Loads column represents load cell count of GT types
+
+
++----+-----+-----------+-----------------------+
+|    | X0  | X1        | HORIZONTAL PROG DELAY |
++----+-----+-----------+-----------------------+
+| Y2 |  32 |         1 |                     0 |
+| Y1 |   0 | (R) (D) 1 |                     0 |
+| Y0 |   0 |         0 |                     - |
++----+-----+-----------+-----------------------+
+
+
+17. Device Cell Placement Summary for Global Clock g9
 -----------------------------------------------------
 
 +-----------+-----------------+-------------------+-------------+-------------+---------------+----------+-------------+----------+----------------+----------+---------------------------------------------------------------+
 | Global Id | Driver Type/Pin | Driver Region (D) | Clock       | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                                           |
 +-----------+-----------------+-------------------+-------------+-------------+---------------+----------+-------------+----------+----------------+----------+---------------------------------------------------------------+
-| g8        | BUFGCE/O        | X1Y0              | CLK100_PL_P |      10.006 | {0.000 5.003} | X1Y0     |          17 |        0 |              0 |        0 | Mercury_XU5_i/ddr4/inst/u_ddr4_infrastructure/sys_clk_in_bufg |
+| g9        | BUFGCE/O        | X1Y0              | CLK100_PL_P |      10.006 | {0.000 5.003} | X0Y0     |          17 |        0 |              0 |        0 | Mercury_XU5_i/ddr4/inst/u_ddr4_infrastructure/sys_clk_in_bufg |
 +-----------+-----------------+-------------------+-------------+-------------+---------------+----------+-------------+----------+----------------+----------+---------------------------------------------------------------+
 * Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
 ** IO Loads column represents load cell count of IO types
@@ -386,22 +412,22 @@ All Modules
 **** GT Loads column represents load cell count of GT types
 
 
-+----+----+------------+-----------------------+
-|    | X0 | X1         | HORIZONTAL PROG DELAY |
-+----+----+------------+-----------------------+
-| Y2 |  0 |          0 |                     - |
-| Y1 |  0 |          0 |                     - |
-| Y0 |  6 | (R) (D) 11 |                     0 |
-+----+----+------------+-----------------------+
++----+--------+--------+-----------------------+
+|    | X0     | X1     | HORIZONTAL PROG DELAY |
++----+--------+--------+-----------------------+
+| Y2 |      0 |      0 |                     - |
+| Y1 |      0 |      0 |                     - |
+| Y0 | (R) 17 |  (D) 0 |                     0 |
++----+--------+--------+-----------------------+
 
 
-17. Device Cell Placement Summary for Global Clock g9
------------------------------------------------------
+18. Device Cell Placement Summary for Global Clock g10
+------------------------------------------------------
 
 +-----------+-----------------+-------------------+----------+-------------+----------------+----------+-------------+----------+----------------+----------+--------------------------+
 | Global Id | Driver Type/Pin | Driver Region (D) | Clock    | Period (ns) | Waveform (ns)  | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                      |
 +-----------+-----------------+-------------------+----------+-------------+----------------+----------+-------------+----------+----------------+----------+--------------------------+
-| g9        | BUFGCTRL/O      | X1Y0              | Multiple |      40.000 | {0.000 20.000} | X0Y1     |          11 |        0 |              0 |        0 | i_gmii2rgmii/GMII_tx_clk |
+| g10       | BUFGCTRL/O      | X1Y0              | Multiple |      40.000 | {0.000 20.000} | X0Y1     |          11 |        0 |              0 |        0 | i_gmii2rgmii/GMII_tx_clk |
 +-----------+-----------------+-------------------+----------+-------------+----------------+----------+-------------+----------+----------------+----------+--------------------------+
 * Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
 ** IO Loads column represents load cell count of IO types
@@ -418,13 +444,13 @@ All Modules
 +----+--------+--------+-----------------------+
 
 
-18. Device Cell Placement Summary for Global Clock g10
+19. Device Cell Placement Summary for Global Clock g11
 ------------------------------------------------------
 
 +-----------+-----------------+-------------------+----------------------------------+-------------+---------------+----------+-------------+----------+----------------+----------+---------------------------------------+
 | Global Id | Driver Type/Pin | Driver Region (D) | Clock                            | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                   |
 +-----------+-----------------+-------------------+----------------------------------+-------------+---------------+----------+-------------+----------+----------------+----------+---------------------------------------+
-| g10       | BUFGCE/O        | X1Y1              | clk_out2_Mercury_XU5_clk_wiz_0_0 |       8.000 | {0.000 4.000} | X0Y0     |           0 |        1 |              0 |        0 | Mercury_XU5_i/clk_wiz_0/inst/clk_out2 |
+| g11       | BUFGCE/O        | X1Y1              | clk_out2_Mercury_XU5_clk_wiz_0_0 |       8.000 | {0.000 4.000} | X0Y0     |           0 |        1 |              0 |        0 | Mercury_XU5_i/clk_wiz_0/inst/clk_out2 |
 +-----------+-----------------+-------------------+----------------------------------+-------------+---------------+----------+-------------+----------+----------------+----------+---------------------------------------+
 * Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
 ** IO Loads column represents load cell count of IO types
@@ -441,36 +467,13 @@ All Modules
 +----+-------+--------+-----------------------+
 
 
-19. Device Cell Placement Summary for Global Clock g11
-------------------------------------------------------
-
-+-----------+-----------------+-------------------+----------------------------------+-------------+----------------+----------+-------------+----------+----------------+----------+---------------------------------------+
-| Global Id | Driver Type/Pin | Driver Region (D) | Clock                            | Period (ns) | Waveform (ns)  | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                   |
-+-----------+-----------------+-------------------+----------------------------------+-------------+----------------+----------+-------------+----------+----------------+----------+---------------------------------------+
-| g11       | BUFGCE/O        | X1Y1              | clk_out3_Mercury_XU5_clk_wiz_0_0 |      40.000 | {0.000 20.000} | X1Y1     |           0 |        0 |              1 |        0 | Mercury_XU5_i/clk_wiz_0/inst/clk_out3 |
-+-----------+-----------------+-------------------+----------------------------------+-------------+----------------+----------+-------------+----------+----------------+----------+---------------------------------------+
-* Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
-** IO Loads column represents load cell count of IO types
-*** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
-**** GT Loads column represents load cell count of GT types
-
-
-+----+----+-----------+-----------------------+
-|    | X0 | X1        | HORIZONTAL PROG DELAY |
-+----+----+-----------+-----------------------+
-| Y2 |  0 |         0 |                     - |
-| Y1 |  0 | (R) (D) 0 |                     - |
-| Y0 |  0 |         1 |                     0 |
-+----+----+-----------+-----------------------+
-
-
 20. Device Cell Placement Summary for Global Clock g12
 ------------------------------------------------------
 
 +-----------+-----------------+-------------------+----------------------------------+-------------+----------------+----------+-------------+----------+----------------+----------+---------------------------------------+
 | Global Id | Driver Type/Pin | Driver Region (D) | Clock                            | Period (ns) | Waveform (ns)  | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                   |
 +-----------+-----------------+-------------------+----------------------------------+-------------+----------------+----------+-------------+----------+----------------+----------+---------------------------------------+
-| g12       | BUFGCE/O        | X1Y1              | clk_out4_Mercury_XU5_clk_wiz_0_0 |     100.000 | {0.000 50.000} | X1Y1     |           0 |        0 |              1 |        0 | Mercury_XU5_i/clk_wiz_0/inst/clk_out4 |
+| g12       | BUFGCE/O        | X1Y1              | clk_out3_Mercury_XU5_clk_wiz_0_0 |      40.000 | {0.000 20.000} | X1Y1     |           0 |        0 |              1 |        0 | Mercury_XU5_i/clk_wiz_0/inst/clk_out3 |
 +-----------+-----------------+-------------------+----------------------------------+-------------+----------------+----------+-------------+----------+----------------+----------+---------------------------------------+
 * Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
 ** IO Loads column represents load cell count of IO types
@@ -490,11 +493,11 @@ All Modules
 21. Device Cell Placement Summary for Global Clock g13
 ------------------------------------------------------
 
-+-----------+-----------------+-------------------+--------+-------------+-----------------+----------+-------------+----------+----------------+----------+---------------------+
-| Global Id | Driver Type/Pin | Driver Region (D) | Clock  | Period (ns) | Waveform (ns)   | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                 |
-+-----------+-----------------+-------------------+--------+-------------+-----------------+----------+-------------+----------+----------------+----------+---------------------+
-| g13       | BUFGCE_DIV/O    | X1Y0              | Clk2_5 |     400.000 | {0.000 200.000} | X1Y0     |           0 |        0 |              1 |        0 | i_gmii2rgmii/Clk2_5 |
-+-----------+-----------------+-------------------+--------+-------------+-----------------+----------+-------------+----------+----------------+----------+---------------------+
++-----------+-----------------+-------------------+----------------------------------+-------------+----------------+----------+-------------+----------+----------------+----------+---------------------------------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock                            | Period (ns) | Waveform (ns)  | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                   |
++-----------+-----------------+-------------------+----------------------------------+-------------+----------------+----------+-------------+----------+----------------+----------+---------------------------------------+
+| g13       | BUFGCE/O        | X1Y1              | clk_out4_Mercury_XU5_clk_wiz_0_0 |     100.000 | {0.000 50.000} | X1Y1     |           0 |        0 |              1 |        0 | Mercury_XU5_i/clk_wiz_0/inst/clk_out4 |
++-----------+-----------------+-------------------+----------------------------------+-------------+----------------+----------+-------------+----------+----------------+----------+---------------------------------------+
 * Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
 ** IO Loads column represents load cell count of IO types
 *** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
@@ -505,19 +508,19 @@ All Modules
 |    | X0 | X1        | HORIZONTAL PROG DELAY |
 +----+----+-----------+-----------------------+
 | Y2 |  0 |         0 |                     - |
-| Y1 |  0 |         0 |                     - |
-| Y0 |  0 | (R) (D) 1 |                     0 |
+| Y1 |  0 | (R) (D) 0 |                     - |
+| Y0 |  0 |         1 |                     0 |
 +----+----+-----------+-----------------------+
 
 
 22. Device Cell Placement Summary for Global Clock g14
 ------------------------------------------------------
 
-+-----------+-----------------+-------------------+----------+-------------+----------------+----------+-------------+----------+----------------+----------+-----------------------+
-| Global Id | Driver Type/Pin | Driver Region (D) | Clock    | Period (ns) | Waveform (ns)  | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                   |
-+-----------+-----------------+-------------------+----------+-------------+----------------+----------+-------------+----------+----------------+----------+-----------------------+
-| g14       | BUFGCTRL/O      | X1Y0              | Multiple |      40.000 | {0.000 20.000} | X1Y0     |           0 |        0 |              1 |        0 | i_gmii2rgmii/Clk_mux0 |
-+-----------+-----------------+-------------------+----------+-------------+----------------+----------+-------------+----------+----------------+----------+-----------------------+
++-----------+-----------------+-------------------+--------+-------------+-----------------+----------+-------------+----------+----------------+----------+---------------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock  | Period (ns) | Waveform (ns)   | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                 |
++-----------+-----------------+-------------------+--------+-------------+-----------------+----------+-------------+----------+----------------+----------+---------------------+
+| g14       | BUFGCE_DIV/O    | X1Y0              | Clk2_5 |     400.000 | {0.000 200.000} | X1Y0     |           0 |        0 |              1 |        0 | i_gmii2rgmii/Clk2_5 |
++-----------+-----------------+-------------------+--------+-------------+-----------------+----------+-------------+----------+----------------+----------+---------------------+
 * Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
 ** IO Loads column represents load cell count of IO types
 *** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
@@ -536,10 +539,33 @@ All Modules
 23. Device Cell Placement Summary for Global Clock g15
 ------------------------------------------------------
 
++-----------+-----------------+-------------------+----------+-------------+----------------+----------+-------------+----------+----------------+----------+-----------------------+
+| Global Id | Driver Type/Pin | Driver Region (D) | Clock    | Period (ns) | Waveform (ns)  | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                   |
++-----------+-----------------+-------------------+----------+-------------+----------------+----------+-------------+----------+----------------+----------+-----------------------+
+| g15       | BUFGCTRL/O      | X1Y0              | Multiple |      40.000 | {0.000 20.000} | X1Y0     |           0 |        0 |              1 |        0 | i_gmii2rgmii/Clk_mux0 |
++-----------+-----------------+-------------------+----------+-------------+----------------+----------+-------------+----------+----------------+----------+-----------------------+
+* Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
+** IO Loads column represents load cell count of IO types
+*** Clocking Loads column represents load cell count that are clock resources (global clock buffer, MMCM, PLL, etc)
+**** GT Loads column represents load cell count of GT types
+
+
++----+----+-----------+-----------------------+
+|    | X0 | X1        | HORIZONTAL PROG DELAY |
++----+----+-----------+-----------------------+
+| Y2 |  0 |         0 |                     - |
+| Y1 |  0 |         0 |                     - |
+| Y0 |  0 | (R) (D) 1 |                     0 |
++----+----+-----------+-----------------------+
+
+
+24. Device Cell Placement Summary for Global Clock g16
+------------------------------------------------------
+
 +-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-----------------------------------------------------+
 | Global Id | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                                 |
 +-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-----------------------------------------------------+
-| g15       | BUFGCE/O        | X1Y2              |       |             |               | X1Y2     |        2130 |        0 |              0 |        0 | Mercury_XU5_i/ps_sys_rst/U0/interconnect_aresetn[0] |
+| g16       | BUFGCE/O        | X1Y2              |       |             |               | X1Y2     |        2130 |        0 |              0 |        0 | Mercury_XU5_i/ps_sys_rst/U0/interconnect_aresetn[0] |
 +-----------+-----------------+-------------------+-------+-------------+---------------+----------+-------------+----------+----------------+----------+-----------------------------------------------------+
 * Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
 ** IO Loads column represents load cell count of IO types
@@ -550,19 +576,19 @@ All Modules
 +----+-------+-----------+-----------------------+
 |    | X0    | X1        | HORIZONTAL PROG DELAY |
 +----+-------+-----------+-----------------------+
-| Y2 |  2070 | (R) (D) 0 |                     0 |
-| Y1 |    60 |         0 |                     0 |
+| Y2 |  2130 | (R) (D) 0 |                     0 |
+| Y1 |     0 |         0 |                     - |
 | Y0 |     0 |         0 |                     - |
 +----+-------+-----------+-----------------------+
 
 
-24. Device Cell Placement Summary for Global Clock g16
+25. Device Cell Placement Summary for Global Clock g17
 ------------------------------------------------------
 
 +-----------+-----------------+-------------------+----------+-------------+----------------+----------+-------------+----------+----------------+----------+------------------------------------------+
 | Global Id | Driver Type/Pin | Driver Region (D) | Clock    | Period (ns) | Waveform (ns)  | Root (R) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                      |
 +-----------+-----------------+-------------------+----------+-------------+----------------+----------+-------------+----------+----------------+----------+------------------------------------------+
-| g16       | BUFG_PS/O       | X0Y2              | clk_pl_1 |      20.000 | {0.000 10.000} | X1Y1     |           0 |        0 |              1 |        0 | Mercury_XU5_i/zynq_ultra_ps_e/U0/pl_clk1 |
+| g17       | BUFG_PS/O       | X0Y2              | clk_pl_1 |      20.000 | {0.000 10.000} | X1Y1     |           0 |        0 |              1 |        0 | Mercury_XU5_i/zynq_ultra_ps_e/U0/pl_clk1 |
 +-----------+-----------------+-------------------+----------+-------------+----------------+----------+-------------+----------+----------------+----------+------------------------------------------+
 * Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
 ** IO Loads column represents load cell count of IO types
@@ -579,18 +605,20 @@ All Modules
 +----+--------+-------+-----------------------+
 
 
-25. Clock Region Cell Placement per Global Clock: Region X0Y0
+26. Clock Region Cell Placement per Global Clock: Region X0Y0
 -------------------------------------------------------------
 
 +-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+-----+----+------+-----+---------+---------------------------------------------------------------+
 | Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF   | Memory LUTs | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                                           |
 +-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+-----+----+------+-----+---------+---------------------------------------------------------------+
-| g0        | 20    | BUFGCE/O        | None       |        5747 |               0 | 5456 |         291 |    0 |   0 |  0 |    0 |   0 |       0 | Mercury_XU5_i/ddr4/inst/u_ddr4_infrastructure/u_bufg_divClk_0 |
+| g0        | 20    | BUFGCE/O        | None       |        4980 |               0 | 4694 |         286 |    0 |   0 |  0 |    0 |   0 |       0 | Mercury_XU5_i/ddr4/inst/u_ddr4_infrastructure/u_bufg_divClk_0 |
 | g1        | 17    | BUFG_PS/O       | None       |         602 |               0 |  576 |          25 |    0 |   0 |  0 |    0 |   0 |       0 | Mercury_XU5_i/zynq_ultra_ps_e/U0/pl_clk0                      |
-| g6+       | 12    | BUFGCE/O        | None       |           0 |               0 |    0 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | Mercury_XU5_i/clk_wiz_0/inst/clk_out1                         |
-| g8        | 8     | BUFGCE/O        | None       |           6 |               0 |    6 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | Mercury_XU5_i/ddr4/inst/u_ddr4_infrastructure/sys_clk_in_bufg |
-| g9        | 7     | BUFGCTRL/O      | PBlock     |           1 |               0 |    0 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | i_gmii2rgmii/GMII_tx_clk                                      |
-| g10+      | 23    | BUFGCE/O        | None       |           0 |               0 |    0 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | Mercury_XU5_i/clk_wiz_0/inst/clk_out2                         |
+| g2        | 16    | BUFGCE/O        | None       |          24 |               0 |   24 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | Mercury_XU5_i/ddr4/inst/u_ddr4_infrastructure/c0_riu_clk      |
+| g4        | 15    | BUFGCE/O        | None       |           5 |               0 |    5 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | dbg_hub/inst/BSCANID.u_xsdbm_id/itck_i                        |
+| g5+       | 3     | BUFGCE/O        | None       |           0 |               0 |    0 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | Mercury_XU5_i/clk_wiz_0/inst/clk_out1                         |
+| g9        | 4     | BUFGCE/O        | None       |          17 |               0 |   17 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | Mercury_XU5_i/ddr4/inst/u_ddr4_infrastructure/sys_clk_in_bufg |
+| g10       | 7     | BUFGCTRL/O      | PBlock     |           1 |               0 |    0 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | i_gmii2rgmii/GMII_tx_clk                                      |
+| g11+      | 2     | BUFGCE/O        | None       |           0 |               0 |    0 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | Mercury_XU5_i/clk_wiz_0/inst/clk_out2                         |
 +-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+-----+----+------+-----+---------+---------------------------------------------------------------+
 * Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered
 ** Non-Clock Loads column represents cell count of non-clock pin loads
@@ -598,23 +626,23 @@ All Modules
 **** In Global Id column, sympbol '+' indicates that global clock was used only to route through the clock region.
 
 
-26. Clock Region Cell Placement per Global Clock: Region X1Y0
+27. Clock Region Cell Placement per Global Clock: Region X1Y0
 -------------------------------------------------------------
 
 +-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+-----+----+------+-----+---------+---------------------------------------------------------------+
 | Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF   | Memory LUTs | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                                           |
 +-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+-----+----+------+-----+---------+---------------------------------------------------------------+
-| g0        | 20    | BUFGCE/O        | None       |        3765 |               1 | 3715 |           3 |    2 |   0 |  0 |    0 |   1 |       0 | Mercury_XU5_i/ddr4/inst/u_ddr4_infrastructure/u_bufg_divClk_0 |
-| g2        | 16    | BUFGCE/O        | None       |        1410 |               0 | 1277 |          98 |   24 |   3 |  0 |    0 |   0 |       0 | Mercury_XU5_i/ddr4/inst/u_ddr4_infrastructure/c0_riu_clk      |
-| g3        | 3     | BUFGCE/O        | None       |         551 |               0 |  548 |           3 |    0 |   0 |  0 |    0 |   0 |       0 | Mercury_XU5_i/ddr4/inst/u_ddr4_infrastructure/dbg_clk         |
-| g4        | 15    | BUFGCE/O        | None       |         302 |               0 |  299 |           3 |    0 |   0 |  0 |    0 |   0 |       0 | dbg_hub/inst/BSCANID.u_xsdbm_id/itck_i                        |
-| g6        | 12    | BUFGCE/O        | None       |           1 |               0 |    0 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | Mercury_XU5_i/clk_wiz_0/inst/clk_out1                         |
-| g8        | 8     | BUFGCE/O        | None       |          11 |               0 |   11 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | Mercury_XU5_i/ddr4/inst/u_ddr4_infrastructure/sys_clk_in_bufg |
-| g9+       | 7     | BUFGCTRL/O      | PBlock     |           0 |               0 |    0 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | i_gmii2rgmii/GMII_tx_clk                                      |
-| g11       | 22    | BUFGCE/O        | None       |           1 |               0 |    0 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | Mercury_XU5_i/clk_wiz_0/inst/clk_out3                         |
-| g12       | 21    | BUFGCE/O        | None       |           1 |               0 |    0 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | Mercury_XU5_i/clk_wiz_0/inst/clk_out4                         |
-| g13       | 0     | BUFGCE_DIV/O    | PBlock     |           1 |               0 |    0 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | i_gmii2rgmii/Clk2_5                                           |
-| g14       | n/a   | BUFGCTRL/O      | PBlock     |           1 |               0 |    0 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | i_gmii2rgmii/Clk_mux0                                         |
+| g0        | 20    | BUFGCE/O        | None       |        4155 |               1 | 4101 |           7 |    2 |   0 |  0 |    0 |   1 |       0 | Mercury_XU5_i/ddr4/inst/u_ddr4_infrastructure/u_bufg_divClk_0 |
+| g2        | 16    | BUFGCE/O        | None       |        1386 |               0 | 1253 |          98 |   24 |   3 |  0 |    0 |   0 |       0 | Mercury_XU5_i/ddr4/inst/u_ddr4_infrastructure/c0_riu_clk      |
+| g3        | 8     | BUFGCE/O        | None       |         551 |               0 |  548 |           3 |    0 |   0 |  0 |    0 |   0 |       0 | Mercury_XU5_i/ddr4/inst/u_ddr4_infrastructure/dbg_clk         |
+| g4        | 15    | BUFGCE/O        | None       |         297 |               0 |  294 |           3 |    0 |   0 |  0 |    0 |   0 |       0 | dbg_hub/inst/BSCANID.u_xsdbm_id/itck_i                        |
+| g5        | 3     | BUFGCE/O        | None       |           1 |               0 |    0 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | Mercury_XU5_i/clk_wiz_0/inst/clk_out1                         |
+| g9+       | 4     | BUFGCE/O        | None       |           0 |               0 |    0 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | Mercury_XU5_i/ddr4/inst/u_ddr4_infrastructure/sys_clk_in_bufg |
+| g10+      | 7     | BUFGCTRL/O      | PBlock     |           0 |               0 |    0 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | i_gmii2rgmii/GMII_tx_clk                                      |
+| g12       | 22    | BUFGCE/O        | None       |           1 |               0 |    0 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | Mercury_XU5_i/clk_wiz_0/inst/clk_out3                         |
+| g13       | 21    | BUFGCE/O        | None       |           1 |               0 |    0 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | Mercury_XU5_i/clk_wiz_0/inst/clk_out4                         |
+| g14       | 0     | BUFGCE_DIV/O    | PBlock     |           1 |               0 |    0 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | i_gmii2rgmii/Clk2_5                                           |
+| g15       | n/a   | BUFGCTRL/O      | PBlock     |           1 |               0 |    0 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | i_gmii2rgmii/Clk_mux0                                         |
 +-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+-----+----+------+-----+---------+---------------------------------------------------------------+
 * Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered
 ** Non-Clock Loads column represents cell count of non-clock pin loads
@@ -622,39 +650,38 @@ All Modules
 **** In Global Id column, sympbol '+' indicates that global clock was used only to route through the clock region.
 
 
-27. Clock Region Cell Placement per Global Clock: Region X0Y1
+28. Clock Region Cell Placement per Global Clock: Region X0Y1
 -------------------------------------------------------------
 
 +-----------+-------+-----------------+------------+-------------+-----------------+-----+-------------+------+-----+----+------+-----+---------+---------------------------------------------------------------+
 | Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF  | Memory LUTs | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                                           |
 +-----------+-------+-----------------+------------+-------------+-----------------+-----+-------------+------+-----+----+------+-----+---------+---------------------------------------------------------------+
-| g0        | 20    | BUFGCE/O        | None       |         544 |               0 | 544 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | Mercury_XU5_i/ddr4/inst/u_ddr4_infrastructure/u_bufg_divClk_0 |
-| g1        | 17    | BUFG_PS/O       | None       |          98 |               0 |  97 |           1 |    0 |   0 |  0 |    0 |   0 |       0 | Mercury_XU5_i/zynq_ultra_ps_e/U0/pl_clk0                      |
-| g6        | 12    | BUFGCE/O        | None       |         126 |               0 | 121 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | Mercury_XU5_i/clk_wiz_0/inst/clk_out1                         |
-| g7        | 19    | BUFGCE/O        | PBlock     |          53 |               0 |  46 |           2 |    0 |   0 |  0 |    0 |   0 |       0 | i_gmii2rgmii/RGMII_rxclk_buf                                  |
-| g9        | 7     | BUFGCTRL/O      | PBlock     |          10 |               0 |  10 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | i_gmii2rgmii/GMII_tx_clk                                      |
-| g10       | 23    | BUFGCE/O        | None       |           1 |               0 |   0 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | Mercury_XU5_i/clk_wiz_0/inst/clk_out2                         |
-| g15       | 14    | BUFGCE/O        | None       |           0 |              60 |  60 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | Mercury_XU5_i/ps_sys_rst/U0/interconnect_aresetn[0]           |
+| g0        | 20    | BUFGCE/O        | None       |         857 |               0 | 856 |           1 |    0 |   0 |  0 |    0 |   0 |       0 | Mercury_XU5_i/ddr4/inst/u_ddr4_infrastructure/u_bufg_divClk_0 |
+| g1        | 17    | BUFG_PS/O       | None       |           4 |               0 |   4 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | Mercury_XU5_i/zynq_ultra_ps_e/U0/pl_clk0                      |
+| g5        | 3     | BUFGCE/O        | None       |         126 |               0 | 121 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | Mercury_XU5_i/clk_wiz_0/inst/clk_out1                         |
+| g6        | 23    | BUFGCE/O        | PBlock     |          53 |               0 |  46 |           2 |    0 |   0 |  0 |    0 |   0 |       0 | i_gmii2rgmii/RGMII_rxclk_buf                                  |
+| g10       | 7     | BUFGCTRL/O      | PBlock     |          10 |               0 |  10 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | i_gmii2rgmii/GMII_tx_clk                                      |
+| g11       | 2     | BUFGCE/O        | None       |           1 |               0 |   0 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | Mercury_XU5_i/clk_wiz_0/inst/clk_out2                         |
 +-----------+-------+-----------------+------------+-------------+-----------------+-----+-------------+------+-----+----+------+-----+---------+---------------------------------------------------------------+
 * Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered
 ** Non-Clock Loads column represents cell count of non-clock pin loads
 *** Columns FF, LUTRAM, RAMB through 'Hard IP' represents load cell counts
 
 
-28. Clock Region Cell Placement per Global Clock: Region X1Y1
+29. Clock Region Cell Placement per Global Clock: Region X1Y1
 -------------------------------------------------------------
 
 +-----------+-------+-----------------+------------+-------------+-----------------+-----+-------------+------+-----+----+------+-----+---------+---------------------------------------------------------------+
 | Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF  | Memory LUTs | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                                           |
 +-----------+-------+-----------------+------------+-------------+-----------------+-----+-------------+------+-----+----+------+-----+---------+---------------------------------------------------------------+
-| g0        | 20    | BUFGCE/O        | None       |         230 |               0 | 230 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | Mercury_XU5_i/ddr4/inst/u_ddr4_infrastructure/u_bufg_divClk_0 |
+| g0        | 20    | BUFGCE/O        | None       |         294 |               0 | 294 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | Mercury_XU5_i/ddr4/inst/u_ddr4_infrastructure/u_bufg_divClk_0 |
 | g4        | 15    | BUFGCE/O        | None       |         159 |               0 | 159 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | dbg_hub/inst/BSCANID.u_xsdbm_id/itck_i                        |
-| g6+       | 12    | BUFGCE/O        | None       |           0 |               0 |   0 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | Mercury_XU5_i/clk_wiz_0/inst/clk_out1                         |
-| g10+      | 23    | BUFGCE/O        | None       |           0 |               0 |   0 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | Mercury_XU5_i/clk_wiz_0/inst/clk_out2                         |
-| g11+      | 22    | BUFGCE/O        | None       |           0 |               0 |   0 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | Mercury_XU5_i/clk_wiz_0/inst/clk_out3                         |
-| g12+      | 21    | BUFGCE/O        | None       |           0 |               0 |   0 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | Mercury_XU5_i/clk_wiz_0/inst/clk_out4                         |
-| g15+      | 14    | BUFGCE/O        | None       |           0 |               0 |   0 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | Mercury_XU5_i/ps_sys_rst/U0/interconnect_aresetn[0]           |
-| g16       | 6     | BUFG_PS/O       | None       |           0 |               1 |   0 |           0 |    0 |   0 |  0 |    1 |   0 |       0 | Mercury_XU5_i/zynq_ultra_ps_e/U0/pl_clk1                      |
+| g5+       | 3     | BUFGCE/O        | None       |           0 |               0 |   0 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | Mercury_XU5_i/clk_wiz_0/inst/clk_out1                         |
+| g8        | 1     | BUFGCE/O        | None       |           0 |               1 |   0 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | IOD_D4_P_OBUF_BUFG                                            |
+| g11+      | 2     | BUFGCE/O        | None       |           0 |               0 |   0 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | Mercury_XU5_i/clk_wiz_0/inst/clk_out2                         |
+| g12+      | 22    | BUFGCE/O        | None       |           0 |               0 |   0 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | Mercury_XU5_i/clk_wiz_0/inst/clk_out3                         |
+| g13+      | 21    | BUFGCE/O        | None       |           0 |               0 |   0 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | Mercury_XU5_i/clk_wiz_0/inst/clk_out4                         |
+| g17       | 6     | BUFG_PS/O       | None       |           0 |               1 |   0 |           0 |    0 |   0 |  0 |    1 |   0 |       0 | Mercury_XU5_i/zynq_ultra_ps_e/U0/pl_clk1                      |
 +-----------+-------+-----------------+------------+-------------+-----------------+-----+-------------+------+-----+----+------+-----+---------+---------------------------------------------------------------+
 * Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered
 ** Non-Clock Loads column represents cell count of non-clock pin loads
@@ -662,17 +689,18 @@ All Modules
 **** In Global Id column, sympbol '+' indicates that global clock was used only to route through the clock region.
 
 
-29. Clock Region Cell Placement per Global Clock: Region X0Y2
+30. Clock Region Cell Placement per Global Clock: Region X0Y2
 -------------------------------------------------------------
 
 +-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+-----+----+------+-----+---------+-----------------------------------------------------+
 | Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF   | Memory LUTs | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                                 |
 +-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+-----+----+------+-----+---------+-----------------------------------------------------+
-| g1        | 17    | BUFG_PS/O       | None       |        2943 |               0 | 2942 |           1 |    0 |   0 |  0 |    0 |   0 |       0 | Mercury_XU5_i/zynq_ultra_ps_e/U0/pl_clk0            |
-| g5        | 0     | BUFGCE/O        | None       |         139 |               0 |  139 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | Clk2Hz_BUFG                                         |
-| g9+       | 7     | BUFGCTRL/O      | PBlock     |           0 |               0 |    0 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | i_gmii2rgmii/GMII_tx_clk                            |
-| g15       | 14    | BUFGCE/O        | None       |           0 |            2070 | 2070 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | Mercury_XU5_i/ps_sys_rst/U0/interconnect_aresetn[0] |
-| g16+      | 6     | BUFG_PS/O       | None       |           0 |               0 |    0 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | Mercury_XU5_i/zynq_ultra_ps_e/U0/pl_clk1            |
+| g1        | 17    | BUFG_PS/O       | None       |        3078 |               0 | 3076 |           2 |    0 |   0 |  0 |    0 |   0 |       0 | Mercury_XU5_i/zynq_ultra_ps_e/U0/pl_clk0            |
+| g7        | 0     | BUFGCE/O        | None       |          32 |               0 |   32 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | Clk2Hz_BUFG                                         |
+| g8        | 1     | BUFGCE/O        | None       |          32 |               0 |   32 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | IOD_D4_P_OBUF_BUFG                                  |
+| g10+      | 7     | BUFGCTRL/O      | PBlock     |           0 |               0 |    0 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | i_gmii2rgmii/GMII_tx_clk                            |
+| g16       | 14    | BUFGCE/O        | None       |           0 |            2130 | 2130 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | Mercury_XU5_i/ps_sys_rst/U0/interconnect_aresetn[0] |
+| g17+      | 6     | BUFG_PS/O       | None       |           0 |               0 |    0 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | Mercury_XU5_i/zynq_ultra_ps_e/U0/pl_clk1            |
 +-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+-----+----+------+-----+---------+-----------------------------------------------------+
 * Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered
 ** Non-Clock Loads column represents cell count of non-clock pin loads
@@ -680,16 +708,17 @@ All Modules
 **** In Global Id column, sympbol '+' indicates that global clock was used only to route through the clock region.
 
 
-30. Clock Region Cell Placement per Global Clock: Region X1Y2
+31. Clock Region Cell Placement per Global Clock: Region X1Y2
 -------------------------------------------------------------
 
 +-----------+-------+-----------------+------------+-------------+-----------------+-----+-------------+------+-----+----+------+-----+---------+-----------------------------------------------------+
 | Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF  | Memory LUTs | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                                 |
 +-----------+-------+-----------------+------------+-------------+-----------------+-----+-------------+------+-----+----+------+-----+---------+-----------------------------------------------------+
-| g1        | 17    | BUFG_PS/O       | None       |         272 |               0 | 271 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | Mercury_XU5_i/zynq_ultra_ps_e/U0/pl_clk0            |
-| g5+       | 0     | BUFGCE/O        | None       |           0 |               0 |   0 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | Clk2Hz_BUFG                                         |
-| g15+      | 14    | BUFGCE/O        | None       |           0 |               0 |   0 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | Mercury_XU5_i/ps_sys_rst/U0/interconnect_aresetn[0] |
-| g16+      | 6     | BUFG_PS/O       | None       |           0 |               0 |   0 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | Mercury_XU5_i/zynq_ultra_ps_e/U0/pl_clk1            |
+| g1        | 17    | BUFG_PS/O       | None       |         237 |               0 | 236 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | Mercury_XU5_i/zynq_ultra_ps_e/U0/pl_clk0            |
+| g7+       | 0     | BUFGCE/O        | None       |           0 |               0 |   0 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | Clk2Hz_BUFG                                         |
+| g8        | 1     | BUFGCE/O        | None       |           0 |               1 |   0 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | IOD_D4_P_OBUF_BUFG                                  |
+| g16+      | 14    | BUFGCE/O        | None       |           0 |               0 |   0 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | Mercury_XU5_i/ps_sys_rst/U0/interconnect_aresetn[0] |
+| g17+      | 6     | BUFG_PS/O       | None       |           0 |               0 |   0 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | Mercury_XU5_i/zynq_ultra_ps_e/U0/pl_clk1            |
 +-----------+-------+-----------------+------------+-------------+-----------------+-----+-------------+------+-----+----+------+-----+---------+-----------------------------------------------------+
 * Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered
 ** Non-Clock Loads column represents cell count of non-clock pin loads
