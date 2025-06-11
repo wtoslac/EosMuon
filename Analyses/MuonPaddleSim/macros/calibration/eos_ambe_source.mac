@@ -1,0 +1,48 @@
+/glg4debug/glg4param omit_muon_processes  0.0
+/glg4debug/glg4param omit_hadronic_processes  0.0
+
+# set the detector parameters
+/rat/db/set DETECTOR experiment "Eos"
+/rat/db/set DETECTOR geo_file "Eos/Eos.geo"
+/rat/db/set GEO[eos_inner] material "water"
+
+# Set per PMT model noise rates
+/rat/db/set NOISEPROC noise_flag 1
+
+# Set digitizer window length
+/rat/db/set DIGITIZER[V1730] nsamples 110
+/rat/db/set IO[NtupleProc] include_untriggered_events false
+
+# set the source parameters
+/rat/db/load cal/ambe_source.geo
+/rat/db/set GEO[source_mother] material "water"  # This must be the same material as eos_inner
+/rat/db/set GEO[source_mother] position [0.0,0.0,0.0]
+
+##### BEGIN EVENT LOOP #####
+/run/initialize
+
+/rat/proc noise
+
+/rat/proc splitevdaq
+/rat/procset trigger_threshold 4.0
+
+# Run the standard Eos WaveformAnalysis chain
+/control/getEnv EOSDATA
+/control/execute {EOSDATA}/macros/snippets/waveformAnalysis.snippet
+
+# Run centroid fitter
+/rat/proc fitcentroid
+
+/rat/proc count
+/rat/procset update 100
+
+/rat/proclast eosntuple
+##### END EVENT LOOP #####
+
+##### GENERATORS #################
+/generator/add ambe regexfill:poisson
+/generator/pos/set ambe_source
+/generator/rate/set 880
+
+##### RUN ###########
+/run/beamOn 1000

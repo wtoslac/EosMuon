@@ -1,0 +1,36 @@
+/glg4debug/glg4param omit_muon_processes 1.0
+/glg4debug/glg4param omit_hadronic_processes 1.0
+
+#set the detector parameters
+/rat/db/set DETECTOR experiment "Eos"
+/rat/db/set DETECTOR geo_file "Eos/Eos.geo"
+/rat/db/set GEO[eos_inner] material "wbls_1pct"
+
+# Set per PMT model noise rates
+/rat/db/set NOISEPROC noise_flag 1
+
+# Set digitizer window length
+/rat/db/set DIGITIZER[V1730] nsamples 110
+
+/rat/db/set LASERBALL[eos] z_position 0.0
+/rat/db/set LED[eos_laserball] intensity 1000
+/rat/db/set LED[eos_laserball] wavelength [440.0]
+
+/run/initialize
+
+/rat/proc noise
+
+/rat/proc splitevdaq
+/rat/procset trigger_threshold 1.0
+
+# Run the standard Eos WaveformAnalysis chain
+/control/getEnv EOSDATA
+/control/execute {EOSDATA}/macros/snippets/waveformAnalysis.snippet
+
+/rat/proc count
+/rat/procset update 100
+
+/rat/proclast eosntuple
+
+/generator/add laserball
+/run/beamOn 1000

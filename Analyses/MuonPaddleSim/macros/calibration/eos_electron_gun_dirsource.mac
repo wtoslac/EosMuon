@@ -1,0 +1,62 @@
+/glg4debug/glg4param omit_muon_processes  0.0
+/glg4debug/glg4param omit_hadronic_processes  0.0
+
+#set the detector parameters
+/rat/db/set DETECTOR experiment "Eos"
+/rat/db/set DETECTOR geo_file "Eos/Eos.geo"
+/rat/db/set GEO[eos_inner] material "water"
+
+# Set per PMT model noise rates
+/rat/db/set NOISEPROC noise_flag 1
+
+# Set digitizer window length
+/rat/db/set DIGITIZER[V1730] nsamples 110
+/rat/db/set IO[NtupleProc] include_untriggered_events false
+
+/rat/db/load cal/dir_source.geo
+
+/rat/db/set GEO[source_mother] material "water"  # This must be the same material as eos_inner
+# Position source at center of detector, pointing downwards
+/rat/db/set GEO[source_mother] position [0.0,0.0,0.0] 
+/rat/db/set GEO[source_mother] rotation [0.0,0.0,0.0]
+
+# Example of source at z=-500, pointing sideways (towards +x axis)
+#/rat/db/set GEO[source_mother] position [0.0,0.0,-500.0]
+#/rat/db/set GEO[source_mother] rotation [0.0,90.0,0.0]
+
+##### BEGIN EVENT LOOP #####
+/run/initialize
+
+/rat/proc noise
+
+# BEGIN EVENT LOOP
+/rat/proc splitevdaq
+/rat/procset trigger_threshold 4.0
+
+# Run the standard Eos WaveformAnalysis chain
+/control/getEnv EOSDATA
+/control/execute {EOSDATA}/macros/snippets/waveformAnalysis.snippet
+
+/rat/proc count
+/rat/procset update 100
+
+/rat/proclast eosntuple
+#END EVENT LOOP
+
+##### GENERATORS #################
+# Generate downward going electrons with an 
+# opening angle of 10 degrees inside the directional source.
+# The energy distribution is flat 1 - 3 MeV. 
+/generator/add combo gun2:regexfill:poisson
+/generator/vtx/set e- 0.0 0.0 -1.0 10.0 1.0 3.0
+/generator/pos/set dir_source
+
+# Generate sideways going electrons with an 
+# opening angle of 10 degrees inside the directional source.
+# The energy distribution is flat 1 - 3 MeV. 
+#/generator/add combo gun2:regexfill:poisson
+#/generator/vtx/set e- 1.0 0.0 0.0 10.0 1.0 3.0
+#/generator/pos/set dir_source
+
+##### RUN ###########
+/run/beamOn 5000

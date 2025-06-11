@@ -1,0 +1,5 @@
+#!/bin/bash
+
+export EOSDATA=@EOSSHARE@
+export PATH=@EOSROOT@/bin:$PATH
+export LD_LIBRARY_PATH=@EOSROOT@/lib:$LD_LIBRARY_PATH
