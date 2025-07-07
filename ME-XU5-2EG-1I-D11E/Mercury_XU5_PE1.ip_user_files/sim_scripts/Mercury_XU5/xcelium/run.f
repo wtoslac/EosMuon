@@ -205,12 +205,6 @@
   "../../../bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/rtl/ip_top/Mercury_XU5_ddr4_0.sv" \
   "../../../bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/tb/Mercury_XU5_ddr4_0_microblaze_mcs_0.sv" \
 -endlib
--makelib xcelium_lib/generic_baseblocks_v2_1_0 \
-  "../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/b752/hdl/generic_baseblocks_v2_1_vl_rfs.v" \
--endlib
--makelib xcelium_lib/axi_register_slice_v2_1_27 \
-  "../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/f0b4/hdl/axi_register_slice_v2_1_vl_rfs.v" \
--endlib
 -makelib xcelium_lib/fifo_generator_v13_2_7 \
   "../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/83df/simulation/fifo_generator_vlog_beh.v" \
 -endlib
@@ -220,29 +214,11 @@
 -makelib xcelium_lib/fifo_generator_v13_2_7 \
   "../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/83df/hdl/fifo_generator_v13_2_rfs.v" \
 -endlib
--makelib xcelium_lib/axi_data_fifo_v2_1_26 \
-  "../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/3111/hdl/axi_data_fifo_v2_1_vl_rfs.v" \
--endlib
--makelib xcelium_lib/axi_crossbar_v2_1_28 \
-  "../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/c40e/hdl/axi_crossbar_v2_1_vl_rfs.v" \
--endlib
--makelib xcelium_lib/xil_defaultlib \
-  "../../../bd/Mercury_XU5/ip/Mercury_XU5_xbar_0/sim/Mercury_XU5_xbar_0.v" \
--endlib
--makelib xcelium_lib/axi_protocol_converter_v2_1_27 \
-  "../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/aeb3/hdl/axi_protocol_converter_v2_1_vl_rfs.v" \
--endlib
 -makelib xcelium_lib/axi_clock_converter_v2_1_26 \
   "../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/b8be/hdl/axi_clock_converter_v2_1_vl_rfs.v" \
 -endlib
--makelib xcelium_lib/axi_dwidth_converter_v2_1_27 \
-  "../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/4675/hdl/axi_dwidth_converter_v2_1_vl_rfs.v" \
--endlib
 -makelib xcelium_lib/xil_defaultlib \
-  "../../../bd/Mercury_XU5/ip/Mercury_XU5_auto_ds_0/sim/Mercury_XU5_auto_ds_0.v" \
-  "../../../bd/Mercury_XU5/ip/Mercury_XU5_auto_pc_0/sim/Mercury_XU5_auto_pc_0.v" \
-  "../../../bd/Mercury_XU5/ip/Mercury_XU5_auto_rs_0/sim/Mercury_XU5_auto_rs_0.v" \
-  "../../../bd/Mercury_XU5/ip/Mercury_XU5_auto_rs_w_0/sim/Mercury_XU5_auto_rs_w_0.v" \
+  "../../../bd/Mercury_XU5/ip/Mercury_XU5_auto_cc_0/sim/Mercury_XU5_auto_cc_0.v" \
   "../../../bd/Mercury_XU5/ip/Mercury_XU5_clk_wiz_0_0/Mercury_XU5_clk_wiz_0_0_clk_wiz.v" \
   "../../../bd/Mercury_XU5/ip/Mercury_XU5_clk_wiz_0_0/Mercury_XU5_clk_wiz_0_0.v" \
 -endlib
@@ -337,9 +313,21 @@
   "../../../bd/Mercury_XU5/ip/Mercury_XU5_smartconnect_00_0/bd_0/ip/ip_37/sim/bd_3ad7_m01wn_0.sv" \
   "../../../bd/Mercury_XU5/ip/Mercury_XU5_smartconnect_00_0/bd_0/ip/ip_38/sim/bd_3ad7_m01bn_0.sv" \
   "../../../bd/Mercury_XU5/ip/Mercury_XU5_smartconnect_00_0/bd_0/ip/ip_39/sim/bd_3ad7_m01e_0.sv" \
+  "../../../bd/Mercury_XU5/ip/Mercury_XU5_smartconnect_00_0/bd_0/ip/ip_40/sim/bd_3ad7_m02s2a_0.sv" \
+  "../../../bd/Mercury_XU5/ip/Mercury_XU5_smartconnect_00_0/bd_0/ip/ip_41/sim/bd_3ad7_m02arn_0.sv" \
+  "../../../bd/Mercury_XU5/ip/Mercury_XU5_smartconnect_00_0/bd_0/ip/ip_42/sim/bd_3ad7_m02rn_0.sv" \
+  "../../../bd/Mercury_XU5/ip/Mercury_XU5_smartconnect_00_0/bd_0/ip/ip_43/sim/bd_3ad7_m02awn_0.sv" \
+  "../../../bd/Mercury_XU5/ip/Mercury_XU5_smartconnect_00_0/bd_0/ip/ip_44/sim/bd_3ad7_m02wn_0.sv" \
+  "../../../bd/Mercury_XU5/ip/Mercury_XU5_smartconnect_00_0/bd_0/ip/ip_45/sim/bd_3ad7_m02bn_0.sv" \
+  "../../../bd/Mercury_XU5/ip/Mercury_XU5_smartconnect_00_0/bd_0/ip/ip_46/sim/bd_3ad7_m02e_0.sv" \
 -endlib
 -makelib xcelium_lib/xil_defaultlib \
   "../../../bd/Mercury_XU5/ip/Mercury_XU5_smartconnect_00_0/bd_0/sim/bd_3ad7.v" \
+-endlib
+-makelib xcelium_lib/axi_register_slice_v2_1_27 \
+  "../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/f0b4/hdl/axi_register_slice_v2_1_vl_rfs.v" \
+-endlib
+-makelib xcelium_lib/xil_defaultlib \
   "../../../bd/Mercury_XU5/ip/Mercury_XU5_smartconnect_00_0/sim/Mercury_XU5_smartconnect_00_0.v" \
   "../../../bd/Mercury_XU5/ipshared/3b94/hdl/reg_bank_v1_0_S00_AXI.v" \
   "../../../bd/Mercury_XU5/ipshared/3b94/hdl/reg_bank_v1_0.v" \

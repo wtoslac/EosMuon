@@ -101,11 +101,7 @@ sv xil_defaultlib --include "/home/wto/Programs/Vivado/2022.2/data/xilinx_vip/in
 "../../../bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/tb/Mercury_XU5_ddr4_0_microblaze_mcs_0.sv" \
 
 verilog xil_defaultlib --include "/home/wto/Programs/Vivado/2022.2/data/xilinx_vip/include" --include "../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/ec67/hdl" --include "../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/abef/hdl" --include "../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/ip_1/rtl/map" --include "../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/rtl/ip_top" --include "../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/rtl/cal" --include "../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/7698" --include "../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/f0b6/hdl/verilog" --include "../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/66be/hdl/verilog" \
-"../../../bd/Mercury_XU5/ip/Mercury_XU5_xbar_0/sim/Mercury_XU5_xbar_0.v" \
-"../../../bd/Mercury_XU5/ip/Mercury_XU5_auto_ds_0/sim/Mercury_XU5_auto_ds_0.v" \
-"../../../bd/Mercury_XU5/ip/Mercury_XU5_auto_pc_0/sim/Mercury_XU5_auto_pc_0.v" \
-"../../../bd/Mercury_XU5/ip/Mercury_XU5_auto_rs_0/sim/Mercury_XU5_auto_rs_0.v" \
-"../../../bd/Mercury_XU5/ip/Mercury_XU5_auto_rs_w_0/sim/Mercury_XU5_auto_rs_w_0.v" \
+"../../../bd/Mercury_XU5/ip/Mercury_XU5_auto_cc_0/sim/Mercury_XU5_auto_cc_0.v" \
 "../../../bd/Mercury_XU5/ip/Mercury_XU5_clk_wiz_0_0/Mercury_XU5_clk_wiz_0_0_clk_wiz.v" \
 "../../../bd/Mercury_XU5/ip/Mercury_XU5_clk_wiz_0_0/Mercury_XU5_clk_wiz_0_0.v" \
 "../../../bd/Mercury_XU5/ip/Mercury_XU5_smartconnect_00_0/bd_0/ip/ip_0/sim/bd_3ad7_one_0.v" \
@@ -149,6 +145,13 @@ sv xil_defaultlib --include "/home/wto/Programs/Vivado/2022.2/data/xilinx_vip/in
 "../../../bd/Mercury_XU5/ip/Mercury_XU5_smartconnect_00_0/bd_0/ip/ip_37/sim/bd_3ad7_m01wn_0.sv" \
 "../../../bd/Mercury_XU5/ip/Mercury_XU5_smartconnect_00_0/bd_0/ip/ip_38/sim/bd_3ad7_m01bn_0.sv" \
 "../../../bd/Mercury_XU5/ip/Mercury_XU5_smartconnect_00_0/bd_0/ip/ip_39/sim/bd_3ad7_m01e_0.sv" \
+"../../../bd/Mercury_XU5/ip/Mercury_XU5_smartconnect_00_0/bd_0/ip/ip_40/sim/bd_3ad7_m02s2a_0.sv" \
+"../../../bd/Mercury_XU5/ip/Mercury_XU5_smartconnect_00_0/bd_0/ip/ip_41/sim/bd_3ad7_m02arn_0.sv" \
+"../../../bd/Mercury_XU5/ip/Mercury_XU5_smartconnect_00_0/bd_0/ip/ip_42/sim/bd_3ad7_m02rn_0.sv" \
+"../../../bd/Mercury_XU5/ip/Mercury_XU5_smartconnect_00_0/bd_0/ip/ip_43/sim/bd_3ad7_m02awn_0.sv" \
+"../../../bd/Mercury_XU5/ip/Mercury_XU5_smartconnect_00_0/bd_0/ip/ip_44/sim/bd_3ad7_m02wn_0.sv" \
+"../../../bd/Mercury_XU5/ip/Mercury_XU5_smartconnect_00_0/bd_0/ip/ip_45/sim/bd_3ad7_m02bn_0.sv" \
+"../../../bd/Mercury_XU5/ip/Mercury_XU5_smartconnect_00_0/bd_0/ip/ip_46/sim/bd_3ad7_m02e_0.sv" \
 
 verilog xil_defaultlib --include "/home/wto/Programs/Vivado/2022.2/data/xilinx_vip/include" --include "../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/ec67/hdl" --include "../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/abef/hdl" --include "../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/ip_1/rtl/map" --include "../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/rtl/ip_top" --include "../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/rtl/cal" --include "../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/7698" --include "../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/f0b6/hdl/verilog" --include "../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/66be/hdl/verilog" \
 "../../../bd/Mercury_XU5/ip/Mercury_XU5_smartconnect_00_0/bd_0/sim/bd_3ad7.v" \

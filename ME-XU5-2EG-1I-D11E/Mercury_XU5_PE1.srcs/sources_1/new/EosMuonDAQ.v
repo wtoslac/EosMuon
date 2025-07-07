@@ -63,10 +63,54 @@ module EosMuonDAQ(
     reg [1:0] fmcn17_sync = 2'b11;
     reg [1:0] fmcn16_sync = 2'b11;
     reg [1:0] fmcn15_sync = 2'b11;
+    reg [1:0] fmcp14_sync = 2'b11;
+    reg [1:0] fmcn14_sync = 2'b11;
+    reg [1:0] fmcp13_sync = 2'b11;
+    reg [1:0] fmcn13_sync = 2'b11;
+    reg [1:0] fmcp12_sync = 2'b11;
+    reg [1:0] fmcn12_sync = 2'b11;
+    reg [1:0] fmcp11_sync = 2'b11;
+    reg [1:0] fmcn11_sync = 2'b11;
+    reg [1:0] fmcp10_sync = 2'b11;
+    reg [1:0] fmcn10_sync = 2'b11;
+    reg [1:0] fmcp20_sync = 2'b11;
+    reg [1:0] fmcn20_sync = 2'b11;
+    reg [1:0] fmcp21_sync = 2'b11;
+    reg [1:0] fmcn21_sync = 2'b11;
+    reg [1:0] fmcp22_sync = 2'b11;
+    reg [1:0] fmcn22_sync = 2'b11;
+    reg [1:0] fmcp23_sync = 2'b11;
+    reg [1:0] fmcn23_sync = 2'b11;
+    reg [1:0] fmcn27_sync = 2'b11;
+    reg [1:0] fmcp27_sync = 2'b11;
+    reg [1:0] fmcn26_sync = 2'b11;
+    reg [1:0] fmcp26_sync = 2'b11;
+    reg [1:0] fmcn25_sync = 2'b11;
+    reg [1:0] fmcp25_sync = 2'b11;
+    reg [1:0] fmcn24_sync = 2'b11;
+    reg [1:0] fmcp24_sync = 2'b11;
+    reg [1:0] fmcp28_sync = 2'b11;
+    reg [1:0] fmcn28_sync = 2'b11;
+    reg [1:0] fmcp29_sync = 2'b11;
+    reg [1:0] fmcn29_sync = 2'b11;
+    reg [1:0] fmcn31_sync = 2'b11;
+    reg [1:0] fmcp31_sync = 2'b11;
+    reg [1:0] fmcn30_sync = 2'b11;
+    reg [1:0] fmcp30_sync = 2'b11;
+    reg [1:0] fmcp32_sync = 2'b11;
+    reg [1:0] fmcp33_sync = 2'b11;
+    reg [1:0] fmcn33_sync = 2'b11;
+    reg [1:0] fmcn32_sync = 2'b11;
+    reg [1:0] ioa22_sync = 2'b11;
+    reg [1:0] ioa20_sync = 2'b11;
     
     // Pulse wires
     wire FMCP0Pulse, FMCP5Pulse, FMCP6Pulse, FMCP7Pulse, FMCP8Pulse, FMCP9Pulse, FMCP19Pulse, FMCP18Pulse, FMCP17Pulse, FMCP16Pulse, FMCP15Pulse;
     wire FMCN0Pulse, FMCN5Pulse, FMCN6Pulse, FMCN7Pulse, FMCN8Pulse, FMCN9Pulse, FMCN19Pulse, FMCN18Pulse, FMCN17Pulse, FMCN16Pulse, FMCN15Pulse;
+    wire FMCP14Pulse, FMCN14Pulse, FMCP13Pulse, FMCN13Pulse, FMCP12Pulse, FMCN12Pulse, FMCP11Pulse, FMCN11Pulse, FMCP10Pulse, FMCN10Pulse, FMCP20Pulse;
+    wire FMCN20Pulse, FMCP21Pulse, FMCN21Pulse, FMCP22Pulse, FMCN22Pulse, FMCP23Pulse, FMCN23Pulse, FMCN27Pulse, FMCP27Pulse, FMCN26Pulse, FMCP26Pulse;
+    wire FMCN25Pulse, FMCP25Pulse, FMCN24Pulse, FMCP24Pulse, FMCP28Pulse, FMCN28Pulse, FMCP29Pulse, FMCN29Pulse, FMCN31Pulse, FMCP31Pulse, FMCN30Pulse;
+    wire FMCP30Pulse, FMCP32Pulse, FMCP33Pulse, FMCN33Pulse, FMCN32Pulse, IOA22Pulse, IOA20Pulse;
     
     // Synchronize inputs to system clock
     always @(posedge Clk100) begin
@@ -92,6 +136,47 @@ module EosMuonDAQ(
         fmcn17_sync <= {fmcn17_sync[0], FMCN[17]};
         fmcn16_sync <= {fmcn16_sync[0], FMCN[16]};
         fmcn15_sync <= {fmcn15_sync[0], FMCN[15]};
+        fmcp14_sync  <= {fmcp14_sync[0],  FMCP[14]};
+        fmcn14_sync  <= {fmcn14_sync[0],  FMCN[14]};
+        fmcp13_sync  <= {fmcp13_sync[0],  FMCP[13]};
+        fmcn13_sync  <= {fmcn13_sync[0],  FMCN[13]};
+        fmcp12_sync  <= {fmcp12_sync[0],  FMCP[12]};
+        fmcn12_sync  <= {fmcn12_sync[0],  FMCN[12]};
+        fmcp11_sync  <= {fmcp11_sync[0],  FMCP[11]};
+        fmcn11_sync  <= {fmcn11_sync[0],  FMCN[11]};
+        fmcp10_sync  <= {fmcp10_sync[0],  FMCP[10]};
+        fmcn10_sync  <= {fmcn10_sync[0],  FMCN[10]};
+        fmcp20_sync  <= {fmcp20_sync[0],  FMCP[20]};
+        fmcn20_sync  <= {fmcn20_sync[0],  FMCN[20]};
+        fmcp21_sync  <= {fmcp21_sync[0],  FMCP[21]};
+        fmcn21_sync  <= {fmcn21_sync[0],  FMCN[21]};
+        fmcp22_sync  <= {fmcp22_sync[0],  FMCP[22]};
+        fmcn22_sync  <= {fmcn22_sync[0],  FMCN[22]};
+        fmcp23_sync  <= {fmcp23_sync[0],  FMCP[23]};
+        fmcn23_sync  <= {fmcn23_sync[0],  FMCN[23]};
+        fmcp27_sync  <= {fmcp27_sync[0],  FMCP[27]};
+        fmcn27_sync  <= {fmcn27_sync[0],  FMCN[27]};
+        fmcp26_sync  <= {fmcp26_sync[0],  FMCP[26]};
+        fmcn26_sync  <= {fmcn26_sync[0],  FMCN[26]};
+        fmcp25_sync  <= {fmcp25_sync[0],  FMCP[25]};
+        fmcn25_sync  <= {fmcn25_sync[0],  FMCN[25]};
+        fmcp24_sync  <= {fmcp24_sync[0],  FMCP[24]};
+        fmcn24_sync  <= {fmcn24_sync[0],  FMCN[24]};
+        fmcp28_sync  <= {fmcp28_sync[0],  FMCP[28]};
+        fmcn28_sync  <= {fmcn28_sync[0],  FMCN[28]};
+        fmcp29_sync  <= {fmcp29_sync[0],  FMCP[29]};
+        fmcn29_sync  <= {fmcn29_sync[0],  FMCN[29]};
+        fmcp31_sync  <= {fmcp31_sync[0],  FMCP[31]};
+        fmcn31_sync  <= {fmcn31_sync[0],  FMCN[31]};
+        fmcp30_sync  <= {fmcp30_sync[0],  FMCP[30]};
+        fmcn30_sync  <= {fmcn30_sync[0],  FMCN[30]};
+        fmcp32_sync  <= {fmcp32_sync[0],  FMCP[32]};
+        fmcn32_sync  <= {fmcn32_sync[0],  FMCN[32]};
+        fmcp33_sync  <= {fmcp33_sync[0],  FMCP[33]};
+        fmcn33_sync  <= {fmcn33_sync[0],  FMCN[33]};
+
+        ioa22_sync  <= {ioa22_sync[0],  IOA[22]};
+        ioa20_sync  <= {ioa20_sync[0],  IOA[20]};
     end
     
     // Falling edge detection
@@ -117,37 +202,135 @@ module EosMuonDAQ(
     assign FMCN17Pulse = (fmcn17_sync[1] & ~fmcn17_sync[0]);
     assign FMCN16Pulse = (fmcn16_sync[1] & ~fmcn16_sync[0]);
     assign FMCN15Pulse = (fmcn15_sync[1] & ~fmcn15_sync[0]);
+   
+    assign FMCP14Pulse  = (fmcp14_sync[1]  & ~fmcp14_sync[0]);
+    assign FMCN14Pulse  = (fmcn14_sync[1]  & ~fmcn14_sync[0]);
+    assign FMCP13Pulse  = (fmcp13_sync[1]  & ~fmcp13_sync[0]);
+    assign FMCN13Pulse  = (fmcn13_sync[1]  & ~fmcn13_sync[0]);
+    assign FMCP12Pulse  = (fmcp12_sync[1]  & ~fmcp12_sync[0]);
+    assign FMCN12Pulse  = (fmcn12_sync[1]  & ~fmcn12_sync[0]);
+    assign FMCP11Pulse  = (fmcp11_sync[1]  & ~fmcp11_sync[0]);
+    assign FMCN11Pulse  = (fmcn11_sync[1]  & ~fmcn11_sync[0]);
+    assign FMCP10Pulse  = (fmcp10_sync[1]  & ~fmcp10_sync[0]);
+    assign FMCN10Pulse  = (fmcn10_sync[1]  & ~fmcn10_sync[0]);
+    
+    assign FMCP20Pulse  = (fmcp20_sync[1]  & ~fmcp20_sync[0]);
+    assign FMCN20Pulse  = (fmcn20_sync[1]  & ~fmcn20_sync[0]);
+    assign FMCP21Pulse  = (fmcp21_sync[1]  & ~fmcp21_sync[0]);
+    assign FMCN21Pulse  = (fmcn21_sync[1]  & ~fmcn21_sync[0]);
+    assign FMCP22Pulse  = (fmcp22_sync[1]  & ~fmcp22_sync[0]);
+    assign FMCN22Pulse  = (fmcn22_sync[1]  & ~fmcn22_sync[0]);
+    assign FMCP23Pulse  = (fmcp23_sync[1]  & ~fmcp23_sync[0]);
+    assign FMCN23Pulse  = (fmcn23_sync[1]  & ~fmcn23_sync[0]);
+    
+    assign FMCP27Pulse  = (fmcp27_sync[1]  & ~fmcp27_sync[0]);
+    assign FMCN27Pulse  = (fmcn27_sync[1]  & ~fmcn27_sync[0]);
+    assign FMCP26Pulse  = (fmcp26_sync[1]  & ~fmcp26_sync[0]);
+    assign FMCN26Pulse  = (fmcn26_sync[1]  & ~fmcn26_sync[0]);
+    assign FMCP25Pulse  = (fmcp25_sync[1]  & ~fmcp25_sync[0]);
+    assign FMCN25Pulse  = (fmcn25_sync[1]  & ~fmcn25_sync[0]);
+    assign FMCP24Pulse  = (fmcp24_sync[1]  & ~fmcp24_sync[0]);
+    assign FMCN24Pulse  = (fmcn24_sync[1]  & ~fmcn24_sync[0]);
+    
+    assign FMCP28Pulse  = (fmcp28_sync[1]  & ~fmcp28_sync[0]);
+    assign FMCN28Pulse  = (fmcn28_sync[1]  & ~fmcn28_sync[0]);
+    assign FMCP29Pulse  = (fmcp29_sync[1]  & ~fmcp29_sync[0]);
+    assign FMCN29Pulse  = (fmcn29_sync[1]  & ~fmcn29_sync[0]);
+    
+    assign FMCP31Pulse  = (fmcp31_sync[1]  & ~fmcp31_sync[0]);
+    assign FMCN31Pulse  = (fmcn31_sync[1]  & ~fmcn31_sync[0]);
+    assign FMCP30Pulse  = (fmcp30_sync[1]  & ~fmcp30_sync[0]);
+    assign FMCN30Pulse  = (fmcn30_sync[1]  & ~fmcn30_sync[0]);
+    
+    assign FMCP32Pulse  = (fmcp32_sync[1]  & ~fmcp32_sync[0]);
+    assign FMCN32Pulse  = (fmcn32_sync[1]  & ~fmcn32_sync[0]);
+    assign FMCP33Pulse  = (fmcp33_sync[1]  & ~fmcp33_sync[0]);
+    assign FMCN33Pulse  = (fmcn33_sync[1]  & ~fmcn33_sync[0]);
+    
+    assign IOA22Pulse  = (ioa22_sync[1]  & ~ioa22_sync[0]);
+    assign IOA20Pulse  = (ioa20_sync[1]  & ~ioa20_sync[0]);
     
     // Counters
-    reg [31:0] nFMCP0Hits = 0, nFMCP5Hits = 0, nFMCP6Hits = 0, nFMCP7Hits = 0, nFMCP8Hits = 0, nFMCP9Hits = 0;
-    reg [31:0] nFMCP19Hits = 0, nFMCP18Hits = 0, nFMCP17Hits = 0, nFMCP16Hits = 0, nFMCP15Hits = 0;
-    reg [31:0] nFMCN0Hits = 0, nFMCN5Hits = 0, nFMCN6Hits = 0, nFMCN7Hits = 0, nFMCN8Hits = 0, nFMCN9Hits = 0;
-    reg [31:0] nFMCN19Hits = 0, nFMCN18Hits = 0, nFMCN17Hits = 0, nFMCN16Hits = 0, nFMCN15Hits = 0;
+    reg [31:0] nFMCP0Hits = 0,  nFMCP5Hits = 0,  nFMCP6Hits = 0,  nFMCP7Hits = 0,  nFMCP8Hits = 0,  nFMCP9Hits = 0;
+    reg [31:0] nFMCP19Hits = 0, nFMCP18Hits = 0, nFMCP17Hits = 0, nFMCP16Hits = 0, nFMCP15Hits = 0, nFMCP14Hits = 0;
+    reg [31:0] nFMCP13Hits = 0, nFMCP12Hits = 0, nFMCP11Hits = 0, nFMCP10Hits = 0, nFMCP20Hits = 0, nFMCP21Hits = 0;
+    reg [31:0] nFMCP22Hits = 0, nFMCP23Hits = 0, nFMCP27Hits = 0, nFMCP26Hits = 0, nFMCP25Hits = 0, nFMCP24Hits = 0;
+    reg [31:0] nFMCP28Hits = 0, nFMCP29Hits = 0, nFMCP31Hits = 0, nFMCP30Hits = 0, nFMCP32Hits = 0, nFMCP33Hits = 0;
     
-    // Increment counters on pulse
+    reg [31:0] nFMCN0Hits = 0,  nFMCN5Hits = 0,  nFMCN6Hits = 0,  nFMCN7Hits = 0,  nFMCN8Hits = 0,  nFMCN9Hits = 0;
+    reg [31:0] nFMCN19Hits = 0, nFMCN18Hits = 0, nFMCN17Hits = 0, nFMCN16Hits = 0, nFMCN15Hits = 0, nFMCN14Hits = 0;
+    reg [31:0] nFMCN13Hits = 0, nFMCN12Hits = 0, nFMCN11Hits = 0, nFMCN10Hits = 0, nFMCN20Hits = 0, nFMCN21Hits = 0;
+    reg [31:0] nFMCN22Hits = 0, nFMCN23Hits = 0, nFMCN27Hits = 0, nFMCN26Hits = 0, nFMCN25Hits = 0, nFMCN24Hits = 0;
+    reg [31:0] nFMCN28Hits = 0, nFMCN29Hits = 0, nFMCN31Hits = 0, nFMCN30Hits = 0, nFMCN32Hits = 0, nFMCN33Hits = 0;
+    
+    reg [31:0] nIOA22Hits = 0, nIOA20Hits = 0;
+    
+     // Increment counters on pulse
     always @(posedge Clk100) begin
-        if (FMCP0Pulse)  nFMCP0Hits  <= nFMCP0Hits + 1;
-        if (FMCP5Pulse)  nFMCP5Hits  <= nFMCP5Hits + 1;
-        if (FMCP6Pulse)  nFMCP6Hits  <= nFMCP6Hits + 1;
-        if (FMCP7Pulse)  nFMCP7Hits  <= nFMCP7Hits + 1;
-        if (FMCP8Pulse)  nFMCP8Hits  <= nFMCP8Hits + 1;
-        if (FMCP9Pulse)  nFMCP9Hits  <= nFMCP9Hits + 1;
-        if (FMCP19Pulse) nFMCP19Hits <= nFMCP19Hits + 1;
-        if (FMCP18Pulse) nFMCP18Hits <= nFMCP18Hits + 1;
-        if (FMCP17Pulse) nFMCP17Hits <= nFMCP17Hits + 1;
-        if (FMCP16Pulse) nFMCP16Hits <= nFMCP16Hits + 1;
-        if (FMCP15Pulse) nFMCP15Hits <= nFMCP15Hits + 1;
-        if (FMCN0Pulse)  nFMCN0Hits  <= nFMCN0Hits + 1;
-        if (FMCN5Pulse)  nFMCN5Hits  <= nFMCN5Hits + 1;
-        if (FMCN6Pulse)  nFMCN6Hits  <= nFMCN6Hits + 1;
-        if (FMCN7Pulse)  nFMCN7Hits  <= nFMCN7Hits + 1;
-        if (FMCN8Pulse)  nFMCN8Hits  <= nFMCN8Hits + 1;
-        if (FMCN9Pulse)  nFMCN9Hits  <= nFMCN9Hits + 1;
-        if (FMCN19Pulse) nFMCN19Hits <= nFMCN19Hits + 1;
-        if (FMCN18Pulse) nFMCN18Hits <= nFMCN18Hits + 1;
-        if (FMCN17Pulse) nFMCN17Hits <= nFMCN17Hits + 1;
-        if (FMCN16Pulse) nFMCN16Hits <= nFMCN16Hits + 1;
-        if (FMCN15Pulse) nFMCN15Hits <= nFMCN15Hits + 1;
+        if (FMCP0Pulse)   nFMCP0Hits   <= nFMCP0Hits + 1;
+        if (FMCP5Pulse)   nFMCP5Hits   <= nFMCP5Hits + 1;
+        if (FMCP6Pulse)   nFMCP6Hits   <= nFMCP6Hits + 1;
+        if (FMCP7Pulse)   nFMCP7Hits   <= nFMCP7Hits + 1;
+        if (FMCP8Pulse)   nFMCP8Hits   <= nFMCP8Hits + 1;
+        if (FMCP9Pulse)   nFMCP9Hits   <= nFMCP9Hits + 1;
+        if (FMCP19Pulse)  nFMCP19Hits  <= nFMCP19Hits + 1;
+        if (FMCP18Pulse)  nFMCP18Hits  <= nFMCP18Hits + 1;
+        if (FMCP17Pulse)  nFMCP17Hits  <= nFMCP17Hits + 1;
+        if (FMCP16Pulse)  nFMCP16Hits  <= nFMCP16Hits + 1;
+        if (FMCP15Pulse)  nFMCP15Hits  <= nFMCP15Hits + 1;
+        if (FMCP14Pulse)  nFMCP14Hits  <= nFMCP14Hits + 1;
+        if (FMCP13Pulse)  nFMCP13Hits  <= nFMCP13Hits + 1;
+        if (FMCP12Pulse)  nFMCP12Hits  <= nFMCP12Hits + 1;
+        if (FMCP11Pulse)  nFMCP11Hits  <= nFMCP11Hits + 1;
+        if (FMCP10Pulse)  nFMCP10Hits  <= nFMCP10Hits + 1;
+        if (FMCP20Pulse)  nFMCP20Hits  <= nFMCP20Hits + 1;
+        if (FMCP21Pulse)  nFMCP21Hits  <= nFMCP21Hits + 1;
+        if (FMCP22Pulse)  nFMCP22Hits  <= nFMCP22Hits + 1;
+        if (FMCP23Pulse)  nFMCP23Hits  <= nFMCP23Hits + 1;
+        if (FMCP27Pulse)  nFMCP27Hits  <= nFMCP27Hits + 1;
+        if (FMCP26Pulse)  nFMCP26Hits  <= nFMCP26Hits + 1;
+        if (FMCP25Pulse)  nFMCP25Hits  <= nFMCP25Hits + 1;
+        if (FMCP24Pulse)  nFMCP24Hits  <= nFMCP24Hits + 1;
+        if (FMCP28Pulse)  nFMCP28Hits  <= nFMCP28Hits + 1;
+        if (FMCP29Pulse)  nFMCP29Hits  <= nFMCP29Hits + 1;
+        if (FMCP31Pulse)  nFMCP31Hits  <= nFMCP31Hits + 1;
+        if (FMCP30Pulse)  nFMCP30Hits  <= nFMCP30Hits + 1;
+        if (FMCP32Pulse)  nFMCP32Hits  <= nFMCP32Hits + 1;
+        if (FMCP33Pulse)  nFMCP33Hits  <= nFMCP33Hits + 1;
+    
+        if (FMCN0Pulse)   nFMCN0Hits   <= nFMCN0Hits + 1;
+        if (FMCN5Pulse)   nFMCN5Hits   <= nFMCN5Hits + 1;
+        if (FMCN6Pulse)   nFMCN6Hits   <= nFMCN6Hits + 1;
+        if (FMCN7Pulse)   nFMCN7Hits   <= nFMCN7Hits + 1;
+        if (FMCN8Pulse)   nFMCN8Hits   <= nFMCN8Hits + 1;
+        if (FMCN9Pulse)   nFMCN9Hits   <= nFMCN9Hits + 1;
+        if (FMCN19Pulse)  nFMCN19Hits  <= nFMCN19Hits + 1;
+        if (FMCN18Pulse)  nFMCN18Hits  <= nFMCN18Hits + 1;
+        if (FMCN17Pulse)  nFMCN17Hits  <= nFMCN17Hits + 1;
+        if (FMCN16Pulse)  nFMCN16Hits  <= nFMCN16Hits + 1;
+        if (FMCN15Pulse)  nFMCN15Hits  <= nFMCN15Hits + 1;
+        if (FMCN14Pulse)  nFMCN14Hits  <= nFMCN14Hits + 1;
+        if (FMCN13Pulse)  nFMCN13Hits  <= nFMCN13Hits + 1;
+        if (FMCN12Pulse)  nFMCN12Hits  <= nFMCN12Hits + 1;
+        if (FMCN11Pulse)  nFMCN11Hits  <= nFMCN11Hits + 1;
+        if (FMCN10Pulse)  nFMCN10Hits  <= nFMCN10Hits + 1;
+        if (FMCN20Pulse)  nFMCN20Hits  <= nFMCN20Hits + 1;
+        if (FMCN21Pulse)  nFMCN21Hits  <= nFMCN21Hits + 1;
+        if (FMCN22Pulse)  nFMCN22Hits  <= nFMCN22Hits + 1;
+        if (FMCN23Pulse)  nFMCN23Hits  <= nFMCN23Hits + 1;
+        if (FMCN27Pulse)  nFMCN27Hits  <= nFMCN27Hits + 1;
+        if (FMCN26Pulse)  nFMCN26Hits  <= nFMCN26Hits + 1;
+        if (FMCN25Pulse)  nFMCN25Hits  <= nFMCN25Hits + 1;
+        if (FMCN24Pulse)  nFMCN24Hits  <= nFMCN24Hits + 1;
+        if (FMCN28Pulse)  nFMCN28Hits  <= nFMCN28Hits + 1;
+        if (FMCN29Pulse)  nFMCN29Hits  <= nFMCN29Hits + 1;
+        if (FMCN31Pulse)  nFMCN31Hits  <= nFMCN31Hits + 1;
+        if (FMCN30Pulse)  nFMCN30Hits  <= nFMCN30Hits + 1;
+        if (FMCN32Pulse)  nFMCN32Hits  <= nFMCN32Hits + 1;
+        if (FMCN33Pulse)  nFMCN33Hits  <= nFMCN33Hits + 1;
+    
+        if (IOA22Pulse)  nIOA22Hits  <= nIOA22Hits + 1;
+        if (IOA20Pulse)  nIOA20Hits  <= nIOA20Hits + 1;
     end
     
     // Output to memory-mapped registers
@@ -173,6 +356,47 @@ module EosMuonDAQ(
     assign reg_ro_out[31 + 32*21 : 32*21] = nFMCN16Hits;  // 0x8002_0154
     assign reg_ro_out[31 + 32*22 : 32*22] = nFMCP15Hits;  // 0x8002_0158
     assign reg_ro_out[31 + 32*23 : 32*23] = nFMCN15Hits;  // 0x8002_015C 
+    assign reg_ro_out[31 + 32*24 : 32*24] = nFMCN14Hits;  // 0x8002_0160
+    assign reg_ro_out[31 + 32*25 : 32*25] = nFMCP14Hits;  // 0x8002_0164
+    assign reg_ro_out[31 + 32*26 : 32*26] = nFMCN13Hits;  // 0x8002_0168
+    assign reg_ro_out[31 + 32*27 : 32*27] = nFMCP13Hits;  // 0x8002_016C
+    assign reg_ro_out[31 + 32*28 : 32*28] = nFMCN12Hits;  // 0x8002_0170
+    assign reg_ro_out[31 + 32*29 : 32*29] = nFMCP12Hits;  // 0x8002_0174
+    assign reg_ro_out[31 + 32*30 : 32*30] = nFMCN11Hits;  // 0x8002_0178
+    assign reg_ro_out[31 + 32*31 : 32*31] = nFMCP11Hits;  // 0x8002_017C
+    assign reg_ro_out[31 + 32*32 : 32*32] = nFMCN10Hits;  // 0x8002_0180
+    assign reg_ro_out[31 + 32*33 : 32*33] = nFMCP10Hits;  // 0x8002_0184
+    assign reg_ro_out[31 + 32*34 : 32*34] = nFMCP20Hits;  // 0x8002_0188
+    assign reg_ro_out[31 + 32*35 : 32*35] = nFMCN20Hits;  // 0x8002_018C
+    assign reg_ro_out[31 + 32*36 : 32*36] = nFMCP21Hits;  // 0x8002_0190
+    assign reg_ro_out[31 + 32*37 : 32*37] = nFMCN21Hits;  // 0x8002_0194
+    assign reg_ro_out[31 + 32*38 : 32*38] = nFMCP22Hits;  // 0x8002_0198
+    assign reg_ro_out[31 + 32*39 : 32*39] = nFMCN22Hits;  // 0x8002_019C
+    assign reg_ro_out[31 + 32*40 : 32*40] = nFMCP23Hits;  // 0x8002_01A0
+    assign reg_ro_out[31 + 32*41 : 32*41] = nFMCN23Hits;  // 0x8002_01A4
+    assign reg_ro_out[31 + 32*42 : 32*42] = nFMCN27Hits;  // 0x8002_01A8
+    assign reg_ro_out[31 + 32*43 : 32*43] = nFMCP27Hits;  // 0x8002_01AC
+    assign reg_ro_out[31 + 32*44 : 32*44] = nFMCN26Hits;  // 0x8002_01B0
+    assign reg_ro_out[31 + 32*45 : 32*45] = nFMCP26Hits;  // 0x8002_01B4
+    assign reg_ro_out[31 + 32*46 : 32*46] = nFMCN25Hits;  // 0x8002_01B8
+    assign reg_ro_out[31 + 32*47 : 32*47] = nFMCP25Hits;  // 0x8002_01BC
+    assign reg_ro_out[31 + 32*48 : 32*48] = nFMCN24Hits;  // 0x8002_01C0
+    assign reg_ro_out[31 + 32*49 : 32*49] = nFMCP24Hits;  // 0x8002_01C4
+    assign reg_ro_out[31 + 32*50 : 32*50] = nFMCP28Hits;  // 0x8002_01C8
+    assign reg_ro_out[31 + 32*51 : 32*51] = nFMCN28Hits;  // 0x8002_01CC
+    assign reg_ro_out[31 + 32*52 : 32*52] = nFMCP29Hits;  // 0x8002_01D0
+    assign reg_ro_out[31 + 32*53 : 32*53] = nFMCN29Hits;  // 0x8002_01D4
+    assign reg_ro_out[31 + 32*54 : 32*54] = nFMCN31Hits;  // 0x8002_01D8
+    assign reg_ro_out[31 + 32*55 : 32*55] = nFMCP31Hits;  // 0x8002_01DC
+    assign reg_ro_out[31 + 32*56 : 32*56] = nFMCN30Hits;  // 0x8002_01E0
+    assign reg_ro_out[31 + 32*57 : 32*57] = nFMCP30Hits;  // 0x8002_01E4
+    assign reg_ro_out[31 + 32*58 : 32*58] = nFMCP32Hits;  // 0x8002_01E8
+    assign reg_ro_out[31 + 32*59 : 32*59] = nFMCP33Hits;  // 0x8002_01EC
+    assign reg_ro_out[31 + 32*60 : 32*60] = nFMCN33Hits;  // 0x8002_01F0
+    assign reg_ro_out[31 + 32*61 : 32*61] = nFMCN32Hits;  // 0x8002_01F4
+    assign reg_ro_out[31 + 32*62 : 32*62] = nIOA22Hits;  // 0x8002_01F8
+    assign reg_ro_out[31 + 32*63 : 32*63] = nIOA20Hits;  // 0x8002_01FC
+    
       
    // Testing the input from the PTB into Petalinux
    /*

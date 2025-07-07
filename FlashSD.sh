@@ -3,4 +3,5 @@ sudo cp EosMuon.linux/images/linux/BOOT.bin EosMuon.linux/images/linux/image.ub 
 sudo cp EosMuon.linux/images/linux/rootfs.tar.gz /mnt/ROOT/
 sudo gunzip -f /mnt/ROOT/rootfs.tar.gz
 sudo tar -xvf /mnt/ROOT/rootfs.tar --directory /mnt/ROOT
+sudo cp FPGAHomeDir/* /mnt/ROOT/home/root/
 sudo umount /mnt/ROOT; sudo umount /mnt/BOOT

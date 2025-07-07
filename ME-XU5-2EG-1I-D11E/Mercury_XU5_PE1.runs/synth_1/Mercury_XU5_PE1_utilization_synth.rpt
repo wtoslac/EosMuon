@@ -1,8 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
-| Date         : Fri May 23 15:40:29 2025
-| Host         : yoga716 running 64-bit Ubuntu 22.04.5 LTS
+| Date         : Fri Jun 20 10:39:38 2025
+| Host         : yoga716wing running 64-bit Ubuntu 22.04.5 LTS
 | Command      : report_utilization -file Mercury_XU5_PE1_utilization_synth.rpt -pb Mercury_XU5_PE1_utilization_synth.pb
 | Design       : Mercury_XU5_PE1
 | Device       : xczu2eg-sfvc784-1-i
@@ -32,15 +32,15 @@ Table of Contents
 +----------------------------+------+-------+------------+-----------+-------+
 |          Site Type         | Used | Fixed | Prohibited | Available | Util% |
 +----------------------------+------+-------+------------+-----------+-------+
-| CLB LUTs*                  |  172 |     0 |          0 |     47232 |  0.36 |
-|   LUT as Logic             |  156 |     0 |          0 |     47232 |  0.33 |
+| CLB LUTs*                  |  252 |     0 |          0 |     47232 |  0.53 |
+|   LUT as Logic             |  236 |     0 |          0 |     47232 |  0.50 |
 |   LUT as Memory            |   16 |     0 |          0 |     28800 |  0.06 |
 |     LUT as Distributed RAM |   16 |     0 |            |           |       |
 |     LUT as Shift Register  |    0 |     0 |            |           |       |
-| CLB Registers              |  985 |     0 |          0 |     94464 |  1.04 |
-|   Register as Flip Flop    |  985 |     0 |          0 |     94464 |  1.04 |
+| CLB Registers              | 2345 |     0 |          0 |     94464 |  2.48 |
+|   Register as Flip Flop    | 2345 |     0 |          0 |     94464 |  2.48 |
 |   Register as Latch        |    0 |     0 |          0 |     94464 |  0.00 |
-| CARRY8                     |   96 |     0 |          0 |      8820 |  1.09 |
+| CARRY8                     |  256 |     0 |          0 |      8820 |  2.90 |
 | F7 Muxes                   |    0 |     0 |          0 |     35280 |  0.00 |
 | F8 Muxes                   |    0 |     0 |          0 |     17640 |  0.00 |
 | F9 Muxes                   |    0 |     0 |          0 |      8820 |  0.00 |
@@ -64,7 +64,7 @@ Warning! LUT value is adjusted to account for LUT combining.
 | 20    |          Yes |           - |          Set |
 | 0     |          Yes |           - |        Reset |
 | 2     |          Yes |         Set |            - |
-| 963   |          Yes |       Reset |            - |
+| 2323  |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -97,7 +97,7 @@ Warning! LUT value is adjusted to account for LUT combining.
 +------------+------+-------+------------+-----------+-------+
 |  Site Type | Used | Fixed | Prohibited | Available | Util% |
 +------------+------+-------+------------+-----------+-------+
-| Bonded IOB |   44 |     0 |          0 |       252 | 17.46 |
+| Bonded IOB |   84 |     0 |          0 |       252 | 33.33 |
 +------------+------+-------+------------+-----------+-------+
 
 
@@ -151,13 +151,13 @@ Warning! LUT value is adjusted to account for LUT combining.
 +------------+------+---------------------+
 |  Ref Name  | Used | Functional Category |
 +------------+------+---------------------+
-| FDRE       |  963 |            Register |
-| CARRY8     |   96 |                 CLB |
+| FDRE       | 2323 |            Register |
+| CARRY8     |  256 |                 CLB |
+| LUT2       |   83 |                 CLB |
+| LUT1       |   72 |                 CLB |
+| INBUF      |   71 |                 I/O |
+| IBUFCTRL   |   71 |              Others |
 | LUT6       |   45 |                 CLB |
-| LUT2       |   43 |                 CLB |
-| LUT1       |   32 |                 CLB |
-| INBUF      |   31 |                 I/O |
-| IBUFCTRL   |   31 |              Others |
 | LUT3       |   29 |                 CLB |
 | LUT4       |   26 |                 CLB |
 | FDPE       |   20 |            Register |
