@@ -1,7 +1,7 @@
 #ifndef IP_MERCURY_XU5_SMARTCONNECT_00_0_SC_H_
 #define IP_MERCURY_XU5_SMARTCONNECT_00_0_SC_H_
 
-// (c) Copyright 1995-2024 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2025 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -84,6 +84,8 @@ public:
   xtlm::xtlm_aximm_initiator_socket* M01_AXI_tlm_aximm_write_socket;
   xtlm::xtlm_aximm_initiator_socket* M02_AXI_tlm_aximm_read_socket;
   xtlm::xtlm_aximm_initiator_socket* M02_AXI_tlm_aximm_write_socket;
+  xtlm::xtlm_aximm_initiator_socket* M03_AXI_tlm_aximm_read_socket;
+  xtlm::xtlm_aximm_initiator_socket* M03_AXI_tlm_aximm_write_socket;
 
   // module socket-to-socket TLM interfaces
 

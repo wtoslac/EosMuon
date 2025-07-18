@@ -1,4 +1,4 @@
-set_property SRC_FILE_INFO {cfile:/home/wto/Eos/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.srcs/constrs_1/imports/src/Mercury_XU5_PE1.tcl rfile:../../../Mercury_XU5_PE1.srcs/constrs_1/imports/src/Mercury_XU5_PE1.tcl id:1 unmanaged:yes} [current_design]
+set_property SRC_FILE_INFO {cfile:/home/wto/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.srcs/constrs_1/imports/src/Mercury_XU5_PE1.tcl rfile:../../../Mercury_XU5_PE1.srcs/constrs_1/imports/src/Mercury_XU5_PE1.tcl id:1 unmanaged:yes} [current_design]
 set_property src_info {type:XDC file:1 line:32 export:INPUT save:NONE read:READ} [current_design]
 set_property -dict {PACKAGE_PIN W12   IOSTANDARD LVCMOS18  } [get_ports {IOA_D0_P}]
 set_property src_info {type:XDC file:1 line:33 export:INPUT save:NONE read:READ} [current_design]

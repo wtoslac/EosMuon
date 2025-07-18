@@ -293,7 +293,9 @@ architecture rtl of Mercury_XU5_PE1 is
       GMII_tx_er          : out    std_logic;
       GMII_txd            : out    std_logic_vector(7 downto 0);
       reg_ro              : in     std_logic_vector(2047 downto 0);
-      reg_rw              : out    std_logic_vector(2047 downto 0)
+      reg_rw              : out    std_logic_vector(2047 downto 0);
+      reg_ro1              : in     std_logic_vector(2047 downto 0);
+      reg_rw1              : out    std_logic_vector(2047 downto 0)
     );
     
   end component Mercury_XU5;
@@ -375,6 +377,8 @@ architecture rtl of Mercury_XU5_PE1 is
   signal LedCount         : unsigned(23 downto 0);
   signal reg_ro           : std_logic_vector(2047 downto 0);
   signal reg_rw           : std_logic_vector(2047 downto 0);
+  signal reg_ro1           : std_logic_vector(2047 downto 0);
+  signal reg_rw1           : std_logic_vector(2047 downto 0);
   
   component EosMuonDAQ is
     port(
@@ -392,10 +396,12 @@ architecture rtl of Mercury_XU5_PE1 is
       FMCP: in std_logic_vector( 35 downto 0);
 
       IOC: inout std_logic_vector(7 downto 0);
+      IOE: inout std_logic_vector(3 downto 0);
       IOD: inout std_logic_vector(6 downto 0);
       IOD7: in std_logic;
       -- 32x64-bits data for the PS access through AXI & Peek.
-      reg_ro_out: out std_logic_vector(2047 downto 0)
+      reg_ro_out: out std_logic_vector(2047 downto 0);
+      reg_ro_out1: out std_logic_vector(2047 downto 0)
       );
   end component EosMuonDAQ;
 
@@ -414,6 +420,7 @@ architecture rtl of Mercury_XU5_PE1 is
       FMCP: in std_logic_vector( 35 downto 0);
 
       IOC: inout std_logic_vector(7 downto 0);
+      IOE: inout std_logic_vector(3 downto 0);
       IOD: inout std_logic_vector(6 downto 0);
       IOD7: in std_logic
       );
@@ -565,6 +572,12 @@ begin --being instantiation of components
       IOC(5) => IOC_D5_N,
       IOC(6) => IOC_D6_P,
       IOC(7) => IOC_D7_N,
+      -- Output Channels on PIN-IO E --
+      -- Running only the first four channels --
+      IOE(0) => IOE_D0_LED0_N,
+      IOE(1) => IOE_D1_LED1_N,
+      IOE(2) => IOE_D2_LED2_N,
+      IOE(3) => IOE_D3_LED3_N,
       -- Output Channels on PIN-IO D --
       IOD(0) => IOD_D0_P,
       IOD(1) => IOD_D1_N,
@@ -575,7 +588,8 @@ begin --being instantiation of components
       IOD(6) => IOD_D6_P,
       IOD7 => IOD_D7_N,
       -- 32x64-bits data for the PS access through AXI & Peek.
-      reg_ro_out => reg_ro
+      reg_ro_out => reg_ro,
+      reg_ro_out1 => reg_ro1
       );
       
   EosMuonTrigger_i: component EosMuonTrigger 
@@ -722,6 +736,12 @@ begin --being instantiation of components
       IOC(5) => IOC_D5_N,
       IOC(6) => IOC_D6_P,
       IOC(7) => IOC_D7_N,
+      -- Output Channels on PIN-IO E --
+      -- Running only the first four channels --
+      IOE(0) => IOE_D0_LED0_N,
+      IOE(1) => IOE_D1_LED1_N,
+      IOE(2) => IOE_D2_LED2_N,
+      IOE(3) => IOE_D3_LED3_N,
       -- Output Channels on PIN-IO D --
       IOD(0) => IOD_D0_P,
       IOD(1) => IOD_D1_N,
@@ -784,7 +804,9 @@ begin --being instantiation of components
       GMII_tx_er           => GMII_tx_er,
       GMII_txd             => GMII_txd,
       reg_ro               => reg_ro,
-      reg_rw               => reg_rw
+      reg_rw               => reg_rw,
+      reg_ro1               => reg_ro1,
+      reg_rw1               => reg_rw1
     );
   
   IIC_scl_iobuf: component IOBUF

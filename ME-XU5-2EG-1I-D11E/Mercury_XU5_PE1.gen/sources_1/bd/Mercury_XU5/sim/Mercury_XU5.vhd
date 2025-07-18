@@ -1,8 +1,8 @@
 --Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
---Date        : Thu Nov 14 15:32:40 2024
---Host        : yoga716 running 64-bit Ubuntu 22.04.4 LTS
+--Date        : Thu Jul 17 16:23:50 2025
+--Host        : precision3561 running 64-bit Ubuntu 22.04.5 LTS
 --Command     : generate_target Mercury_XU5.bd
 --Design      : Mercury_XU5
 --Purpose     : IP block netlist
@@ -832,10 +832,12 @@ entity Mercury_XU5 is
     MDIO_mdio_t : out STD_LOGIC;
     Rst_N : out STD_LOGIC;
     reg_ro : in STD_LOGIC_VECTOR ( 2047 downto 0 );
-    reg_rw : out STD_LOGIC_VECTOR ( 2047 downto 0 )
+    reg_ro1 : in STD_LOGIC_VECTOR ( 2047 downto 0 );
+    reg_rw : out STD_LOGIC_VECTOR ( 2047 downto 0 );
+    reg_rw1 : out STD_LOGIC_VECTOR ( 2047 downto 0 )
   );
   attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of Mercury_XU5 : entity is "Mercury_XU5,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=Mercury_XU5,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=12,numReposBlks=10,numNonXlnxBlks=1,numHierBlks=2,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=6,da_clkrst_cnt=4,synth_mode=OOC_per_IP}";
+  attribute CORE_GENERATION_INFO of Mercury_XU5 : entity is "Mercury_XU5,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=Mercury_XU5,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=13,numReposBlks=11,numNonXlnxBlks=2,numHierBlks=2,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=8,da_clkrst_cnt=4,synth_mode=OOC_per_IP}";
   attribute HW_HANDOFF : string;
   attribute HW_HANDOFF of Mercury_XU5 : entity is "Mercury_XU5.hwdef";
 end Mercury_XU5;
@@ -1216,7 +1218,26 @@ architecture STRUCTURE of Mercury_XU5 is
     M02_AXI_rdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
     M02_AXI_rresp : in STD_LOGIC_VECTOR ( 1 downto 0 );
     M02_AXI_rvalid : in STD_LOGIC;
-    M02_AXI_rready : out STD_LOGIC
+    M02_AXI_rready : out STD_LOGIC;
+    M03_AXI_awaddr : out STD_LOGIC_VECTOR ( 8 downto 0 );
+    M03_AXI_awprot : out STD_LOGIC_VECTOR ( 2 downto 0 );
+    M03_AXI_awvalid : out STD_LOGIC;
+    M03_AXI_awready : in STD_LOGIC;
+    M03_AXI_wdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    M03_AXI_wstrb : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    M03_AXI_wvalid : out STD_LOGIC;
+    M03_AXI_wready : in STD_LOGIC;
+    M03_AXI_bresp : in STD_LOGIC_VECTOR ( 1 downto 0 );
+    M03_AXI_bvalid : in STD_LOGIC;
+    M03_AXI_bready : out STD_LOGIC;
+    M03_AXI_araddr : out STD_LOGIC_VECTOR ( 8 downto 0 );
+    M03_AXI_arprot : out STD_LOGIC_VECTOR ( 2 downto 0 );
+    M03_AXI_arvalid : out STD_LOGIC;
+    M03_AXI_arready : in STD_LOGIC;
+    M03_AXI_rdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    M03_AXI_rresp : in STD_LOGIC_VECTOR ( 1 downto 0 );
+    M03_AXI_rvalid : in STD_LOGIC;
+    M03_AXI_rready : out STD_LOGIC
   );
   end component Mercury_XU5_smartconnect_00_0;
   component Mercury_XU5_reg_bank_0_0 is
@@ -1246,6 +1267,33 @@ architecture STRUCTURE of Mercury_XU5 is
     s00_axi_rready : in STD_LOGIC
   );
   end component Mercury_XU5_reg_bank_0_0;
+  component Mercury_XU5_reg_bank_1_0 is
+  port (
+    reg_rw : out STD_LOGIC_VECTOR ( 2047 downto 0 );
+    reg_ro : in STD_LOGIC_VECTOR ( 2047 downto 0 );
+    s00_axi_aclk : in STD_LOGIC;
+    s00_axi_aresetn : in STD_LOGIC;
+    s00_axi_awaddr : in STD_LOGIC_VECTOR ( 8 downto 0 );
+    s00_axi_awprot : in STD_LOGIC_VECTOR ( 2 downto 0 );
+    s00_axi_awvalid : in STD_LOGIC;
+    s00_axi_awready : out STD_LOGIC;
+    s00_axi_wdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    s00_axi_wstrb : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    s00_axi_wvalid : in STD_LOGIC;
+    s00_axi_wready : out STD_LOGIC;
+    s00_axi_bresp : out STD_LOGIC_VECTOR ( 1 downto 0 );
+    s00_axi_bvalid : out STD_LOGIC;
+    s00_axi_bready : in STD_LOGIC;
+    s00_axi_araddr : in STD_LOGIC_VECTOR ( 8 downto 0 );
+    s00_axi_arprot : in STD_LOGIC_VECTOR ( 2 downto 0 );
+    s00_axi_arvalid : in STD_LOGIC;
+    s00_axi_arready : out STD_LOGIC;
+    s00_axi_rdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    s00_axi_rresp : out STD_LOGIC_VECTOR ( 1 downto 0 );
+    s00_axi_rvalid : out STD_LOGIC;
+    s00_axi_rready : in STD_LOGIC
+  );
+  end component Mercury_XU5_reg_bank_1_0;
   signal ARESETN_1 : STD_LOGIC_VECTOR ( 0 to 0 );
   signal C0_SYS_CLK_1_CLK_N : STD_LOGIC;
   signal C0_SYS_CLK_1_CLK_P : STD_LOGIC;
@@ -1349,6 +1397,8 @@ architecture STRUCTURE of Mercury_XU5 is
   signal ps_sys_rst_interconnect_aresetn : STD_LOGIC_VECTOR ( 0 to 0 );
   signal ps_sys_rst_peripheral_aresetn : STD_LOGIC_VECTOR ( 0 to 0 );
   signal reg_bank_0_reg_rw : STD_LOGIC_VECTOR ( 2047 downto 0 );
+  signal reg_bank_1_reg_rw : STD_LOGIC_VECTOR ( 2047 downto 0 );
+  signal reg_ro1_1 : STD_LOGIC_VECTOR ( 2047 downto 0 );
   signal reg_ro_1 : STD_LOGIC_VECTOR ( 2047 downto 0 );
   signal smartconnect_00_M00_AXI_ARADDR : STD_LOGIC_VECTOR ( 12 downto 0 );
   signal smartconnect_00_M00_AXI_ARREADY : STD_LOGIC;
@@ -1403,6 +1453,25 @@ architecture STRUCTURE of Mercury_XU5 is
   signal smartconnect_00_M02_AXI_WREADY : STD_LOGIC;
   signal smartconnect_00_M02_AXI_WSTRB : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal smartconnect_00_M02_AXI_WVALID : STD_LOGIC;
+  signal smartconnect_00_M03_AXI_ARADDR : STD_LOGIC_VECTOR ( 8 downto 0 );
+  signal smartconnect_00_M03_AXI_ARPROT : STD_LOGIC_VECTOR ( 2 downto 0 );
+  signal smartconnect_00_M03_AXI_ARREADY : STD_LOGIC;
+  signal smartconnect_00_M03_AXI_ARVALID : STD_LOGIC;
+  signal smartconnect_00_M03_AXI_AWADDR : STD_LOGIC_VECTOR ( 8 downto 0 );
+  signal smartconnect_00_M03_AXI_AWPROT : STD_LOGIC_VECTOR ( 2 downto 0 );
+  signal smartconnect_00_M03_AXI_AWREADY : STD_LOGIC;
+  signal smartconnect_00_M03_AXI_AWVALID : STD_LOGIC;
+  signal smartconnect_00_M03_AXI_BREADY : STD_LOGIC;
+  signal smartconnect_00_M03_AXI_BRESP : STD_LOGIC_VECTOR ( 1 downto 0 );
+  signal smartconnect_00_M03_AXI_BVALID : STD_LOGIC;
+  signal smartconnect_00_M03_AXI_RDATA : STD_LOGIC_VECTOR ( 31 downto 0 );
+  signal smartconnect_00_M03_AXI_RREADY : STD_LOGIC;
+  signal smartconnect_00_M03_AXI_RRESP : STD_LOGIC_VECTOR ( 1 downto 0 );
+  signal smartconnect_00_M03_AXI_RVALID : STD_LOGIC;
+  signal smartconnect_00_M03_AXI_WDATA : STD_LOGIC_VECTOR ( 31 downto 0 );
+  signal smartconnect_00_M03_AXI_WREADY : STD_LOGIC;
+  signal smartconnect_00_M03_AXI_WSTRB : STD_LOGIC_VECTOR ( 3 downto 0 );
+  signal smartconnect_00_M03_AXI_WVALID : STD_LOGIC;
   signal zynq_ultra_ps_e_GMII_ENET1_COL : STD_LOGIC;
   signal zynq_ultra_ps_e_GMII_ENET1_CRS : STD_LOGIC;
   signal zynq_ultra_ps_e_GMII_ENET1_RXD : STD_LOGIC_VECTOR ( 7 downto 0 );
@@ -1554,8 +1623,12 @@ architecture STRUCTURE of Mercury_XU5 is
   attribute X_INTERFACE_INFO of GMII_txd : signal is "xilinx.com:interface:gmii:1.0 GMII TXD";
   attribute X_INTERFACE_INFO of reg_ro : signal is "xilinx.com:signal:data:1.0 DATA.REG_RO DATA";
   attribute X_INTERFACE_PARAMETER of reg_ro : signal is "XIL_INTERFACENAME DATA.REG_RO, LAYERED_METADATA undef";
+  attribute X_INTERFACE_INFO of reg_ro1 : signal is "xilinx.com:signal:data:1.0 DATA.REG_RO1 DATA";
+  attribute X_INTERFACE_PARAMETER of reg_ro1 : signal is "XIL_INTERFACENAME DATA.REG_RO1, LAYERED_METADATA undef";
   attribute X_INTERFACE_INFO of reg_rw : signal is "xilinx.com:signal:data:1.0 DATA.REG_RW DATA";
   attribute X_INTERFACE_PARAMETER of reg_rw : signal is "XIL_INTERFACENAME DATA.REG_RW, LAYERED_METADATA undef";
+  attribute X_INTERFACE_INFO of reg_rw1 : signal is "xilinx.com:signal:data:1.0 DATA.REG_RW1 DATA";
+  attribute X_INTERFACE_PARAMETER of reg_rw1 : signal is "XIL_INTERFACENAME DATA.REG_RW1, LAYERED_METADATA undef";
 begin
   C0_DDR4_act_n <= ddr4_C0_DDR4_ACT_N;
   C0_DDR4_adr(16 downto 0) <= ddr4_C0_DDR4_ADR(16 downto 0);
@@ -1588,8 +1661,10 @@ begin
   MDIO_mdio_o <= zynq_ultra_ps_e_MDIO_ENET1_MDIO_O;
   MDIO_mdio_t <= zynq_ultra_ps_e_MDIO_ENET1_MDIO_T;
   Rst_N <= zynq_ultra_ps_e_pl_resetn0;
+  reg_ro1_1(2047 downto 0) <= reg_ro1(2047 downto 0);
   reg_ro_1(2047 downto 0) <= reg_ro(2047 downto 0);
   reg_rw(2047 downto 0) <= reg_bank_0_reg_rw(2047 downto 0);
+  reg_rw1(2047 downto 0) <= reg_bank_1_reg_rw(2047 downto 0);
   zynq_ultra_ps_e_GMII_ENET1_COL <= GMII_col;
   zynq_ultra_ps_e_GMII_ENET1_CRS <= GMII_crs;
   zynq_ultra_ps_e_GMII_ENET1_RXD(7 downto 0) <= GMII_rxd(7 downto 0);
@@ -1833,6 +1908,32 @@ reg_bank_0: component Mercury_XU5_reg_bank_0_0
       s00_axi_wstrb(3 downto 0) => smartconnect_00_M02_AXI_WSTRB(3 downto 0),
       s00_axi_wvalid => smartconnect_00_M02_AXI_WVALID
     );
+reg_bank_1: component Mercury_XU5_reg_bank_1_0
+     port map (
+      reg_ro(2047 downto 0) => reg_ro1_1(2047 downto 0),
+      reg_rw(2047 downto 0) => reg_bank_1_reg_rw(2047 downto 0),
+      s00_axi_aclk => zynq_ultra_ps_e_pl_clk0,
+      s00_axi_araddr(8 downto 0) => smartconnect_00_M03_AXI_ARADDR(8 downto 0),
+      s00_axi_aresetn => ps_sys_rst_interconnect_aresetn(0),
+      s00_axi_arprot(2 downto 0) => smartconnect_00_M03_AXI_ARPROT(2 downto 0),
+      s00_axi_arready => smartconnect_00_M03_AXI_ARREADY,
+      s00_axi_arvalid => smartconnect_00_M03_AXI_ARVALID,
+      s00_axi_awaddr(8 downto 0) => smartconnect_00_M03_AXI_AWADDR(8 downto 0),
+      s00_axi_awprot(2 downto 0) => smartconnect_00_M03_AXI_AWPROT(2 downto 0),
+      s00_axi_awready => smartconnect_00_M03_AXI_AWREADY,
+      s00_axi_awvalid => smartconnect_00_M03_AXI_AWVALID,
+      s00_axi_bready => smartconnect_00_M03_AXI_BREADY,
+      s00_axi_bresp(1 downto 0) => smartconnect_00_M03_AXI_BRESP(1 downto 0),
+      s00_axi_bvalid => smartconnect_00_M03_AXI_BVALID,
+      s00_axi_rdata(31 downto 0) => smartconnect_00_M03_AXI_RDATA(31 downto 0),
+      s00_axi_rready => smartconnect_00_M03_AXI_RREADY,
+      s00_axi_rresp(1 downto 0) => smartconnect_00_M03_AXI_RRESP(1 downto 0),
+      s00_axi_rvalid => smartconnect_00_M03_AXI_RVALID,
+      s00_axi_wdata(31 downto 0) => smartconnect_00_M03_AXI_WDATA(31 downto 0),
+      s00_axi_wready => smartconnect_00_M03_AXI_WREADY,
+      s00_axi_wstrb(3 downto 0) => smartconnect_00_M03_AXI_WSTRB(3 downto 0),
+      s00_axi_wvalid => smartconnect_00_M03_AXI_WVALID
+    );
 smartconnect_00: component Mercury_XU5_smartconnect_00_0
      port map (
       M00_AXI_araddr(12 downto 0) => smartconnect_00_M00_AXI_ARADDR(12 downto 0),
@@ -1892,6 +1993,25 @@ smartconnect_00: component Mercury_XU5_smartconnect_00_0
       M02_AXI_wready => smartconnect_00_M02_AXI_WREADY,
       M02_AXI_wstrb(3 downto 0) => smartconnect_00_M02_AXI_WSTRB(3 downto 0),
       M02_AXI_wvalid => smartconnect_00_M02_AXI_WVALID,
+      M03_AXI_araddr(8 downto 0) => smartconnect_00_M03_AXI_ARADDR(8 downto 0),
+      M03_AXI_arprot(2 downto 0) => smartconnect_00_M03_AXI_ARPROT(2 downto 0),
+      M03_AXI_arready => smartconnect_00_M03_AXI_ARREADY,
+      M03_AXI_arvalid => smartconnect_00_M03_AXI_ARVALID,
+      M03_AXI_awaddr(8 downto 0) => smartconnect_00_M03_AXI_AWADDR(8 downto 0),
+      M03_AXI_awprot(2 downto 0) => smartconnect_00_M03_AXI_AWPROT(2 downto 0),
+      M03_AXI_awready => smartconnect_00_M03_AXI_AWREADY,
+      M03_AXI_awvalid => smartconnect_00_M03_AXI_AWVALID,
+      M03_AXI_bready => smartconnect_00_M03_AXI_BREADY,
+      M03_AXI_bresp(1 downto 0) => smartconnect_00_M03_AXI_BRESP(1 downto 0),
+      M03_AXI_bvalid => smartconnect_00_M03_AXI_BVALID,
+      M03_AXI_rdata(31 downto 0) => smartconnect_00_M03_AXI_RDATA(31 downto 0),
+      M03_AXI_rready => smartconnect_00_M03_AXI_RREADY,
+      M03_AXI_rresp(1 downto 0) => smartconnect_00_M03_AXI_RRESP(1 downto 0),
+      M03_AXI_rvalid => smartconnect_00_M03_AXI_RVALID,
+      M03_AXI_wdata(31 downto 0) => smartconnect_00_M03_AXI_WDATA(31 downto 0),
+      M03_AXI_wready => smartconnect_00_M03_AXI_WREADY,
+      M03_AXI_wstrb(3 downto 0) => smartconnect_00_M03_AXI_WSTRB(3 downto 0),
+      M03_AXI_wvalid => smartconnect_00_M03_AXI_WVALID,
       S00_AXI_araddr(39 downto 0) => zynq_ultra_ps_e_M_AXI_HPM0_LPD_ARADDR(39 downto 0),
       S00_AXI_arburst(1 downto 0) => zynq_ultra_ps_e_M_AXI_HPM0_LPD_ARBURST(1 downto 0),
       S00_AXI_arcache(3 downto 0) => zynq_ultra_ps_e_M_AXI_HPM0_LPD_ARCACHE(3 downto 0),

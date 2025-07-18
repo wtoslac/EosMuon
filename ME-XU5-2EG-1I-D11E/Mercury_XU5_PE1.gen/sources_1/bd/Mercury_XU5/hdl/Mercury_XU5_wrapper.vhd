@@ -1,8 +1,8 @@
 --Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
---Date        : Thu Nov 14 15:32:40 2024
---Host        : yoga716 running 64-bit Ubuntu 22.04.4 LTS
+--Date        : Thu Jul 17 16:23:50 2025
+--Host        : precision3561 running 64-bit Ubuntu 22.04.5 LTS
 --Command     : generate_target Mercury_XU5_wrapper.bd
 --Design      : Mercury_XU5_wrapper
 --Purpose     : IP block netlist
@@ -54,7 +54,9 @@ entity Mercury_XU5_wrapper is
     MDIO_mdio_io : inout STD_LOGIC;
     Rst_N : out STD_LOGIC;
     reg_ro : in STD_LOGIC_VECTOR ( 2047 downto 0 );
-    reg_rw : out STD_LOGIC_VECTOR ( 2047 downto 0 )
+    reg_ro1 : in STD_LOGIC_VECTOR ( 2047 downto 0 );
+    reg_rw : out STD_LOGIC_VECTOR ( 2047 downto 0 );
+    reg_rw1 : out STD_LOGIC_VECTOR ( 2047 downto 0 )
   );
 end Mercury_XU5_wrapper;
 
@@ -108,7 +110,9 @@ architecture STRUCTURE of Mercury_XU5_wrapper is
     Rst_N : out STD_LOGIC;
     LED_N_PL : out STD_LOGIC_VECTOR ( 1 downto 0 );
     reg_ro : in STD_LOGIC_VECTOR ( 2047 downto 0 );
-    reg_rw : out STD_LOGIC_VECTOR ( 2047 downto 0 )
+    reg_rw : out STD_LOGIC_VECTOR ( 2047 downto 0 );
+    reg_ro1 : in STD_LOGIC_VECTOR ( 2047 downto 0 );
+    reg_rw1 : out STD_LOGIC_VECTOR ( 2047 downto 0 )
   );
   end component Mercury_XU5;
   component IOBUF is
@@ -199,6 +203,8 @@ Mercury_XU5_i: component Mercury_XU5
       MDIO_mdio_t => MDIO_mdio_t,
       Rst_N => Rst_N,
       reg_ro(2047 downto 0) => reg_ro(2047 downto 0),
-      reg_rw(2047 downto 0) => reg_rw(2047 downto 0)
+      reg_ro1(2047 downto 0) => reg_ro1(2047 downto 0),
+      reg_rw(2047 downto 0) => reg_rw(2047 downto 0),
+      reg_rw1(2047 downto 0) => reg_rw1(2047 downto 0)
     );
 end STRUCTURE;

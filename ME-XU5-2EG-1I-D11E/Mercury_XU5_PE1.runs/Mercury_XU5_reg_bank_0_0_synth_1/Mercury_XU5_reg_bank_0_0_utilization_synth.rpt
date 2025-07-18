@@ -1,8 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
-| Date         : Sun Oct 27 19:46:37 2024
-| Host         : yoga716 running 64-bit Ubuntu 22.04.4 LTS
+| Date         : Thu Jul 17 15:44:01 2025
+| Host         : precision3561 running 64-bit Ubuntu 22.04.5 LTS
 | Command      : report_utilization -file Mercury_XU5_reg_bank_0_0_utilization_synth.rpt -pb Mercury_XU5_reg_bank_0_0_utilization_synth.pb
 | Design       : Mercury_XU5_reg_bank_0_0
 | Device       : xczu2eg-sfvc784-1-i

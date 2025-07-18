@@ -29,6 +29,7 @@ module EosMuonTrigger(
     input [35:0] FMCN,
     input [35:0] FMCP,  
     inout [7:0] IOC,
+    inout [3:0] IOE,
     inout [6:0] IOD,
     input IOD7
     );

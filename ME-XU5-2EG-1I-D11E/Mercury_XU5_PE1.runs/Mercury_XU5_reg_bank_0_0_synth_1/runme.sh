@@ -7,9 +7,9 @@
 # 
 
 if [ -z "$PATH" ]; then
-  PATH=/home/wto/Programs/Vitis/2022.2/bin:/home/wto/Programs/Vivado/2022.2/ids_lite/ISE/bin/lin64:/home/wto/Programs/Vivado/2022.2/bin
+  PATH=/home/wto/Xilinx/Vitis/2022.2/bin:/home/wto/Xilinx/Vivado/2022.2/ids_lite/ISE/bin/lin64:/home/wto/Xilinx/Vivado/2022.2/bin
 else
-  PATH=/home/wto/Programs/Vitis/2022.2/bin:/home/wto/Programs/Vivado/2022.2/ids_lite/ISE/bin/lin64:/home/wto/Programs/Vivado/2022.2/bin:$PATH
+  PATH=/home/wto/Xilinx/Vitis/2022.2/bin:/home/wto/Xilinx/Vivado/2022.2/ids_lite/ISE/bin/lin64:/home/wto/Xilinx/Vivado/2022.2/bin:$PATH
 fi
 export PATH
 
@@ -20,7 +20,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='/home/wto/Eos/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/Mercury_XU5_reg_bank_0_0_synth_1'
+HD_PWD='/home/wto/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/Mercury_XU5_reg_bank_0_0_synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

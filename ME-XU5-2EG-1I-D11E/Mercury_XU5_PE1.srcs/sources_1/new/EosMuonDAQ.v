@@ -9,10 +9,12 @@ module EosMuonDAQ(
     input [35:0] FMCN,
     input [35:0] FMCP,  
     input [7:0] IOC,
+    inout [3:0] IOE,
     inout [6:0] IOD,
     input IOD7,
     // PS accessible bits 32x64.
-    output [2047:0] reg_ro_out
+    output [2047:0] reg_ro_out,
+    output [2047:0] reg_ro_out1
     );
     
     //assign LED3 = A0; //1'b1;//IOB_D23_SC7_BTN3_N;
@@ -103,6 +105,47 @@ module EosMuonDAQ(
     reg [1:0] fmcn32_sync = 2'b11;
     reg [1:0] ioa22_sync = 2'b11;
     reg [1:0] ioa20_sync = 2'b11;
+    reg [1:0] ioc0_sync = 2'b11;
+    reg [1:0] ioc1_sync = 2'b11;
+    reg [1:0] ioc2_sync = 2'b11;
+    reg [1:0] ioc3_sync = 2'b11;
+    reg [1:0] ioc4_sync = 2'b11;
+    reg [1:0] ioc5_sync = 2'b11;
+    reg [1:0] ioc6_sync = 2'b11;
+    reg [1:0] ioc7_sync = 2'b11;
+    reg [1:0] ioe0_sync = 2'b11;
+    reg [1:0] ioe1_sync = 2'b11;
+    reg [1:0] iob13_sync = 2'b11;
+    reg [1:0] iob15_sync = 2'b11;
+    reg [1:0] iob17_sync = 2'b11;
+    reg [1:0] iob19_sync = 2'b11;
+    reg [1:0] iob21_sync = 2'b11;
+    reg [1:0] iob23_sync = 2'b11;
+    reg [1:0] ioa7_sync = 2'b11;
+    reg [1:0] ioa5_sync = 2'b11;
+    reg [1:0] ioa3_sync = 2'b11;
+    reg [1:0] ioa1_sync = 2'b11;
+    reg [1:0] iob6_sync = 2'b11;
+    reg [1:0] iob4_sync = 2'b11;
+    reg [1:0] iob2_sync = 2'b11;
+    reg [1:0] iob0_sync = 2'b11;
+    reg [1:0] iob1_sync = 2'b11;
+    reg [1:0] iob3_sync = 2'b11;
+    reg [1:0] iob5_sync = 2'b11;
+    reg [1:0] iob7_sync = 2'b11;
+    reg [1:0] iob9_sync = 2'b11;
+    reg [1:0] iob11_sync = 2'b11;
+    reg [1:0] ioa21_sync = 2'b11;
+    reg [1:0] ioa23_sync = 2'b11;
+    reg [1:0] iob22_sync = 2'b11;
+    reg [1:0] iob20_sync = 2'b11;
+    reg [1:0] iob18_sync = 2'b11;
+    reg [1:0] iob16_sync = 2'b11;
+    reg [1:0] iob14_sync = 2'b11;
+    reg [1:0] iob12_sync = 2'b11;
+    reg [1:0] iob10_sync = 2'b11;
+    reg [1:0] iob8_sync = 2'b11;
+    
     
     // Pulse wires
     wire FMCP0Pulse, FMCP5Pulse, FMCP6Pulse, FMCP7Pulse, FMCP8Pulse, FMCP9Pulse, FMCP19Pulse, FMCP18Pulse, FMCP17Pulse, FMCP16Pulse, FMCP15Pulse;
@@ -110,7 +153,10 @@ module EosMuonDAQ(
     wire FMCP14Pulse, FMCN14Pulse, FMCP13Pulse, FMCN13Pulse, FMCP12Pulse, FMCN12Pulse, FMCP11Pulse, FMCN11Pulse, FMCP10Pulse, FMCN10Pulse, FMCP20Pulse;
     wire FMCN20Pulse, FMCP21Pulse, FMCN21Pulse, FMCP22Pulse, FMCN22Pulse, FMCP23Pulse, FMCN23Pulse, FMCN27Pulse, FMCP27Pulse, FMCN26Pulse, FMCP26Pulse;
     wire FMCN25Pulse, FMCP25Pulse, FMCN24Pulse, FMCP24Pulse, FMCP28Pulse, FMCN28Pulse, FMCP29Pulse, FMCN29Pulse, FMCN31Pulse, FMCP31Pulse, FMCN30Pulse;
-    wire FMCP30Pulse, FMCP32Pulse, FMCP33Pulse, FMCN33Pulse, FMCN32Pulse, IOA22Pulse, IOA20Pulse;
+    wire FMCP30Pulse, FMCP32Pulse, FMCP33Pulse, FMCN33Pulse, FMCN32Pulse, IOA22Pulse, IOA20Pulse, IOC0Pulse, IOC1Pulse, IOC2Pulse, IOC3Pulse;
+    wire IOC4Pulse, ICO5Pulse, IOC6Pulse, IOC7Pulse,IOE0Pulse, IOE1Pulse, IOB13Pulse, IOB15Pulse, IOB17Pulse, ICB19Pulse, IOB21Pulse, IOB23Pulse;
+    wire IOA7Pulse, IOA5Pulse, IOA3Pulse, IOA1Pulse, IOB6Pulse, IOB4Pulse, IOB2Pulse, IOB0Pulse, IOB1Pulse, IOB3Pulse, IOB5Pulse, IOB7Pulse;
+    wire IOB9Pulse, IOB11Pulse, IOA21Pulse, IOA23Pulse, IOB22Pulse, IOB20Pulse, IOB18Pulse, IOB16Pulse, IOB14Pulse, IOB12Pulse, IOB10Pulse, IOB8Pulse;
     
     // Synchronize inputs to system clock
     always @(posedge Clk100) begin
@@ -174,11 +220,50 @@ module EosMuonDAQ(
         fmcn32_sync  <= {fmcn32_sync[0],  FMCN[32]};
         fmcp33_sync  <= {fmcp33_sync[0],  FMCP[33]};
         fmcn33_sync  <= {fmcn33_sync[0],  FMCN[33]};
-
         ioa22_sync  <= {ioa22_sync[0],  IOA[22]};
         ioa20_sync  <= {ioa20_sync[0],  IOA[20]};
+        ioc0_sync  <= {ioc0_sync[0],  IOC[0]};
+        ioc1_sync  <= {ioc1_sync[0],  IOC[1]};
+        ioc2_sync  <= {ioc2_sync[0],  IOC[2]};
+        ioc3_sync  <= {ioc3_sync[0],  IOC[3]};
+        ioc4_sync  <= {ioc4_sync[0],  IOC[4]};
+        ioc5_sync  <= {ioc5_sync[0],  IOC[5]};
+        ioc6_sync  <= {ioc6_sync[0],  IOC[6]};
+        ioc7_sync  <= {ioc7_sync[0],  IOC[7]};
+        ioe0_sync  <= {ioe0_sync[0],  IOE[0]};
+        ioe1_sync  <= {ioe1_sync[0],  IOE[1]};
+        iob13_sync  <= {iob13_sync[0],  IOB[13]};
+        iob15_sync  <= {iob15_sync[0],  IOB[15]};
+        iob17_sync  <= {iob17_sync[0],  IOB[17]};
+        iob19_sync  <= {iob19_sync[0],  IOB[19]};
+        iob21_sync  <= {iob21_sync[0],  IOB[21]};
+        iob23_sync  <= {iob23_sync[0],  IOB[23]};
+        ioa7_sync  <= {ioa7_sync[0],  IOA[7]};
+        ioa5_sync  <= {ioa5_sync[0],  IOA[5]};
+        ioa3_sync  <= {ioa3_sync[0],  IOA[3]};
+        ioa1_sync  <= {ioa1_sync[0],  IOA[1]};
+        iob6_sync  <= {iob6_sync[0],  IOB[6]};
+        iob4_sync  <= {iob4_sync[0],  IOB[4]};
+        iob2_sync  <= {iob2_sync[0],  IOB[2]};
+        iob0_sync  <= {iob0_sync[0],  IOB[0]};
+        iob1_sync  <= {iob1_sync[0],  IOB[1]};
+        iob3_sync  <= {iob3_sync[0],  IOB[3]};
+        iob5_sync  <= {iob5_sync[0],  IOB[5]};
+        iob7_sync  <= {iob7_sync[0],  IOB[7]};
+        iob9_sync  <= {iob9_sync[0],  IOB[9]};
+        iob11_sync  <= {iob11_sync[0],  IOB[11]};
+        ioa21_sync  <= {ioa21_sync[0],  IOA[21]};
+        ioa23_sync  <= {ioa23_sync[0],  IOA[23]};
+        iob22_sync  <= {iob22_sync[0],  IOB[22]};
+        iob20_sync  <= {iob20_sync[0],  IOB[20]};
+        iob18_sync  <= {iob18_sync[0],  IOB[18]};
+        iob16_sync  <= {iob16_sync[0],  IOB[16]};
+        iob14_sync  <= {iob14_sync[0],  IOB[14]};
+        iob12_sync  <= {iob12_sync[0],  IOB[12]};
+        iob10_sync  <= {iob10_sync[0],  IOB[10]};
+        iob8_sync  <= {iob8_sync[0],  IOB[8]};
     end
-    
+
     // Falling edge detection
     assign FMCP0Pulse = (fmcp0_sync[1] & ~fmcp0_sync[0]);
     assign FMCP5Pulse = (fmcp5_sync[1] & ~fmcp5_sync[0]);
@@ -250,6 +335,54 @@ module EosMuonDAQ(
     assign IOA22Pulse  = (ioa22_sync[1]  & ~ioa22_sync[0]);
     assign IOA20Pulse  = (ioa20_sync[1]  & ~ioa20_sync[0]);
     
+    assign IOC0Pulse  = (ioc0_sync[1]  & ~ioc0_sync[0]);
+    assign IOC1Pulse  = (ioc1_sync[1]  & ~ioc1_sync[0]);
+    assign IOC2Pulse  = (ioc2_sync[1]  & ~ioc2_sync[0]);
+    assign IOC3Pulse  = (ioc3_sync[1]  & ~ioc3_sync[0]);
+    assign IOC4Pulse  = (ioc4_sync[1]  & ~ioc4_sync[0]);
+    assign IOC5Pulse  = (ioc5_sync[1]  & ~ioc5_sync[0]);
+    assign IOC6Pulse  = (ioc6_sync[1]  & ~ioc6_sync[0]);
+    assign IOC7Pulse  = (ioc7_sync[1]  & ~ioc7_sync[0]);
+    
+    assign IOE0Pulse  = (ioe0_sync[1]  & ~ioe0_sync[0]);
+    assign IOE1Pulse  = (ioe1_sync[1]  & ~ioe1_sync[0]);
+    
+    assign IOB13Pulse  = (iob13_sync[1]  & ~iob13_sync[0]);
+    assign IOB15Pulse  = (iob15_sync[1]  & ~iob15_sync[0]);
+    assign IOB17Pulse  = (iob17_sync[1]  & ~iob17_sync[0]);
+    assign IOB19Pulse  = (iob19_sync[1]  & ~iob19_sync[0]);
+    assign IOB21Pulse  = (iob21_sync[1]  & ~iob23_sync[0]);
+    assign IOB23Pulse  = (iob23_sync[1]  & ~iob23_sync[0]);
+    
+    assign IOA7Pulse  = (ioa7_sync[1]  & ~ioa7_sync[0]);
+    assign IOA5Pulse  = (ioa5_sync[1]  & ~ioa5_sync[0]);
+    assign IOA3Pulse  = (ioa3_sync[1]  & ~ioa3_sync[0]);
+    assign IOA1Pulse  = (ioa1_sync[1]  & ~ioa1_sync[0]);
+
+    assign IOB6Pulse  = (iob6_sync[1]  & ~iob6_sync[0]);
+    assign IOB4Pulse  = (iob4_sync[1]  & ~iob4_sync[0]);
+    assign IOB2Pulse  = (iob2_sync[1]  & ~iob2_sync[0]);
+    assign IOB0Pulse  = (iob0_sync[1]  & ~iob0_sync[0]);
+    assign IOB1Pulse  = (iob1_sync[1]  & ~iob1_sync[0]);
+    assign IOB3Pulse  = (iob3_sync[1]  & ~iob3_sync[0]);
+    assign IOB5Pulse  = (iob5_sync[1]  & ~iob5_sync[0]);
+    assign IOB7Pulse  = (iob7_sync[1]  & ~iob7_sync[0]);
+    assign IOB9Pulse  = (iob9_sync[1]  & ~iob9_sync[0]);
+    assign IOB11Pulse  = (iob11_sync[1]  & ~iob11_sync[0]);
+    
+    assign IOA21Pulse  = (ioa21_sync[1]  & ~ioa21_sync[0]);
+    assign IOA23Pulse  = (ioa23_sync[1]  & ~ioa23_sync[0]);
+
+    
+    assign IOB22Pulse  = (iob22_sync[1]  & ~iob22_sync[0]);
+    assign IOB20Pulse  = (iob20_sync[1]  & ~iob20_sync[0]);
+    assign IOB18Pulse  = (iob18_sync[1]  & ~iob18_sync[0]);
+    assign IOB16Pulse  = (iob16_sync[1]  & ~iob16_sync[0]);
+    assign IOB14Pulse  = (iob14_sync[1]  & ~iob14_sync[0]);
+    assign IOB12Pulse  = (iob12_sync[1]  & ~iob12_sync[0]);
+    assign IOB10Pulse  = (iob10_sync[1]  & ~iob10_sync[0]);
+    assign IOB8Pulse  = (iob8_sync[1]  & ~iob8_sync[0]);
+    
     // Counters
     reg [31:0] nFMCP0Hits = 0,  nFMCP5Hits = 0,  nFMCP6Hits = 0,  nFMCP7Hits = 0,  nFMCP8Hits = 0,  nFMCP9Hits = 0;
     reg [31:0] nFMCP19Hits = 0, nFMCP18Hits = 0, nFMCP17Hits = 0, nFMCP16Hits = 0, nFMCP15Hits = 0, nFMCP14Hits = 0;
@@ -263,7 +396,13 @@ module EosMuonDAQ(
     reg [31:0] nFMCN22Hits = 0, nFMCN23Hits = 0, nFMCN27Hits = 0, nFMCN26Hits = 0, nFMCN25Hits = 0, nFMCN24Hits = 0;
     reg [31:0] nFMCN28Hits = 0, nFMCN29Hits = 0, nFMCN31Hits = 0, nFMCN30Hits = 0, nFMCN32Hits = 0, nFMCN33Hits = 0;
     
-    reg [31:0] nIOA22Hits = 0, nIOA20Hits = 0;
+    reg [31:0] nIOA22Hits = 0, nIOA20Hits = 0, nIOC0Hits = 0, nIOC1Hits = 0, nIOC2Hits = 0, nIOC3Hits = 0, nIOC4Hits = 0, nIOC5Hits = 0, nIOC6Hits = 0;
+    reg [31:0] nIOC7Hits = 0, nIOE0Hits = 0, nIOE1Hits = 0, nIOB13Hits = 0, nIOB15Hits = 0, nIOB17Hits = 0, nIOB19Hits = 0, nIOB21Hits = 0;
+    reg [31:0] nIOB23Hits = 0, nIOA7Hits = 0, nIOA5Hits = 0, nIOA3Hits = 0, nIOA1Hits = 0, nIOB6Hits = 0, nIOB4Hits = 0, nIOB2Hits = 0;
+    reg [31:0] nIOB0Hits = 0, nIOB1Hits = 0, nIOB3Hits = 0, nIOB5Hits = 0, nIOB7Hits = 0, nIOB9Hits = 0, nIOB11Hits = 0, nIOA21Hits = 0;
+    reg [31:0] nIOA23Hits = 0, nIOB22Hits = 0, nIOB20Hits = 0, nIOB18Hits = 0, nIOB16Hits = 0, nIOB14Hits = 0, nIOB12Hits = 0;
+    reg [31:0] nIOB10Hits = 0, nIOB8Hits = 0;
+
     
      // Increment counters on pulse
     always @(posedge Clk100) begin
@@ -331,6 +470,57 @@ module EosMuonDAQ(
     
         if (IOA22Pulse)  nIOA22Hits  <= nIOA22Hits + 1;
         if (IOA20Pulse)  nIOA20Hits  <= nIOA20Hits + 1;
+        
+        if (IOC0Pulse)  nIOC0Hits  <= nIOC0Hits + 1;
+        if (IOC1Pulse)  nIOC1Hits  <= nIOC1Hits + 1;
+        if (IOC2Pulse)  nIOC2Hits  <= nIOC2Hits + 1;
+        if (IOC3Pulse)  nIOC3Hits  <= nIOC3Hits + 1;
+        if (IOC4Pulse)  nIOC4Hits  <= nIOC4Hits + 1;
+        if (IOC5Pulse)  nIOC5Hits  <= nIOC5Hits + 1;
+        if (IOC6Pulse)  nIOC6Hits  <= nIOC6Hits + 1;
+        if (IOC7Pulse)  nIOC7Hits  <= nIOC7Hits + 1;
+        
+        if (IOE0Pulse)  nIOE0Hits  <= nIOE0Hits + 1;
+        if (IOE1Pulse)  nIOE1Hits  <= nIOE1Hits + 1;
+        
+        
+        if (IOB13Pulse)  nIOB13Hits  <= nIOB13Hits + 1;
+        if (IOB15Pulse)  nIOB15Hits  <= nIOB15Hits + 1;
+        if (IOB17Pulse)  nIOB17Hits  <= nIOB17Hits + 1;
+        if (IOB19Pulse)  nIOB19Hits  <= nIOB19Hits + 1;
+        if (IOB21Pulse)  nIOB21Hits  <= nIOB21Hits + 1;
+        if (IOB23Pulse)  nIOB23Hits  <= nIOB23Hits + 1;
+        
+        if (IOA7Pulse)  nIOA7Hits  <= nIOA7Hits + 1;
+        if (IOA5Pulse)  nIOA5Hits  <= nIOA5Hits + 1;
+        if (IOA3Pulse)  nIOA3Hits  <= nIOA3Hits + 1;
+        if (IOA1Pulse)  nIOA1Hits  <= nIOA1Hits + 1;
+        
+        
+        if (IOB6Pulse)  nIOB6Hits  <= nIOB6Hits + 1;
+        if (IOB4Pulse)  nIOB4Hits  <= nIOB4Hits + 1;
+        if (IOB2Pulse)  nIOB2Hits  <= nIOB2Hits + 1;
+        if (IOB0Pulse)  nIOB0Hits  <= nIOB0Hits + 1;
+        if (IOB1Pulse)  nIOB1Hits  <= nIOB1Hits + 1;
+        if (IOB3Pulse)  nIOB3Hits  <= nIOB3Hits + 1;
+        if (IOB5Pulse)  nIOB5Hits  <= nIOB5Hits + 1;
+        if (IOB7Pulse)  nIOB7Hits  <= nIOB7Hits + 1;
+        if (IOB9Pulse)  nIOB9Hits  <= nIOB9Hits + 1;
+        if (IOB11Pulse)  nIOB11Hits  <= nIOB11Hits + 1;
+        
+        
+        if (IOA21Pulse)  nIOA21Hits  <= nIOA21Hits + 1;
+        if (IOA23Pulse)  nIOA23Hits  <= nIOA23Hits + 1;
+           
+        if (IOB22Pulse)  nIOB22Hits  <= nIOB22Hits + 1;
+        if (IOB20Pulse)  nIOB20Hits  <= nIOB20Hits + 1;
+        if (IOB18Pulse)  nIOB18Hits  <= nIOB18Hits + 1;
+        if (IOB16Pulse)  nIOB16Hits  <= nIOB16Hits + 1;
+        if (IOB14Pulse)  nIOB14Hits  <= nIOB14Hits + 1;
+        if (IOB12Pulse)  nIOB12Hits  <= nIOB12Hits + 1;
+        if (IOB10Pulse)  nIOB10Hits  <= nIOB10Hits + 1;
+        if (IOB8Pulse)  nIOB8Hits  <= nIOB8Hits + 1;
+        
     end
     
     // Output to memory-mapped registers
@@ -397,7 +587,46 @@ module EosMuonDAQ(
     assign reg_ro_out[31 + 32*62 : 32*62] = nIOA22Hits;  // 0x8002_01F8
     assign reg_ro_out[31 + 32*63 : 32*63] = nIOA20Hits;  // 0x8002_01FC
     
-      
+    assign reg_ro_out1[31 + 32*0  : 32*0 ] = nIOC0Hits;   // 0x8003_0100
+    assign reg_ro_out1[31 + 32*1  : 32*1 ] = nIOC1Hits;   // 0x8003_0104
+    assign reg_ro_out1[31 + 32*2  : 32*2 ] = nIOC2Hits;   // 0x8003_0108
+    assign reg_ro_out1[31 + 32*3  : 32*3 ] = nIOC3Hits;   // 0x8003_010C
+    assign reg_ro_out1[31 + 32*4  : 32*4 ] = nIOC4Hits;   // 0x8003_0110
+    assign reg_ro_out1[31 + 32*5  : 32*5 ] = nIOC5Hits;   // 0x8003_0114
+    assign reg_ro_out1[31 + 32*6  : 32*6 ] = nIOC6Hits;   // 0x8003_0118
+    assign reg_ro_out1[31 + 32*7  : 32*7 ] = nIOC7Hits;   // 0x8003_011C
+    assign reg_ro_out1[31 + 32*8  : 32*8 ] = nIOE0Hits;   // 0x8003_0120
+    assign reg_ro_out1[31 + 32*9  : 32*9 ] = nIOE1Hits;   // 0x8003_0124
+    assign reg_ro_out1[31 + 32*10 : 32*10] = nIOB13Hits;  // 0x8003_0128
+    assign reg_ro_out1[31 + 32*11 : 32*11] = nIOB15Hits;  // 0x8003_012C
+    assign reg_ro_out1[31 + 32*12 : 32*12] = nIOB17Hits;  // 0x8003_0130
+    assign reg_ro_out1[31 + 32*13 : 32*13] = nIOB19Hits;  // 0x8003_0134
+    assign reg_ro_out1[31 + 32*14 : 32*14] = nIOB21Hits;  // 0x8003_0138
+    assign reg_ro_out1[31 + 32*15 : 32*15] = nIOB23Hits;  // 0x8003_013C
+    assign reg_ro_out1[31 + 32*16 : 32*16] = nIOA7Hits;   // 0x8003_0140
+    assign reg_ro_out1[31 + 32*17 : 32*17] = nIOA5Hits;   // 0x8003_0144
+    assign reg_ro_out1[31 + 32*18 : 32*18] = nIOA3Hits;   // 0x8003_0148
+    assign reg_ro_out1[31 + 32*19 : 32*19] = nIOA1Hits;   // 0x8003_014C
+    assign reg_ro_out1[31 + 32*20 : 32*20] = nIOB6Hits;   // 0x8003_0150
+    assign reg_ro_out1[31 + 32*21 : 32*21] = nIOB4Hits;   // 0x8003_0154
+    assign reg_ro_out1[31 + 32*22 : 32*22] = nIOB2Hits;   // 0x8003_0158
+    assign reg_ro_out1[31 + 32*23 : 32*23] = nIOB0Hits;   // 0x8003_015C
+    assign reg_ro_out1[31 + 32*24 : 32*24] = nIOB1Hits;   // 0x8003_0160
+    assign reg_ro_out1[31 + 32*25 : 32*25] = nIOB3Hits;   // 0x8003_0164
+    assign reg_ro_out1[31 + 32*26 : 32*26] = nIOB5Hits;   // 0x8003_0168
+    assign reg_ro_out1[31 + 32*27 : 32*27] = nIOB7Hits;   // 0x8003_016C
+    assign reg_ro_out1[31 + 32*28 : 32*28] = nIOB9Hits;   // 0x8003_0170
+    assign reg_ro_out1[31 + 32*29 : 32*29] = nIOB11Hits;  // 0x8003_0174
+    assign reg_ro_out1[31 + 32*30 : 32*30] = nIOA21Hits;  // 0x8003_0178
+    assign reg_ro_out1[31 + 32*31 : 32*31] = nIOA23Hits;  // 0x8003_017C
+    assign reg_ro_out1[31 + 32*32 : 32*32] = nIOB22Hits;  // 0x8003_0180
+    assign reg_ro_out1[31 + 32*33 : 32*33] = nIOB20Hits;  // 0x8003_0184
+    assign reg_ro_out1[31 + 32*34 : 32*34] = nIOB18Hits;  // 0x8003_0188
+    assign reg_ro_out1[31 + 32*35 : 32*35] = nIOB16Hits;  // 0x8003_018C
+    assign reg_ro_out1[31 + 32*36 : 32*36] = nIOB14Hits;  // 0x8003_0190
+    assign reg_ro_out1[31 + 32*37 : 32*37] = nIOB12Hits;  // 0x8003_0194
+    assign reg_ro_out1[31 + 32*38 : 32*38] = nIOB10Hits;  // 0x8003_0198
+    assign reg_ro_out1[31 + 32*39 : 32*39] = nIOB8Hits;   // 0x8003_019C
    // Testing the input from the PTB into Petalinux
    /*
    reg [31:0] nIOD7=0; //Max is 4.3B

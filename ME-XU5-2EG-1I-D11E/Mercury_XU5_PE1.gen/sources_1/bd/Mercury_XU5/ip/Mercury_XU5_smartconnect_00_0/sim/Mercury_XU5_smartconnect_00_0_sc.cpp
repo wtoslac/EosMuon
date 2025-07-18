@@ -1,4 +1,4 @@
-// (c) Copyright 1995-2024 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2025 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -76,6 +76,8 @@ Mercury_XU5_smartconnect_00_0_sc::Mercury_XU5_smartconnect_00_0_sc(const sc_core
   M01_AXI_tlm_aximm_write_socket = mp_impl->M01_AXI_tlm_aximm_write_socket;
   M02_AXI_tlm_aximm_read_socket = mp_impl->M02_AXI_tlm_aximm_read_socket;
   M02_AXI_tlm_aximm_write_socket = mp_impl->M02_AXI_tlm_aximm_write_socket;
+  M03_AXI_tlm_aximm_read_socket = mp_impl->M03_AXI_tlm_aximm_read_socket;
+  M03_AXI_tlm_aximm_write_socket = mp_impl->M03_AXI_tlm_aximm_write_socket;
 }
 
 Mercury_XU5_smartconnect_00_0_sc::~Mercury_XU5_smartconnect_00_0_sc()

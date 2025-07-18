@@ -12,9 +12,9 @@ var WshShell = new ActiveXObject( "WScript.Shell" );
 var ProcEnv = WshShell.Environment( "Process" );
 var PathVal = ProcEnv("PATH");
 if ( PathVal.length == 0 ) {
-  PathVal = "/home/wto/Programs/Vitis/2022.2/bin:/home/wto/Programs/Vivado/2022.2/ids_lite/ISE/bin/lin64;/home/wto/Programs/Vivado/2022.2/bin;";
+  PathVal = "/home/wto/Xilinx/Vitis/2022.2/bin:/home/wto/Xilinx/Vivado/2022.2/ids_lite/ISE/bin/lin64;/home/wto/Xilinx/Vivado/2022.2/bin;";
 } else {
-  PathVal = "/home/wto/Programs/Vitis/2022.2/bin:/home/wto/Programs/Vivado/2022.2/ids_lite/ISE/bin/lin64;/home/wto/Programs/Vivado/2022.2/bin;" + PathVal;
+  PathVal = "/home/wto/Xilinx/Vitis/2022.2/bin:/home/wto/Xilinx/Vivado/2022.2/ids_lite/ISE/bin/lin64;/home/wto/Xilinx/Vivado/2022.2/bin;" + PathVal;
 }
 
 ProcEnv("PATH") = PathVal;
@@ -27,7 +27,7 @@ eval( EAInclude(ISEJScriptLib) );
 
 
 // pre-commands:
-ISETouchFile( "init_design", "begin" );
+ISETouchFile( "write_bitstream", "begin" );
 ISEStep( "vivado",
          "-log Mercury_XU5_PE1.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source Mercury_XU5_PE1.tcl -notrace" );
 

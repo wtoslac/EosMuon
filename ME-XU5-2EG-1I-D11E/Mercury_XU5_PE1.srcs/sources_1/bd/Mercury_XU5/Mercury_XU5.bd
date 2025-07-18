@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x5B614ABC0818CE69",
+      "boundary_crc": "0x77732E456C272944",
       "device": "xczu2eg-sfvc784-1-i",
       "gen_directory": "../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5",
       "name": "Mercury_XU5",
@@ -24,7 +24,8 @@
       "ps_sys_rst": "",
       "ddr4_sys_rst": "",
       "smartconnect_00": "",
-      "reg_bank_0": ""
+      "reg_bank_0": "",
+      "reg_bank_1": ""
     },
     "interface_ports": {
       "IIC": {
@@ -507,6 +508,30 @@
         }
       },
       "reg_rw": {
+        "type": "data",
+        "direction": "O",
+        "left": "2047",
+        "right": "0",
+        "parameters": {
+          "LAYERED_METADATA": {
+            "value": "undef",
+            "value_src": "default"
+          }
+        }
+      },
+      "reg_ro1": {
+        "type": "data",
+        "direction": "I",
+        "left": "2047",
+        "right": "0",
+        "parameters": {
+          "LAYERED_METADATA": {
+            "value": "undef",
+            "value_src": "default"
+          }
+        }
+      },
+      "reg_rw1": {
         "type": "data",
         "direction": "O",
         "left": "2047",
@@ -1598,7 +1623,7 @@
             "value": "1"
           },
           "NUM_MI": {
-            "value": "3"
+            "value": "4"
           },
           "NUM_SI": {
             "value": "1"
@@ -1620,7 +1645,8 @@
             "bridges": [
               "M00_AXI",
               "M01_AXI",
-              "M02_AXI"
+              "M02_AXI",
+              "M03_AXI"
             ]
           },
           "M00_AXI": {
@@ -1715,6 +1741,37 @@
                 "value": "0"
               }
             }
+          },
+          "M03_AXI": {
+            "mode": "Master",
+            "vlnv_bus_definition": "xilinx.com:interface:aximm:1.0",
+            "vlnv": "xilinx.com:interface:aximm_rtl:1.0",
+            "parameters": {
+              "MAX_BURST_LENGTH": {
+                "value": "1"
+              },
+              "NUM_READ_OUTSTANDING": {
+                "value": "8"
+              },
+              "NUM_READ_THREADS": {
+                "value": "1"
+              },
+              "NUM_WRITE_OUTSTANDING": {
+                "value": "8"
+              },
+              "NUM_WRITE_THREADS": {
+                "value": "1"
+              },
+              "RUSER_BITS_PER_BYTE": {
+                "value": "0"
+              },
+              "SUPPORTS_NARROW_BURST": {
+                "value": "0"
+              },
+              "WUSER_BITS_PER_BYTE": {
+                "value": "0"
+              }
+            }
           }
         }
       },
@@ -1723,6 +1780,12 @@
         "xci_name": "Mercury_XU5_reg_bank_0_0",
         "xci_path": "ip/Mercury_XU5_reg_bank_0_0/Mercury_XU5_reg_bank_0_0.xci",
         "inst_hier_path": "reg_bank_0"
+      },
+      "reg_bank_1": {
+        "vlnv": "user.org:user:reg_bank:1.0",
+        "xci_name": "Mercury_XU5_reg_bank_1_0",
+        "xci_path": "ip/Mercury_XU5_reg_bank_1_0/Mercury_XU5_reg_bank_1_0.xci",
+        "inst_hier_path": "reg_bank_1"
       }
     },
     "interface_nets": {
@@ -1766,6 +1829,12 @@
         "interface_ports": [
           "smartconnect_00/M02_AXI",
           "reg_bank_0/S00_AXI"
+        ]
+      },
+      "smartconnect_00_M03_AXI": {
+        "interface_ports": [
+          "reg_bank_1/S00_AXI",
+          "smartconnect_00/M03_AXI"
         ]
       },
       "zynq_ultra_ps_e_GMII_ENET1": {
@@ -1855,7 +1924,8 @@
         "ports": [
           "ps_sys_rst/interconnect_aresetn",
           "smartconnect_00/aresetn",
-          "reg_bank_0/s00_axi_aresetn"
+          "reg_bank_0/s00_axi_aresetn",
+          "reg_bank_1/s00_axi_aresetn"
         ]
       },
       "ps_sys_rst_peripheral_aresetn": {
@@ -1869,6 +1939,18 @@
         "ports": [
           "reg_bank_0/reg_rw",
           "reg_rw"
+        ]
+      },
+      "reg_bank_1_reg_rw": {
+        "ports": [
+          "reg_bank_1/reg_rw",
+          "reg_rw1"
+        ]
+      },
+      "reg_ro1_1": {
+        "ports": [
+          "reg_ro1",
+          "reg_bank_1/reg_ro"
         ]
       },
       "reg_ro_1": {
@@ -1886,10 +1968,11 @@
           "system_management_wiz/s_axi_aclk",
           "led/s_axi_aclk",
           "Clk100",
-          "reg_bank_0/s00_axi_aclk",
           "axi_interconnect_0/ACLK",
           "axi_interconnect_0/S00_ACLK",
-          "zynq_ultra_ps_e/maxihpm0_fpd_aclk"
+          "zynq_ultra_ps_e/maxihpm0_fpd_aclk",
+          "reg_bank_0/s00_axi_aclk",
+          "reg_bank_1/s00_axi_aclk"
         ]
       },
       "zynq_ultra_ps_e_pl_clk1": {
@@ -1929,6 +2012,13 @@
               "SEG_reg_bank_0_S00_AXI_reg": {
                 "address_block": "/reg_bank_0/S00_AXI/S00_AXI_reg",
                 "offset": "0x0080020000",
+                "range": "64K",
+                "offset_base_param": "C_S00_AXI_BASEADDR",
+                "offset_high_param": "C_S00_AXI_HIGHADDR"
+              },
+              "SEG_reg_bank_1_S00_AXI_reg": {
+                "address_block": "/reg_bank_1/S00_AXI/S00_AXI_reg",
+                "offset": "0x0080030000",
                 "range": "64K",
                 "offset_base_param": "C_S00_AXI_BASEADDR",
                 "offset_high_param": "C_S00_AXI_HIGHADDR"
