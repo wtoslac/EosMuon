@@ -60,7 +60,7 @@ int main() {
         for (int i = 1; i < 132; i++) {
             int diff = curr_data[i] - prev_data[i];
             printf("Slat[%5.1f]: Rate = %8.1f\t\t", slats[i], diff/5.0);
-            if((i+1)%4 == 0) printf("\n\n");
+            if((i+1)%4 == 0) printf("\n");
             prev_data[i] = curr_data[i]; // Update for next iteration
         }
 
