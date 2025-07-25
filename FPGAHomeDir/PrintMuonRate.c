@@ -12,8 +12,9 @@
 #define PAGE_SIZE 4096
 #define PAGE_MASK (~(PAGE_SIZE - 1))
 
-int main() { int fd; void *map_base; volatile unsigned int *reg_addr;
-
+int main() { 
+	int fd; void *map_base; volatile unsigned int *reg_addr;
+	void *map_base1; volatile unsigned int *reg_addr1;
     // Open /dev/mem
     fd = open("/dev/mem", O_RDONLY | O_SYNC); if (fd < 0) { perror("Error opening /dev/mem"); return EXIT_FAILURE;
     }
@@ -51,7 +52,7 @@ int main() { int fd; void *map_base; volatile unsigned int *reg_addr;
         // Read current values
         for (int i = 0; i < 132; i++) {
             if(i < 64) curr_data[i] = reg_addr[i];
-	    else curr_data[i] = reg_addr1[i];
+	    else curr_data[i] = reg_addr1[i-64];
         }
         printf("\033[H");
         // Print differences
