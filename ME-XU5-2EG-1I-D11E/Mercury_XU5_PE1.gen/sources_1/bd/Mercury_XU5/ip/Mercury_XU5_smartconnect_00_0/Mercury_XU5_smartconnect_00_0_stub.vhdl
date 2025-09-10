@@ -1,10 +1,10 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
--- Date        : Thu Jul 17 16:25:12 2025
+-- Date        : Tue Sep  9 06:34:28 2025
 -- Host        : precision3561 running 64-bit Ubuntu 22.04.5 LTS
 -- Command     : write_vhdl -force -mode synth_stub
---               /home/wto/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_smartconnect_00_0/Mercury_XU5_smartconnect_00_0_stub.vhdl
+--               /home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_smartconnect_00_0/Mercury_XU5_smartconnect_00_0_stub.vhdl
 -- Design      : Mercury_XU5_smartconnect_00_0
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xczu2eg-sfvc784-1-i

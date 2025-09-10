@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Sep  9 06:19:06 2025" VIVADOVERSION="2022.2">
+
+  <SYSTEMINFO ARCH="zynquplus" DEVICE="xczu2eg" NAME="design_1" PACKAGE="sfvc784" SPEEDGRADE="-1"/>
+
+  <EXTERNALPORTS/>
+
+  <EXTERNALINTERFACES/>
+
+  <MODULES/>
+
+</EDKSYSTEM>

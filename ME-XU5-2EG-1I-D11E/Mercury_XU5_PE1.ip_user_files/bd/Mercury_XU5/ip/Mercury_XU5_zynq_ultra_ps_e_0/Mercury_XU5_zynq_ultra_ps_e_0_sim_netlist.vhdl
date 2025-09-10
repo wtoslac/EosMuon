@@ -1,10 +1,10 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
--- Date        : Mon Nov  4 02:17:27 2024
+-- Date        : Mon Nov  4 02:17:26 2024
 -- Host        : yoga716 running 64-bit Ubuntu 22.04.4 LTS
--- Command     : write_vhdl -force -mode funcsim
---               /home/wto/Eos/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_zynq_ultra_ps_e_0/Mercury_XU5_zynq_ultra_ps_e_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top Mercury_XU5_zynq_ultra_ps_e_0 -prefix
+--               Mercury_XU5_zynq_ultra_ps_e_0_ Mercury_XU5_zynq_ultra_ps_e_0_sim_netlist.vhdl
 -- Design      : Mercury_XU5_zynq_ultra_ps_e_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -1584,8 +1584,6 @@ entity Mercury_XU5_zynq_ultra_ps_e_0_zynq_ultra_ps_e_v3_4_1_zynq_ultra_ps_e is
   attribute C_USE_DIFF_RW_CLK_GP6 of Mercury_XU5_zynq_ultra_ps_e_0_zynq_ultra_ps_e_v3_4_1_zynq_ultra_ps_e : entity is 0;
   attribute HW_HANDOFF : string;
   attribute HW_HANDOFF of Mercury_XU5_zynq_ultra_ps_e_0_zynq_ultra_ps_e_v3_4_1_zynq_ultra_ps_e : entity is "Mercury_XU5_zynq_ultra_ps_e_0.hwdef";
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of Mercury_XU5_zynq_ultra_ps_e_0_zynq_ultra_ps_e_v3_4_1_zynq_ultra_ps_e : entity is "zynq_ultra_ps_e_v3_4_1_zynq_ultra_ps_e";
   attribute PSS_IO : string;
   attribute PSS_IO of Mercury_XU5_zynq_ultra_ps_e_0_zynq_ultra_ps_e_v3_4_1_zynq_ultra_ps_e : entity is "Signal Name, DiffPair Type, DiffPair Signal,Direction, Site Type, IO Standard, Drive (mA), Slew Rate, Pull Type, IBIS Model, ODT, OUTPUT_IMPEDANCE " & LF &
  "QSPI_X4_SCLK_OUT, , , OUT, PS_MIO0_500, LVCMOS18, 12, FAST, PULLUP, PS_MIO_LVCMOS18_F_12,,  " & LF &

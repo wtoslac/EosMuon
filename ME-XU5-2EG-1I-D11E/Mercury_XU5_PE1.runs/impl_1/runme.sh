@@ -20,7 +20,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='/home/wto/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/impl_1'
+HD_PWD='/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/impl_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log
@@ -37,7 +37,7 @@ EAStep()
 }
 
 # pre-commands:
-/bin/touch .write_bitstream.begin.rst
+/bin/touch .init_design.begin.rst
 EAStep vivado -log Mercury_XU5_PE1.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source Mercury_XU5_PE1.tcl -notrace
 
 

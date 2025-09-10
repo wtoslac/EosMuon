@@ -1,21 +1,21 @@
 -makelib xcelium_lib/xilinx_vip -sv \
-  "/home/wto/Programs/Vivado/2022.2/data/xilinx_vip/hdl/axi4stream_vip_axi4streampc.sv" \
-  "/home/wto/Programs/Vivado/2022.2/data/xilinx_vip/hdl/axi_vip_axi4pc.sv" \
-  "/home/wto/Programs/Vivado/2022.2/data/xilinx_vip/hdl/xil_common_vip_pkg.sv" \
-  "/home/wto/Programs/Vivado/2022.2/data/xilinx_vip/hdl/axi4stream_vip_pkg.sv" \
-  "/home/wto/Programs/Vivado/2022.2/data/xilinx_vip/hdl/axi_vip_pkg.sv" \
-  "/home/wto/Programs/Vivado/2022.2/data/xilinx_vip/hdl/axi4stream_vip_if.sv" \
-  "/home/wto/Programs/Vivado/2022.2/data/xilinx_vip/hdl/axi_vip_if.sv" \
-  "/home/wto/Programs/Vivado/2022.2/data/xilinx_vip/hdl/clk_vip_if.sv" \
-  "/home/wto/Programs/Vivado/2022.2/data/xilinx_vip/hdl/rst_vip_if.sv" \
+  "/home/wto/Xilinx/Vivado/2022.2/data/xilinx_vip/hdl/axi4stream_vip_axi4streampc.sv" \
+  "/home/wto/Xilinx/Vivado/2022.2/data/xilinx_vip/hdl/axi_vip_axi4pc.sv" \
+  "/home/wto/Xilinx/Vivado/2022.2/data/xilinx_vip/hdl/xil_common_vip_pkg.sv" \
+  "/home/wto/Xilinx/Vivado/2022.2/data/xilinx_vip/hdl/axi4stream_vip_pkg.sv" \
+  "/home/wto/Xilinx/Vivado/2022.2/data/xilinx_vip/hdl/axi_vip_pkg.sv" \
+  "/home/wto/Xilinx/Vivado/2022.2/data/xilinx_vip/hdl/axi4stream_vip_if.sv" \
+  "/home/wto/Xilinx/Vivado/2022.2/data/xilinx_vip/hdl/axi_vip_if.sv" \
+  "/home/wto/Xilinx/Vivado/2022.2/data/xilinx_vip/hdl/clk_vip_if.sv" \
+  "/home/wto/Xilinx/Vivado/2022.2/data/xilinx_vip/hdl/rst_vip_if.sv" \
 -endlib
 -makelib xcelium_lib/xpm -sv \
-  "/home/wto/Programs/Vivado/2022.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv" \
-  "/home/wto/Programs/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv" \
-  "/home/wto/Programs/Vivado/2022.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv" \
+  "/home/wto/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv" \
+  "/home/wto/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv" \
+  "/home/wto/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv" \
 -endlib
 -makelib xcelium_lib/xpm \
-  "/home/wto/Programs/Vivado/2022.2/data/ip/xpm/xpm_VCOMP.vhd" \
+  "/home/wto/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_VCOMP.vhd" \
 -endlib
 -makelib xcelium_lib/axi_infrastructure_v1_1_0 \
   "../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/ec67/hdl/axi_infrastructure_v1_1_vl_rfs.v" \
@@ -324,6 +324,15 @@
 -makelib xcelium_lib/xil_defaultlib \
   "../../../bd/Mercury_XU5/ip/Mercury_XU5_smartconnect_00_0/bd_0/sim/bd_3ad7.v" \
 -endlib
+-makelib xcelium_lib/xil_defaultlib -sv \
+  "../../../bd/Mercury_XU5/ip/Mercury_XU5_smartconnect_00_0/bd_0/ip/ip_47/sim/bd_3ad7_m03_sc2axi_0.sv" \
+  "../../../bd/Mercury_XU5/ip/Mercury_XU5_smartconnect_00_0/bd_0/ip/ip_48/sim/bd_3ad7_m03_ar_node_0.sv" \
+  "../../../bd/Mercury_XU5/ip/Mercury_XU5_smartconnect_00_0/bd_0/ip/ip_49/sim/bd_3ad7_m03_r_node_0.sv" \
+  "../../../bd/Mercury_XU5/ip/Mercury_XU5_smartconnect_00_0/bd_0/ip/ip_50/sim/bd_3ad7_m03_aw_node_0.sv" \
+  "../../../bd/Mercury_XU5/ip/Mercury_XU5_smartconnect_00_0/bd_0/ip/ip_51/sim/bd_3ad7_m03_w_node_0.sv" \
+  "../../../bd/Mercury_XU5/ip/Mercury_XU5_smartconnect_00_0/bd_0/ip/ip_52/sim/bd_3ad7_m03_b_node_0.sv" \
+  "../../../bd/Mercury_XU5/ip/Mercury_XU5_smartconnect_00_0/bd_0/ip/ip_53/sim/bd_3ad7_m03_exit_0.sv" \
+-endlib
 -makelib xcelium_lib/axi_register_slice_v2_1_27 \
   "../../../../Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/ipshared/f0b4/hdl/axi_register_slice_v2_1_vl_rfs.v" \
 -endlib
@@ -332,6 +341,7 @@
   "../../../bd/Mercury_XU5/ipshared/3b94/hdl/reg_bank_v1_0_S00_AXI.v" \
   "../../../bd/Mercury_XU5/ipshared/3b94/hdl/reg_bank_v1_0.v" \
   "../../../bd/Mercury_XU5/ip/Mercury_XU5_reg_bank_0_0/sim/Mercury_XU5_reg_bank_0_0.v" \
+  "../../../bd/Mercury_XU5/ip/Mercury_XU5_reg_bank_1_0/sim/Mercury_XU5_reg_bank_1_0.v" \
 -endlib
 -makelib xcelium_lib/xil_defaultlib \
   "../../../bd/Mercury_XU5/sim/Mercury_XU5.vhd" \

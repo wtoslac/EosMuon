@@ -6,7 +6,7 @@
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CORE_GENERATION_INFO = "bd_3ad7,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=bd_3ad7,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=67,numReposBlks=54,numNonXlnxBlks=0,numHierBlks=13,maxHierDepth=2,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=SBD,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "Mercury_XU5_smartconnect_00_0.hwdef" *) 
+(* CORE_GENERATION_INFO = "bd_3ad7,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=bd_3ad7,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=67,numReposBlks=54,numNonXlnxBlks=0,numHierBlks=13,maxHierDepth=2,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=SBD,synth_mode=Global}" *) (* HW_HANDOFF = "Mercury_XU5_smartconnect_00_0.hwdef" *) 
 module bd_3ad7
    (M00_AXI_araddr,
     M00_AXI_arprot,
@@ -1602,7 +1602,7 @@ module bd_3ad7
         .m_axi_aresetn(m_axi_aresetn_3),
         .s_axi_aclk(clk_map_M00_ACLK),
         .s_axi_aresetn(clk_map_M00_ARESETN));
-  bd_3ad7_m03s2a_0 m03_sc2axi
+  bd_3ad7_m03_sc2axi_0 m03_sc2axi
        (.aclk(clk_map_M03_ACLK),
         .m_axi_araddr(m03_sc2axi_M_AXI_ARADDR),
         .m_axi_arcache(m03_sc2axi_M_AXI_ARCACHE),
@@ -4387,7 +4387,7 @@ module m03_exit_pipeline_imp_1X0TTED
   assign s_axi_ruser[1023:0] = s_axi_1_RUSER;
   assign s_axi_rvalid = s_axi_1_RVALID;
   assign s_axi_wready = s_axi_1_WREADY;
-  bd_3ad7_m03e_0 m03_exit
+  bd_3ad7_m03_exit_0 m03_exit
        (.aclk(aclk_1),
         .aresetn(aresetn_1),
         .m_axi_araddr(m03_exit_M_AXI_ARADDR),
@@ -4668,7 +4668,7 @@ module m03_nodes_imp_1U0O7FM
   assign m_axi_aresetn_1 = m_axi_aresetn;
   assign s_axi_aclk_1 = s_axi_aclk;
   assign s_axi_aresetn_1 = s_axi_aresetn;
-  bd_3ad7_m03arn_0 m03_ar_node
+  bd_3ad7_m03_ar_node_0 m03_ar_node
        (.m_sc_aclk(m_axi_aclk_1),
         .m_sc_aresetn(m_axi_aresetn_1),
         .m_sc_info(m03_ar_node_M_SC_INFO),
@@ -4683,7 +4683,7 @@ module m03_nodes_imp_1U0O7FM
         .s_sc_recv(S_SC_AR_1_RECV),
         .s_sc_req(S_SC_AR_1_REQ),
         .s_sc_send(S_SC_AR_1_SEND));
-  bd_3ad7_m03awn_0 m03_aw_node
+  bd_3ad7_m03_aw_node_0 m03_aw_node
        (.m_sc_aclk(m_axi_aclk_1),
         .m_sc_aresetn(m_axi_aresetn_1),
         .m_sc_info(m03_aw_node_M_SC_INFO),
@@ -4698,7 +4698,7 @@ module m03_nodes_imp_1U0O7FM
         .s_sc_recv(S_SC_AW_1_RECV),
         .s_sc_req(S_SC_AW_1_REQ),
         .s_sc_send(S_SC_AW_1_SEND));
-  bd_3ad7_m03bn_0 m03_b_node
+  bd_3ad7_m03_b_node_0 m03_b_node
        (.m_sc_aclk(s_axi_aclk_1),
         .m_sc_aresetn(s_axi_aresetn_1),
         .m_sc_info(m03_b_node_M_SC_INFO),
@@ -4713,7 +4713,7 @@ module m03_nodes_imp_1U0O7FM
         .s_sc_recv(S_SC_B_1_RECV),
         .s_sc_req(S_SC_B_1_REQ),
         .s_sc_send(S_SC_B_1_SEND));
-  bd_3ad7_m03rn_0 m03_r_node
+  bd_3ad7_m03_r_node_0 m03_r_node
        (.m_sc_aclk(s_axi_aclk_1),
         .m_sc_aresetn(s_axi_aresetn_1),
         .m_sc_info(m03_r_node_M_SC_INFO),
@@ -4728,7 +4728,7 @@ module m03_nodes_imp_1U0O7FM
         .s_sc_recv(S_SC_R_1_RECV),
         .s_sc_req(S_SC_R_1_REQ),
         .s_sc_send(S_SC_R_1_SEND));
-  bd_3ad7_m03wn_0 m03_w_node
+  bd_3ad7_m03_w_node_0 m03_w_node
        (.m_sc_aclk(m_axi_aclk_1),
         .m_sc_aresetn(m_axi_aresetn_1),
         .m_sc_info(m03_w_node_M_SC_INFO),
