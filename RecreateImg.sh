@@ -1,9 +1,10 @@
-#source ~/Xilinx/PetaLinux/2022.2/bin/settings.sh
+source ~/Xilinx/PetaLinux/2022.2/bin/settings.sh
 ### Uncomment for first build.
 #petalinux-create -t project -n EosMuon.linux --template zynqMP
 #cp petalinux/config EosMuon.linux/project-spec/configs/
 #cp petalinux/rootfs_config EosMuon.linux/project-spec/configs/
-petalinux-config -p EosMuon.linux/ --get-hw-description EosMuonPL/ --silentconfig
+#petalinux-config -p EosMuon.linux/ --get-hw-description EosMuonPL/ --silentconfig
+petalinux-config -p EosMuon.linux/ --get-hw-description ME-XU5-2EG-1I-D11E/ --silentconfig
 petalinux-config -p EosMuon.linux/ -c rootfs --silentconfig
 cp petalinux/system-user.dtsi EosMuon.linux/project-spec/meta-user/recipes-bsp/device-tree/files/
 cp -r petalinux/regtest EosMuon.linux/project-spec/meta-user/recipes-apps/

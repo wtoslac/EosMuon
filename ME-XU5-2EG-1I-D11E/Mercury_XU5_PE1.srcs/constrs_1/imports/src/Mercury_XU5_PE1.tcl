@@ -161,8 +161,17 @@ set_property -dict {PACKAGE_PIN D6    IOSTANDARD LVCMOS18  } [get_ports {FMC_LA1
 set_property -dict {PACKAGE_PIN D7    IOSTANDARD LVCMOS18  } [get_ports {FMC_LA18_CC_P}]
 set_property -dict {PACKAGE_PIN L2    IOSTANDARD LVCMOS18  } [get_ports {FMC_CLK0_M2C_N}]
 set_property -dict {PACKAGE_PIN L3    IOSTANDARD LVCMOS18  } [get_ports {FMC_CLK0_M2C_P}]
-set_property -dict {PACKAGE_PIN C2    IOSTANDARD LVCMOS18  } [get_ports {FMC_CLK1_M2C_N}]
-set_property -dict {PACKAGE_PIN C3    IOSTANDARD LVCMOS18  } [get_ports {FMC_CLK1_M2C_P}]
+#set_property -dict {PACKAGE_PIN C2    IOSTANDARD LVCMOS18  } [get_ports {FMC_CLK1_M2C_N}]
+#set_property -dict {PACKAGE_PIN C3    IOSTANDARD LVCMOS18  } [get_ports {FMC_CLK1_M2C_P}]
+# Change these to LVDS instead.
+#set_property -dict {PACKAGE_PIN C2 IOSTANDARD LVDS_18 DIFF_TERM TRUE} [get_ports {FMC_CLK1_M2C_N}]
+#set_property -dict {PACKAGE_PIN C3 IOSTANDARD LVDS_18 DIFF_TERM TRUE} [get_ports {FMC_CLK1_M2C_P}]
+# Try LVDS No Suffix
+set_property PACKAGE_PIN C2 [get_ports {FMC_CLK1_M2C_N}]
+set_property PACKAGE_PIN C3 [get_ports {FMC_CLK1_M2C_P}]
+set_property IOSTANDARD LVDS [get_ports {FMC_CLK1_M2C_P FMC_CLK1_M2C_N}]
+set_property DIFF_TERM TRUE  [get_ports {FMC_CLK1_M2C_P FMC_CLK1_M2C_N}]
+
 
 # PL I2C, shared with PS I2C
 set_property -dict {PACKAGE_PIN D12   IOSTANDARD LVCMOS18  } [get_ports {I2C_SCL}]
