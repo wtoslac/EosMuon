@@ -26,8 +26,8 @@ module EosMuonTrigger(
     output [2:0] LED,
     input [25:0] IOA,
     input [25:0] IOB,
-    input [35:0] FMCN,
-    input [35:0] FMCP,  
+    input [34:0] FMCN,
+    input [34:0] FMCP,  
     inout [7:0] IOC,
     inout [3:0] IOE,
     inout [6:0] IOD,
@@ -90,7 +90,7 @@ module EosMuonTrigger(
     
     //******************** Paddle Trigger Codes ******************************/
 endmodule
-
+/*
 module SlowClock100Hz(
      input Clk100,     // 100 MHz input clock
      output reg Clk100Hz    // 1 Hz output clock
@@ -108,8 +108,8 @@ module SlowClock100Hz(
              counter <= counter + 1;  // Increment counter
          end
      end
- endmodule
- /*
+endmodule
+
  module SlowClock2Hz(
      input Clk100,     // 100 MHz input clock
      output reg Clk2Hz    // 2 Hz output clock
@@ -129,6 +129,7 @@ module SlowClock100Hz(
      end
  endmodule
  */
+ /*
  module Pulse500ns_2Hz(
     input Clk100,      // 100 MHz input clock
     output reg Pulse   // Output pulse
@@ -149,3 +150,4 @@ module SlowClock100Hz(
         end
     end
 endmodule
+*/

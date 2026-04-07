@@ -16,24 +16,24 @@
 #define PAGE_SIZE   4096
 #define PAGE_MASK   (~(PAGE_SIZE - 1))
 #define TOTAL_BITS  2048
-#define TOTAL_BYTES (TOTAL_BITS / 8)
-#define NWORDS      (TOTAL_BYTES / 8)
+#define TOTAL_BYTES (TOTAL_BITS / 8)        // 256 bytes
+#define NWORDS      (TOTAL_BYTES / 8)       // 32 x uint64_t
 
-#define SNAP_BITS   192
-#define SNAP_BYTES  (SNAP_BITS / 8)
-#define SNAP_QWORDS (SNAP_BYTES / 8)
-#define SNAP_PER_READ 10
-#define SNAP_PER_PACKET 20
+#define SNAP_BITS       192
+#define SNAP_BYTES      (SNAP_BITS / 8)     // 24 bytes
+#define SNAP_QWORDS     (SNAP_BYTES / 8)    // 3 x uint64_t
+#define SNAP_PER_READ   10                  // 1920 bits per stack inside reg
+#define SNAP_PER_PACKET 20                  // send 20 triggered events
 
 typedef struct {
-    uint64_t w0;   // bits [63:0]
-    uint64_t w1;   // bits [127:64]
-    uint64_t w2;   // bits [191:128]
+    uint64_t w0;   // [63:0]
+    uint64_t w1;   // [127:64]
+    uint64_t w2;   // [191:128]
 } muon_t;
 
 typedef struct {
-    uint64_t n_events;
-    muon_t   events[SNAP_PER_PACKET];
+    uint64_t n_events;                 // keep your existing header field
+    muon_t   events[SNAP_PER_PACKET];  // 20 events payload
 } packet_t;
 
 // === send_all ===

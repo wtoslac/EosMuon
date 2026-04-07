@@ -1,10 +1,10 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
-// Date        : Thu Oct 16 16:39:26 2025
+// Date        : Thu Oct 16 16:39:24 2025
 // Host        : precision3561 running 64-bit Ubuntu 22.04.5 LTS
-// Command     : write_verilog -force -mode synth_stub
-//               /home/wto/Eos/EosMuon/EosMuonPL/EosMuonPL.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_smartconnect_00_0/Mercury_XU5_smartconnect_00_0_stub.v
+// Command     : write_verilog -force -mode synth_stub -rename_top Mercury_XU5_smartconnect_00_0 -prefix
+//               Mercury_XU5_smartconnect_00_0_ Mercury_XU5_smartconnect_00_0_stub.v
 // Design      : Mercury_XU5_smartconnect_00_0
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xczu2eg-sfvc784-1-i

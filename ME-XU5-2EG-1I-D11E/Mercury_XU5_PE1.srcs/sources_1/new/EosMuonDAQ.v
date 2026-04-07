@@ -1,4 +1,164 @@
 `timescale 1ns / 1ps
+module EosMuonDAQ(
+    input Clk50,
+    input Clk100,
+    output [2:0] LED,
+    input [25:0] IOA,
+    input [25:0] IOB,
+    input [35:0] FMCN,
+    input [35:0] FMCP,  
+    input [7:0] IOC,
+    inout [3:0] IOE,
+    inout [6:0] IOD,
+    input IOD7,
+    // PS accessible bits 32x64.
+    output [2047:0] reg_ro_out,
+    output [2047:0] reg_ro_out1
+    );
+
+    // =========================================================
+    // FMC35 differential clock input
+    // =========================================================
+    wire fmc35_se;
+    wire fmc35_clk;
+    IBUFDS #(
+      .DIFF_TERM("TRUE"),
+      .IBUF_LOW_PWR("FALSE")
+    ) IBUFDS_FMC35 (
+      .I (FMCP[35]),
+      .IB(FMCN[35]),
+      .O (fmc35_se)
+    );
+
+    BUFG BUFG_FMC35 (
+      .I(fmc35_se),
+      .O(fmc35_clk)
+    );
+
+    // =========================================================
+    // PTB counter running on fmc35_clk
+    // =========================================================
+    reg [31:0] ptb_count = 0;
+    always @(posedge fmc35_clk) begin
+        ptb_count <= ptb_count + 1;
+    end
+
+    // =========================================================
+    // Clk100 domain: ~1 Hz toggle request
+    // =========================================================
+    reg        req_tgl = 0;
+    reg [31:0] div     = 0;
+    always @(posedge Clk100) begin
+        div <= div + 1;
+        if (div == 100_000_000 - 1) begin
+            div     <= 0;
+            req_tgl <= ~req_tgl;
+        end
+    end
+
+    // =========================================================
+    // Sync request toggle into fmc35_clk domain
+    // =========================================================
+    reg [2:0] req_sync = 0;
+    always @(posedge fmc35_clk) req_sync <= {req_sync[1:0], req_tgl};
+    wire req_seen = req_sync[2] ^ req_sync[1];
+
+    // =========================================================
+    // fmc35_clk domain: latch counter on request, toggle ack
+    // =========================================================
+    reg [54:0] ptb_latched = 55'd0;
+    reg        ack_tgl     = 0;
+    always @(posedge fmc35_clk) begin
+        if (req_seen) begin
+            ptb_latched <= ptb_count;
+            ack_tgl     <= ~ack_tgl;
+        end
+    end
+
+    // =========================================================
+    // Sync ack toggle into Clk100 domain
+    // =========================================================
+    reg [2:0] ack_sync = 0;
+    always @(posedge Clk100) ack_sync <= {ack_sync[1:0], ack_tgl};
+    wire ack_seen = ack_sync[2] ^ ack_sync[1];
+
+    // =========================================================
+    // Synchronize IOD7 to Clk100, detect rising edge
+    // =========================================================
+    reg iod7_ff1 = 1'b0, iod7_ff2 = 1'b0;
+    always @(posedge Clk100) begin
+        iod7_ff1 <= IOD7;
+        iod7_ff2 <= iod7_ff1;
+    end
+    wire triggered = iod7_ff1 & ~iod7_ff2;  // rising edge
+
+    // =========================================================
+    // Build snapshot frame combinatorially from live inputs.
+    // All signals are wires so the values are current at the
+    // clock edge where 'triggered' is asserted - no stale-reg
+    // problem.
+    // =========================================================
+    wire [63:0] frame_SignalB;
+    wire [63:0] frame_SignalC;
+
+    assign frame_SignalB[3:0]   = IOE[3:0];
+    assign frame_SignalB[38:4]  = FMCP[34:0];
+    assign frame_SignalB[39]    = 1'b0;        // unused bit tie-off
+    assign frame_SignalB[63:40] = FMCN[23:0];
+
+    assign frame_SignalC[10:0]  = FMCN[34:24];
+    assign frame_SignalC[37:11] = IOB[25:0];
+    assign frame_SignalC[63:38] = IOA[25:0];
+
+    // 192-bit frame layout:
+    //   [191:128] SignalC
+    //   [127:64]  SignalB
+    //   [63:56]   SignalA  (IOC[7:0])
+    //   [55]      PTBTrig  (iod7_ff1 - always 1 on a rising edge)
+    //   [54:0]    ptb_latched
+    wire [191:0] snapshot_frame = {
+        frame_SignalC,    // [191:128]
+        frame_SignalB,    // [127:64]
+        IOC[7:0],         // [63:56]
+        iod7_ff1,         // [55]
+        ptb_latched       // [54:0]
+    };
+
+    // =========================================================
+    // Snapshot stack: 10 x 192 bits = 1920 bits
+    // Shift so that the LATEST snapshot ends up in the LOWEST
+    // bits (PS reads latest last / at the lowest address).
+    //
+    //   On each trigger:
+    //     [1919:192]  <- old [1727:0]   (9 older snapshots shift up)
+    //     [191:0]     <- snapshot_frame (newest at bottom)
+    // =========================================================
+    reg [1919:0] snapshot_stack = {1920{1'b0}};
+
+    always @(posedge Clk100) begin
+        if (triggered) begin
+            snapshot_stack <= { snapshot_stack[1727:0], snapshot_frame };
+        end
+    end
+
+    // =========================================================
+    // LED blink indicators (driven from ptb_latched)
+    // =========================================================
+    assign LED[0] = ptb_latched[24]; // ~0.34 s toggle
+    assign LED[1] = ptb_latched[25]; // ~0.67 s toggle
+    assign LED[2] = ptb_latched[26]; // ~1.34 s toggle
+
+    // =========================================================
+    // Output: 1920-bit stack + 128 bits zero padding = 2048 bits
+    // Padding placed in the HIGH bits so PS offset 0 = snapshot 0
+    // =========================================================
+    assign reg_ro_out  = { 128'd0, snapshot_stack };
+    assign reg_ro_out1 = 2048'd0;  // reserved / unused
+
+endmodule
+
+/////////////////////////////////// For Calibrating the PMT Rates//////////////////////////
+/*`timescale 1ns / 1ps
 
 module EosMuonDAQ(
     input Clk50,
@@ -19,15 +179,7 @@ module EosMuonDAQ(
     
     // existing content unchanged up to the Synchronizers...
     //assign reg_ro_out [ 31+32*0 : 0+32*0] = 32'hdeadbeef; //this goes to 0x8002_0100
-    
-    wire Clk2Hz;
-    SlowClock2Hz SlowClock2Hz_i(Clk100,Clk2Hz);
-    reg [31:0] nClk2Hz=0; //Max is 4.3B
-    always @(posedge Clk2Hz) begin // 2Hz Clk
-         nClk2Hz<=nClk2Hz+1; // 
-    end
-    assign reg_ro_out [31+32*1:0+32*1] = nClk2Hz[31:0];  //this goes to 0x8002_0104 (4Hex=32bit address later)  
-
+   
     wire fmc35_se;
     wire fmc35_clk;
 
@@ -69,7 +221,7 @@ module EosMuonDAQ(
     wire req_seen = req_sync[2] ^ req_sync[1];
     
     // fmc35_clk domain: latch counter on request, toggle ack
-    reg [31:0] ptb_latched = 0;
+    reg [54:0] ptb_latched = 55'd0;
     reg        ack_tgl     = 0;
     always @(posedge fmc35_clk) begin
       if (req_seen) begin
@@ -83,6 +235,73 @@ module EosMuonDAQ(
     always @(posedge Clk100) ack_sync <= {ack_sync[1:0], ack_tgl};
     wire ack_seen = ack_sync[2] ^ ack_sync[1];
     
+    /////////////////////////////For Eos Data Taking with Muon Paddles///////////
+    ////////////////////////////// Pass Muon Signals Memory /////////////////////
+        // === Registers ===
+    //reg  [54:0] MuonCounter     = 55'd0;
+    reg         PTBTrig         = 1'b0;
+    reg   [7:0] SignalA         = 8'd0;
+    reg  [63:0] SignalB         = 64'd0;
+    reg  [63:0] SignalC         = 64'd0;
+    reg [1919:0] snapshot_stack = {1920{1'b0}};
+
+    // Synchronize IOD7 to Clk100 and detect rising edge ---
+    reg iod7_ff1 = 1'b0, iod7_ff2 = 1'b0;
+    always @(posedge Clk100) begin
+        iod7_ff1 <= IOD7;     // sync stage 1
+        iod7_ff2 <= iod7_ff1; // sync stage 2
+    end
+    wire triggered = (iod7_ff1 & ~iod7_ff2);  // rising edge of IOD7
+
+    // === Pack current frame (192 bits) ===
+    wire [191:0] snapshot_frame = {
+        SignalC,              // [191:128]
+        SignalB,              // [127:64]
+        SignalA,              // [63:56]
+        PTBTrig,              // [55]
+        ptb_latched           // [54:0]
+    };
+
+    // === Sequential logic ===
+    always @(posedge Clk100) begin
+        // free-running counter
+        //if (ack_seen)
+        //ptb_latched_100 <= ptb_latched;
+          //  MuonCounter <= ptb_latched;
+
+        // capture & stack push only on IOD7 rising edge
+        if (triggered) begin
+            PTBTrig <= iod7_ff1; // will be 1 on a rising edge
+            SignalA <= IOC[7:0];
+
+            SignalB[3:0]   <= IOE[3:0];
+            SignalB[38:4]  <= FMCP[34:0];
+            SignalB[63:40] <= FMCN[23:0];
+
+            SignalC[10:0]  <= FMCN[34:24];
+            SignalC[37:11] <= IOB[25:0];
+            SignalC[63:38] <= IOA[25:0];
+
+            snapshot_stack <= { snapshot_stack[1919-192:0], snapshot_frame };
+        end
+    end
+
+    // === LED blink indicators ===
+    assign LED[0] = ptb_latched[24]; // ~0.34 s
+    assign LED[1] = ptb_latched[25]; // ~0.67 s
+    assign LED[2] = ptb_latched[26]; // ~1.34 s
+
+    // === Fully driven output: 1920 bits data + 128 bits zero padding ===
+    assign reg_ro_out = { 128'd0, snapshot_stack };
+endmodule
+*/    
+    /////////////////////////////For Eos Data Taking with Muon Paddles///////////
+    ////////////////////////////// Pass Muon Signals Memory /////////////////////
+    
+ 
+ 
+    /////////////////////////////For Calibrating Eos Thresholds and HV///////////
+    /*
     // Capture latched value when ack arrives (latched is stable around ack)
     reg [31:0] ptb_latched_100 = 0;
     always @(posedge Clk100) begin
@@ -91,8 +310,8 @@ module EosMuonDAQ(
     end
     
     assign reg_ro_out[31:0] = ptb_latched_100;
-   
     // Synchronizer for differential channel (after IBUFDS)
+    
     //******************** Testing with Paddles by counting hits from them ******************************
      // Synchronizers for FMCP and FMCN signals
     reg [1:0] fmcp0_sync = 2'b11;
@@ -842,6 +1061,8 @@ module EosMuonDAQ(
     assign reg_ro_out1[31 + 32*62 : 32*62] = nFMCP4Hits;  // 0x8003_01F8
     assign reg_ro_out1[31 + 32*63 : 32*63] = nFMCN4Hits;  // 0x8003_01FC
    // Testing the input from the PTB into Petalinux
+   */
+   
    /*
    reg [31:0] nIOD7=0; //Max is 4.3B
    reg IOD7reg;
@@ -851,25 +1072,7 @@ module EosMuonDAQ(
             nIOD7<=nIOD7+1;
    end     
    assign reg_ro_out [31+32*2:0+32*2] = nIOD7[31:0];  //this goes to 0x8002_0108 (4Hex=32bit address later)
-   */
+   
    
 endmodule
-
-module SlowClock2Hz(
-    input Clk100,     // 100 MHz input clock
-    output reg Clk2Hz    // 2 Hz output clock
-    );   
-    // Declare a counter variable to divide the clock
-    reg [26:0] counter;  // 27 bits are enough to count up to 100,000,000
-
-    // Always block to handle clock division
-    always @(posedge Clk100) begin
-        if (counter == 25_000_000) begin
-            counter <= 0;
-            Clk2Hz <= ~Clk2Hz;  // Toggle the 2 Hz clock
-        end 
-        else begin
-            counter <= counter + 1;  // Increment counter
-        end
-    end
-endmodule
+*/

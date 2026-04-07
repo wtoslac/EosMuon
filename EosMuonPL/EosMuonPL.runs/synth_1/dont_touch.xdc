@@ -22,9 +22,6 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Mercury_XU5
 # IP: bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/Mercury_XU5_ddr4_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Mercury_XU5_ddr4_0 || ORIG_REF_NAME==Mercury_XU5_ddr4_0} -quiet] -quiet
 
-# IP: bd/Mercury_XU5/ip/Mercury_XU5_auto_cc_0/Mercury_XU5_auto_cc_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Mercury_XU5_auto_cc_0 || ORIG_REF_NAME==Mercury_XU5_auto_cc_0} -quiet] -quiet
-
 # IP: bd/Mercury_XU5/ip/Mercury_XU5_axi_interconnect_0_0/Mercury_XU5_axi_interconnect_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Mercury_XU5_axi_interconnect_0_0 || ORIG_REF_NAME==Mercury_XU5_axi_interconnect_0_0} -quiet] -quiet
 
@@ -42,5 +39,8 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Mercury_XU5
 
 # IP: bd/Mercury_XU5/ip/Mercury_XU5_reg_bank_0_0/Mercury_XU5_reg_bank_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Mercury_XU5_reg_bank_0_0 || ORIG_REF_NAME==Mercury_XU5_reg_bank_0_0} -quiet] -quiet
+
+# IP: bd/Mercury_XU5/ip/Mercury_XU5_auto_cc_0/Mercury_XU5_auto_cc_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==Mercury_XU5_auto_cc_0 || ORIG_REF_NAME==Mercury_XU5_auto_cc_0} -quiet] -quiet
 
 # XDC: /home/wto/Eos/EosMuon/EosMuonPL/EosMuonPL.gen/sources_1/bd/Mercury_XU5/Mercury_XU5_ooc.xdc

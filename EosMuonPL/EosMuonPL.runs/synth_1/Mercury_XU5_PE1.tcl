@@ -70,6 +70,7 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
+set_param chipscope.maxJobs 4
 set_msg_config  -id {[BD 41-1306]}  -suppress 
 set_msg_config  -id {[BD 41-1306]}  -suppress 
 set_msg_config  -id {[BD 41-1271]}  -suppress 
@@ -148,9 +149,6 @@ set_property used_in_implementation false [get_files -all /home/wto/Eos/EosMuon/
 set_property used_in_implementation false [get_files -all /home/wto/Eos/EosMuon/EosMuonPL/EosMuonPL.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/ip_0/Mercury_XU5_ddr4_0_microblaze_mcs_ooc.xdc]
 set_property used_in_implementation false [get_files -all /home/wto/Eos/EosMuon/EosMuonPL/EosMuonPL.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/Mercury_XU5_ddr4_0_board.xdc]
 set_property used_in_implementation false [get_files -all /home/wto/Eos/EosMuon/EosMuonPL/EosMuonPL.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/par/Mercury_XU5_ddr4_0.xdc]
-set_property used_in_synthesis false [get_files -all /home/wto/Eos/EosMuon/EosMuonPL/EosMuonPL.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_auto_cc_0/Mercury_XU5_auto_cc_0_clocks.xdc]
-set_property used_in_implementation false [get_files -all /home/wto/Eos/EosMuon/EosMuonPL/EosMuonPL.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_auto_cc_0/Mercury_XU5_auto_cc_0_clocks.xdc]
-set_property used_in_implementation false [get_files -all /home/wto/Eos/EosMuon/EosMuonPL/EosMuonPL.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_auto_cc_0/Mercury_XU5_auto_cc_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all /home/wto/Eos/EosMuon/EosMuonPL/EosMuonPL.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_clk_wiz_0_0/Mercury_XU5_clk_wiz_0_0_board.xdc]
 set_property used_in_implementation false [get_files -all /home/wto/Eos/EosMuon/EosMuonPL/EosMuonPL.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_clk_wiz_0_0/Mercury_XU5_clk_wiz_0_0.xdc]
 set_property used_in_implementation false [get_files -all /home/wto/Eos/EosMuon/EosMuonPL/EosMuonPL.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_clk_wiz_0_0/Mercury_XU5_clk_wiz_0_0_ooc.xdc]
@@ -202,6 +200,9 @@ set_property used_in_implementation false [get_files -all /home/wto/Eos/EosMuon/
 set_property used_in_implementation false [get_files -all /home/wto/Eos/EosMuon/EosMuonPL/EosMuonPL.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_smartconnect_00_0/bd_0/ip/ip_44/bd_3ad7_m02wn_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all /home/wto/Eos/EosMuon/EosMuonPL/EosMuonPL.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_smartconnect_00_0/bd_0/ip/ip_45/bd_3ad7_m02bn_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all /home/wto/Eos/EosMuon/EosMuonPL/EosMuonPL.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_smartconnect_00_0/ooc.xdc]
+set_property used_in_synthesis false [get_files -all /home/wto/Eos/EosMuon/EosMuonPL/EosMuonPL.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_auto_cc_0/Mercury_XU5_auto_cc_0_clocks.xdc]
+set_property used_in_implementation false [get_files -all /home/wto/Eos/EosMuon/EosMuonPL/EosMuonPL.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_auto_cc_0/Mercury_XU5_auto_cc_0_clocks.xdc]
+set_property used_in_implementation false [get_files -all /home/wto/Eos/EosMuon/EosMuonPL/EosMuonPL.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_auto_cc_0/Mercury_XU5_auto_cc_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all /home/wto/Eos/EosMuon/EosMuonPL/EosMuonPL.gen/sources_1/bd/Mercury_XU5/Mercury_XU5_ooc.xdc]
 set_property used_in_implementation false [get_files -all /home/wto/Eos/EosMuon/EosMuonPL/EosMuonPL.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/bd_0/ip/ip_0/data/mb_bootloop_le.elf]
 set_property used_in_implementation false [get_files -all /home/wto/Eos/EosMuon/EosMuonPL/EosMuonPL.gen/sources_1/bd/Mercury_XU5/ip/Mercury_XU5_ddr4_0/ip_0/mb_bootloop_le.elf]

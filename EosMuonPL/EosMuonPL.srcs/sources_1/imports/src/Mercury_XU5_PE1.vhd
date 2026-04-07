@@ -171,30 +171,30 @@ entity Mercury_XU5_PE1 is
     I2C_SDA                        : inout   std_logic;
     
     -- IOC
-    IOC_D0_P                       : in   std_logic; -- Available on G1, No_MGT_routing modules
-    IOC_D1_N                       : in   std_logic; -- Available on G1, No_MGT_routing modules
-    IOC_D2_P                       : in   std_logic; -- Available on G1, No_MGT_routing modules
-    IOC_D3_N                       : in   std_logic; -- Available on G1, No_MGT_routing modules
-    IOC_D4_P                       : in   std_logic; -- Available on G1, No_MGT_routing modules
-    IOC_D5_N                       : in   std_logic; -- Available on G1, No_MGT_routing modules
-    IOC_D6_P                       : in   std_logic; -- Available on G1, No_MGT_routing modules
-    IOC_D7_N                       : in   std_logic; -- Available on G1, No_MGT_routing modules
+    IOC_D0_P                       : inout   std_logic; -- Available on G1, No_MGT_routing modules
+    IOC_D1_N                       : inout   std_logic; -- Available on G1, No_MGT_routing modules
+    IOC_D2_P                       : inout   std_logic; -- Available on G1, No_MGT_routing modules
+    IOC_D3_N                       : inout   std_logic; -- Available on G1, No_MGT_routing modules
+    IOC_D4_P                       : inout   std_logic; -- Available on G1, No_MGT_routing modules
+    IOC_D5_N                       : inout   std_logic; -- Available on G1, No_MGT_routing modules
+    IOC_D6_P                       : inout   std_logic; -- Available on G1, No_MGT_routing modules
+    IOC_D7_N                       : inout   std_logic; -- Available on G1, No_MGT_routing modules
     
     -- IOD
-    IOD_D0_P                       : out   std_logic; -- Available on G1, No_MGT_routing modules
-    IOD_D1_N                       : out   std_logic; -- Available on G1, No_MGT_routing modules
-    IOD_D2_P                       : out   std_logic; -- Available on G1, No_MGT_routing modules
-    IOD_D3_N                       : out   std_logic; -- Available on G1, No_MGT_routing modules
-    IOD_D4_P                       : out   std_logic; -- Available on G1, No_MGT_routing modules
-    IOD_D5_N                       : out   std_logic; -- Available on G1, No_MGT_routing modules
-    IOD_D6_P                       : out   std_logic; -- Available on G1, No_MGT_routing modules
+    IOD_D0_P                       : inout   std_logic; -- Available on G1, No_MGT_routing modules
+    IOD_D1_N                       : inout   std_logic; -- Available on G1, No_MGT_routing modules
+    IOD_D2_P                       : inout   std_logic; -- Available on G1, No_MGT_routing modules
+    IOD_D3_N                       : inout   std_logic; -- Available on G1, No_MGT_routing modules
+    IOD_D4_P                       : inout   std_logic; -- Available on G1, No_MGT_routing modules
+    IOD_D5_N                       : inout   std_logic; -- Available on G1, No_MGT_routing modules
+    IOD_D6_P                       : inout   std_logic; -- Available on G1, No_MGT_routing modules
     IOD_D7_N                       : in   std_logic; -- Available on G1, No_MGT_routing modules
     
     -- IOE
-    IOE_D0_LED0_N                  : in   std_logic; -- Available on G1, No_MGT_routing modules
-    IOE_D1_LED1_N                  : in   std_logic; -- Available on G1, No_MGT_routing modules
-    IOE_D2_LED2_N                  : in   std_logic; -- Available on G1, No_MGT_routing modules
-    IOE_D3_LED3_N                  : in   std_logic; -- Available on G1, No_MGT_routing modules
+    IOE_D0_LED0_N                  : inout   std_logic; -- Available on G1, No_MGT_routing modules
+    IOE_D1_LED1_N                  : inout   std_logic; -- Available on G1, No_MGT_routing modules
+    IOE_D2_LED2_N                  : inout   std_logic; -- Available on G1, No_MGT_routing modules
+    IOE_D3_LED3_N                  : inout   std_logic; -- Available on G1, No_MGT_routing modules
     
     -- LED
     LED1_N_PL                      : out     std_logic;
@@ -391,8 +391,9 @@ architecture rtl of Mercury_XU5_PE1 is
       FMCN: in std_logic_vector( 35 downto 0);
       FMCP: in std_logic_vector( 35 downto 0);
 
-      IOC: in std_logic_vector(7 downto 0);
-      IOE: in std_logic_vector(3 downto 0);
+      IOC: inout std_logic_vector(7 downto 0);
+      IOE: inout std_logic_vector(3 downto 0);
+      IOD: inout std_logic_vector(6 downto 0);
       IOD7: in std_logic;
       -- 32x64-bits data for the PS access through AXI & Peek.
       reg_ro_out: out std_logic_vector(2047 downto 0)
@@ -413,13 +414,13 @@ architecture rtl of Mercury_XU5_PE1 is
       FMCN: in std_logic_vector( 35 downto 0);
       FMCP: in std_logic_vector( 35 downto 0);
 
-      IOC: in std_logic_vector(7 downto 0);
-      IOE: in std_logic_vector(3 downto 0);
-      IOD: out std_logic_vector(6 downto 0);
+      IOC: inout std_logic_vector(7 downto 0);
+      IOE: inout std_logic_vector(3 downto 0);
+      IOD: inout std_logic_vector(6 downto 0);
       IOD7: in std_logic
       );
   end component EosMuonTrigger;
-  
+
 begin --being instantiation of components
   
   EosMuonDAQ_i: component EosMuonDAQ 
@@ -572,7 +573,14 @@ begin --being instantiation of components
       IOE(1) => IOE_D1_LED1_N,
       IOE(2) => IOE_D2_LED2_N,
       IOE(3) => IOE_D3_LED3_N,
-
+      -- Output Channels on PIN-IO D --
+      IOD(0) => IOD_D0_P,
+      IOD(1) => IOD_D1_N,
+      IOD(2) => IOD_D2_P,
+      IOD(3) => IOD_D3_N,
+      IOD(4) => IOD_D4_P,
+      IOD(5) => IOD_D5_N,
+      IOD(6) => IOD_D6_P,
       IOD7 => IOD_D7_N,
       -- 32x64-bits data for the PS access through AXI & Peek.
       reg_ro_out => reg_ro

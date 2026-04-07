@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module EosMuonTrigger(
+module EossMuonTrigger(
     input Clk50,
     input Clk100,
     output [2:0] LED,
@@ -28,15 +28,15 @@ module EosMuonTrigger(
     input [25:0] IOB,
     input [35:0] FMCN,
     input [35:0] FMCP,  
-    input [7:0] IOC,
-    input [3:0] IOE,
-    output [6:0] IOD,
+    inout [7:0] IOC,
+    inout [3:0] IOE,
+    inout [6:0] IOD,
     input IOD7
     );
-    wire pulse500ns_2Hz;
-    Pulse500ns_2Hz Pulse500ns_2Hz_i(Clk100, pulse500ns_2Hz);
-    assign IOD[4] = pulse500ns_2Hz; // SMA Top Right is an output to the PTB
-    assign IOD[5] = Clk50; // SMA Top Right is an output to the PTB
+    //wire pulse500ns_2Hz;
+   // Pulse500ns_2Hz Pulse500ns_2Hz_i(Clk100, pulse500ns_2Hz);
+    //assign IOD[4] = pulse500ns_2Hz; // SMA Top Right is an output to the PTB
+    //assign IOD[5] = Clk50; // SMA Top Right is an output to the PTB
     /******************** Testing Combo Cards ******************************
     //assign IOA[20] = ~IOA[22];
     //assign IOA[16] = ~IOA[18];
@@ -51,8 +51,8 @@ module EosMuonTrigger(
      
     //******************** Testing Combo Cards ******************************/
     //******************** Testing Combo Cards 2 ******************************
-   // assign IOD[4] = FMCP[0]; // IOD[4] is the bottom right LEMO00 Connector
-   // assign IOD[5] = FMCN[0]; // IOD[5] is the Top right LEMO00 Connector
+    assign IOD[4] = FMCP[0]; // IOD[4] is the bottom right LEMO00 Connector
+    assign IOD[5] = FMCN[0]; // IOD[5] is the Top right LEMO00 Connector
     
     //******************** Testing Combo Cards 2 ******************************/   
     /******************** Testing with PTB ******************************

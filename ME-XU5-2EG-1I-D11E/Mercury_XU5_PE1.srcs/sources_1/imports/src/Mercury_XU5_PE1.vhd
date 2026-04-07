@@ -416,8 +416,8 @@ architecture rtl of Mercury_XU5_PE1 is
       IOB: in std_logic_vector( 25 downto 0);
 
       -- Inputs forFMC LPC Connector    
-      FMCN: in std_logic_vector( 35 downto 0);
-      FMCP: in std_logic_vector( 35 downto 0);
+      FMCN: in std_logic_vector( 34 downto 0);
+      FMCP: in std_logic_vector( 34 downto 0);
 
       IOC: inout std_logic_vector(7 downto 0);
       IOE: inout std_logic_vector(3 downto 0);
@@ -690,7 +690,7 @@ begin --being instantiation of components
     FMCN(32) => FMC_LA32_N,
     FMCN(33) => FMC_LA33_N,
     FMCN(34) => FMC_CLK0_M2C_N,
-    FMCN(35) => FMC_CLK1_M2C_N,
+   -- FMCN(35) => FMC_CLK1_M2C_N,
     FMCP(0) => FMC_LA00_CC_P,
     FMCP(1) => FMC_LA01_CC_P,
     FMCP(2) => FMC_LA02_P,
@@ -726,7 +726,7 @@ begin --being instantiation of components
     FMCP(32) => FMC_LA32_P,
     FMCP(33) => FMC_LA33_P,
     FMCP(34) => FMC_CLK0_M2C_P,
-    FMCP(35) => FMC_CLK1_M2C_P,  
+   -- FMCP(35) => FMC_CLK1_M2C_P,  
       -- Output Channels on PIN-IO C --
       IOC(0) => IOC_D0_P,
       IOC(1) => IOC_D1_N,
