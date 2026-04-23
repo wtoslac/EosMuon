@@ -37,6 +37,7 @@ typedef struct {
     muon_t   events[SNAP_PER_PACKET];  // 20 events payload
 } packet_t;
 
+
 // === send_all ===
 static int send_all(int sockfd, const void *data, size_t len) {
     int total = 0;
@@ -58,6 +59,22 @@ static int send_all(int sockfd, const void *data, size_t len) {
         bytesleft -= n;
     }
     return (total == len);
+}
+
+// === already_seen checking for exact count===
+//static inline int already_seen(uint64_t *seen, int seen_count, uint64_t val) {
+//    for (int j = 0; j < seen_count; j++)
+//        if (seen[j] == val) return 1;
+//    return 0;
+//}
+
+// === already_seen checking for counter diff < 60===
+static inline int already_seen(uint64_t *seen, int seen_count, uint64_t val) {
+    for (int j = 0; j < seen_count; j++) {
+        uint64_t diff = (val > seen[j]) ? (val - seen[j]) : (seen[j] - val);
+        if (diff < 60) return 1;
+    }
+    return 0;
 }
 
 int main(void) {
@@ -95,44 +112,72 @@ int main(void) {
     packet_t packet;
     int filled = 0;
 
+    // Add check to make sure we don't have duplicates:
+    #define LOWER_55 ((UINT64_C(1) << 55) - 1)
+    #define SEEN_SIZE 40
+    uint64_t seen[SEEN_SIZE] = {0};
+    int seen_count = 0;
+    int seen_head = 0;
+
     // 1 microsecond sleep setup
     struct timespec ts;
     ts.tv_sec  = 0;
     ts.tv_nsec = 1000; // 1 us
-	printf("Looking for Triggers\n");
+	struct timespec last_send;
+	clock_gettime(CLOCK_MONOTONIC, &last_send);
+    printf("Looking for Triggers\n");
     // Continuous loop: poll every 1 us, collect 20 triggers, send, repeat
     while(1) {
         // Read full 2048 bits (32 x 64b) once per poll
         for (int i = 0; i < NWORDS; ++i) {
             data64[i] = reg64_addr[i];
         }
+        // Print the Counters for Debug.
+        //for(int iEvt=0;iEvt<10;++iEvt){
+        //    uint64_t iCounter = reg64_addr[iEvt*3] & 0x007FFFFFFFFFFFFF;
+        //    printf("Event=%d , Counter = %llu\n", iEvt, iCounter);
+        //}
 
         // The 1920-bit snapshot stack packs 10 frames of 192 bits:
-        // frame i => words [3*i + 0 .. 3*i + 2]
-        for (int i = 0; i < SNAP_PER_READ && filled < SNAP_PER_PACKET; ++i) {
+	for (int i = 0; i < SNAP_PER_READ && filled < SNAP_PER_PACKET; ++i) {
             uint64_t w0 = data64[3*i + 0];
             uint64_t w1 = data64[3*i + 1];
             uint64_t w2 = data64[3*i + 2];
 
             if ((w0 >> 55) & 0x01) {
-                packet.events[filled].w0 = w0;
-                packet.events[filled].w1 = w1;
-                packet.events[filled].w2 = w2;
-                ++filled;
+		uint64_t counter = w0 & LOWER_55;
+		if(!already_seen(seen, seen_count, counter)){
+			//printf("counter = %llu\n", counter);                
+			packet.events[filled].w0 = w0;
+			packet.events[filled].w1 = w1;
+			packet.events[filled].w2 = w2;
+			++filled;
+			// Add to seen buffer (grow up to SNAP_PER_READ)
+		    seen[seen_head] = counter;
+			seen_head = (seen_head+1)% SEEN_SIZE;
+			if (seen_count < SEEN_SIZE) seen_count++;
+		}
             }
         }
 
-        // If we've collected 20 triggered events, send the packet
-        if (filled >= SNAP_PER_PACKET) {
-            packet.n_events = SNAP_PER_PACKET;
-            size_t payload_len = sizeof(packet);
-            if (!send_all(sockfd, &packet, payload_len)) {
-                fprintf(stderr, "send_all failed (len=%zu)\n", payload_len);
-            } else {
-                printf("Sent %zu bytes (%d events)\n", payload_len, SNAP_PER_PACKET);
-            }
-            filled = 0; // reset for next packet
-        }
+        // Check elapsed time since last send
+		struct timespec now;
+		clock_gettime(CLOCK_MONOTONIC, &now);
+		double elapsed = (now.tv_sec - last_send.tv_sec) +
+                 		(now.tv_nsec - last_send.tv_nsec) * 1e-9;
+
+		// Send if we have a full packet OR 1.5 seconds have passed with at least 1 event
+		if (filled >= SNAP_PER_PACKET || (elapsed >= 1.5 && filled > 0)) {
+    		packet.n_events = filled;  // use actual count, not SNAP_PER_PACKET
+    		size_t payload_len = sizeof(packet);
+    		if (!send_all(sockfd, &packet, payload_len)) {
+        		fprintf(stderr, "send_all failed (len=%zu)\n", payload_len);
+    		} else {
+        		printf("Sent %zu bytes (%d events)\n", payload_len, filled);
+    		}
+    		filled = 0;
+    		clock_gettime(CLOCK_MONOTONIC, &last_send);  // reset timer after every send
+		}
 
         // Sleep ~1 microsecond before next poll
         nanosleep(&ts, NULL);

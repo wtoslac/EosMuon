@@ -16,57 +16,37 @@ module EosMuonDAQ(
     output [2047:0] reg_ro_out1
     );
 
-    // =========================================================
-    // FMC35 differential clock input
-    // =========================================================
-    wire fmc35_se;
-    wire fmc35_clk;
-    IBUFDS #(
-      .DIFF_TERM("TRUE"),
-      .IBUF_LOW_PWR("FALSE")
-    ) IBUFDS_FMC35 (
-      .I (FMCP[35]),
-      .IB(FMCN[35]),
-      .O (fmc35_se)
-    );
 
-    BUFG BUFG_FMC35 (
-      .I(fmc35_se),
-      .O(fmc35_clk)
-    );
+    wire fmc35_se; // Single Ended FMC35 signal.
+    wire fmc35_clk; // FMC35 Clock Signal
+    IBUFDS #(.DIFF_TERM("TRUE"),.IBUF_LOW_PWR("FALSE")) // IBUFDS Module and Parameters
+        IBUFDS_FMC35 (.I (FMCP[35]),.IB(FMCN[35]),.O (fmc35_se)); // IBUFDS_FMC35 Instance
 
-    // =========================================================
-    // PTB counter running on fmc35_clk
-    // =========================================================
-    reg [31:0] ptb_count = 0;
+    BUFG BUFG_FMC35 (.I(fmc35_se),.O(fmc35_clk)); // Buffer onto global clock net for low-skew distribution
+
+
+    reg [54:0] ptb_count = 0; // This is the FMC35 62.5MHz Counter.
     always @(posedge fmc35_clk) begin
         ptb_count <= ptb_count + 1;
     end
 
-    // =========================================================
-    // Clk100 domain: ~1 Hz toggle request
-    // =========================================================
-    reg        req_tgl = 0;
-    reg [31:0] div     = 0;
+    reg req_tgl     = 0; // This is the request toggle for the 100MHz Clock. Resets at 1Hz.
+    //reg [31:0] div  = 0;
     always @(posedge Clk100) begin
-        div <= div + 1;
-        if (div == 100_000_000 - 1) begin
-            div     <= 0;
-            req_tgl <= ~req_tgl;
-        end
+      //  div <= div + 1;
+       // if (div == 100_000_000 - 1) begin
+        //    div     <= 0;
+         //   req_tgl <= ~req_tgl;
+        //end
+        if (triggered) req_tgl <= ~req_tgl;
     end
 
-    // =========================================================
-    // Sync request toggle into fmc35_clk domain
-    // =========================================================
-    reg [2:0] req_sync = 0;
+    reg [2:0] req_sync = 0; // Sync request toggle into fmc35_clk domain
     always @(posedge fmc35_clk) req_sync <= {req_sync[1:0], req_tgl};
     wire req_seen = req_sync[2] ^ req_sync[1];
 
-    // =========================================================
-    // fmc35_clk domain: latch counter on request, toggle ack
-    // =========================================================
-    reg [54:0] ptb_latched = 55'd0;
+
+    reg [54:0] ptb_latched = 55'd0; // FMC35 Counter that can be used in 100MHz Domain. 
     reg        ack_tgl     = 0;
     always @(posedge fmc35_clk) begin
         if (req_seen) begin
@@ -75,10 +55,7 @@ module EosMuonDAQ(
         end
     end
 
-    // =========================================================
-    // Sync ack toggle into Clk100 domain
-    // =========================================================
-    reg [2:0] ack_sync = 0;
+    reg [2:0] ack_sync = 0;   // Sync ack toggle into Clk100 domain
     always @(posedge Clk100) ack_sync <= {ack_sync[1:0], ack_tgl};
     wire ack_seen = ack_sync[2] ^ ack_sync[1];
 
@@ -92,55 +69,77 @@ module EosMuonDAQ(
     end
     wire triggered = iod7_ff1 & ~iod7_ff2;  // rising edge
 
-    // =========================================================
-    // Build snapshot frame combinatorially from live inputs.
-    // All signals are wires so the values are current at the
-    // clock edge where 'triggered' is asserted - no stale-reg
-    // problem.
-    // =========================================================
-    wire [63:0] frame_SignalB;
-    wire [63:0] frame_SignalC;
-
-    assign frame_SignalB[3:0]   = IOE[3:0];
-    assign frame_SignalB[38:4]  = FMCP[34:0];
-    assign frame_SignalB[39]    = 1'b0;        // unused bit tie-off
-    assign frame_SignalB[63:40] = FMCN[23:0];
-
-    assign frame_SignalC[10:0]  = FMCN[34:24];
-    assign frame_SignalC[37:11] = IOB[25:0];
-    assign frame_SignalC[63:38] = IOA[25:0];
-
-    // 192-bit frame layout:
-    //   [191:128] SignalC
-    //   [127:64]  SignalB
-    //   [63:56]   SignalA  (IOC[7:0])
-    //   [55]      PTBTrig  (iod7_ff1 - always 1 on a rising edge)
-    //   [54:0]    ptb_latched
+    // Build the 192-bits frame for each event.
     wire [191:0] snapshot_frame = {
-        frame_SignalC,    // [191:128]
-        frame_SignalB,    // [127:64]
+        IOA[25:0],        // [191:166]
+        IOB[25:0],        // [165:140]
+        FMCN[34:0],       // [139:105]
+        1'b0,             // [104] unused bit
+        FMCP[34:0],       // [103:69]
+        1'b0,             // [68] unused bit
+        IOE[3:0],         // [67:64]
         IOC[7:0],         // [63:56]
         iod7_ff1,         // [55]
         ptb_latched       // [54:0]
     };
-
-    // =========================================================
-    // Snapshot stack: 10 x 192 bits = 1920 bits
-    // Shift so that the LATEST snapshot ends up in the LOWEST
-    // bits (PS reads latest last / at the lowest address).
-    //
-    //   On each trigger:
-    //     [1919:192]  <- old [1727:0]   (9 older snapshots shift up)
-    //     [191:0]     <- snapshot_frame (newest at bottom)
-    // =========================================================
+ /*
+    // Add a check to see if the previous trigger is more than 10s old.
+    localparam [54:0] TIMEOUT_TICKS = 55'd625_000_000; // 10s @ 62.5MHz
+    reg        initialized      = 1'b0;
+    reg [54:0] ptb_latched_prev = 55'd0; // previous latched timestamp
     reg [1919:0] snapshot_stack = {1920{1'b0}};
+    always @(posedge Clk100) begin
+        if (ack_seen) begin
+            if (!initialized) begin // First event ever - just store it, no comparison
+                snapshot_stack   <= { {(1920-192){1'b0}}, snapshot_frame };
+                initialized      <= 1'b1;
+            end else if ((ptb_latched - ptb_latched_prev) > TIMEOUT_TICKS) begin
+            // Compute how far apart current and previous timestamps are
+                // Gap too large - purge stack, store only this new frame
+                snapshot_stack     <= { {(1920-192){1'b0}}, snapshot_frame };
+            end 
+            else begin // Normal operation - push new frame onto stack
+                snapshot_stack     <= { snapshot_stack[1727:0], snapshot_frame };
+            end
+            ptb_latched_prev <= ptb_latched; // update previous timestamp
+        end
+    end    
+   */   
+   
+   
+    
+    // =========================================================
+    // 10-second timeout: purge snapshot_stack if no trigger
+    // =========================================================
+    localparam TIMEOUT_CYCLES = 32'd1_000_000_000; // 10s @ 100MHz
+    reg [31:0] timeout_counter = 32'd0;
+    reg        purge = 1'b0;
 
     always @(posedge Clk100) begin
+        purge <= 1'b0; // default: no purge (single cycle pulse)
         if (triggered) begin
-            snapshot_stack <= { snapshot_stack[1727:0], snapshot_frame };
+            timeout_counter <= 32'd0; // reset counter on every trigger
+        end else if (timeout_counter < TIMEOUT_CYCLES) begin
+            timeout_counter <= timeout_counter + 1;
+        end else begin
+            purge           <= 1'b1;  // assert purge for one cycle
+            timeout_counter <= 32'd0; // reset so it doesn't re-fire continuously
         end
     end
 
+   
+    //   On each trigger:
+    //     [1919:192]  <- old [1727:0]   (9 older snapshots shift up)
+    //     [191:0]     <- snapshot_frame (newest at bottom)
+    reg [1919:0] snapshot_stack = {1920{1'b0}};
+    always @(posedge Clk100) begin
+        if (purge) begin
+            snapshot_stack <= {1920{1'b0}};
+        end else if (triggered) begin
+            snapshot_stack <= { snapshot_stack[1727:0], snapshot_frame };
+        end
+    end
+    
     // =========================================================
     // LED blink indicators (driven from ptb_latched)
     // =========================================================
