@@ -82,12 +82,49 @@ module EosMuonDAQ(
         iod7_ff1,         // [55]
         ptb_latched       // [54:0]
     };
- /*
+  /*  localparam TIMEOUT_CYCLES = 32'd1_000_000_000; // 10s @ 100MHz
+
+    reg [31:0] timeout_counter = 32'd0;
+    reg [1919:0] snapshot_stack = {1920{1'b0}};
+
+    always @(posedge Clk100) begin
+        if (triggered) begin
+            // New snapshot wins over timeout
+            timeout_counter <= 32'd0;
+            snapshot_stack  <= { snapshot_frame, snapshot_stack[1919:192] };
+        end else if (timeout_counter < TIMEOUT_CYCLES) begin
+            timeout_counter <= timeout_counter + 1;
+        end else begin
+            // Timeout expired with no trigger
+            timeout_counter <= 32'd0;
+            snapshot_stack  <= {1920{1'b0}};
+        end
+    end
+ */
     // Add a check to see if the previous trigger is more than 10s old.
     localparam [54:0] TIMEOUT_TICKS = 55'd625_000_000; // 10s @ 62.5MHz
     reg        initialized      = 1'b0;
     reg [54:0] ptb_latched_prev = 55'd0; // previous latched timestamp
     reg [1919:0] snapshot_stack = {1920{1'b0}};
+ 
+    // Compute signed-safe absolute difference
+    wire [54:0] ptb_diff = (ptb_latched >= ptb_latched_prev) ? 
+                              (ptb_latched - ptb_latched_prev)
+                            : (ptb_latched_prev - ptb_latched);
+    always @(posedge Clk100) begin
+        if (ack_seen) begin
+            if (!initialized) begin
+                snapshot_stack   <= { {(1920-192){1'b0}}, snapshot_frame };
+                initialized      <= 1'b1;
+            end else if (ptb_diff > TIMEOUT_TICKS) begin
+                snapshot_stack   <= { {(1920-192){1'b0}}, snapshot_frame };
+            end else begin
+                snapshot_stack   <= { snapshot_stack[1919:192], snapshot_frame }; // Oldest first (oldest at LSB = low address)
+            end
+            ptb_latched_prev <= ptb_latched;
+        end
+    end
+ /*
     always @(posedge Clk100) begin
         if (ack_seen) begin
             if (!initialized) begin // First event ever - just store it, no comparison
@@ -104,10 +141,10 @@ module EosMuonDAQ(
             ptb_latched_prev <= ptb_latched; // update previous timestamp
         end
     end    
-   */   
+ 
+ */
    
-   
-    
+    /*
     // =========================================================
     // 10-second timeout: purge snapshot_stack if no trigger
     // =========================================================
@@ -136,9 +173,10 @@ module EosMuonDAQ(
         if (purge) begin
             snapshot_stack <= {1920{1'b0}};
         end else if (triggered) begin
-            snapshot_stack <= { snapshot_stack[1727:0], snapshot_frame };
+            snapshot_stack <= { snapshot_frame, snapshot_stack[1919:192] };
         end
     end
+    */
     
     // =========================================================
     // LED blink indicators (driven from ptb_latched)
