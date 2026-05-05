@@ -72,7 +72,7 @@ static int send_all(int sockfd, const void *data, size_t len) {
 static inline int already_seen(uint64_t *seen, int seen_count, uint64_t val) {
     for (int j = 0; j < seen_count; j++) {
         uint64_t diff = (val > seen[j]) ? (val - seen[j]) : (seen[j] - val);
-        if (diff < 60) return 1;
+        if (diff < 27) return 1;
     }
     return 0;
 }
@@ -122,7 +122,8 @@ int main(void) {
     // 1 microsecond sleep setup
     struct timespec ts;
     ts.tv_sec  = 0;
-    ts.tv_nsec = 1000; // 1 us
+    ts.tv_nsec = 1000; // 1000 ns..FPGA buffer has 10 stack so should be fast 
+			// enough event if the events are coming in every 100ns.
 	struct timespec last_send;
 	clock_gettime(CLOCK_MONOTONIC, &last_send);
     printf("Looking for Triggers\n");
@@ -147,13 +148,13 @@ int main(void) {
             if ((w0 >> 55) & 0x01) {
 		uint64_t counter = w0 & LOWER_55;
 		if(!already_seen(seen, seen_count, counter)){
-			//printf("counter = %llu\n", counter);                
+			printf("counter = %llu\n", counter);                
 			packet.events[filled].w0 = w0;
 			packet.events[filled].w1 = w1;
 			packet.events[filled].w2 = w2;
 			++filled;
 			// Add to seen buffer (grow up to SNAP_PER_READ)
-		    seen[seen_head] = counter;
+		    	seen[seen_head] = counter;
 			seen_head = (seen_head+1)% SEEN_SIZE;
 			if (seen_count < SEEN_SIZE) seen_count++;
 		}
@@ -166,8 +167,8 @@ int main(void) {
 		double elapsed = (now.tv_sec - last_send.tv_sec) +
                  		(now.tv_nsec - last_send.tv_nsec) * 1e-9;
 
-		// Send if we have a full packet OR 1.5 seconds have passed with at least 1 event
-		if (filled >= SNAP_PER_PACKET || (elapsed >= 1.5 && filled > 0)) {
+		// Send if we have a full packet OR TTTT seconds have passed with at least 1 event
+		if (filled >= SNAP_PER_PACKET || (elapsed >= 0.1 && filled > 0)) {
     		packet.n_events = filled;  // use actual count, not SNAP_PER_PACKET
     		size_t payload_len = sizeof(packet);
     		if (!send_all(sockfd, &packet, payload_len)) {
@@ -179,7 +180,7 @@ int main(void) {
     		clock_gettime(CLOCK_MONOTONIC, &last_send);  // reset timer after every send
 		}
 
-        // Sleep ~1 microsecond before next poll
+        // Slee 1000 ns  before next poll
         nanosleep(&ts, NULL);
     }
 
