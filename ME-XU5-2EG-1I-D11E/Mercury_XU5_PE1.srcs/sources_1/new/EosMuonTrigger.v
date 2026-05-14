@@ -26,11 +26,11 @@ module EosMuonTrigger(
     output [2:0] LED,
     input [25:0] IOA,
     input [25:0] IOB,
-    input [34:0] FMCN,
-    input [34:0] FMCP,  
-    inout [7:0] IOC,
-    inout [3:0] IOE,
-    inout [6:0] IOD,
+    input [35:0] FMCN,
+    input [35:0] FMCP,  
+    input [7:0] IOC,
+    input [3:0] IOE,
+    output[6:0] IOD,
     input IOD7
     );
     /******************** Testing Combo Cards ******************************

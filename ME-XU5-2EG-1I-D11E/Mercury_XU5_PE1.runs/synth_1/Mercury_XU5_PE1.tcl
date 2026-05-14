@@ -121,7 +121,6 @@ OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib {
   /home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.srcs/sources_1/new/EosMuonDAQ.v
-  /home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.srcs/sources_1/new/EosMuonTrigger.v
   /home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.srcs/sources_1/imports/hdl/reg_bank_v1_0.v
 }
 read_vhdl -library xil_defaultlib /home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.srcs/sources_1/imports/src/Mercury_XU5_PE1.vhd

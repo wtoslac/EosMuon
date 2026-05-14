@@ -8,8 +8,8 @@ module EosMuonDAQ(
     input [35:0] FMCN,
     input [35:0] FMCP,  
     input [7:0] IOC,
-    inout [3:0] IOE,
-    inout [6:0] IOD,
+    input [3:0] IOE,
+    output[6:0] IOD,
     input IOD7,
     // PS accessible bits 32x64.
     output [2047:0] reg_ro_out,
@@ -30,6 +30,17 @@ module EosMuonDAQ(
         ptb_count <= ptb_count + 1;
     end
 
+
+    // =========================================================
+    // Synchronize IOD7 to Clk100, detect rising edge
+    // =========================================================
+    reg iod7_ff1 = 1'b0, iod7_ff2 = 1'b0;
+    always @(posedge Clk100) begin
+        iod7_ff1 <= IOD7;
+        iod7_ff2 <= iod7_ff1;
+    end
+    wire triggered = iod7_ff1 & ~iod7_ff2;  // rising edge
+    
     reg req_tgl     = 0; // This is the request toggle for the 100MHz Clock. Resets at 1Hz.
     //reg [31:0] div  = 0;
     always @(posedge Clk100) begin
@@ -59,48 +70,45 @@ module EosMuonDAQ(
     always @(posedge Clk100) ack_sync <= {ack_sync[1:0], ack_tgl};
     wire ack_seen = ack_sync[2] ^ ack_sync[1];
 
-    // =========================================================
-    // Synchronize IOD7 to Clk100, detect rising edge
-    // =========================================================
-    reg iod7_ff1 = 1'b0, iod7_ff2 = 1'b0;
-    always @(posedge Clk100) begin
-        iod7_ff1 <= IOD7;
-        iod7_ff2 <= iod7_ff1;
-    end
-    wire triggered = iod7_ff1 & ~iod7_ff2;  // rising edge
+
+    // Count how many of the input vectors have 2+ bits high
+    wire any2_IOA  = (|( IOA[25:0] & ( IOA[25:0] - 1)));  // true if 2+ bits set
+    wire any2_IOB  = (|( IOB[25:0] & ( IOB[25:0] - 1)));
+    wire any2_FMCN = (|(FMCN[34:0] & (FMCN[34:0] - 1)));
+    wire any2_FMCP = (|(FMCP[34:0] & (FMCP[34:0] - 1)));
+    wire any2_IOE  = (|(  IOE[3:0] & (  IOE[3:0] - 1)));
+    wire any2_IOC  = (|(  IOC[7:0] & (  IOC[7:0] - 1)));
+    
+    wire exactly1_IOA  = (|IOA)  & ~any2_IOA;
+    wire exactly1_IOB  = (|IOB)  & ~any2_IOB;
+    wire exactly1_FMCN = (|FMCN[34:0]) & ~any2_FMCN;
+    wire exactly1_FMCP = (|FMCP[34:0]) & ~any2_FMCP;
+    wire exactly1_IOE  = (|IOE)  & ~any2_IOE;
+    wire exactly1_IOC  = (|IOC)  & ~any2_IOC;
+    
+    // Sum how many vectors have exactly 1 high bit
+    wire [2:0] ones_count = exactly1_IOA + exactly1_IOB + exactly1_FMCN
+                          + exactly1_FMCP + exactly1_IOE + exactly1_IOC;
+    
+    // [57]: high if exactly 2 vectors each have exactly 1 high input
+    // [56]: high if 3 or more vectors each have exactly 1 high input  
+    wire DoubleHits = (ones_count == 3'd2);
+    wire TripleHits = (ones_count >= 3'd3);
 
     // Build the 192-bits frame for each event.
     wire [191:0] snapshot_frame = {
-        IOA[25:0],        // [191:166]
-        IOB[25:0],        // [165:140]
-        FMCN[34:0],       // [139:105]
-        1'b0,             // [104] unused bit
-        FMCP[34:0],       // [103:69]
-        1'b0,             // [68] unused bit
-        IOE[3:0],         // [67:64]
-        IOC[7:0],         // [63:56]
-        iod7_ff1,         // [55]
-        ptb_latched       // [54:0]
+        ~IOA[25:0],        // [191:166]
+        ~IOB[25:0],        // [165:140]
+        ~FMCN[34:0],       // [139:105]
+        ~FMCP[34:0],       // [104:70]
+        ~IOE[3:0],         // [69:66]
+        ~IOC[7:0],         // [65:58]
+        DoubleHits,        // [57] exactly 2 hits 
+        TripleHits,        // [56] three or more hits
+        iod7_ff1,         // [55] PTB Trigger bits
+        ptb_latched       // [54:0] Counter off PTB Clock
     };
-  /*  localparam TIMEOUT_CYCLES = 32'd1_000_000_000; // 10s @ 100MHz
-
-    reg [31:0] timeout_counter = 32'd0;
-    reg [1919:0] snapshot_stack = {1920{1'b0}};
-
-    always @(posedge Clk100) begin
-        if (triggered) begin
-            // New snapshot wins over timeout
-            timeout_counter <= 32'd0;
-            snapshot_stack  <= { snapshot_frame, snapshot_stack[1919:192] };
-        end else if (timeout_counter < TIMEOUT_CYCLES) begin
-            timeout_counter <= timeout_counter + 1;
-        end else begin
-            // Timeout expired with no trigger
-            timeout_counter <= 32'd0;
-            snapshot_stack  <= {1920{1'b0}};
-        end
-    end
- */
+ 
     // Add a check to see if the previous trigger is more than 10s old.
     localparam [54:0] TIMEOUT_TICKS = 55'd625_000_000; // 10s @ 62.5MHz
     reg        initialized      = 1'b0;
@@ -119,65 +127,13 @@ module EosMuonDAQ(
             end else if (ptb_diff > TIMEOUT_TICKS) begin
                 snapshot_stack   <= { {(1920-192){1'b0}}, snapshot_frame };
             end else begin
-                snapshot_stack   <= { snapshot_stack[1919:192], snapshot_frame }; // Oldest first (oldest at LSB = low address)
+                // Oldest at MSB, Newest at LSB (first address in memory map)
+                snapshot_stack   <= { snapshot_stack[1919:192], snapshot_frame }; 
             end
             ptb_latched_prev <= ptb_latched;
         end
     end
- /*
-    always @(posedge Clk100) begin
-        if (ack_seen) begin
-            if (!initialized) begin // First event ever - just store it, no comparison
-                snapshot_stack   <= { {(1920-192){1'b0}}, snapshot_frame };
-                initialized      <= 1'b1;
-            end else if ((ptb_latched - ptb_latched_prev) > TIMEOUT_TICKS) begin
-            // Compute how far apart current and previous timestamps are
-                // Gap too large - purge stack, store only this new frame
-                snapshot_stack     <= { {(1920-192){1'b0}}, snapshot_frame };
-            end 
-            else begin // Normal operation - push new frame onto stack
-                snapshot_stack     <= { snapshot_stack[1727:0], snapshot_frame };
-            end
-            ptb_latched_prev <= ptb_latched; // update previous timestamp
-        end
-    end    
- 
- */
-   
-    /*
-    // =========================================================
-    // 10-second timeout: purge snapshot_stack if no trigger
-    // =========================================================
-    localparam TIMEOUT_CYCLES = 32'd1_000_000_000; // 10s @ 100MHz
-    reg [31:0] timeout_counter = 32'd0;
-    reg        purge = 1'b0;
 
-    always @(posedge Clk100) begin
-        purge <= 1'b0; // default: no purge (single cycle pulse)
-        if (triggered) begin
-            timeout_counter <= 32'd0; // reset counter on every trigger
-        end else if (timeout_counter < TIMEOUT_CYCLES) begin
-            timeout_counter <= timeout_counter + 1;
-        end else begin
-            purge           <= 1'b1;  // assert purge for one cycle
-            timeout_counter <= 32'd0; // reset so it doesn't re-fire continuously
-        end
-    end
-
-   
-    //   On each trigger:
-    //     [1919:192]  <- old [1727:0]   (9 older snapshots shift up)
-    //     [191:0]     <- snapshot_frame (newest at bottom)
-    reg [1919:0] snapshot_stack = {1920{1'b0}};
-    always @(posedge Clk100) begin
-        if (purge) begin
-            snapshot_stack <= {1920{1'b0}};
-        end else if (triggered) begin
-            snapshot_stack <= { snapshot_frame, snapshot_stack[1919:192] };
-        end
-    end
-    */
-    
     // =========================================================
     // LED blink indicators (driven from ptb_latched)
     // =========================================================
