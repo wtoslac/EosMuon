@@ -133,9 +133,9 @@ void producer_thread(volatile uint64_t *reg64_addr, SharedQueue &q) {
             uint64_t w1 = data64[3*i + 1];
             uint64_t w2 = data64[3*i + 2];
 
-            if ((w0 >> 55) & 0x01) {
-                uint64_t counter = w0 & LOWER_55;
-                if (!already_seen(seen, seen_count, counter)) {
+	    uint64_t counter = w0 & LOWER_55;
+	    if (counter != 0) {
+		if (!already_seen(seen, seen_count, counter)) {
                     printf("counter = %llu\n", (unsigned long long)counter);
                     staging.events[filled].w0 = w0;
                     staging.events[filled].w1 = w1;
