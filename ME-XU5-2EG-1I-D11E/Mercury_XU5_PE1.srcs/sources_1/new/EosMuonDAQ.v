@@ -71,20 +71,20 @@ module EosMuonDAQ(
     wire ack_seen = ack_sync[2] ^ ack_sync[1];
 
 
-    // Count how many of the input vectors have 2+ bits high
-    wire any2_IOA  = (|( IOA[25:0] & ( IOA[25:0] - 1)));  // true if 2+ bits set
-    wire any2_IOB  = (|( IOB[25:0] & ( IOB[25:0] - 1)));
-    wire any2_FMCN = (|(FMCN[34:0] & (FMCN[34:0] - 1)));
-    wire any2_FMCP = (|(FMCP[34:0] & (FMCP[34:0] - 1)));
-    wire any2_IOE  = (|(  IOE[3:0] & (  IOE[3:0] - 1)));
-    wire any2_IOC  = (|(  IOC[7:0] & (  IOC[7:0] - 1)));
-    
-    wire exactly1_IOA  = (|IOA)  & ~any2_IOA;
-    wire exactly1_IOB  = (|IOB)  & ~any2_IOB;
-    wire exactly1_FMCN = (|FMCN[34:0]) & ~any2_FMCN;
-    wire exactly1_FMCP = (|FMCP[34:0]) & ~any2_FMCP;
-    wire exactly1_IOE  = (|IOE)  & ~any2_IOE;
-    wire exactly1_IOC  = (|IOC)  & ~any2_IOC;
+    // Count how many of the input vectors have 2+ bits LOW
+    wire any2_IOA  = (|(~IOA[25:0] & (~IOA[25:0] - 1)));  // true if 2+ bits low
+    wire any2_IOB  = (|(~IOB[25:0] & (~IOB[25:0] - 1)));
+    wire any2_FMCN = (|(~FMCN[34:0] & (~FMCN[34:0] - 1)));
+    wire any2_FMCP = (|(~FMCP[34:0] & (~FMCP[34:0] - 1)));
+    wire any2_IOE  = (|(~IOE[3:0] & (~IOE[3:0] - 1)));
+    wire any2_IOC  = (|(~IOC[7:0] & (~IOC[7:0] - 1)));
+
+    wire exactly1_IOA  = (|(~IOA[25:0]))  & ~any2_IOA;
+    wire exactly1_IOB  = (|(~IOB[25:0]))  & ~any2_IOB;
+    wire exactly1_FMCN = (|(~FMCN[34:0])) & ~any2_FMCN;
+    wire exactly1_FMCP = (|(~FMCP[34:0])) & ~any2_FMCP;
+    wire exactly1_IOE  = (|(~IOE[3:0]))   & ~any2_IOE;
+    wire exactly1_IOC  = (|(~IOC[7:0]))   & ~any2_IOC;
     
     // Sum how many vectors have exactly 1 high bit
     wire [2:0] ones_count = exactly1_IOA + exactly1_IOB + exactly1_FMCN
@@ -94,7 +94,13 @@ module EosMuonDAQ(
     // [56]: high if 3 or more vectors each have exactly 1 high input  
     wire DoubleHits = (ones_count == 3'd2);
     wire TripleHits = (ones_count >= 3'd3);
-
+    
+    // Adding the assignments to output the double and triple hits signal to the PTB.
+    assign IOD[3:0] = 4'b0;  // unused outputs
+    assign IOD[6]   = 1'b0;  // unused output
+    assign IOD[4] = DoubleHits; // IOD[4] is the bottom right LEMO00 Connector
+    assign IOD[5] = TripleHits; // IOD[5] is the Top right LEMO00 Connector
+    
     // Build the 192-bits frame for each event.
     wire [191:0] snapshot_frame = {
         ~IOA[25:0],        // [191:166]

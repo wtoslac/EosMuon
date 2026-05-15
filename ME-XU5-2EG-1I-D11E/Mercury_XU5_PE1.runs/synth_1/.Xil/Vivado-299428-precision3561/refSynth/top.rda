@@ -1,129 +1,0 @@
-Data_For_RDAFlowver5.0
-	top levelC
-Mercury_XU5_PE1ï
-LinkDesign_Blackboxes>
-Mercury_XU5_i/smartconnect_00Mercury_XU5_smartconnect_00_04
-Mercury_XU5_i/reg_bank_0Mercury_XU5_reg_bank_0_04
-Mercury_XU5_i/reg_bank_1Mercury_XU5_reg_bank_1_0J
-#Mercury_XU5_i/system_management_wiz#Mercury_XU5_system_management_wiz_02
-Mercury_XU5_i/clk_wiz_0Mercury_XU5_clk_wiz_0_08
-Mercury_XU5_i/ddr4_sys_rstMercury_XU5_ddr4_sys_rst_0&
-Mercury_XU5_i/ledMercury_XU5_led_0N
-5Mercury_XU5_i/axi_interconnect_0/s00_couplers/auto_ccMercury_XU5_auto_cc_04
-Mercury_XU5_i/ps_sys_rstMercury_XU5_ps_sys_rst_0(
-Mercury_XU5_i/ddr4Mercury_XU5_ddr4_0>
-Mercury_XU5_i/zynq_ultra_ps_eMercury_XU5_zynq_ultra_ps_e_0ª0
-synthFileNamesL
-7G/home/wto/Xilinx/Vivado/2022.2/data/vhdl/src/unimacro/ADDMACC_MACRO.vhdi
-38c/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.srcs/sources_1/imports/hdl/reg_bank_v1_0.vñ
-43è/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/synth_1/.Xil/Vivado-185374-precision3561/realtime/Mercury_XU5_auto_cc_0_stub.vhdlK
-8F/home/wto/Xilinx/Vivado/2022.2/data/vhdl/src/unimacro/ADDSUB_MACRO.vhdû
-39ó/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/synth_1/.Xil/Vivado-185374-precision3561/realtime/Mercury_XU5_zynq_ultra_ps_e_0_stub.vhdlò
-44ë/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/synth_1/.Xil/Vivado-185374-precision3561/realtime/Mercury_XU5_clk_wiz_0_0_stub.vhdlm
-50g/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.srcs/sources_1/imports/src/Mercury_XU5_PE1.vhdM
-9H/home/wto/Xilinx/Vivado/2022.2/data/vhdl/src/unimacro/BRAM_SDP_MACRO.vhdô
-45í/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/synth_1/.Xil/Vivado-185374-precision3561/realtime/Mercury_XU5_ps_sys_rst_0_stub.vhdlq
-51k/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/synth/Mercury_XU5.vhdõ
-46î/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/synth_1/.Xil/Vivado-185374-precision3561/realtime/Mercury_XU5_ddr4_sys_rst_0_stub.vhdlk
-52e/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/design_1/synth/design_1.vhdû
-47ó/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/synth_1/.Xil/Vivado-185374-precision3561/realtime/Mercury_XU5_smartconnect_00_0_stub.vhdl>
-538/home/wto/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_VCOMP.vhdô
-48í/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/synth_1/.Xil/Vivado-185374-precision3561/realtime/Mercury_XU5_reg_bank_0_0_stub.vhdla
-54[/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/synth_1/1993/src/std_1164.vhdô
-49í/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/synth_1/.Xil/Vivado-185374-precision3561/realtime/Mercury_XU5_reg_bank_1_0_stub.vhdla
-60[/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/synth_1/1993/src/prmtvs_p.vhda
-55[/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/synth_1/1993/src/standard.vhda
-61[/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/synth_1/1993/src/prmtvs_b.vhdd
-56^/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/synth_1/1993/src/numeric_std.vhda
-62[/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/synth_1/1993/src/syn_arit.vhd_
-57Y/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/synth_1/1993/src/textio.vhda
-63[/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/synth_1/1993/src/syn_unsi.vhda
-58[/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/synth_1/1993/src/timing_p.vhda
-59[/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/synth_1/1993/src/timing_b.vhdQ
-10K/home/wto/Xilinx/Vivado/2022.2/data/vhdl/src/unimacro/BRAM_SINGLE_MACRO.vhdN
-11H/home/wto/Xilinx/Vivado/2022.2/data/vhdl/src/unimacro/BRAM_TDP_MACRO.vhdR
-12L/home/wto/Xilinx/Vivado/2022.2/data/vhdl/src/unimacro/COUNTER_LOAD_MACRO.vhdP
-13J/home/wto/Xilinx/Vivado/2022.2/data/vhdl/src/unimacro/COUNTER_TC_MACRO.vhdP
-14J/home/wto/Xilinx/Vivado/2022.2/data/vhdl/src/unimacro/EQ_COMPARE_MACRO.vhdM
-20G/home/wto/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/ADDSUB_MACRO.vT
-15N/home/wto/Xilinx/Vivado/2022.2/data/vhdl/src/unimacro/FIFO_DUALCLOCK_MACRO.vhdO
-21I/home/wto/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SDP_MACRO.vO
-16I/home/wto/Xilinx/Vivado/2022.2/data/vhdl/src/unimacro/FIFO_SYNC_MACRO.vhdR
-22L/home/wto/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.vJ
-17D/home/wto/Xilinx/Vivado/2022.2/data/vhdl/src/unimacro/MACC_MACRO.vhdJ
-18D/home/wto/Xilinx/Vivado/2022.2/data/vhdl/src/unimacro/MULT_MACRO.vhdO
-23I/home/wto/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_TDP_MACRO.vN
-19H/home/wto/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/ADDMACC_MACRO.vS
-24M/home/wto/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/COUNTER_LOAD_MACRO.vQ
-25K/home/wto/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/COUNTER_TC_MACRO.vK
-30E/home/wto/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/MULT_MACRO.v
-NumFileNames64Q
-26K/home/wto/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/EQ_COMPARE_MACRO.vQ
-31K/home/wto/Xilinx/Vivado/2022.2/data/vhdl/src/unisims/retarget/MULT18X18.vhdD
-1?/home/wto/Xilinx/Vivado/2022.2/scripts/rt/data/unisim_VCOMP.vhdU
-27O/home/wto/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/FIFO_DUALCLOCK_MACRO.vR
-32L/home/wto/Xilinx/Vivado/2022.2/data/vhdl/src/unisims/retarget/MULT18X18S.vhdC
-2>/home/wto/Xilinx/Vivado/2022.2/scripts/rt/data/unisim_VPKG.vhdP
-28J/home/wto/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/FIFO_SYNC_MACRO.vG
-33A/home/wto/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.svA
-3</home/wto/Xilinx/Vivado/2022.2/scripts/rt/data/unisim_comp.vK
-29E/home/wto/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/MACC_MACRO.vI
-34C/home/wto/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.svD
-4?/home/wto/Xilinx/Vivado/2022.2/scripts/rt/data/internal_cells.vM
-35G/home/wto/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv§
-40ù/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/synth_1/.Xil/Vivado-185374-precision3561/realtime/Mercury_XU5_system_management_wiz_0_stub.vhdl:
-55/home/wto/Xilinx/Vivado/2022.2/scripts/rt/data/BUFT.v^
-36X/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.srcs/sources_1/new/EosMuonDAQ.ví
-41ã/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/synth_1/.Xil/Vivado-185374-precision3561/realtime/Mercury_XU5_led_0_stub.vhdlM
-6H/home/wto/Xilinx/Vivado/2022.2/data/vhdl/src/unimacro/unimacro_VCOMP.vhdb
-37\/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.srcs/sources_1/new/EosMuonTrigger.vì
-42å/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/synth_1/.Xil/Vivado-185374-precision3561/realtime/Mercury_XU5_ddr4_0_stub.vhdl
-
-synthStats∞
-ElaboratedNamesForRQSñ
-DSP_RAM&
-311297 {EosMuonDAQ_i/any2_IOB1_i} ú
-368641ë {EosMuonDAQ_i/ones_count0_i} {EosMuonDAQ_i/ones_count1_i} {EosMuonDAQ_i/ones_count2_i} {EosMuonDAQ_i/ones_count3_i} {EosMuonDAQ_i/ones_count_i} '
-319489 {EosMuonDAQ_i/any2_FMCP1_i} &
-327681 {EosMuonDAQ_i/any2_IOC1_i} '
-315393 {EosMuonDAQ_i/any2_FMCN1_i} &
-307201 {EosMuonDAQ_i/any2_IOA1_i} )
-495617 {EosMuonDAQ_i/ptb_diff0_i__0} &
-491521 {EosMuonDAQ_i/ptb_diff0_i} &
-323585 {EosMuonDAQ_i/any2_IOE1_i} '
-122881 {EosMuonDAQ_i/ptb_count0_i} ¥
-blackBoxInfo(
-Mercury_XU5_i/ddr4Mercury_XU5_ddr4_02
-Mercury_XU5_i/clk_wiz_0Mercury_XU5_clk_wiz_0_08
-Mercury_XU5_i/ddr4_sys_rstMercury_XU5_ddr4_sys_rst_0&
-Mercury_XU5_i/ledMercury_XU5_led_0N
-5Mercury_XU5_i/axi_interconnect_0/s00_couplers/auto_ccMercury_XU5_auto_cc_0&
-i_gmii2rgmiiMercury_XU5_GMII2RGMII>
-Mercury_XU5_i/zynq_ultra_ps_eMercury_XU5_zynq_ultra_ps_e_04
-Mercury_XU5_i/reg_bank_0Mercury_XU5_reg_bank_0_0>
-Mercury_XU5_i/smartconnect_00Mercury_XU5_smartconnect_00_04
-Mercury_XU5_i/reg_bank_1Mercury_XU5_reg_bank_1_0J
-#Mercury_XU5_i/system_management_wiz#Mercury_XU5_system_management_wiz_04
-Mercury_XU5_i/ps_sys_rstMercury_XU5_ps_sys_rst_0é
-synth_design
-	directive 
-isIncremental0
-Runtime0
-Threads used4b
-argsZ-verilog_define default::[not_specified] -top  Mercury_XU5_PE1 -part  xczu2eg-sfvc784-1-i 
-resynthPerc0.00
-Cputime0
-blackBoxPercinfù
-synth_design_metrics
-bigRAMs-1
-NetsWithMixedFanouts-1
-DSPsWithKeep0$
-mismatchedAddSubOperatorWidths-1
-lowMaxFanout-1
-NumUnregisteredPorts0
-caseNotFullNoDefault-1
-	smallSrls-1
-srlsWithResetLogic-1
-shallowRAMWithAttribute-1
-hierMFO0
-RQS_Results

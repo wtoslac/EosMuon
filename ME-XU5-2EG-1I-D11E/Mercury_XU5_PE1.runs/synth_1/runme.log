@@ -50,12 +50,12 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 299458
+INFO: [Synth 8-7075] Helper process launched with PID 440658
 INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [/home/wto/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2891.977 ; gain = 242.832 ; free physical = 327 ; free virtual = 26604
-Synthesis current peak Physical Memory [PSS] (MB): peak = 2321.170; parent = 2115.228; children = 205.942
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3901.023; parent = 2897.918; children = 1003.105
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2893.703 ; gain = 244.801 ; free physical = 2275 ; free virtual = 25853
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2321.062; parent = 2115.197; children = 205.864
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3858.840; parent = 2897.676; children = 961.164
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'Mercury_XU5_PE1' [/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.srcs/sources_1/imports/src/Mercury_XU5_PE1.vhd:242]
 	Parameter BG_WIDTH bound to: 1 - type: integer 
@@ -72,30 +72,30 @@ INFO: [Synth 8-3491] module 'Mercury_XU5' declared at '/home/wto/Eos/EosMuon/ME-
 INFO: [Synth 8-638] synthesizing module 'Mercury_XU5' [/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/synth/Mercury_XU5.vhd:845]
 INFO: [Synth 8-638] synthesizing module 'Mercury_XU5_axi_interconnect_0_0' [/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/synth/Mercury_XU5.vhd:536]
 INFO: [Synth 8-638] synthesizing module 's00_couplers_imp_17XXMTV' [/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/synth/Mercury_XU5.vhd:99]
-INFO: [Synth 8-3491] module 'Mercury_XU5_auto_cc_0' declared at '/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/synth_1/.Xil/Vivado-299428-precision3561/realtime/Mercury_XU5_auto_cc_0_stub.vhdl:5' bound to instance 'auto_cc' of component 'Mercury_XU5_auto_cc_0' [/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/synth/Mercury_XU5.vhd:355]
-INFO: [Synth 8-638] synthesizing module 'Mercury_XU5_auto_cc_0' [/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/synth_1/.Xil/Vivado-299428-precision3561/realtime/Mercury_XU5_auto_cc_0_stub.vhdl:97]
+INFO: [Synth 8-3491] module 'Mercury_XU5_auto_cc_0' declared at '/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/synth_1/.Xil/Vivado-440635-precision3561/realtime/Mercury_XU5_auto_cc_0_stub.vhdl:5' bound to instance 'auto_cc' of component 'Mercury_XU5_auto_cc_0' [/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/synth/Mercury_XU5.vhd:355]
+INFO: [Synth 8-638] synthesizing module 'Mercury_XU5_auto_cc_0' [/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/synth_1/.Xil/Vivado-440635-precision3561/realtime/Mercury_XU5_auto_cc_0_stub.vhdl:97]
 INFO: [Synth 8-256] done synthesizing module 's00_couplers_imp_17XXMTV' (0#1) [/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/synth/Mercury_XU5.vhd:99]
 INFO: [Synth 8-256] done synthesizing module 'Mercury_XU5_axi_interconnect_0_0' (0#1) [/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/synth/Mercury_XU5.vhd:536]
-INFO: [Synth 8-3491] module 'Mercury_XU5_clk_wiz_0_0' declared at '/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/synth_1/.Xil/Vivado-299428-precision3561/realtime/Mercury_XU5_clk_wiz_0_0_stub.vhdl:5' bound to instance 'clk_wiz_0' of component 'Mercury_XU5_clk_wiz_0_0' [/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/synth/Mercury_XU5.vhd:1763]
-INFO: [Synth 8-638] synthesizing module 'Mercury_XU5_clk_wiz_0_0' [/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/synth_1/.Xil/Vivado-299428-precision3561/realtime/Mercury_XU5_clk_wiz_0_0_stub.vhdl:18]
-INFO: [Synth 8-3491] module 'Mercury_XU5_ddr4_0' declared at '/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/synth_1/.Xil/Vivado-299428-precision3561/realtime/Mercury_XU5_ddr4_0_stub.vhdl:5' bound to instance 'ddr4' of component 'Mercury_XU5_ddr4_0' [/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/synth/Mercury_XU5.vhd:1773]
-INFO: [Synth 8-638] synthesizing module 'Mercury_XU5_ddr4_0' [/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/synth_1/.Xil/Vivado-299428-precision3561/realtime/Mercury_XU5_ddr4_0_stub.vhdl:71]
-INFO: [Synth 8-3491] module 'Mercury_XU5_ddr4_sys_rst_0' declared at '/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/synth_1/.Xil/Vivado-299428-precision3561/realtime/Mercury_XU5_ddr4_sys_rst_0_stub.vhdl:5' bound to instance 'ddr4_sys_rst' of component 'Mercury_XU5_ddr4_sys_rst_0' [/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/synth/Mercury_XU5.vhd:1836]
-INFO: [Synth 8-638] synthesizing module 'Mercury_XU5_ddr4_sys_rst_0' [/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/synth_1/.Xil/Vivado-299428-precision3561/realtime/Mercury_XU5_ddr4_sys_rst_0_stub.vhdl:21]
-INFO: [Synth 8-3491] module 'Mercury_XU5_led_0' declared at '/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/synth_1/.Xil/Vivado-299428-precision3561/realtime/Mercury_XU5_led_0_stub.vhdl:5' bound to instance 'led' of component 'Mercury_XU5_led_0' [/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/synth/Mercury_XU5.vhd:1849]
-INFO: [Synth 8-638] synthesizing module 'Mercury_XU5_led_0' [/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/synth_1/.Xil/Vivado-299428-precision3561/realtime/Mercury_XU5_led_0_stub.vhdl:31]
-INFO: [Synth 8-3491] module 'Mercury_XU5_ps_sys_rst_0' declared at '/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/synth_1/.Xil/Vivado-299428-precision3561/realtime/Mercury_XU5_ps_sys_rst_0_stub.vhdl:5' bound to instance 'ps_sys_rst' of component 'Mercury_XU5_ps_sys_rst_0' [/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/synth/Mercury_XU5.vhd:1872]
-INFO: [Synth 8-638] synthesizing module 'Mercury_XU5_ps_sys_rst_0' [/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/synth_1/.Xil/Vivado-299428-precision3561/realtime/Mercury_XU5_ps_sys_rst_0_stub.vhdl:21]
-INFO: [Synth 8-3491] module 'Mercury_XU5_reg_bank_0_0' declared at '/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/synth_1/.Xil/Vivado-299428-precision3561/realtime/Mercury_XU5_reg_bank_0_0_stub.vhdl:5' bound to instance 'reg_bank_0' of component 'Mercury_XU5_reg_bank_0_0' [/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/synth/Mercury_XU5.vhd:1885]
-INFO: [Synth 8-638] synthesizing module 'Mercury_XU5_reg_bank_0_0' [/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/synth_1/.Xil/Vivado-299428-precision3561/realtime/Mercury_XU5_reg_bank_0_0_stub.vhdl:34]
-INFO: [Synth 8-3491] module 'Mercury_XU5_reg_bank_1_0' declared at '/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/synth_1/.Xil/Vivado-299428-precision3561/realtime/Mercury_XU5_reg_bank_1_0_stub.vhdl:5' bound to instance 'reg_bank_1' of component 'Mercury_XU5_reg_bank_1_0' [/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/synth/Mercury_XU5.vhd:1911]
-INFO: [Synth 8-638] synthesizing module 'Mercury_XU5_reg_bank_1_0' [/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/synth_1/.Xil/Vivado-299428-precision3561/realtime/Mercury_XU5_reg_bank_1_0_stub.vhdl:34]
-INFO: [Synth 8-3491] module 'Mercury_XU5_smartconnect_00_0' declared at '/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/synth_1/.Xil/Vivado-299428-precision3561/realtime/Mercury_XU5_smartconnect_00_0_stub.vhdl:5' bound to instance 'smartconnect_00' of component 'Mercury_XU5_smartconnect_00_0' [/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/synth/Mercury_XU5.vhd:1937]
-INFO: [Synth 8-638] synthesizing module 'Mercury_XU5_smartconnect_00_0' [/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/synth_1/.Xil/Vivado-299428-precision3561/realtime/Mercury_XU5_smartconnect_00_0_stub.vhdl:128]
-INFO: [Synth 8-3491] module 'Mercury_XU5_system_management_wiz_0' declared at '/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/synth_1/.Xil/Vivado-299428-precision3561/realtime/Mercury_XU5_system_management_wiz_0_stub.vhdl:5' bound to instance 'system_management_wiz' of component 'Mercury_XU5_system_management_wiz_0' [/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/synth/Mercury_XU5.vhd:2057]
-INFO: [Synth 8-638] synthesizing module 'Mercury_XU5_system_management_wiz_0' [/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/synth_1/.Xil/Vivado-299428-precision3561/realtime/Mercury_XU5_system_management_wiz_0_stub.vhdl:43]
-INFO: [Synth 8-3491] module 'Mercury_XU5_zynq_ultra_ps_e_0' declared at '/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/synth_1/.Xil/Vivado-299428-precision3561/realtime/Mercury_XU5_zynq_ultra_ps_e_0_stub.vhdl:5' bound to instance 'zynq_ultra_ps_e' of component 'Mercury_XU5_zynq_ultra_ps_e_0' [/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/synth/Mercury_XU5.vhd:2092]
-INFO: [Synth 8-638] synthesizing module 'Mercury_XU5_zynq_ultra_ps_e_0' [/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/synth_1/.Xil/Vivado-299428-precision3561/realtime/Mercury_XU5_zynq_ultra_ps_e_0_stub.vhdl:120]
+INFO: [Synth 8-3491] module 'Mercury_XU5_clk_wiz_0_0' declared at '/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/synth_1/.Xil/Vivado-440635-precision3561/realtime/Mercury_XU5_clk_wiz_0_0_stub.vhdl:5' bound to instance 'clk_wiz_0' of component 'Mercury_XU5_clk_wiz_0_0' [/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/synth/Mercury_XU5.vhd:1763]
+INFO: [Synth 8-638] synthesizing module 'Mercury_XU5_clk_wiz_0_0' [/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/synth_1/.Xil/Vivado-440635-precision3561/realtime/Mercury_XU5_clk_wiz_0_0_stub.vhdl:18]
+INFO: [Synth 8-3491] module 'Mercury_XU5_ddr4_0' declared at '/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/synth_1/.Xil/Vivado-440635-precision3561/realtime/Mercury_XU5_ddr4_0_stub.vhdl:5' bound to instance 'ddr4' of component 'Mercury_XU5_ddr4_0' [/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/synth/Mercury_XU5.vhd:1773]
+INFO: [Synth 8-638] synthesizing module 'Mercury_XU5_ddr4_0' [/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/synth_1/.Xil/Vivado-440635-precision3561/realtime/Mercury_XU5_ddr4_0_stub.vhdl:71]
+INFO: [Synth 8-3491] module 'Mercury_XU5_ddr4_sys_rst_0' declared at '/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/synth_1/.Xil/Vivado-440635-precision3561/realtime/Mercury_XU5_ddr4_sys_rst_0_stub.vhdl:5' bound to instance 'ddr4_sys_rst' of component 'Mercury_XU5_ddr4_sys_rst_0' [/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/synth/Mercury_XU5.vhd:1836]
+INFO: [Synth 8-638] synthesizing module 'Mercury_XU5_ddr4_sys_rst_0' [/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/synth_1/.Xil/Vivado-440635-precision3561/realtime/Mercury_XU5_ddr4_sys_rst_0_stub.vhdl:21]
+INFO: [Synth 8-3491] module 'Mercury_XU5_led_0' declared at '/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/synth_1/.Xil/Vivado-440635-precision3561/realtime/Mercury_XU5_led_0_stub.vhdl:5' bound to instance 'led' of component 'Mercury_XU5_led_0' [/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/synth/Mercury_XU5.vhd:1849]
+INFO: [Synth 8-638] synthesizing module 'Mercury_XU5_led_0' [/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/synth_1/.Xil/Vivado-440635-precision3561/realtime/Mercury_XU5_led_0_stub.vhdl:31]
+INFO: [Synth 8-3491] module 'Mercury_XU5_ps_sys_rst_0' declared at '/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/synth_1/.Xil/Vivado-440635-precision3561/realtime/Mercury_XU5_ps_sys_rst_0_stub.vhdl:5' bound to instance 'ps_sys_rst' of component 'Mercury_XU5_ps_sys_rst_0' [/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/synth/Mercury_XU5.vhd:1872]
+INFO: [Synth 8-638] synthesizing module 'Mercury_XU5_ps_sys_rst_0' [/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/synth_1/.Xil/Vivado-440635-precision3561/realtime/Mercury_XU5_ps_sys_rst_0_stub.vhdl:21]
+INFO: [Synth 8-3491] module 'Mercury_XU5_reg_bank_0_0' declared at '/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/synth_1/.Xil/Vivado-440635-precision3561/realtime/Mercury_XU5_reg_bank_0_0_stub.vhdl:5' bound to instance 'reg_bank_0' of component 'Mercury_XU5_reg_bank_0_0' [/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/synth/Mercury_XU5.vhd:1885]
+INFO: [Synth 8-638] synthesizing module 'Mercury_XU5_reg_bank_0_0' [/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/synth_1/.Xil/Vivado-440635-precision3561/realtime/Mercury_XU5_reg_bank_0_0_stub.vhdl:34]
+INFO: [Synth 8-3491] module 'Mercury_XU5_reg_bank_1_0' declared at '/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/synth_1/.Xil/Vivado-440635-precision3561/realtime/Mercury_XU5_reg_bank_1_0_stub.vhdl:5' bound to instance 'reg_bank_1' of component 'Mercury_XU5_reg_bank_1_0' [/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/synth/Mercury_XU5.vhd:1911]
+INFO: [Synth 8-638] synthesizing module 'Mercury_XU5_reg_bank_1_0' [/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/synth_1/.Xil/Vivado-440635-precision3561/realtime/Mercury_XU5_reg_bank_1_0_stub.vhdl:34]
+INFO: [Synth 8-3491] module 'Mercury_XU5_smartconnect_00_0' declared at '/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/synth_1/.Xil/Vivado-440635-precision3561/realtime/Mercury_XU5_smartconnect_00_0_stub.vhdl:5' bound to instance 'smartconnect_00' of component 'Mercury_XU5_smartconnect_00_0' [/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/synth/Mercury_XU5.vhd:1937]
+INFO: [Synth 8-638] synthesizing module 'Mercury_XU5_smartconnect_00_0' [/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/synth_1/.Xil/Vivado-440635-precision3561/realtime/Mercury_XU5_smartconnect_00_0_stub.vhdl:128]
+INFO: [Synth 8-3491] module 'Mercury_XU5_system_management_wiz_0' declared at '/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/synth_1/.Xil/Vivado-440635-precision3561/realtime/Mercury_XU5_system_management_wiz_0_stub.vhdl:5' bound to instance 'system_management_wiz' of component 'Mercury_XU5_system_management_wiz_0' [/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/synth/Mercury_XU5.vhd:2057]
+INFO: [Synth 8-638] synthesizing module 'Mercury_XU5_system_management_wiz_0' [/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/synth_1/.Xil/Vivado-440635-precision3561/realtime/Mercury_XU5_system_management_wiz_0_stub.vhdl:43]
+INFO: [Synth 8-3491] module 'Mercury_XU5_zynq_ultra_ps_e_0' declared at '/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/synth_1/.Xil/Vivado-440635-precision3561/realtime/Mercury_XU5_zynq_ultra_ps_e_0_stub.vhdl:5' bound to instance 'zynq_ultra_ps_e' of component 'Mercury_XU5_zynq_ultra_ps_e_0' [/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/synth/Mercury_XU5.vhd:2092]
+INFO: [Synth 8-638] synthesizing module 'Mercury_XU5_zynq_ultra_ps_e_0' [/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/synth_1/.Xil/Vivado-440635-precision3561/realtime/Mercury_XU5_zynq_ultra_ps_e_0_stub.vhdl:120]
 INFO: [Synth 8-256] done synthesizing module 'Mercury_XU5' (0#1) [/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/Mercury_XU5/synth/Mercury_XU5.vhd:845]
 INFO: [Synth 8-3491] module 'IOBUF' declared at '/home/wto/Xilinx/Vivado/2022.2/scripts/rt/data/unisim_comp.v:75902' bound to instance 'IIC_scl_iobuf' of component 'IOBUF' [/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.srcs/sources_1/imports/src/Mercury_XU5_PE1.vhd:631]
 INFO: [Synth 8-6157] synthesizing module 'IOBUF' [/home/wto/Xilinx/Vivado/2022.2/scripts/rt/data/unisim_comp.v:75902]
@@ -104,42 +104,35 @@ INFO: [Synth 8-3491] module 'IOBUF' declared at '/home/wto/Xilinx/Vivado/2022.2/
 INFO: [Synth 8-3491] module 'IOBUF' declared at '/home/wto/Xilinx/Vivado/2022.2/scripts/rt/data/unisim_comp.v:75902' bound to instance 'MDIO_mdio_iobuf' of component 'IOBUF' [/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.srcs/sources_1/imports/src/Mercury_XU5_PE1.vhd:665]
 INFO: [Synth 8-637] synthesizing blackbox instance 'i_gmii2rgmii' of component 'Mercury_XU5_GMII2RGMII' [/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.srcs/sources_1/imports/src/Mercury_XU5_PE1.vhd:673]
 INFO: [Synth 8-256] done synthesizing module 'Mercury_XU5_PE1' (0#1) [/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.srcs/sources_1/imports/src/Mercury_XU5_PE1.vhd:242]
-WARNING: [Synth 8-3848] Net IOD in module/entity EosMuonDAQ does not have driver. [/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.srcs/sources_1/new/EosMuonDAQ.v:12]
 WARNING: [Synth 8-7129] Port ACLK in module Mercury_XU5_axi_interconnect_0_0 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port ARESETN in module Mercury_XU5_axi_interconnect_0_0 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port IOD[6] in module EosMuonDAQ is either unconnected or has no load
-WARNING: [Synth 8-7129] Port IOD[5] in module EosMuonDAQ is either unconnected or has no load
-WARNING: [Synth 8-7129] Port IOD[4] in module EosMuonDAQ is either unconnected or has no load
-WARNING: [Synth 8-7129] Port IOD[3] in module EosMuonDAQ is either unconnected or has no load
-WARNING: [Synth 8-7129] Port IOD[2] in module EosMuonDAQ is either unconnected or has no load
-WARNING: [Synth 8-7129] Port IOD[1] in module EosMuonDAQ is either unconnected or has no load
-WARNING: [Synth 8-7129] Port IOD[0] in module EosMuonDAQ is either unconnected or has no load
 WARNING: [Synth 8-7129] Port Clk50 in module EosMuonDAQ is either unconnected or has no load
 WARNING: [Synth 8-7129] Port DDR4PL_BG[1] in module Mercury_XU5_PE1 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port OSC_N in module Mercury_XU5_PE1 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port OSC_P in module Mercury_XU5_PE1 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port ETH1_INT_N in module Mercury_XU5_PE1 is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 2981.883 ; gain = 332.738 ; free physical = 273 ; free virtual = 26554
-Synthesis current peak Physical Memory [PSS] (MB): peak = 2321.170; parent = 2115.228; children = 205.942
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 3984.992; parent = 2981.887; children = 1003.105
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2982.641 ; gain = 333.738 ; free physical = 2269 ; free virtual = 25842
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2321.062; parent = 2115.197; children = 205.864
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3943.809; parent = 2982.645; children = 961.164
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 2999.695 ; gain = 350.551 ; free physical = 281 ; free virtual = 26562
-Synthesis current peak Physical Memory [PSS] (MB): peak = 2321.170; parent = 2115.228; children = 205.942
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 4002.805; parent = 2999.699; children = 1003.105
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 2997.484 ; gain = 348.582 ; free physical = 2269 ; free virtual = 25840
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2321.062; parent = 2115.197; children = 205.864
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3958.652; parent = 2997.488; children = 961.164
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 2999.695 ; gain = 350.551 ; free physical = 281 ; free virtual = 26562
-Synthesis current peak Physical Memory [PSS] (MB): peak = 2321.170; parent = 2115.228; children = 205.942
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 4002.805; parent = 2999.699; children = 1003.105
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 2997.484 ; gain = 348.582 ; free physical = 2269 ; free virtual = 25840
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2321.062; parent = 2115.197; children = 205.864
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 3958.652; parent = 2997.488; children = 961.164
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00.06 ; elapsed = 00:00:00.05 . Memory (MB): peak = 3005.633 ; gain = 0.000 ; free physical = 296 ; free virtual = 26576
+Netlist sorting complete. Time (s): cpu = 00:00:00.05 ; elapsed = 00:00:00.05 . Memory (MB): peak = 3011.422 ; gain = 0.000 ; free physical = 2292 ; free virtual = 25863
 INFO: [Netlist 29-17] Analyzing 5 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+WARNING: [Netlist 29-1115] Found multi-term driver net: IOD_D0_P.
 INFO: [Project 1-570] Preparing netlist for logic optimization
 WARNING: [Constraints 18-5254] DIFF_TERM is not supported in UltraScale devices.  Automatically translating DIFF_TERM of TRUE to DIFF_TERM_ADV=TERM_100.  Refer to UG571: UltraScale Architecture SelectIO User Guide for more detail.
 WARNING: [Constraints 18-5254] DIFF_TERM is not supported in UltraScale devices.  Automatically translating DIFF_TERM of TRUE to DIFF_TERM_ADV=TERM_100.  Refer to UG571: UltraScale Architecture SelectIO User Guide for more detail.
@@ -178,21 +171,21 @@ Parsing XDC File [/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/
 Finished Parsing XDC File [/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3150.445 ; gain = 0.000 ; free physical = 309 ; free virtual = 26589
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3150.266 ; gain = 0.000 ; free physical = 2322 ; free virtual = 25877
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 5 instances were transformed.
   BUFG => BUFGCE: 1 instance 
   IBUFDS => IBUFDS (DIFFINBUF, IBUFCTRL): 1 instance 
   IOBUF => IOBUF (IBUFCTRL, INBUF, OBUFT): 3 instances
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3150.445 ; gain = 0.000 ; free physical = 308 ; free virtual = 26588
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 3150.266 ; gain = 0.000 ; free physical = 2320 ; free virtual = 25875
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [/home/wto/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 3150.445 ; gain = 501.301 ; free physical = 284 ; free virtual = 26588
-Synthesis current peak Physical Memory [PSS] (MB): peak = 2321.170; parent = 2115.228; children = 205.942
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 4121.539; parent = 3118.434; children = 1003.105
+Finished Constraint Validation : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 3150.266 ; gain = 501.363 ; free physical = 2140 ; free virtual = 25694
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2321.062; parent = 2115.197; children = 205.864
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4079.418; parent = 3118.254; children = 961.164
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
@@ -200,9 +193,9 @@ Start Loading Part and Timing Information
 Loading part: xczu2eg-sfvc784-1-i
 INFO: [Synth 8-6742] Reading net delay rules and data
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 3150.445 ; gain = 501.301 ; free physical = 284 ; free virtual = 26588
-Synthesis current peak Physical Memory [PSS] (MB): peak = 2321.170; parent = 2115.228; children = 205.942
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 4121.539; parent = 3118.434; children = 1003.105
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 3150.266 ; gain = 501.363 ; free physical = 2134 ; free virtual = 25688
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2321.062; parent = 2115.197; children = 205.864
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4079.418; parent = 3118.254; children = 961.164
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -323,14 +316,14 @@ Applied set_property KEEP_HIERARCHY = SOFT for Mercury_XU5_i/smartconnect_00. (c
 Applied set_property KEEP_HIERARCHY = SOFT for Mercury_XU5_i/reg_bank_0. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for Mercury_XU5_i/reg_bank_1. (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 3150.445 ; gain = 501.301 ; free physical = 284 ; free virtual = 26588
-Synthesis current peak Physical Memory [PSS] (MB): peak = 2321.170; parent = 2115.228; children = 205.942
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 4121.539; parent = 3118.434; children = 1003.105
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 3150.266 ; gain = 501.363 ; free physical = 2111 ; free virtual = 25668
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2321.062; parent = 2115.197; children = 205.864
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4079.418; parent = 3118.254; children = 961.164
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 3150.445 ; gain = 501.301 ; free physical = 296 ; free virtual = 26601
-Synthesis current peak Physical Memory [PSS] (MB): peak = 2321.170; parent = 2115.228; children = 205.942
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 4121.539; parent = 3118.434; children = 1003.105
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 3150.266 ; gain = 501.363 ; free physical = 2117 ; free virtual = 25674
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2321.062; parent = 2115.197; children = 205.864
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4079.418; parent = 3118.254; children = 961.164
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -371,15 +364,186 @@ Start Cross Boundary and Area Optimization
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
 WARNING: [Synth 8-7129] Port ACLK in module Mercury_XU5_axi_interconnect_0_0 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port ARESETN in module Mercury_XU5_axi_interconnect_0_0 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port IOD[6] in module EosMuonDAQ is either unconnected or has no load
-WARNING: [Synth 8-7129] Port IOD[5] in module EosMuonDAQ is either unconnected or has no load
-WARNING: [Synth 8-7129] Port IOD[4] in module EosMuonDAQ is either unconnected or has no load
-WARNING: [Synth 8-7129] Port IOD[3] in module EosMuonDAQ is either unconnected or has no load
-WARNING: [Synth 8-7129] Port IOD[2] in module EosMuonDAQ is either unconnected or has no load
-WARNING: [Synth 8-7129] Port IOD[1] in module EosMuonDAQ is either unconnected or has no load
-WARNING: [Synth 8-7129] Port IOD[0] in module EosMuonDAQ is either unconnected or has no load
 WARNING: [Synth 8-7129] Port Clk50 in module EosMuonDAQ is either unconnected or has no load
 WARNING: [Synth 8-7129] Port DDR4PL_BG[1] in module Mercury_XU5_PE1 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port OSC_N in module Mercury_XU5_PE1 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port OSC_P in module Mercury_XU5_PE1 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port ETH1_INT_N in module Mercury_XU5_PE1 is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 3150.266 ; gain = 501.363 ; free physical = 2005 ; free virtual = 25567
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2321.062; parent = 2115.197; children = 205.864
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4079.418; parent = 3118.254; children = 961.164
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:27 ; elapsed = 00:00:29 . Memory (MB): peak = 3517.109 ; gain = 868.207 ; free physical = 1455 ; free virtual = 25036
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2891.369; parent = 2685.565; children = 205.864
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4478.277; parent = 3517.113; children = 961.164
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:27 ; elapsed = 00:00:29 . Memory (MB): peak = 3519.109 ; gain = 870.207 ; free physical = 1453 ; free virtual = 25034
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2891.369; parent = 2685.565; children = 205.864
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4480.277; parent = 3519.113; children = 961.164
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:27 ; elapsed = 00:00:29 . Memory (MB): peak = 3538.141 ; gain = 889.238 ; free physical = 1429 ; free virtual = 25010
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2892.225; parent = 2686.421; children = 205.864
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4499.309; parent = 3538.145; children = 961.164
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 3544.078 ; gain = 895.176 ; free physical = 1423 ; free virtual = 25004
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2892.900; parent = 2687.097; children = 205.864
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4505.246; parent = 3544.082; children = 961.164
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 3544.078 ; gain = 895.176 ; free physical = 1423 ; free virtual = 25004
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2892.916; parent = 2687.112; children = 205.864
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4505.246; parent = 3544.082; children = 961.164
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 3544.078 ; gain = 895.176 ; free physical = 1423 ; free virtual = 25004
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2893.252; parent = 2687.448; children = 205.864
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4505.246; parent = 3544.082; children = 961.164
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 3544.078 ; gain = 895.176 ; free physical = 1423 ; free virtual = 25004
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2893.314; parent = 2687.511; children = 205.864
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4505.246; parent = 3544.082; children = 961.164
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 3544.078 ; gain = 895.176 ; free physical = 1423 ; free virtual = 25004
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2893.361; parent = 2687.558; children = 205.864
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4505.246; parent = 3544.082; children = 961.164
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 3544.078 ; gain = 895.176 ; free physical = 1423 ; free virtual = 25004
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2893.361; parent = 2687.558; children = 205.864
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4505.246; parent = 3544.082; children = 961.164
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++------+------------------------------------+----------+
+|      |BlackBox name                       |Instances |
++------+------------------------------------+----------+
+|1     |Mercury_XU5_auto_cc_0               |         1|
+|2     |Mercury_XU5_clk_wiz_0_0             |         1|
+|3     |Mercury_XU5_ddr4_0                  |         1|
+|4     |Mercury_XU5_ddr4_sys_rst_0          |         1|
+|5     |Mercury_XU5_led_0                   |         1|
+|6     |Mercury_XU5_ps_sys_rst_0            |         1|
+|7     |Mercury_XU5_reg_bank_0_0            |         1|
+|8     |Mercury_XU5_reg_bank_1_0            |         1|
+|9     |Mercury_XU5_smartconnect_00_0       |         1|
+|10    |Mercury_XU5_system_management_wiz_0 |         1|
+|11    |Mercury_XU5_zynq_ultra_ps_e_0       |         1|
+|12    |Mercury_XU5_GMII2RGMII              |         1|
++------+------------------------------------+----------+
+
+Report Cell Usage: 
++------+-----------------------------------------+------+
+|      |Cell                                     |Count |
++------+-----------------------------------------+------+
+|1     |Mercury_XU5_GMII2RGMII_bbox              |     1|
+|2     |Mercury_XU5_auto_cc_0_bbox               |     1|
+|3     |Mercury_XU5_clk_wiz_0_0_bbox             |     1|
+|4     |Mercury_XU5_ddr4_0_bbox                  |     1|
+|5     |Mercury_XU5_ddr4_sys_rst_0_bbox          |     1|
+|6     |Mercury_XU5_led_0_bbox                   |     1|
+|7     |Mercury_XU5_ps_sys_rst_0_bbox            |     1|
+|8     |Mercury_XU5_reg_bank_0_0_bbox            |     1|
+|9     |Mercury_XU5_reg_bank_1_0_bbox            |     1|
+|10    |Mercury_XU5_smartconnect_00_0_bbox       |     1|
+|11    |Mercury_XU5_system_management_wiz_0_bbox |     1|
+|12    |Mercury_XU5_zynq_ultra_ps_e_0_bbox       |     1|
+|13    |BUFG                                     |     1|
+|14    |CARRY8                                   |    17|
+|15    |LUT1                                     |   202|
+|16    |LUT2                                     |     4|
+|17    |LUT3                                     |     1|
+|18    |LUT4                                     |    28|
+|19    |LUT5                                     |    14|
+|20    |LUT6                                     |    14|
+|21    |FDRE                                     |   312|
+|22    |IBUF                                     |   141|
+|23    |IBUFDS                                   |     1|
+|24    |IOBUF                                    |     3|
+|25    |OBUF                                     |    18|
++------+-----------------------------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 3544.078 ; gain = 895.176 ; free physical = 1423 ; free virtual = 25004
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2893.377; parent = 2687.573; children = 205.864
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4505.246; parent = 3544.082; children = 961.164
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 8 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 3544.078 ; gain = 742.395 ; free physical = 1422 ; free virtual = 25004
+Synthesis Optimization Complete : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 3544.086 ; gain = 895.176 ; free physical = 1422 ; free virtual = 25004
+INFO: [Project 1-571] Translating synthesized netlist
+Parsing EDIF File [/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.srcs/sources_1/imports/src/Mercury_XU5_gmii2rgmii.edn]
+Finished Parsing EDIF File [/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.srcs/sources_1/imports/src/Mercury_XU5_gmii2rgmii.edn]
+WARNING: [EDIF 20-111] Top cell is not specified in the design statement in file '/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.srcs/sources_1/imports/src/Mercury_XU5_gmii2rgmii.edn', the last cell 'en_gmii2rgmii' specified in this file will be used as the top cell.
+Netlist sorting complete. Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.03 . Memory (MB): peak = 3551.016 ; gain = 0.000 ; free physical = 1536 ; free virtual = 25118
+INFO: [Netlist 29-17] Analyzing 165 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2020.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+WARNING: [Constraints 18-5254] DIFF_TERM is not supported in UltraScale devices.  Automatically translating DIFF_TERM of TRUE to DIFF_TERM_ADV=TERM_100.  Refer to UG571: UltraScale Architecture SelectIO User Guide for more detail.
+WARNING: [Constraints 18-5254] DIFF_TERM is not supported in UltraScale devices.  Automatically translating DIFF_TERM of TRUE to DIFF_TERM_ADV=TERM_100.  Refer to UG571: UltraScale Architecture SelectIO User Guide for more detail.
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3618.684 ; gain = 0.000 ; free physical = 1515 ; free virtual = 25087
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 148 instances were transformed.
+  BUFG => BUFGCE: 1 instance 
+  IBUF => IBUF (IBUFCTRL, INBUF): 141 instances
+  IBUFDS => IBUFDS (DIFFINBUF, IBUFCTRL): 1 instance 
+  IOBUF => IOBUF (IBUFCTRL, INBUF, OBUFT): 3 instances
+  RAM64M8 => RAM64M8 (RAMD64E(x8)): 2 instances
+
+Synth Design complete, checksum: 7ea37c23
+INFO: [Common 17-83] Releasing license: Synthesis
+75 Infos, 42 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:37 ; elapsed = 00:00:37 . Memory (MB): peak = 3618.684 ; gain = 1827.836 ; free physical = 1659 ; free virtual = 25231
+INFO: [Common 17-1381] The checkpoint '/home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.runs/synth_1/Mercury_XU5_PE1.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file Mercury_XU5_PE1_utilization_synth.rpt -pb Mercury_XU5_PE1_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Thu May 14 16:19:47 2026...
