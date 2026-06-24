@@ -401,7 +401,9 @@ architecture rtl of Mercury_XU5_PE1 is
       IOD7: in std_logic;
       -- 32x64-bits data for the PS access through AXI & Peek.
       reg_ro_out: out std_logic_vector(2047 downto 0);
-      reg_ro_out1: out std_logic_vector(2047 downto 0)
+      reg_ro_out1: out std_logic_vector(2047 downto 0);
+      reg_rw_in     : in    std_logic_vector(2047 downto 0)
+      
       );
   end component EosMuonDAQ;
 
@@ -568,7 +570,8 @@ begin --being instantiation of components
       IOD7 => IOD_D7_N,
       -- 32x64-bits data for the PS access through AXI & Peek.
       reg_ro_out => reg_ro,
-      reg_ro_out1 => reg_ro1
+      reg_ro_out1 => reg_ro1,
+      reg_rw_in => reg_rw
       );
  
   ---------------------------------------------------------------------------------------------------

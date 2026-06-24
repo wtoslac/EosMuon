@@ -11,9 +11,10 @@ module EosMuonDAQ(
     input [3:0] IOE,
     output[6:0] IOD,
     input IOD7,
-    // PS accessible bits 32x64.
+    // PS accessible bits: two 2048-bit banks = 64 x 64-bit words total.
     output [2047:0] reg_ro_out,
-    output [2047:0] reg_ro_out1
+    output [2047:0] reg_ro_out1,
+    input [2047:0] reg_rw_in     // PS-written control bank
     );
 
 
@@ -115,28 +116,103 @@ module EosMuonDAQ(
         ptb_latched       // [54:0] Counter off PTB Clock
     };
  
+    // =========================================================
+    // Event FIFO: buffers complete 192-bit events before stack update
+    // =========================================================
+    wire [191:0] fifo_dout;
+    wire [191:0] fifo_din;
+    wire         fifo_wr_en;
+    reg          fifo_rd_en = 1'b0;
+    wire         fifo_full;
+    wire         fifo_empty;
+    wire         fifo_overflow;
+    wire         fifo_wr_rst_busy;
+    wire         fifo_rd_rst_busy;
+    
+    reg [191:0] event_reg = 192'd0;
+    reg         event_valid = 1'b0;
+    
+    always @(posedge Clk100) begin
+        event_valid <= 1'b0;
+    
+        if (ack_seen) begin
+            event_reg   <= snapshot_frame;
+            event_valid <= 1'b1;
+        end
+    end
+    
+    assign fifo_din   = event_reg;
+    assign fifo_wr_en = event_valid && !fifo_full && !fifo_wr_rst_busy;
+    
+    event192_fifo event_fifo_i (
+        .clk         (Clk100),
+        .srst        (1'b0),
+    
+        .din         (fifo_din),
+        .wr_en       (fifo_wr_en),
+        .rd_en       (fifo_rd_en),
+    
+        .dout        (fifo_dout),
+        .full        (fifo_full),
+        .overflow    (fifo_overflow),
+        .empty       (fifo_empty),
+        .wr_rst_busy (fifo_wr_rst_busy),
+        .rd_rst_busy (fifo_rd_rst_busy)
+    );
+ 
     // Add a check to see if the previous trigger is more than 10s old.
     localparam [54:0] TIMEOUT_TICKS = 55'd625_000_000; // 10s @ 62.5MHz
-    reg        initialized      = 1'b0;
     reg [54:0] ptb_latched_prev = 55'd0; // previous latched timestamp
-    reg [1919:0] snapshot_stack = {1920{1'b0}};
- 
-    // Compute signed-safe absolute difference
-    wire [54:0] ptb_diff = (ptb_latched >= ptb_latched_prev) ? 
-                              (ptb_latched - ptb_latched_prev)
-                            : (ptb_latched_prev - ptb_latched);
+    localparam integer EVENT_W      = 192;
+    localparam integer STACK_DEPTH  = 20;
+    localparam [4:0] STACK_DEPTH_5 = 5'd20;
+    localparam integer STACK_W      = EVENT_W * STACK_DEPTH; // 3840 bits
+    
+    reg [STACK_W-1:0] snapshot_stack = {STACK_W{1'b0}};
+    reg [4:0] stack_count = 5'd0; // valid events in stack, 0..20
+    wire [54:0] fifo_timestamp = fifo_dout[54:0];
+    reg [31:0] stack_seq = 32'd0;
+
+    wire [54:0] fifo_ptb_diff =
+        (fifo_timestamp >= ptb_latched_prev) ?
+            (fifo_timestamp - ptb_latched_prev) :
+            (ptb_latched_prev - fifo_timestamp);
+    
+    wire ps_ack_toggle = reg_rw_in[0];
+
+    reg ps_ack_toggle_d = 1'b0;
+    wire ps_ack_seen = ps_ack_toggle ^ ps_ack_toggle_d;
+    
     always @(posedge Clk100) begin
-        if (ack_seen) begin
-            if (!initialized) begin
-                snapshot_stack   <= { {(1920-192){1'b0}}, snapshot_frame };
-                initialized      <= 1'b1;
-            end else if (ptb_diff > TIMEOUT_TICKS) begin
-                snapshot_stack   <= { {(1920-192){1'b0}}, snapshot_frame };
+        ps_ack_toggle_d <= ps_ack_toggle;
+    end
+
+    
+    always @(posedge Clk100) begin
+        fifo_rd_en <= 1'b0;
+    
+        if (ps_ack_seen) begin
+            // PS has consumed the visible stack.
+            // Clear visible stack and wait for FIFO to refill it on later clocks.
+            snapshot_stack <= {STACK_W{1'b0}};
+            stack_count    <= 5'd0;
+            stack_seq      <= stack_seq + 1'b1;
+        end else if (!fifo_empty && !fifo_rd_rst_busy) begin
+            fifo_rd_en <= 1'b1;
+    
+            if ((stack_count == 5'd0) || (fifo_ptb_diff > TIMEOUT_TICKS)) begin
+                snapshot_stack <= { {(STACK_W-EVENT_W){1'b0}}, fifo_dout };
+                stack_count    <= 5'd1;
+            end else if (stack_count < STACK_DEPTH_5) begin
+                snapshot_stack[stack_count*EVENT_W +: EVENT_W] <= fifo_dout;
+                stack_count <= stack_count + 1'b1;
             end else begin
-                // Oldest at MSB, Newest at LSB (first address in memory map)
-                snapshot_stack   <= { snapshot_stack[1919:192], snapshot_frame }; 
+                snapshot_stack <= { fifo_dout, snapshot_stack[STACK_W-1:EVENT_W] };
+                stack_count    <= STACK_DEPTH_5;
             end
-            ptb_latched_prev <= ptb_latched;
+    
+            stack_seq <= stack_seq + 1'b1;
+            ptb_latched_prev <= fifo_timestamp;
         end
     end
 
@@ -147,13 +223,18 @@ module EosMuonDAQ(
     assign LED[1] = ptb_latched[25]; // ~0.67 s toggle
     assign LED[2] = ptb_latched[26]; // ~1.34 s toggle
 
-    // =========================================================
-    // Output: 1920-bit stack + 128 bits zero padding = 2048 bits
-    // Padding placed in the HIGH bits so PS offset 0 = snapshot 0
-    // =========================================================
-    assign reg_ro_out  = { 128'd0, snapshot_stack };
-    assign reg_ro_out1 = 2048'd0;  // reserved / unused
-
+    // Output: 3840-bit stack split across two 2048-bit PS register banks.
+    // reg_ro_out  contains snapshot_stack[2047:0].
+    // reg_ro_out1 contains snapshot_stack[3839:2048] plus four 64-bit status words.
+    wire [255:0] status_words = {
+        64'd0,
+        {32'd0, stack_seq},
+        {59'd0, stack_count},
+        {62'd0, fifo_full, fifo_empty}
+    };
+    assign reg_ro_out  = snapshot_stack[2047:0];
+    assign reg_ro_out1 = { status_words, snapshot_stack[3839:2048] };
+    
 endmodule
 
 /////////////////////////////////// For Calibrating the PMT Rates//////////////////////////
