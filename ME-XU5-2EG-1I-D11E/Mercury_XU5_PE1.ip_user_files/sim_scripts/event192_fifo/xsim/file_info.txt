@@ -1,0 +1,2 @@
+event192_fifo.v,verilog,xil_defaultlib,../../../../Mercury_XU5_PE1.gen/sources_1/ip/event192_fifo/sim/event192_fifo.v,
+glbl.v,Verilog,xil_defaultlib,glbl.v

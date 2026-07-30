@@ -1,0 +1,1 @@
+vopt -64 +acc=npr -l elaborate.log  -L xil_defaultlib -L xilinx_vip -L xpm -L fifo_generator_v13_2_7 -L xilinx_vip -L unisims_ver -L unimacro_ver -L secureip -work xil_defaultlib xil_defaultlib.event192_fifo xil_defaultlib.glbl -o event192_fifo_opt

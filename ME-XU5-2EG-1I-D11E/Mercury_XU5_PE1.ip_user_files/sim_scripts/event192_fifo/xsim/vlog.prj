@@ -1,0 +1,6 @@
+verilog xil_defaultlib --include "/home/wto/Xilinx/Vivado/2022.2/data/xilinx_vip/include" \
+"../../../../Mercury_XU5_PE1.gen/sources_1/ip/event192_fifo/sim/event192_fifo.v" \
+
+verilog xil_defaultlib "glbl.v"
+
+nosort

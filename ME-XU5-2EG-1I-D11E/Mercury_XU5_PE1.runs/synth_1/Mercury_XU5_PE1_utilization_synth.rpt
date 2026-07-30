@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
-| Date         : Thu May 14 16:19:46 2026
+| Date         : Tue Jun 23 18:01:43 2026
 | Host         : precision3561 running 64-bit Ubuntu 22.04.5 LTS
 | Command      : report_utilization -file Mercury_XU5_PE1_utilization_synth.rpt -pb Mercury_XU5_PE1_utilization_synth.pb
 | Design       : Mercury_XU5_PE1
@@ -32,15 +32,15 @@ Table of Contents
 +----------------------------+------+-------+------------+-----------+-------+
 |          Site Type         | Used | Fixed | Prohibited | Available | Util% |
 +----------------------------+------+-------+------------+-----------+-------+
-| CLB LUTs*                  |  342 |     0 |          0 |     47232 |  0.72 |
-|   LUT as Logic             |  326 |     0 |          0 |     47232 |  0.69 |
+| CLB LUTs*                  | 6162 |     0 |          0 |     47232 | 13.05 |
+|   LUT as Logic             | 6146 |     0 |          0 |     47232 | 13.01 |
 |   LUT as Memory            |   16 |     0 |          0 |     28800 |  0.06 |
 |     LUT as Distributed RAM |   16 |     0 |            |           |       |
 |     LUT as Shift Register  |    0 |     0 |            |           |       |
-| CLB Registers              |  489 |     0 |          0 |     94464 |  0.52 |
-|   Register as Flip Flop    |  489 |     0 |          0 |     94464 |  0.52 |
+| CLB Registers              | 4437 |     0 |          0 |     94464 |  4.70 |
+|   Register as Flip Flop    | 4437 |     0 |          0 |     94464 |  4.70 |
 |   Register as Latch        |    0 |     0 |          0 |     94464 |  0.00 |
-| CARRY8                     |   17 |     0 |          0 |      8820 |  0.19 |
+| CARRY8                     |   32 |     0 |          0 |      8820 |  0.36 |
 | F7 Muxes                   |    0 |     0 |          0 |     35280 |  0.00 |
 | F8 Muxes                   |    0 |     0 |          0 |     17640 |  0.00 |
 | F9 Muxes                   |    0 |     0 |          0 |      8820 |  0.00 |
@@ -64,7 +64,7 @@ Warning! LUT value is adjusted to account for LUT combining.
 | 20    |          Yes |           - |          Set |
 | 0     |          Yes |           - |        Reset |
 | 2     |          Yes |         Set |            - |
-| 467   |          Yes |       Reset |            - |
+| 4415  |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -151,18 +151,18 @@ Warning! LUT value is adjusted to account for LUT combining.
 +------------+------+---------------------+
 |  Ref Name  | Used | Functional Category |
 +------------+------+---------------------+
-| FDRE       |  467 |            Register |
-| LUT1       |  210 |                 CLB |
+| FDRE       | 4415 |            Register |
+| LUT6       | 2902 |                 CLB |
+| LUT5       | 1941 |                 CLB |
+| LUT3       |  848 |                 CLB |
+| LUT4       |  778 |                 CLB |
+| LUT2       |  357 |                 CLB |
+| LUT1       |  211 |                 CLB |
 | IBUFCTRL   |  145 |              Others |
 | INBUF      |  144 |                 I/O |
-| LUT6       |   54 |                 CLB |
-| LUT4       |   54 |                 CLB |
-| LUT5       |   31 |                 CLB |
-| LUT3       |   29 |                 CLB |
-| LUT2       |   25 |                 CLB |
+| CARRY8     |   32 |                 CLB |
 | FDPE       |   20 |            Register |
 | OBUF       |   18 |                 I/O |
-| CARRY8     |   17 |                 CLB |
 | RAMD64E    |   16 |                 CLB |
 | OSERDESE3  |    6 |                 I/O |
 | IDDRE1     |    5 |            Register |
@@ -181,6 +181,7 @@ Warning! LUT value is adjusted to account for LUT combining.
 +-------------------------------------+------+
 |               Ref Name              | Used |
 +-------------------------------------+------+
+| event192_fifo                       |    1 |
 | Mercury_XU5_zynq_ultra_ps_e_0       |    1 |
 | Mercury_XU5_system_management_wiz_0 |    1 |
 | Mercury_XU5_smartconnect_00_0       |    1 |

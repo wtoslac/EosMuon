@@ -216,6 +216,10 @@ set_property used_in_implementation false [get_files -all /home/wto/Eos/EosMuon/
 add_files /home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.srcs/sources_1/bd/design_1/design_1.bd
 set_property used_in_implementation false [get_files -all /home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/bd/design_1/design_1_ooc.xdc]
 
+read_ip -quiet /home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.srcs/sources_1/ip/event192_fifo/event192_fifo.xci
+set_property used_in_implementation false [get_files -all /home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/ip/event192_fifo/event192_fifo.xdc]
+set_property used_in_implementation false [get_files -all /home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.gen/sources_1/ip/event192_fifo/event192_fifo_ooc.xdc]
+
 read_edif /home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.srcs/sources_1/imports/src/Mercury_XU5_gmii2rgmii.edn
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being

@@ -180,6 +180,7 @@ OPTRACE "add files" START { }
   set_param project.isImplRun true
   add_files /home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.srcs/sources_1/bd/Mercury_XU5/Mercury_XU5.bd
   add_files /home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.srcs/sources_1/bd/design_1/design_1.bd
+  read_ip -quiet /home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.srcs/sources_1/ip/event192_fifo/event192_fifo.xci
   set_param project.isImplRun false
   read_edif /home/wto/Eos/EosMuon/ME-XU5-2EG-1I-D11E/Mercury_XU5_PE1.srcs/sources_1/imports/src/Mercury_XU5_gmii2rgmii.edn
 OPTRACE "read constraints: implementation" START { }
